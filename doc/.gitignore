@@ -1,0 +1,16 @@
+*.aux
+*.log
+*.toc
+*.ind
+*.ilg
+*.bbl
+*.blg
+*.lot
+*.lof
+*.snm
+*.nav
+*.dvi
+*.maf
+*.mtc*
+*.out
+*.vrb

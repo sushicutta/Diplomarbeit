@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Wed Mar 09 16:43:54 CET 2011
+builderNum=2
+outputDir=out/
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=
+mainTexFile=Aufgabenstellung.tex
+outputFile=Aufgabenstellung.pdf
+langSpell=de
+markDer=false
+srcDir=doc/aufgabenstellung
