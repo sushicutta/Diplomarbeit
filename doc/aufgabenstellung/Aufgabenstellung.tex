@@ -1,0 +1,176 @@
+%
+%  Antrag, Aufgabenstellung Semesterarbeit
+%
+%  Created by Roman Wuersch on 2010-12-04.
+%
+% =============================================================================
+% Documentdefinition  beginns here
+% =============================================================================
+
+\documentclass[listof=totoc,bibliography=totoc]{scrreprt}
+\usepackage[ngerman]{babel}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+% \usepackage[applemac]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+% =============================================================================
+% Documenttext beginns here
+% =============================================================================
+
+\title{Aufgabenstellung\\
+    Diplomarbeit in Informatik}
+    
+\author{Studierender - Roman Würsch\\
+    Projektbetreuer - Beat Seeliger\\
+    \\
+    HSZ-T - Technische Hochschule Zürich}
+    
+\date{10. März 2010}
+
+\begin{document}
+
+    \ifpdf
+        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+    \else
+        \DeclareGraphicsExtensions{.eps, .jpg}
+    \fi
+
+    \maketitle
+
+    \pagenumbering{arabic}
+
+    % \tableofcontents
+
+    \chapter{Aufgabenstellung Diplomarbeit}
+
+    \section{Thema}
+    Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
+    Applikationen
+    
+    \section{Ausgangslage}
+    Die Zürcher Kantonalbank hat viele Applikationen welche als Client
+    Applikationen in Swing implementiert sind. Dabei ist das Deployment der
+    Clients und die Ausbreitung entsprechender Patches, innerhalb der Zürcher
+    Kantonalbank, mit einem Mehraufwand verbunden. Client Applikationen, die
+    einem Kunden zur Verfügug gestellt werden, sind an eine spezifische Java
+    Version gebunden, was bei der Integration in die IT-Landschaft der Kunden,
+    zu Verzögerungen durch einen erhöhten Testaufwand führen kann. In der
+    Annahme, dass ein Webbrowser in der Zürcher Kantonalbank und bei deren
+    Kunden eingesetzt wird, macht der Einsatz einer Weblösung sinn.
+
+    \section{Ziel der Arbeit}
+    Es sollen bestehende Java Swing Applikationen der Zürcher Kantonalbank
+    analysiert werden. In diesen Applikationen sollen die Archetypen genutzter
+    Swingkomponenten erkannt und kategorisiert werden. Java Web Frameworks,
+    welche sich am Markt etabliert haben, sollen auf einen möglichen Einsatz
+    geprüft werden. Es soll geprüft werden, ob mit dem jeweiligen Framework die
+    Archetypen genutzter Swingkomponenten equivalent umgesetzt werden können.
+    Zudem soll geprüft werden, ob eine Integration in die bestehende IT
+    Infrastruktur der Zürcher Kantonalbank möglich ist.
+    
+    \section{Aufgabenstellung}
+    Folgende Aufgaben sollen vom Studierenden während der Diplomarbeit
+    durchgeführt werden
+    
+    \begin{itemize}
+        \item Analyse bestehender Java Swing Applikationen der Zürcher
+        Kantonalbank
+        \item Erkennen und Kategorisieren der Archetypen der verwendeten
+        Swingkomponenten
+        \item Evaluation von Java Web Frameworks, welche sich am Markt
+        etabliert haben
+        \item Prüfen, ob eine Implementierung der erkannten Archetypen in den
+        evaluierten Java Web Frameworks möglich ist.
+        \item Prüfen, ob eine Integration der evaluierten Java Web Frameworks,
+        welche für eine Umsetzung geeignet sind, in der bestehenden IT
+        Infrastruktur der Zürcher Kantonalbank möglich ist.
+    \end{itemize}
+
+    \section{Erwartete Resultate}
+    Der Studierende soll dem Auftraggeber ein Dokument erstellen, das folgendes
+    beinhaltet:
+
+    \begin{itemize}    
+        \item Analyse bestehender Java Swing Applikationen der Zürcher
+        Kantonalbank
+        \item Archetypen von verwendeten Swingkomponenten
+        \item Eine Auflistung von Java Web Frameworks, welche sich am
+        Markt etabliert haben
+        \item Analyse der Java Web Frameworks, ob eine Implementierung, der
+        erkannten Archetypen von verwendeten Swingkomponenten, möglich ist.
+        \item Analyse, ob eine Integration der evaluierten Java Web Frameworks,
+        welche für eine Umsetzung geeignet sind, in der bestehenden IT
+        Infrastruktur der Zürcher Kantonalbank möglich ist.
+        \item Es soll eine Empfehlung für ein Java Web Framework ausgesprochen
+        werden
+    \end{itemize}
+
+    \section{Geplante Termine}
+    Die Termine können zum Zeitpunkt des Antrages noch nicht definitiv 
+    festgelegt werden. Sofern jedoch die Planung eingehalten werden kann und 
+    freie Termine zur Verfügung stehen, sollten die Termine innerhalb der 
+    angegebenen Monate liegen.
+
+    \begin{tabbing}
+        \hspace*{4cm}\= \kill
+    	Kick-Off:               \> Ende März 2011 \\
+    	Review:                 \> Ende April 2011 \\
+    	Abgabe:                 \> Anfangs Juni 2011 \\
+    	Schlusspräsentation:    \> Mitte Juni 2011 \\
+    \end{tabbing}
+
+    \section{Genehmigung}
+    Der Studierende, sein Projektbetreuer und der Studiengangsleiter 
+    Informatik erklären sich mit der Aufgabenstellung einverstanden und geben 
+    die Arbeit frei zur Erfassung im Einschreibesystem der Hochschule für 
+    Technik Zürich.
+
+    \begin{tabbing}
+        \hspace*{10cm}\= \kill
+    	Roman Würsch, Studierender \> Beat Seeliger, Projektbetreuer \\
+    	\\
+    	\\
+        \line(1,0){150} \> \line(1,0){150} \\
+        \\
+        \\
+    	Dr. Olaf Stern, Studiengangsleiter Informatik \\
+    	\\
+    	\\
+        \line(1,0){150}
+    \end{tabbing}    
+\end{document}
