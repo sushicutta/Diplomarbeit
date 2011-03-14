@@ -30,6 +30,27 @@
 %\usepackage{amssymb}
 %\usepackage{latexsym}
 
+\makeatletter
+
+\newcommand{\nobreakchap}{%
+\renewcommand\chapter{%
+\par\global\@topnum\z@
+\@afterindentfalse
+\secdef\@chapter\@schapter}
+}
+
+\newcommand{\normalchap}{%
+\renewcommand\chapter{%
+\if@openright\cleardoublepage\else\clearpage\fi
+\thispagestyle{\chapterpagestyle}%
+\global\@topnum\z@
+\@afterindentfalse
+\secdef\@chapter\@schapter}
+}
+
+\makeatother
+
+
 % Surround parts of graphics with box
 \usepackage{boxedminipage}
 
@@ -57,10 +78,11 @@
     
 \author{Studierender - Roman Würsch\\
     Projektbetreuer - Beat Seeliger\\
+    Experte - tbd\\
     \\
     HSZ-T - Technische Hochschule Zürich}
     
-\date{10. März 2010}
+\date{14. März 2010}
 
 \begin{document}
 
@@ -75,72 +97,100 @@
     \pagenumbering{arabic}
 
     % \tableofcontents
-
-    \chapter{Aufgabenstellung Diplomarbeit}
-
-    \section{Thema}
+    
+    \nobreakchap
+    
+    \chapter{Titel}
     Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
     Applikationen
+
+    \chapter{Thema}
+    Ablösung bestehender Java Swing Applikationen durch den Einsatz eines Java
+    Web Frameworks
     
-    \section{Ausgangslage}
+    \chapter{Ausgangslage}
     Die Zürcher Kantonalbank hat viele Applikationen welche als Client
     Applikationen in Swing implementiert sind. Dabei ist das Deployment der
     Clients und die Ausbreitung entsprechender Patches, innerhalb der Zürcher
     Kantonalbank, mit einem Mehraufwand verbunden. Client Applikationen, die
     einem Kunden zur Verfügug gestellt werden, sind an eine spezifische Java
-    Version gebunden, was bei der Integration in die IT-Landschaft der Kunden,
-    zu Verzögerungen durch einen erhöhten Testaufwand führen kann. In der
+    Version gebunden. Bei der Integration in die IT-Landschaft beim Kunden, 
+    kann das zur Verzögerung durch einen erhöhten Testaufwand führen. In der
     Annahme, dass ein Webbrowser in der Zürcher Kantonalbank und bei deren
-    Kunden eingesetzt wird, macht der Einsatz einer Weblösung sinn.
+    Kunden eingesetzt wird, macht der Einsatz einer Weblösung Sinn.
 
-    \section{Ziel der Arbeit}
+    \chapter{Ziel der Arbeit}
     Es sollen bestehende Java Swing Applikationen der Zürcher Kantonalbank
-    analysiert werden. In diesen Applikationen sollen die Archetypen genutzter
-    Swingkomponenten erkannt und kategorisiert werden. Java Web Frameworks,
-    welche sich am Markt etabliert haben, sollen auf einen möglichen Einsatz
-    geprüft werden. Es soll geprüft werden, ob mit dem jeweiligen Framework die
-    Archetypen genutzter Swingkomponenten equivalent umgesetzt werden können.
-    Zudem soll geprüft werden, ob eine Integration in die bestehende IT
-    Infrastruktur der Zürcher Kantonalbank möglich ist.
+    analysiert werden. In diesen Applikationen sollen die gemeinsame Muster
+    genutzter Swingkomponenten erkannt und kategorisiert werden. Java Web
+    Frameworks, welche sich am Markt etabliert haben, sollen auf einen
+    möglichen Einsatz geprüft werden. Es soll geprüft werden, ob mit den
+    jeweiligen Frameworks die genutzten Swingkomponenten equivalent umgesetzt
+    werden können. Zudem soll geprüft werden, ob eine Integration in die
+    bestehende IT Infrastruktur der Zürcher Kantonalbank möglich ist.
     
-    \section{Aufgabenstellung}
+    \normalchap
+    
+    \chapter{Aufgabenstellung}
     Folgende Aufgaben sollen vom Studierenden während der Diplomarbeit
     durchgeführt werden
     
     \begin{itemize}
         \item Analyse bestehender Java Swing Applikationen der Zürcher
         Kantonalbank
-        \item Erkennen und Kategorisieren der Archetypen der verwendeten
-        Swingkomponenten
+        \item Erkennen und Kategorisieren der verwendeten Swingkomponenten
         \item Evaluation von Java Web Frameworks, welche sich am Markt
         etabliert haben
-        \item Prüfen, ob eine Implementierung der erkannten Archetypen in den
-        evaluierten Java Web Frameworks möglich ist.
         \item Prüfen, ob eine Integration der evaluierten Java Web Frameworks,
         welche für eine Umsetzung geeignet sind, in der bestehenden IT
         Infrastruktur der Zürcher Kantonalbank möglich ist.
+        \item Prüfen, ob eine Implementierung der erkannten Swingkomponenten in
+        den evaluierten Java Web Frameworks möglich ist.
     \end{itemize}
 
-    \section{Erwartete Resultate}
+    \nobreakchap
+
+    \chapter{Erwartete Resultate}
     Der Studierende soll dem Auftraggeber ein Dokument erstellen, das folgendes
     beinhaltet:
 
     \begin{itemize}    
         \item Analyse bestehender Java Swing Applikationen der Zürcher
         Kantonalbank
-        \item Archetypen von verwendeten Swingkomponenten
-        \item Eine Auflistung von Java Web Frameworks, welche sich am
-        Markt etabliert haben
+        \item Kategorisierung von verwendeten Swingkomponenten
+        \item Eine Auflistung von etablierten Java Web Frameworks
+        \item Analyse, ob eine Integration der Java Web Frameworks, in der
+        bestehenden IT Infrastruktur der Zürcher Kantonalbank möglich ist.
         \item Analyse der Java Web Frameworks, ob eine Implementierung, der
-        erkannten Archetypen von verwendeten Swingkomponenten, möglich ist.
-        \item Analyse, ob eine Integration der evaluierten Java Web Frameworks,
-        welche für eine Umsetzung geeignet sind, in der bestehenden IT
-        Infrastruktur der Zürcher Kantonalbank möglich ist.
-        \item Es soll eine Empfehlung für ein Java Web Framework ausgesprochen
-        werden
+        erkannten Swingkomponenten, möglich ist.
+        \item Proof of concept. Es soll anhand eines Prototypen gezeigt
+        werden, dass die Implementierung möglich ist.
+        \item Eine Empfehlung für ein Java Web Framework
     \end{itemize}
-
-    \section{Geplante Termine}
+    
+    \normalchap
+    
+	\chapter{Abgrenzung}
+	Folgende Punkte werden abgegrenzt:
+	
+	\section{Formell}
+	\begin{itemize}
+	  \item Die Analysen beschränken sich auf Recherchen im Internet und
+	  Büchern
+	  \item Umfragen, Erhebungen sowie Feldstudien werden nicht durchgeführt
+	\end{itemize}
+	
+	\section{Inhaltlich}
+	\begin{itemize}
+	  \item Die Auswahl, welche Java Swing Applikationen analysiert werden, soll
+	  wärend der Arbeit durchgeführt werden.
+	  \item Die Auswahl, welche Java Web Frameworks geprüft werden, soll wärend der
+	  Arbeit durchgeführt werden.
+	\end{itemize}
+	
+	\nobreakchap
+	
+	\chapter{Geplante Termine}
     Die Termine können zum Zeitpunkt des Antrages noch nicht definitiv 
     festgelegt werden. Sofern jedoch die Planung eingehalten werden kann und 
     freie Termine zur Verfügung stehen, sollten die Termine innerhalb der 
@@ -154,7 +204,9 @@
     	Schlusspräsentation:    \> Mitte Juni 2011 \\
     \end{tabbing}
 
-    \section{Genehmigung}
+    \normalchap
+
+    \chapter{Genehmigung}
     Der Studierende, sein Projektbetreuer und der Studiengangsleiter 
     Informatik erklären sich mit der Aufgabenstellung einverstanden und geben 
     die Arbeit frei zur Erfassung im Einschreibesystem der Hochschule für 
