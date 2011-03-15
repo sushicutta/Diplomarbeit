@@ -1,0 +1,94 @@
+%
+%  Kickoff Protokoll
+%
+%  Created by Roman Wuersch on 2010-12-12.
+%
+% =============================================================================
+% Documentdefinition  beginns here
+% =============================================================================
+
+\documentclass[listof=totoc,bibliography=totoc]{scrreprt}
+\usepackage[ngerman]{babel}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+% \usepackage[applemac]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+% =============================================================================
+% Documenttext beginns here
+% =============================================================================
+
+\title{Design-Review Protokoll}
+    
+\author{Studierender - Roman Würsch\\
+	Auftraggeber - Bernhard Mäder, ZKB\\
+    Projektbetreuer - Beat Seeliger\\
+    Experte - tbd\\
+    Vertreter des Studiengangs Informatik - tbd\\
+    \\
+    HSZ-T - Technische Hochschule Zürich}
+    
+\date{12. Januar 2011}
+
+\begin{document}
+
+    \ifpdf
+        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+    \else
+        \DeclareGraphicsExtensions{.eps, .jpg}
+    \fi
+
+    \maketitle
+
+    \pagenumbering{arabic}
+
+    % \tableofcontents
+
+    \chapter{Design-Review Protokoll}
+
+    \section{Diplomarbeit}
+    Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
+    Applikationen
+
+    \section{Beschlüsse}
+    \begin{itemize}
+        \item Beschluss 1
+        \item Beschluss 2
+        \item Beschluss 3
+    \end{itemize}
+    
+\end{document}
