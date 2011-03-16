@@ -1,0 +1,374 @@
+%
+%   Technische Dokumentation für die Semesterarbeit
+%
+%   Created by Roman Wuersch on 2010-12-23.	
+%
+% =============================================================================
+% Documentdefinition  beginns here
+% =============================================================================
+
+\documentclass[abstracton, listof=totocnumbered,
+bibliography=totocnumbered]{scrreprt}
+% \documentclass[listof=totoc,bibliography=totoc]{scrreprt}
+\usepackage[ngerman]{babel}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+% \usepackage[applemac]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Silbentrennung kann unterdrückt werden
+\usepackage{hyphenat}
+
+% Tradmark
+\def\TTra{\textsuperscript{\texttrademark}}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% Abkürzungsverzeichnis erstellen.
+\usepackage[printonlyused]{acronym}
+
+% schöne Tabelle zeichnen
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.2} %Die Zeilenabstände in Tabllen angepasst.
+
+% für variable Breiten
+\usepackage{tabularx}
+
+% Durchgestrichener Text
+\usepackage[normalem]{ulem} %emphasize weiterhin kursiv
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+  bookmarks=true,         % show bookmarks bar?
+  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  pdftoolbar=true,        % show Acrobat’s toolbar?
+  pdfmenubar=true,        % show Acrobat’s menu?
+  pdffitwindow=true,      % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  pdftitle={Semesterarbeit},   
+  pdfauthor={Roman Würsch},
+  pdfsubject={Client-Server-Kommunikation mit Android},
+  pdfcreator={TeXnicCenter 1.0 RC1},
+  pdfproducer={MiKTeX 2.9},
+  pdfnewwindow=true,      % links in new window
+  colorlinks=false,       % false: boxed links; true: colored links
+  linkcolor=red,          % color of internal links
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=cyan          % color of external links
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+\title{Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
+Applikationen}
+
+\author{Diplomarbeit in Informatik\\
+    \\
+    Studierender - Roman Würsch\\
+	Auftraggeber - Bernhard Mäder, ZKB\\
+    Projektbetreuer - Beat Seeliger\\
+    Experte - tbd\\
+	\\
+	HSZ-T - Technische Hochschule Zürich}
+
+\date{März 2011 bis Juni 2011}
+
+% =============================================================================
+% Documenttext beginns here
+% =============================================================================
+
+\begin{document}
+
+  \ifpdf
+    \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+  \else
+    \DeclareGraphicsExtensions{.eps, .jpg}
+  \fi
+  
+  % ===========================================================================
+  % Titelblatt beginns here
+  % ===========================================================================
+  
+  \maketitle
+  
+  % ===========================================================================
+  % Abstract beginns here
+  % ===========================================================================
+  
+  \pagenumbering{Alph}
+  
+  \input{./kapitel/abstract.tex}
+  
+  % ===========================================================================
+  % Inahltsverzeichnis beginns here
+  % ===========================================================================
+
+  \pagenumbering{Roman}
+  
+  \tableofcontents
+  
+  \clearpage
+  
+  % ===========================================================================
+  % Kapitel Administratives beginns here
+  % ===========================================================================
+  
+  \pagenumbering{arabic}
+  
+  \chapter{Personalienblatt}
+
+  \input{./kapitel/personalienblatt.tex}
+  
+  % ===========================================================================
+  % Kapitel Aufgabenstellung beginns here
+  % ===========================================================================
+  
+  %\newpage
+  
+  \chapter{Aufgabenstellung}
+  
+  \section{Ausgangslage}
+  
+  \input{../aufgabenstellung/kapitel/ausgangslage.tex}
+  
+  \section{Ziel der Arbeit}
+
+  \input{../aufgabenstellung/kapitel/zielDerArbeit.tex}
+  
+  %\newpage
+  
+  \section{Aufgabenstellung}
+  
+  \input{../aufgabenstellung/kapitel/aufgabenstellung.tex}
+  
+  \section{Erwartete Resultate}
+  
+  \input{../aufgabenstellung/kapitel/erwarteteResultate.tex}
+  
+  \section{Abgrenzung}
+  
+  \input{../aufgabenstellung/kapitel/abgrenzung.tex}
+  
+  \newpage
+  
+  % ===========================================================================
+  % Kapitel Erreichte Ziele beginns here
+  % ===========================================================================  
+  
+  \chapter{Erreichte Ziele}
+  
+  Es wurden alle Ziele gemäss den erwarteten Resultaten der Aufgabenstellung
+  erreicht. Die einzelnen Punkte sind hier analog der Aufgabenstellung
+  aufgeführt:
+  
+  \begin{description}
+    \item [Noch nicht Erreicht] Ergebnis der Analyse von bestehenden Java Swing
+    Applikationen der Zürcher Kantonalbank.
+    \item [Noch nicht Erreicht] Kategorisierung von verwendeten
+    Swingkomponenten.
+    \item [Noch nicht Erreicht] Eine Auflistung von etablierten Java Web
+    Frameworks.
+    \item [Noch nicht Erreicht] Ergebnis der Analyse, ob eine Integration der
+    Java Web Frameworks, in der bestehenden IT Infrastruktur der Zürcher
+    Kantonalbank, möglich ist.
+    \item [Noch nicht Erreicht] Ergebnis der Analyse von Java Web Frameworks, ob
+    eine Implementierung, der erkannten Swingkomponenten, möglich ist.
+    \item [Noch nicht Erreicht] Proof of concept. Es soll anhand eines
+    Prototypen gezeigt werden, dass die Implementierung möglich ist.
+    \item [Noch nicht Erreicht] Eine Empfehlung für ein Java Web Framework.
+  \end{description}
+  
+  % ===========================================================================
+  % Kapitel Beschreibung der Ausgangslage beginns here
+  % ===========================================================================
+  
+  \chapter{Beschreibung der Ausgangslage}
+  
+  Für das Informatik Diplomstudium an der Fachhochschule Zürich für Technik
+  HSZ-T wird von den Studenten verlangt eine Diplomarbeit eigenständig zu
+  verfassen.
+  
+  \section{Wahl des Themas}
+  
+  Wahl des Themas
+  
+  \section{Bewertungskriterien}
+  
+  Bewertungskriterien 
+  
+  \section{Sprache}
+  
+  Der Bericht wird in deutscher Sprache verfasst. Englische Ausdrücke werden im
+  Kontext verwendet, wenn man davon ausgehen kann, dass es gängige Ausdrücke aus
+  dem Gebiet der Informatik sind.
+  
+  \newpage
+  
+  \section{Projekt Termine}
+  
+  Die Projekt Termine wurden alle eingehalten, siehe Tabelle \ref{tab:termine}.
+  \newline
+  
+  \begin{table}[h]
+    \begin{center}
+      \begin{tabular}{lp{7cm}ll}
+        \toprule
+        Termin & Datum & Ort \\
+        \midrule
+        xx. xx. 2011 & Kick-off Meeting & HSZ-T\\
+        xx. xx. 2011 & Design-Review Meeting & HSZ-T\\
+        xx. xx. 2011 & Abgabe der Dokumentation & HSZ-T\\
+        xx. xx. 2011 & Schlusspräsentation & HSZ-T\\
+        \bottomrule
+      \end{tabular}
+      \caption{Projekt Termine}
+      \label{tab:termine}
+    \end{center}
+  \end{table}
+  
+  \section{Projekt Historie}
+  
+  In der Projekt Historie sind die wichtigsten Meilensteine ersichtlich, siehe
+  Tabelle \ref{tab:projekthistorie}.
+  \newline
+  
+  \begin{table}[h]
+    \begin{center}
+      \begin{tabular}{lp{9cm}ll}
+        \toprule
+        Datum & Status & Wer \\
+        \midrule
+        06. 12. 2011 & Ein Dozierender hat die Arbeit inkl. Aufgabenstellung
+        ausgeschrieben und wartet auf einen Studierenden, der diese Arbeit
+        durchführt & Roman Würsch\\
+        07. 12. 2010 & Die Arbeit ist freigegeben & Olaf Stern\\
+        14. 12. 2010 & Freigabe Kick-Off & Beat Seeliger\\
+        12. 01. 2011 & Freigabe Desgin-Review & Beat Seeliger\\
+        16. 02. 2011 & Abgabe der Dokumentation & Roman Würsch\\
+        02. 03. 2011 & Präsentation der Arbeit & Roman Würsch\\
+        \bottomrule
+      \end{tabular}
+      \caption{Projekt Historie}
+      \label{tab:projekthistorie}
+    \end{center}
+  \end{table}
+  
+  \section{Richtlinien}
+  Folgende Dokumente mit Richtlinien der Hochschule für Technik Zürich wurden
+  für die Diplomarbeit berücksichtigt:
+
+  \begin{itemize}
+      \item Bestimmungen für die Diplomarbeit \cite{hsz_reglement}
+      \item Ablauf Diplomarbeit \cite{hsz_ablauf}
+      \item Bewertungskriterien Diplomarbeit \cite{hsz_bewertungskriterien}
+  \end{itemize} 
+  
+  \newpage
+  
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+  
+  \chapter{Kapitel 1}
+  
+  bla bla
+  
+  \section{Section 1}
+
+  bli bli 
+  
+  \subsection{Subsection 1}
+  
+  blu blu 
+  
+  \chapter{Reflektion}
+  
+  Rückblickend war es schade, dass ich diese Arbeit zu diesem Zeitpunkt
+  schreiben musste, da mein Sohn Linus im Dezember zur Welt gekommen ist, und
+  ich insgesamt über 100 Stunden vor meinen Rechnern verbracht habe, um alles
+  zu vollenden. Natürlich liegt die Schuld voll und ganz bei mir selber, da ich
+  viel früher mit der Semesterarbeit hätte beginnen können.
+  
+  Schlussendlich war die Arbeit in meinen Auge ein voller Erfolg, da ich alle
+  Ziele erreicht und viel gelernt habe, und dank der unkomplizierten Art und Weise von
+  Beat Seeliger, in der Betreuerrolle, mein Bestes zum Vorschein gebracht habe.
+  Ich bin glücklich, dass es vorbei ist, und bereit für die Diplomarbeit.
+  
+  % ===========================================================================
+  % Anhang beginns here
+  % ===========================================================================
+  
+  \appendix
+  
+%  \chapter{Ein Testanhang}
+%  
+%  Im Anhang kann auf Implementierungsaspekte wie Datenbankschemata
+%  oder Programmcode eingegangen werden.
+  
+  % ===========================================================================
+  % Abkürzungsverzeichnis beginns here
+  % ===========================================================================
+  
+  \chapter{Abkürzungsverzeichnis}
+  \begin{acronym}
+    \setlength{\itemsep}{-\parsep}
+    \acro{ABC}{Alphabeth}
+  \end{acronym}
+  
+  % ===========================================================================
+  % Abbildungsverzeichnis beginns here
+  % ===========================================================================
+  
+  % Abbildungsverzeichnis
+  \listoffigures
+  
+  % ===========================================================================
+  % Tabellenverzeichnis beginns here
+  % ===========================================================================
+  
+  % Tabellenverzeichnis
+  \listoftables
+  
+  % ===========================================================================
+  % Literaturverzeichnis beginns here
+  % ===========================================================================
+  
+  % verwendet alpha
+  \bibliographystyle{alpha}
+  % verwendet Literaturverzeichnis.bib
+  % \renewcommand\bibname{Literaturverzeichnis} % Titel überschreiben
+  \cleardoublepage
+  \bibliography{Literaturverzeichnis}
+
+\end{document}
