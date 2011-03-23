@@ -1,7 +1,7 @@
 %
-%   Technische Dokumentation für die Semesterarbeit
+%   Technische Dokumentation für die Diplomarbeit
 %
-%   Created by Roman Wuersch on 2010-12-23.	
+%   Created by Roman Wuersch on 2011-03-01.	
 %
 % =============================================================================
 % Documentdefinition  beginns here
@@ -17,6 +17,8 @@ bibliography=totocnumbered]{scrreprt}
 % Use utf-8 encoding for foreign characters
 \usepackage[utf8]{inputenc}
 % \usepackage[applemac]{inputenc}
+
+\usepackage[T1]{fontenc}
 
 % Setup for fullpage use
 \usepackage{fullpage}
@@ -377,11 +379,630 @@ Applikationen}
   
   \chapter{Analyse der Web Frameworks}
   
+  \section{Methoden zur Entscheidungsfindung bei einer Evaluation}
+  
+  \subsection{Analytic Hierarchy Process}
+  
+  \subsection{Gewichtete Nutzwertanalyse}
+    
   \section{Auswahl der Web Frameworks}
+    
+  \subsection{KO-Kriterien}
   
-  \section{Pros und Contras}
+  Die Anforderungen an die Auswahl von Web Frameworks wird anhand verschiedener
+  KO-Kriterien eingeschränkt. Es wird dabei unterschieden zwischen allgemeinen
+  Kriterien und Vorgaben aus der IT-Architektur der Zürcher Kantonalbank. Jedem
+  KO-Kriterium wird für die Identifikation eine eindeutige ID vergeben. Die ID
+  setzt sich folgendermassen zusammen. \{KO\}-\{ZKB|ALL\}-\{Laufnummer\}.
   
-  \section{Ist eine Umsetzung theoretisch möglich?}
+  \subsubsection{Allgemeine Kriterien}
+  
+  \subsubsection{Vorgaben aus der IT-Architektur der Zürcher Kantonalbank}
+  
+  Folgende KO-Kriterien sind aus dem \begin{itshape}Handbuch der
+  IT-Architektur\end{itshape}\cite{ZkbHandbuchDerItArchitektur} der Züricher
+  Kantonalbank entnommen. Die Namensgebung unterscheidet sich leicht, es wird
+  nicht von KO-Kriterien, sondern von Grundsätzen gesprochen. Ein Grundsatz
+  wird wie folgt definiert:\\
+  
+  ``\begin{itshape}Es sind Grundsätze definiert, nach denen sich die Baupläne
+  der IT-Systeme zu richten haben. Die Grundsätze sind ein Regelwerk mit
+  Weisungscharakter.\end{itshape}''
+  \footnote{siehe Kapitel 1.3 - \begin{itshape}Was ist die IT-Architektur der
+  ZKB\end{itshape}, Seite 11}
+  \\
+  \\
+  \noindent
+  Dabei gibt es eine Hintertür:\\
+
+  ``\begin{itshape}Grundsätze sind verbindliche Vorgaben (Konventionen), von
+  denen nur in begründeten Ausnahmen abgewichen werden kann.\end{itshape}''
+  \footnote{siehe Kapitel 1.8 - \begin{itshape}Leseanleitung\end{itshape},
+  Seite 14}
+  \\
+  \\
+  \noindent
+  Das Dokument wurde analysiert und eine Liste der relevanten
+  Grundsätze wird hier aufgelistet:
+  
+  \begin{description}
+
+    % Kapitel 2.2.2, N-Tier Applikationen, Seite 20
+    \item[KO-ZKB-01]
+    \footnote{siehe Kapitel 2.2.2 - \begin{itshape}N-Tier
+    Applikationen\end{itshape}, Seite 20}
+    Applikationen sollen als N-Tier Applikationen designed und
+    implementiert werden.
+
+    % Kapitel 2.2.10, Objektorientierung, Seite 22
+    \item[KO-ZKB-02] \ac{OO} soll innerhalb der Informatik für Neuentwicklungen
+    durchgängig angewandt werden.
+    \footnote{siehe Kapitel 2.2.10 -
+    \begin{itshape}Objektorientierung\end{itshape}, Seite 22}
+
+    % Kapitel 3.3, Mehrsprachigkeit, Seite 36
+    \item[KO-ZKB-03] Eine neue Applikation (oder eine neue Komponente einer
+    bestehenden Applikation) ist mehrsprachfähig zu realisieren.
+    \footnote{siehe Kapitel 3.3 -
+    \begin{itshape}Mehrsprachigkeit\end{itshape}, Seite 36}
+
+    % Kapitel 3.3, Mehrsprachigkeit, Seite 37
+    \item[KO-ZKB-04] Neue Applikationen sind Unicode-fähig zu realisieren
+    \footnote{siehe Kapitel 3.3 -
+    \begin{itshape}Mehrsprachigkeit\end{itshape}, Seite 37}
+
+    % Kapitel 3.9.1, Skalierbarkeit / Ausfallsicherheit / Perfomance
+    % Seite 49
+    \item[KO-ZKB-05] Eine Applikation muss in mehreren Instanzen lauffähig sein.
+    \footnote{siehe Kapitel 3.9.1 -
+    \begin{itshape}Skalierbarkeit / Ausfallsicherheit / Perfomance\end{itshape},
+    Seite 49}
+
+    % Kapitel 4.4.1, User Interface, Seite 55
+    \item[KO-ZKB-06] Der ZKB GUI Style Guide ist in allen ZKB IT-Projekten
+    anzuwenden
+    \footnote{siehe Kapitel 4.4.1 -
+    \begin{itshape}User Interface\end{itshape}, Seite 55}
+    
+    % Kapitel 5.2, Verwendung der Zentralen Server Infrastruktur ZSI, Seite 57
+    \item[KO-ZKB-07] Die ZSI (Zentrale Server Infrastruktur) ist als
+    Server-Plattform für Applikationen, welche Windows-, Unix-, Linux-basierte
+    Server einsetzen, zu verwenden.
+    \footnote{siehe Kapitel 5.2 -
+    \begin{itshape}Verwendung der Zentralen Server Infrastruktur
+    ZSI\end{itshape}, Seite 57}
+    
+    % Kapitel 9.2, Java RMI, Seite 71
+    \item[KO-ZKB-08] RMI kann für reine Java-Anwendungen eingesetzt werden.
+    \footnote{siehe Kapitel 9.2 -
+    \begin{itshape}Java RMI\end{itshape}, Seite 71}
+    
+    % Kapitel 12.2.1, Einsatz von Frameworks, Seite 140
+    \item[KO-ZKB-09] Für Java-Applikationen (Internet, Extranet und Intranet)
+    wird das ZIP-Framework eingesetzt.
+    \footnote{siehe Kapitel 12.2.1 -
+    \begin{itshape}Einsatz von Frameworks\end{itshape}, Seite 140}
+    
+    % Kapitel 12.3.5, Client-/Server-Schemata von Internet-Applikationen,
+    % Seite 141
+    \item[KO-ZKB-10] Die Validierung und Plausibilisierung der Eingaben erfolgt
+    immer abschliessend auf dem bankseitigen Applikations-Server. Es ist aber
+    durchaus möglich, dass sich auf der Client-Seite eine Logik zur
+    Überprüfung und Validierung der Eingaben für den Benutzerkomfort
+    befindet.
+    \footnote{siehe Kapitel 12.3.5 -
+    \begin{itshape}Client-/Server-Schemata von Internet-Applikationen\end{itshape}, Seite 141}
+    
+    % Kapitel 12.3.5, Client-/Server-Schemata von Internet-Applikationen,
+    % Seite 141
+    \item[KO-ZKB-11] Die Business-Logik in einer Internet-Applikation ist so
+    auszulegen, dass diese von verschiedenen Präsentations-Logiken im Rahmen
+    von Ultra-Thin- und Thin-Client-Applikationen genutzt werden kann.
+    \footnote{siehe Kapitel 12.3.5 -
+    \begin{itshape}Client-/Server-Schemata von Internet-Applikationen\end{itshape}, Seite 141}
+    
+    % Kapitel 12.3.6.1, Browser-Abhängigkeiten, Seite 142
+    \item[KO-ZKB-12] Die Internet-Applikationen der ZKB werden nicht mit
+    Browser-Abhängigkeiten versehen und orientieren sich an den neutralen
+    Standards der W3C-Komission.
+    \footnote{siehe Kapitel 12.3.6.1 -
+    \begin{itshape}Browser-Abhängigkeiten\end{itshape}, Seite 142}
+    
+    % Kapitel 12.3.6.2, Session-Mechanismus, Seite 142
+    \item[KO-ZKB-13] Für Ultra-Thin-Client-Applikationen wird als
+    Session-Mechanismus die Cookie- oder die URL-Rewriting-Methode angewendet.
+    \footnote{siehe Kapitel 12.3.6.2 -
+    \begin{itshape}Session-Mechanismus\end{itshape}, Seite 142}
+    
+    % Kapitel 12.3.6.4, Einfache Internet-Applikationen, Seite 143
+    \item[KO-ZKB-14] Einfache Internet-Applikationen mit dem Schwerpunkt
+    Information können ausschliesslich Java Server Pages verwenden.
+    \footnote{siehe Kapitel 12.3.6.4 -
+    \begin{itshape}Einfache Internet-Applikationen\end{itshape}, Seite 143}
+    
+    % Kapitel 12.3.6.5, Komplexe Internet-Applikationen, Seite 143
+    \item[KO-ZKB-15] Komplexe Internet-Applikationen verwenden eine Kombination
+    von Java Server Pages und mindestens einem Servlet als Dispatcher-Mechanismus.
+    \footnote{siehe Kapitel 12.3.6.5 -
+    \begin{itshape}Komplexe Internet-Applikationen\end{itshape}, Seite 143}
+    
+    % Kapitel 12.3.6.6, Verwendung von JavaScript beziehungsweise ECMAScript
+    % Seite 143
+    \item[KO-ZKB-16] Die Internet-Applikationen funktionieren auch
+    eingeschränkt, ohne dass die Skript-Funktion im Browser aktiviert ist.
+    \footnote{siehe Kapitel 12.3.6.6 -
+    \begin{itshape}Verwendung von JavaScript beziehungsweise ECMAScript\end{itshape}, Seite 143}
+    
+    % Kapitel 12.3.6.7, Einstz von ActiveX und Cookies, Seite 143
+    \item[KO-ZKB-17] ActiveX wird wegen der Möglichkeit für direkte Zugriffe auf
+    das Be-triebssystem nicht eingesetzt.
+    \footnote{siehe Kapitel 12.3.6.6 -
+    \begin{itshape}Verwendung von JavaScript beziehungsweise ECMAScript\end{itshape}, Seite 143}
+    
+    % Kapitel 12.3.6.8, Applets, Seite 144
+    \item[KO-ZKB-18] Es werden keine neuen Applikationen als Java Applets
+    entwickelt. Der Einsatz von Applets beschränkt sich auf einfache Funktionen wie Börsen-
+    oder News-Ticker.
+    \footnote{siehe Kapitel 12.3.6.8 -
+    \begin{itshape}Applets\end{itshape}, Seite 144}
+    
+    % Kapitel 12.3.6.9, Browser-Plugins, Seite 144
+    \item[KO-ZKB-19] Internet-Applikation werden ohne Plugins entwickelt.
+    \footnote{siehe Kapitel 12.3.6.9 -
+    \begin{itshape}Browser-Plugins\end{itshape}, Seite 144}
+    
+    % Kapitel 12.3.7, Client-Technologien, Seite 144
+    \item[KO-ZKB-20] Für Ultra Thin Clients bzw. Browser-basierende
+    Applikationen muss das aktuelle, Struts-basierende HTML-Client-Framework der ZKB Internet
+    Platt-form verwendet werden.
+    \footnote{siehe Kapitel 12.3.7 -
+    \begin{itshape}Client-Technologien\end{itshape}, Seite 144}
+    
+    % Kapitel 12.3.8, Layering von Internet-Applikationen, Seite 145
+    \item[KO-ZKB-21] Neue Internet- und Extranet-Applikationen müssen sich an
+    das Laye-ring gemäss nachfolgender Grafik @@@@@@@@@ HIER NOCH DIE GRAFIK
+    REFERENZIEREN halten. Für Intranet-Applikationen ist die
+    Validator-Komponente fakultativ.
+    \footnote{siehe Kapitel 12.3.8 -
+    \begin{itshape}Layering von Internet-Applikationen\end{itshape}, Seite 145}
+    
+    % Kapitel 12.3.8, Layering von Internet-Applikationen, Seite 146
+    \item[KO-ZKB-22] Eine Applikation muss ohne Änderung von der
+    Intranet-Anwendung zur Extra- oder Internet-Applikation gemacht werden können. Es geschieht
+    dies lediglich durch das Vorschalten der Validator-Komponente.
+    \footnote{siehe Kapitel 12.3.8 -
+    \begin{itshape}Layering von Internet-Applikationen\end{itshape}, Seite 146}
+    
+    % Kapitel 12.3.10.2, Web Server, Seite 146
+    \item[KO-ZKB-23] Der ZKB Standard-Web-Server ist der Apache HTTP-Server.
+    \footnote{siehe Kapitel 12.3.10.2 -
+    \begin{itshape}Web Server\end{itshape}, Seite 146}
+    
+    % Kapitel 12.4.2, Architektur beim Einsatz von Application-Servern,
+    % Seite 147
+    \item[KO-ZKB-24] Der Application-Server wird als die integrierte technische
+    Middleware für die Unterstützung von Java Server Pages (JSP), Servlets,
+    Enterprise Java Beans (EJB) und der sicheren Kommunikation zwischen Client
+    und Server einge-setzt.
+    \footnote{siehe Kapitel 12.4.2 -
+    \begin{itshape}Architektur beim Einsatz von
+    Application-Servern\end{itshape}, Seite 147}
+    
+    % Kapitel 12.4.2, Architektur beim Einsatz von Application-Servern,
+    % Seite 148
+    \item[KO-ZKB-25] Der ZKB Standard-J2EE-Application-Server ist der JBoss
+    Application Server.
+    \footnote{siehe Kapitel 12.4.2 -
+    \begin{itshape}Architektur beim Einsatz von
+    Application-Servern\end{itshape}, Seite 148}
+    
+    % Kapitel 12.4.2, Architektur beim Einsatz von Application-Servern,
+    % Seite 148
+    \item[KO-ZKB-26] Der J2EE-Application-Server wird in der ZSI eingesetzt.
+    \footnote{siehe Kapitel 12.4.2 -
+    \begin{itshape}Architektur beim Einsatz von
+    Application-Servern\end{itshape}, Seite 148}
+    
+    % Kapitel 12.4.2, Architektur beim Einsatz von Application-Servern,
+    % Seite 148
+    \item[KO-ZKB-27] Die Serverplattform für den Einsatz von
+    Web-Application-Servern für Internet-/Intranet-/Extranet-Applikationen ist Linux.
+    \footnote{siehe Kapitel 12.4.2 -
+    \begin{itshape}Architektur beim Einsatz von
+    Application-Servern\end{itshape}, Seite 148}
+    
+    % Kapitel 12.4.2, Architektur beim Einsatz von Application-Servern,
+    % Seite 150
+    \item[KO-ZKB-28] Die technischen Services wie Session Management, Load
+    Balancing, Transaction Management und Instance Pooling werden vom J2EE Application
+    Server zur Verfügung gestellt.
+    \footnote{siehe Kapitel 12.4.2 -
+    \begin{itshape}Architektur beim Einsatz von
+    Application-Servern\end{itshape}, Seite 150}
+    
+    % Kapitel 12.4.3, Einsatz von Enterprise Java Beans, Seite 150
+    \item[KO-ZKB-29] Das Muster JSP/Servlets mit EJBs ist anzuwenden, wenn die
+    Applika-tion eine umfangreiche, komplexe Business-Logik aufweist, die
+    Business-Logik wiederverwendbar sein soll, mehrere unterschiedliche Clients
+    (Browser (Ultra-Thin-)(HTML), Thin-(Java), Mobile, …) mit einer Business
+    Logik bedient werden müssen, hohe Anforderungen an die Skalierbarkeit
+    gestellt werden und ein lange Lebenszyklus der Applikation erwartet wird.
+    \footnote{siehe Kapitel 12.4.3 -
+    \begin{itshape}Einsatz von Enterprise Java Beans\end{itshape}, Seite 150}
+    
+    % Kapitel 12.4.3, Einsatz von Enterprise Java Beans, Seite 150
+    \item[KO-ZKB-30] Das Muster JSP/Servlets ohne EJBs ist anzuwenden, wenn die
+    Applikation eine einfache Business-Logik aufweist, nur einen Client, zum
+    Beispiel ein Browser (Ultra-Thin-)-Interface unterstützt, niedrige
+    Anforderungen an die Skalierbarkeit stellt und nur eine vergleichsweise
+    kurzer Lebenszyklus der Applikation erwartet wird.
+    \footnote{siehe Kapitel 12.4.3 -
+    \begin{itshape}Einsatz von Enterprise Java Beans\end{itshape}, Seite 150}
+    
+    % Kapitel 12.9.2, Standards, Seite 171
+    \item[KO-ZKB-31] In der ZKB werden folgende Standards für Web Services
+    eingesetzt: SOAP, WSDL, W3C X Schema (XSD, WXS)
+    \footnote{siehe Kapitel 12.9.2 -
+    \begin{itshape}Standards\end{itshape}, Seite 171}
+    
+    % Kapitel 13.1, Client/Server-Konzept, Seite 175
+    \item[KO-ZKB-32] Alle Neuentwicklungen sind konsequent in
+    Client-/Server-Komponen-ten aufzuteilen.
+    \footnote{siehe Kapitel 13.1 -
+    \begin{itshape}Client/Server-Konzept\end{itshape}, Seite 175}
+    
+    % Kapitel 13.2, Anwendungsstruktur (MVC/Model, View, Controller), Seite 175
+    \item[KO-ZKB-33] Die gewünschte Isolation der Systemteile wird durch
+    eine Anwendungsstruktur mit Trennung in Model (Verarbeitung,
+    Datenhaltung), View (Be-nutzeroberfläche) und Controller (Organisation,
+    Ereignisvermittlung) erreicht.
+    \footnote{siehe Kapitel 13.2 -
+    \begin{itshape}Anwendungsstruktur (MVC/Model, View,
+    Controller)\end{itshape}, Seite 175}
+    
+    % Kapitel 13.9.7.2, Allgemeine Grundsätze, Seite 189
+    \item[KO-ZKB-34] Jede Applikation ist dafür verantwortlich, dass diejenigen
+    Daten, für die sie den Lead hat, validiert sind.
+    \footnote{siehe Kapitel 13.9.7.2 -
+    \begin{itshape}Allgemeine Grundsätze\end{itshape}, Seite 189}
+    
+    % Kapitel 13.9.7.2, Allgemeine Grundsätze, Seite 189
+    \item[KO-ZKB-35] Jede Applikation benutzt Datenvalidierung um
+    sicherzustellen, dass sie die erhaltenen Daten verarbeiten kann und dass ihr Betrieb nicht
+    gefährdet ist (Stabilität / Verfügbarkeit).
+    \footnote{siehe Kapitel 13.9.7.2 -
+    \begin{itshape}Allgemeine Grundsätze\end{itshape}, Seite 189}
+    
+    % Kapitel 13.9.7.3.1, Datenvalidierung an der Benutzersczhnittstelle
+    % Seite 191
+    \item[KO-ZKB-36] Benutzereingaben werden so früh wie möglich validiert.
+    \footnote{siehe Kapitel 13.9.7.3.1 -
+    \begin{itshape}Datenvalidierung an der Benutzersczhnittstelle\end{itshape},
+    Seite 191}
+    
+    % Kapitel 13.10, Programmiersprachen und Entwicklungsumgebungen
+    % Seite 192
+    \item[KO-ZKB-37] Für die Entwicklung neuer Applikationen und beim neuen
+    Design bestehender Applikationen wird Java eingesetzt.
+    \footnote{siehe Kapitel 13.10 -
+    \begin{itshape}Programmiersprachen und Entwicklungsumgebungen\end{itshape},
+    Seite 192}
+    
+    % Kapitel 13.10.4.8, Zusätzliche Java Klassenbibliotheken, Seite 195
+    \item[KO-ZKB-38] Zusätzliche Java-Klassenbibliotheken, also solche, die
+    nicht im JDK enthalten sind, werden nur in begründeten Ausnahmen eingesetzt.
+    Normalerweise müssen solche Bibliotheken dem 100\%-Pure-Java-Grundsatz
+    entsprechen. Ausnahmen können systemnahe Funktionen für Security und
+    der-gleichen sein.
+    \footnote{siehe Kapitel 13.10.4.8 -
+    \begin{itshape}Zusätzliche Java Klassenbibliotheken\end{itshape}, Seite 195}
+    
+    % Kapitel 13.11, Einsatz von .NET-basierten Applikationen, Seite 196
+    \item[KO-ZKB-39] .NET-basierte Applikationen werden in der ZKB Informatik
+    nicht ent-wickelt oder zur Entwicklung in Auftrag gegeben ausser
+    Kleinapplikationen der Kategorie „Office“.
+    \footnote{siehe Kapitel 13.11 -
+    \begin{itshape}Einsatz von .NET-basierten Applikationen\end{itshape}, Seite
+    196}
+    
+    % Kapitel 13.13, Einsatz von Open Source Software, Seite 206
+    \item[KO-ZKB-40] Die Nutzung von Open Source Software ist erlaubt.
+    \footnote{siehe Kapitel 13.13 -
+    \begin{itshape}Einsatz von Open Source Software\end{itshape}, Seite 206}
+    
+    % Kapitel 13.13, Einsatz von Open Source Software, Seite 206
+    \item[KO-ZKB-41] Open Source Software unterliegt denselben Kriterien wie
+    kommer-zielle Software. Sie muss evaluiert, registriert, homologiert, intern
+    supported und gepflegt werden.
+    \footnote{siehe Kapitel 13.13 -
+    \begin{itshape}Einsatz von Open Source Software\end{itshape}, Seite 206}
+    
+    % Kapitel 13.13.1, Kriterien für die Evaluation von Open Source
+    % Software, Seite 207
+    \item[KO-ZKB-42] Produktiv eingesetzte Open Source Software muss durch
+    angemessene Informationsquellen unterstützt sein. (Newsgroups,
+    Mailinglists, FAQ-Listen, WebSites, User Groups)
+    \footnote{siehe Kapitel 13.13.1 -
+    \begin{itshape}Kriterien für die Evaluation von Open Source
+    Software\end{itshape}, Seite 207}
+    
+    % Kapitel 13.13.1, Kriterien für die Evaluation von Open Source
+    % Software, Seite 207
+    \item[KO-ZKB-43] Die Weiterentwicklung von produktiv eingesetzter Open
+    Source Soft-ware ausserhalb der ZKB muss öffentlich einsehbar sein und aktiv verfolgt werden können.
+    \footnote{siehe Kapitel 14.14.1 -
+    \begin{itshape}Kriterien für die Evaluation von Open Source
+    Software\end{itshape}, Seite 207}
+    
+    % Kapitel 13.13.1, Kriterien für die Evaluation von Open Source
+    % Software, Seite 207
+    \item[KO-ZKB-44] Die Lizenzbedingungen einer Open Source Software müssen vor
+    dem Einsatz geprüft werden und von der Zürcher Kantonalbank akzeptiert werden
+    können.
+    \footnote{siehe Kapitel 13.13.1 -
+    \begin{itshape}Kriterien für die Evaluation von Open Source
+    Software\end{itshape}, Seite 207}
+  \end{description}
+  
+  \subsubsection{Umsetzung theoretisch möglich}
+    
+  \subsection{Hirarchie der Anforderungen}
+  
+  \begin{itemize}
+    \item Zugriffskontrolle (Authentifizierung/Authorisation/Rollenverwaltung)
+
+Ein Webframework sollte EntwicklerInnen verschiedene Mechanismen bereitstellen,
+um die Anwendung vor fremden und unerlaubten Zugriff schützen zu können.
+
+Authentifizierung/Autorisierung: Das Ziel einer sicheren Webanwendung ist es,
+bestimmte Bereiche einer Seite abzusichern und die Rechte aller BenutzerInnen
+je nach Rolle einzuschränken. Üblicherweise werden im Vorfeld Rollen für die
+verschiedenen Gruppen festgelegt. Anhand der Rolle wird der/die BenutzerIn für
+die festgelegten Bereiche autorisiert.
+
+Vertraulichkeit / Verschlüsselung: Sensible Daten, wie Passwörter und
+Personendaten, müssen vor dem Zugriff und der Kenntnisnahme von Dritten
+geschützt werden. Hierfür werden die Daten während der Übertragung und
+teilweise in der Datenbank verschlüsselt. Für eine sichere Datenübertragung
+werden meist Verschlüsselungsprotokolle wie SSL (Secure Sockets Layer), sowie
+dessen Nachfolger TLS (Transport Layer Security) eingesetzt. Diese gelten als
+relativ sicher und sind bei Transaktionen in Online Shops oder bei Banken
+unverzichtbar. Nach der Datenübertragung muss der Betreiber dafür sorgen, dass
+die sensiblen Informationen vertraulich gespeichert werden. Für die
+Verschlüsselung von Daten innerhalb einer Datenbank, eignet sich zum Beispiel
+der MD5-Algorithmus. Falls nun Dritte an diese Daten kommen, sind sie im ersten
+Augenblick unbrauchbar, da an der Stelle des Passworts (‘tony0815’) eine
+verschlüsselte Zeichenkette (‘7e716d0e702df05’) steht. Das Webframework soll
+also für Kryptographie und SSL/HTTPS nützliche Funktionen bereitstellen, um die
+Arbeit zu erleichtern.
+
+    \item Form-Validierung
+
+Server-Side Validation: Das Verarbeiten von Formularen bzw. die Handhabung von
+BenutzerInneneingaben und -aktionen gehört zu den täglichen Aufgaben der
+Webentwicklung. Das Webframework soll die Mögichkeit bieten, eingegebene Daten
+einfach zu überprüfen. Dabei soll für jede Eigenschaft eines Datenmodells
+(Model) ein Wertebereich definierbar sein, ob die Eingabe erforderlich ist und
+eigene Erweiterungen unterstützen. Diese Aufgabe soll möglichst transparent
+gelöst sein, d.h. die Programmierlogik ist minimal, es wird nur definiert, was
+für die Eingabe erlaubt ist. Nach dem Senden der Daten wird alles überprüft und
+ggf. entsprechende Fehlermeldungen zurückgegeben.
+
+Client-Side Validation: Das Webframework soll neben dem server-seitigen
+Validieren auch gleichzeitig einzelne Überprüfungen auf den Client auslagern.
+D.h. dass gleich bei oder kurz nach der Eingabe Eingaben überprüft werden,
+wobei die Logik auf dem Server implementiert ist. Bsp.: Ist der Anmeldename
+schon vergeben. Dadurch werden Serverressourcen gespart und der/die BenutzerIn
+hat ein direktes Feedback. Die Logik für server- und client-seitiges Validieren
+ist im Idealfall nur einmal implementiert.
+
+  \item Modulare Architektur
+
+Eine Webanwendung stellt ein Zusammenspiel verschiedenster Internettechnologien
+dar, die wiederum hinsichtlich ihrer Entwicklung einem stetigen Wandel
+unterliegen. Die Herausforderung für die EntwicklerInnen ist es, die
+Entwicklung der Technologien im Auge zu behalten um ggfs. Neuheiten oder
+Änderungen im System anzupassen. Eine Webanwendung sollte daher in all ihren
+Bestandteilen möglichst wartbar bleiben.
+
+Kaum eine Software kommt in seinem Lebenszyklus ohne Optimierungen und
+Anpassungen aus. Die Anforderungen können sich ändern (seitens der
+AuftraggeberInnen oder der BenutzerInnen) oder die Software muss aus anderen
+Gründen erweitert werden (neue Funktionen, Schnittstellen). Für die Umsetzung
+ist es von großer Bedeutung, bestehende Softwarebausteine in den
+Änderungsprozessen wiederzuverwenden und dann ggfs. zu erweitern. Gerade bei
+größeren Projekten sollte die Anwendung modularisiert werden, damit einzelne
+Komponenten wiederverwendbar und zudem austauschbar bleiben
+(komponentenbasierte Entwicklung).
+
+  \item Schnittstellen und Webservices
+
+Interoperabilität beschreibt den Austausch von Informationen verschiedener
+(Software-) Systeme und/oder die Bereitstellung von Ressourcen über Dienste
+(Webservices). Die Grundlage für einen universellen Informationsaustausch
+bietet meist XML, das zum Beschreiben der Informationen dient. Es gibt
+verschiedene Technologien, mit denen ein Webservice umgesetzt werden kann -
+REST, SOAP und RPC sind am weitesten verbreitet. Das Webframework sollte in
+diesen Fällen Mechanismen und Funktionen zur Umsetzung von Schnittstellen und
+Webservices bereitstellen.
+
+  \item MVC-Entwurfsmuster
+
+Besonders im Web hat sich das Model-View-Controller Entwurfsmuster als quasi
+Standard-Architekturmuster für Webanwendungen etabliert und hält daher Einzug
+bei den meisten Webframeworks. Es dient zur Strukturierung der Software in drei
+Einheiten. Das Model (Datenmodell) enthält die Geschäftslogik - die
+Informationen die dargestellt werden. Der Controller (Steuerung) ist die
+Schnittstelle zwischen der View und dem Datenmodell. Er nimmt Benutzeraktionen
+entgegen (z.B. Formulardaten) und leitet sie an ein bestimmtes Datenmodell
+weiter. Der Controller führt dann Operationen wie speichern, ändern und löschen
+auf dem Datenmodell (besser gesagt dem Objekt) aus. Die View ist die
+Präsentationsschicht und stellt die Daten dar, die es vom Controller
+entgegennimmt. Jedoch sollte eine View nicht ohne einen Controller neue Objekte
+erzeugen oder speichern (Trennung von Logik und Darstellung). Mit dem
+MVC-Entwurfsmuster können u.a. ProgrammiererInnen und DesignerInnen während der
+Entwicklung unabhängig voneinander arbeiten.
+
+  \item Testing
+
+Wichtige Bestandteile einer Software sollten stets getestet werden, um jegliche
+(Programmier-)Fehler vor dem Live-Betrieb auszuschließen. All zu oft ist für
+Testing aber keine Zeit oder es stehen nicht genügend finanzielle Mittel zur
+Verfügung. Allerdings sind Fehler im Live-Betrieb sowohl für die BenutzerInnen,
+als auch für die EntwicklerInnen äußert ärgerlich. Testing ist mit test-driven
+development (TDD), vor allem in der agilen Softwareentwicklung, ein fester
+Bestandteil während der Projektentwicklung. Vor der Implementierung überprüft
+der/die ProgrammiererInnen - mittels Unit-Tests - konsequent das Verhalten
+jeglicher Komponenten. Gerade kritische Prozesse und Transaktionen (z.B. eine
+Banküberweisung) sollten ausgiebig getestet werden.
+
+  \item Internationalisierung und Lokalisierung
+
+Viele Webanwendungen richten sich mittlerweile an ein internationales Publikum.
+Dank der Offenheit und der weiten Verbreitung des Internets lassen sich dadurch
+sehr einfach neue Zielgruppen (BenutzerInnen) erschließen. Jedoch gilt es,
+einige Vorraussetzungen und Besonderheiten bei der Internationalisierung von
+Webanwendungen zu beachten. Zunächst müssen sämtliche Texte übersetzt und
+möglicherweise in neue Datenbanken ausgelagert werden. Hierbei ist zu
+berücksichtigen, dass es länderspezifische Zeichensätze, Zahlen, Datum und
+Währungswerte gibt. Hinzu kommt, dass unter Umständen auch spezielle Grafiken
+neu erstellt werden müssen.
+
+  \item Object Relational Mapping (ORM)
+
+Die meisten Webframeworks unterstützen das objektorientierte
+Programmierparadigma. Im Zusammenhang mit relationalen Datenbanken kommt es
+allerdings zu grundlegenden Problemen, weil der Zustand und das Verhalten eines
+Objekts nicht in einer relationalen Datenbank gespeichert werden kann. Dies ist
+auf die beiden widersprüchlichen Konzepte von objektorientierter Programmierung
+(OOP) und relationalen Datenbankmanagementsystemen (RDMS) zurückzuführen. Im
+Gegensatz zu objektorientierten Datenbanken, werden beim ORM die Tabellen aus
+der Datenbank als Klassen abgebildet (gemappt). Durch die Klassenabbildung wird
+für den/die ProgrammiererIn wieder die gewohnte OOP-Umgebung geschaffen. Wenn
+ein Objekt erstellt oder geändert wird, ist der Mapper verantwortlich, um diese
+Informationen in der Datenbank zu speichern und auch ggfs. wieder zu löschen.
+ORM bildet somit eine Schnittstelle zwischen OOP und relationalen Datenbanken.
+
+Unterstützung von Transaktionen: Bei der Speicherung von Informationen in
+mehreren Datenbanktabellen muss sicher gestellt sein, dass entweder alle oder
+keine Informationen gespeichert werden.
+
+  \item Scaffolding / Rapid Prototyping
+
+Mit Scaffolding ist das automatische Generien von den sogenannten CRUD-Pages
+(Create, Read, Update, Delete) gemeint. In Verbindung mit dem
+MVC-Entwurfsmuster, werden sowohl Controller und die dazugehörigen Views
+erzeugt. Die ProgrammiererInnen können somit ohne großen Aufwand Models in den
+Views testen.
+
+Scaffolding und das dadurch verstandene Rapid Prototyping ist ein wesentlicher
+Aspekt der agilen Softwareentwicklung (zum Beispiel in Verwendung mit der
+Scrum-Methodik). Gerade zu Beginn eines Projekts eignet sich das Rapid
+Prototyping, da Änderungen in den Models umgehend in die Views eingebunden
+werden können.
+
+  \item Caching
+
+Neben der Übertragunsgeschwindigkeit gibt es eine Menge anderer Faktoren, die
+für eine leistungsstarke Webanwendung entscheidend sind. Ein Aspekt ist das
+Caching - das Zwischenspeichern von Daten, die häufig verwendet bzw. aufgerufen
+werden.
+
+Das Caching kann meist auf verschiedenen Ebenen implementiert werden: Auf dem
+Client, auf dem Webserver und auf der Datenbankebene. Dabei soll das
+Webframework diese Mechanismen unterstützen und es ermöglichen, diese einfach
+zu aktivieren und zu kalibrieren.  
+
+  \item View-Engine
+
+View Engines werden eingesetzt, um das Arbeiten mit den Views zu erleichtern.
+Sie unterstützen vor allem das Templating - das Erstellen von Vorlagen. Durch
+typisierte Views wird eine Webanwendung robuster, weil weniger fehleranfällig;
+durch partial Views (oft auch nur als partials bezeichnet) werden einzelne
+Elemente oder Bereiche der Benutzeroberfläche wiederverwendbar gemacht. Diese
+Vorlagen können von mehreren Views genutzt werden. Dadurch wird deutlich
+weniger redundanter Code erstellt. Dies ist ein wichtiger Aspekt in Bezug auf
+das Don’t repeat yourself (DRY) Prinzip.
+
+  \item Dokumentation
+
+Die Umsetzung einer Webanwendung erfolgt meist über ein Webframework, das die
+EntwicklerInnen nach ihrem Ermessen aussuchen. Eine Webanwendung ist aus
+EntwicklerInnensicht eine Zusammenfassung verschiedenster Technologien
+(Webframeworks, Bibliotheken, Schnittstellen). Über das Application Programming
+Interface (API) haben ProgrammiererInnen Zugriff auf die verfügbaren
+Funktionen. Nicht selten erstreckt sich die Dokumentation einer API über
+mehrere hundert Seiten. Für ProgrammiererInnen ist es daher von enormer
+Bedeutung, dass die Bibliotheken gut strukturiert und verständlich beschrieben
+sind. Schlecht oder gar nicht dokumentierte Technologien erhöhen die
+Fehlerquote und sind oft ausschlaggebend für einen nicht flüssigen Workflow.
+
+  \item Community
+
+Die beteiligten Personen in den Foren, Mailing-Listen oder Wikis bilden im
+Zusammenhang mit Webframeworks die Community. Es findet dabei ein
+Wissensaustausch statt, der weit über die standard-Dokumentation hinaus geht.
+Die NutzerInnen helfen sich gegenseitig bei Problemen und Fehlern und oft
+hinterlassen sie mit ihren Einträgen wiederum einen Lösungsansatz, der
+zukünftig von anderen wieder aufgegriffen werden kann. Es ist daher wichtig,
+dass den AnwenderInnen eine Möglichkeit geboten wird, sich auszutauschen -
+gemeinsam Fehlermeldungen zu deuten und Lösungsansätze zu entwickeln.
+
+  \item IDE-Unterstützung
+
+In der Softwareentwicklung ist die IDE das Basiswerkzeug für die
+ProgrammiererInnen. Die Entwicklungsumgebung stellt den EntwicklerInnen
+verschiedene Komponenten zur Verfügung, wie Editor, Compiler, Linker oder
+Debugger. Hinzu kommen mit Syntaxhighlighting, Refactoring und
+Code-Formatierung weitere wichtige Funktionen, die die EntwicklerInnen in
+vielerlei Hinsicht enorm unterstützen.
+
+  \item Kosten für Entwicklungswerkzeuge
+
+Je nach verfügbaren finanziellen Mitteln spielen die Kosten von
+Entwicklungswerkzeugen und Technologien durchaus eine Rolle. Bei beiden
+Faktoren hat man meist die Wahl zwischen kostenlosen (OpenSource) und
+kommerziellen Produkten. Je nach Webanwendung müssen somit Lizenzgebühren für
+die Entwicklungswerkzeuge, Server zum Ausführen der Anwendung und
+Datenbankserver berücksichtigt werden. Dabei ist es wichtig die richtige
+Mischung verschiedener Komponenten zu finden.
+  
+  \item Eignung für agile Entwicklung
+
+Die herkömmlichen Methoden der Software-Entwicklung werden heute oft durch neue
+agile Methoden, wie Extreme Programming oder Scrum abgelöst. Sie fokussieren
+auf das Wesentliche und stehen für deutlich mehr Flexibilität in der
+Entwicklungsphase als konventionelle Methoden. Verschiedene Technologien
+unterstützen die agilen Methoden. Refactoring, Testing spielt dabei eine
+wichtige Rolle und soll unterstützt werden.
+
+  \item Lernkurve für EntwicklerInnen
+
+Zur Umsetzung einer komplexen Webanwendung wird den EntwicklerInnen ein Wissen
+über verschiedenste Bereiche der Softwareentwicklung abverlangt.
+Glücklicherweise gibt es für die Webentwicklung keinen einheitlichen Standard,
+der festlegt, wie eine Webanwendung entwickelt werden muss. Das Internet bietet
+für jeden Bereich eine Auswahl unterschiedlicher Technologien an. Daher müssen
+vor der Entwicklung mehrere Entscheidungen getroffen werden - hinsichtlich
+Programmiersprache, Javascript-Framework oder Datenbankserver. Es werden daher
+oft Technologien gewählt, die leicht zu erlernen und verstehen sind.
+
+Wichtig ist, dass man einen schnellen Einstieg bekommt und Erfolge bald
+sichtbar werden, um die Motivation der EntwicklerInnen zu erhöhen.
+
+  \item AJAX-Unterstützung
+
+Durch das Aufkommen von Javascript-Bibliotheken wie jQuery und Prototype haben
+sich vollkommen neue Möglichkeiten eröffnet mit Javascript auf dem Client zu
+arbeiten und mit AJAX wurde die Kommunikation zwischen Server und Client im Web
+revolutioniert. Die direkte Unterstützung eines Javascript-Frameworks ist für
+ein Webframework sinnvoll und erwünscht.
+
+Darüber hinaus sollte die unterstützte Bibliothek lose gekoppelt sein, und
+damit austauschbar. Sog. unobtrusive Javascript, bei dem auch bei
+abgeschaltetem Javascript die Anwendung funktioniert, ist auch eine
+Anforderung.
+  \end{itemize}
   
   \section{Proof of Concept - Umsetzung durch einen Prototypen}
   
@@ -420,6 +1041,7 @@ Applikationen}
   \chapter{Abkürzungsverzeichnis}
   \begin{acronym}
     \setlength{\itemsep}{-\parsep}
+    \acro{OO}{Objektorientierung}
     \acro{ABC}{Alphabeth}
   \end{acronym}
   
