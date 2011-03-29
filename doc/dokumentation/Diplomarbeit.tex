@@ -11,9 +11,12 @@
 11pt, % Schriftgrösse
 a4paper, % A4 Papier
 BCOR25mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
-DIV14, % Satzspiegel festlegen
+DIV14, % Satzspiegel festlegen siehe
+       % http://www.ctex.org/documents/packages/nonstd/koma-script.pdf
 footsepline = false, % Trennlinie zwischen Textkörper und Fußzeile
+                     % bei normalen Seiten
 headsepline, % Trennlinie zwischen Kopfzeile und Textkörper
+             % bei normalen Seiten
 twoside, % Zweiseitig
 openright,
 %halfparskip, % Europäischer Satz mit Abstand zwischen den Absätzen
@@ -24,8 +27,10 @@ bibliography=totocnumbered % Lit.zeichnis in Inhaltsverzeichnis aufnehmen
 
 \usepackage[
 automark,
-%plainheadsepline,
-%plainfootsepline
+%plainheadsepline, % Trennlinie zwischen Textkörper und Kopfzeile
+                   % bei Chapter Seiten, siehe headsepline, scrreprt
+%plainfootsepline  % Trennlinie zwischen Textkörper und Fußzeile
+                   % bei Chapter Seiten, siehe footsepline, scrreprt
 ]{scrpage2} % Gestaltung von kopf- und Fußzeile
 
 \usepackage[ngerman]{babel}
@@ -119,7 +124,7 @@ automark,
 
 % schöne Tabelle zeichnen
 \usepackage{booktabs}
-\renewcommand{\arraystretch}{1.2} %Die Zeilenabstände in Tabllen angepasst.
+\renewcommand{\arraystretch}{1.4} %Die Zeilenabstände in Tabllen angepasst.
 
 % für variable Breiten
 \usepackage{tabularx}
@@ -190,11 +195,13 @@ Applikationen}
   
   \maketitle
   
+  \cleardoublepage
+  
   % ===========================================================================
   % Abstract beginns here
   % ===========================================================================
   
-  \pagenumbering{Alph}
+  % \pagenumbering{Alph}
   
   \input{./kapitel/abstract.tex}
   
@@ -204,14 +211,14 @@ Applikationen}
   % Inahltsverzeichnis beginns here
   % ===========================================================================
 
-  \pagenumbering{Roman}
+  \pagenumbering{roman}
   
   \tableofcontents
   
   \cleardoublepage
   
   % ===========================================================================
-  % Kapitel Administratives beginns here
+  % Kapitel Personalienblatt beginns here
   % ===========================================================================
   
   \pagenumbering{arabic}
@@ -220,202 +227,58 @@ Applikationen}
 
   \input{./kapitel/personalienblatt.tex}
   
+  \cleardoublepage
+      
+  % ===========================================================================
+  % Kapitel Allgemeine Informationen zur Arbeit beginns here
+  % ===========================================================================
+  
+  \chapter{Allgemeine Informationen zur Arbeit}
+  
+  \input{./kapitel/allgemeineInformationenZurArbeit.tex}
+  
+  \cleardoublepage
+      
+  % ===========================================================================
+  % Kapitel Einführung beginns here
+  % ===========================================================================
+  
+  \chapter{Einführung}
+  
+  \input{./kapitel/einfuehrung.tex}  
+
+  \cleardoublepage
+ 
   % ===========================================================================
   % Kapitel Aufgabenstellung beginns here
   % ===========================================================================
   
-  %\newpage
-  
   \chapter{Aufgabenstellung}
   
-  \section{Ausgangslage}
-  
-  \input{../aufgabenstellung/kapitel/ausgangslage.tex}
-  
-  \section{Ziel der Arbeit}
+  \input{./kapitel/aufgabenstellung.tex}
 
-  \input{../aufgabenstellung/kapitel/zielDerArbeit.tex}
-  
-  %\newpage
-  
-  \section{Aufgabenstellung}
-  
-  \input{../aufgabenstellung/kapitel/aufgabenstellung.tex}
-  
-  \section{Erwartete Resultate}
-  
-  \input{../aufgabenstellung/kapitel/erwarteteResultate.tex}
-  
-  \section{Abgrenzung}
-  
-  \input{../aufgabenstellung/kapitel/abgrenzung.tex}
-  
-  \newpage
-  
+  \cleardoublepage
+   
   % ===========================================================================
   % Kapitel Erreichte Ziele beginns here
   % ===========================================================================  
   
   \chapter{Erreichte Ziele}
   
-  Es wurden alle Ziele gemäss den erwarteten Resultaten der Aufgabenstellung
-  erreicht. Die einzelnen Punkte sind hier analog der Aufgabenstellung
-  aufgeführt:
-  
-  \begin{description}
-    \item [Noch nicht Erreicht] Ergebnis der Analyse von bestehenden Java Swing
-    Applikationen der Zürcher Kantonalbank.
-    \item [Noch nicht Erreicht] Kategorisierung von verwendeten
-    Swingkomponenten.
-    \item [Noch nicht Erreicht] Eine Auflistung von etablierten Java Web
-    Frameworks.
-    \item [Noch nicht Erreicht] Ergebnis der Analyse, ob eine Integration der
-    Java Web Frameworks, in der bestehenden IT Infrastruktur der Zürcher
-    Kantonalbank, möglich ist.
-    \item [Noch nicht Erreicht] Ergebnis der Analyse von Java Web Frameworks, ob
-    eine Implementierung, der erkannten Swingkomponenten, möglich ist.
-    \item [Noch nicht Erreicht] Proof of concept. Es soll anhand eines
-    Prototypen gezeigt werden, dass die Implementierung möglich ist.
-    \item [Noch nicht Erreicht] Eine Empfehlung für ein Java Web Framework.
-  \end{description}
-  
-  % ===========================================================================
-  % Kapitel Beschreibung der Ausgangslage beginns here
-  % ===========================================================================
-  
-  \chapter{Beschreibung der Ausgangslage}
-  
-  Für das Informatik Diplomstudium an der Fachhochschule Zürich für Technik
-  HSZ-T wird von den Studenten verlangt eine Diplomarbeit eigenständig zu
-  verfassen.
-  
-  \section{Formell}
-  
-  Es wird auf die Sprache, die Richtlinien und die verwendeten
-  Bewertungskriterien hingewiesen.
-  
-  \subsection{Sprache}
-  
-  Der Bericht wird in deutscher Sprache verfasst. Englische Ausdrücke werden im
-  Kontext verwendet, wenn man davon ausgehen kann, dass es gängige Ausdrücke aus
-  dem Gebiet der Informatik sind.
-    
-  \subsection{Richtlinien}
-  Folgende Dokumente mit Richtlinien der Hochschule für Technik Zürich wurden
-  für die Diplomarbeit berücksichtigt:
+  \input{./kapitel/erreichteZiele.tex}
 
-  \begin{itemize}
-      \item Bestimmungen für die Diplomarbeit \cite{hsz_reglement}
-      \item Ablauf Diplomarbeit \cite{hsz_ablauf}
-      \item Bewertungskriterien Diplomarbeit \cite{hsz_bewertungskriterien}
-  \end{itemize} 
+  \cleardoublepage
+   
+  % ===========================================================================
+  % Kapitel Projektadministration beginns here
+  % ===========================================================================  
     
-  \subsection{Bewertungskriterien}
-  
-  Es werden die Bewertungskriterien für die Diplomarbeit gemäss
-  \cite{hsz_bewertungskriterien} verwendet.
-  
-  \section{Inhaltlich}
-  
-  \subsection{Wahl des Themas}
-  
-  Die Zürcher Kantonalbank setzt bei der Entwicklung von Software als Inhouse
-  Lösungen auf Java Swing Applikationen und auf Java Web Applikationen. Die
-  Java Web Applikationen basieren auf dem Web Framework Apache Struts 1.3
-  mit einer von der ZKB erstellten Erweiterung namens ZIP (ZKB Internet
-  Plattform). Da eine Lösung als Java Web Applikationen zentral verwaltet
-  werden kann gibt es erhebliche Einsparungen im Bereich Testing, Deployment
-  und Patching.
-  
-  Das Framework Apache Struts 1.3 ist mitlerweilen in die Jahre gekommen. Es
-  basiert auf dem Prinzip von ``request und response''. Wann immer eine Aktion
-  von einem User in der Applikation gemacht wird, sei es das Ansteuern eines
-  Links oder das Absenden eines Formulars, wird die Webseite, welche die
-  Applikation repräsentiert, neu geladen. Heutzutage gibt es Frameworks, welche
-  einem ermöglichen eine Web Applikation zu entwicklen, die sich bei der
-  Bedienung wie eine klassische Desktop Applikation anfühlen. Dies wird durch
-  die Technik von \ac{Ajax} realisiert.
-  
-  Bei \ac{Ajax} können Daten einer Web Applikation, ohne die komplette Webseite
-  neu zu laden, verändert werden. Dies erlaubt es Web Applikationen, auf
-  Benutzer Aktionen schneller zu reagieren, da vermieden wird, dass statische
-  Daten, die sich unter Umständen nicht geändert haben, immer wieder über das
-  Netzwerk übertragen werden müssen.
-  
-  Apache Struts 1.3 unterstützt \ac{Ajax} nicht direkt, kann aber über
-  Erweiterungen ermöglicht werden. Es gibt Java Web Frameworks, welche diese
-  Technik out of the box mitbringen. Eine Evaluation soll zeigen welches dieser
-  Java Web Frameworks am besten für einen möglichen Einsatz geeignet ist.
-  
-  \subsection{Detailanalyse der Aufgabenstelltung}
-  
-  \newpage
-  
   \chapter{Projektadministration}
-  
-  Damit eine Nachvollziehbarkeit garantiert ist, werden hier die wichtigsten
-  Termine, Meilensteine und Arbeitsschritte aufgelistet.
-  
-  \section{Projekt Termine}
-  
-  Die Projekt Termine wurden alle eingehalten, siehe Tabelle \ref{tab:termine}.
-  \newline
-  
-  \begin{table}[h]
-    \begin{center}
-      \begin{tabular}{lp{7cm}ll}
-        \toprule
-        Termin & Datum & Ort \\
-        \midrule
-        21. 03. 2011 & Inhaltliches Kick-off Meeting & Panter llc\\
-        13. 04. 2011 & Offizielles Kick-off Meeting & HSZ-T\\
-        xx. xx. 2011 & Design-Review Meeting & HSZ-T\\
-        xx. xx. 2011 & Abgabe der Dokumentation & HSZ-T\\
-        xx. xx. 2011 & Schlusspräsentation & HSZ-T\\
-        \bottomrule
-      \end{tabular}
-      \caption{Projekt Termine}
-      \label{tab:termine}
-    \end{center}
-  \end{table}
-  
-  \section{Projekt Meilensteine}
-  
-  In der Projekt Historie sind die wichtigsten Meilensteine ersichtlich, siehe
-  Tabelle \ref{tab:projekthistorie}.
-  \newline
-  
-  \begin{table}[h]
-    \begin{center}
-      \begin{tabular}{lp{9cm}ll}
-        \toprule
-        Datum & Status & Wer \\
-        \midrule
-        14. 03. 2011 & Ein Dozierender hat die Arbeit inkl. Aufgabenstellung
-        ausgeschrieben und wartet auf einen Studierenden der  diese Arbeit
-        durchführt & Roman Würsch\\
-        14. 03. 2011 & Eingabe Aufgabenstellung & Roman Würsch\\
-        15. 03. 2011 & Die Arbeit ist freigegeben (Eine Semester- oder
-        Bachelorarbeit kann nur durch die Studiengangsleitung freigegeben
-        werden) & Olaf Stern\\
-        16. 03. 2011 & Der Kickoff-Termin wurde reserviert & Roman Würsch\\
-        \bottomrule
-      \end{tabular}
-      \caption{Projekt Historie}
-      \label{tab:projekthistorie}
-    \end{center}
-  \end{table}
-  
-  \section{Arbeitsschritte}
-  
-  Alle vorgenommenen Arbeitsschritte werden in einem Wiki für die
-  Nachvollziehbarkeit protokolliert. Das Wiki ist im Internet öffentlich
-  zugänglich unter der \ac{URL}:\\
-  \\
-  \url{https://github.com/sushicutta/Diplomarbeit/wiki/Arbeitsprotokoll}. 
-  
-  \newpage
-  
+ 
+  \input{./kapitel/projektadministration.tex}
+
+  \cleardoublepage
+   
   % ===========================================================================
   % Kapitel XXX beginns here
   % ===========================================================================
@@ -439,7 +302,13 @@ Applikationen}
   \subsection{Multithreading}
   
   \subsection{Konkurenz (SWT, \ldots)}
-  
+
+  \cleardoublepage
+   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Rich Internet Applikationen}
   
   \section{Grundlagen}
@@ -461,13 +330,25 @@ Applikationen}
   \subsection{Suchmaschinenoptimierung}
   
   \subsection{Barrierefreiheit}
-  
+
+  \cleardoublepage
+   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Analyse der Swing Applikationen}
   
   \section{Auswahl der Applikationen}
   
   \section{Kategorisierung von verwendeten Swing Komponenten}
-  
+
+  \cleardoublepage
+   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Infrastruktur der Zürcher Kantonalbank}
   
   \section{Web Application Stack}
@@ -475,7 +356,13 @@ Applikationen}
   \section{Business Layer}
   
   \section{Frontend}
+
+  \cleardoublepage
   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Analyse der Web Frameworks}
   
   \section{Methoden zur Entscheidungsfindung bei einer Evaluation}
@@ -1102,25 +989,46 @@ damit austauschbar. Sog. unobtrusive Javascript, bei dem auch bei
 abgeschaltetem Javascript die Anwendung funktioniert, ist auch eine
 Anforderung.
   \end{itemize}
-  
+
   \section{Proof of Concept - Umsetzung durch einen Prototypen}
+
+  \cleardoublepage
   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Integration in die ZKB Infrastruktur möglich?}
+
+  \cleardoublepage
   
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
   \chapter{Empfehlung für ein Java Web Framework}
+
+  \cleardoublepage
+  
+  % ===========================================================================
+  % Kapitel XXX beginns here
+  % ===========================================================================
+   
+  \chapter{Fazit und Ausblick} 
+
+  \cleardoublepage
+  
+  % ===========================================================================
+  % Kapitel Reflektion beginns here
+  % ===========================================================================
   
   \chapter{Reflektion}
   
-  Rückblickend war es schade, dass ich diese Arbeit zu diesem Zeitpunkt
-  schreiben musste, da mein Sohn Linus im Dezember zur Welt gekommen ist, und
-  ich insgesamt über 100 Stunden vor meinen Rechnern verbracht habe, um alles
-  zu vollenden. Natürlich liegt die Schuld voll und ganz bei mir selber, da ich
-  viel früher mit der Semesterarbeit hätte beginnen können.
-  
-  Schlussendlich war die Arbeit in meinen Auge ein voller Erfolg, da ich alle
-  Ziele erreicht und viel gelernt habe, und dank der unkomplizierten Art und Weise von
-  Beat Seeliger, in der Betreuerrolle, mein Bestes zum Vorschein gebracht habe.
-  Ich bin glücklich, dass es vorbei ist, und bereit für die Diplomarbeit.
+  Die Arbeit war in meinen Auge ein voller Erfolg, da ich alle Ziele erreicht
+  und viel gelernt habe. Ich bin bereit für einen neuen
+  Lebensabschnitt.
+
+  \cleardoublepage
   
   % ===========================================================================
   % Anhang beginns here
