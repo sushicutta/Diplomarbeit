@@ -1,0 +1,86 @@
+  Swing kommt aus dem Hause Oracle, ehemals SUN, und ist ein Bestandteil der
+  \ac{JFC}. Seit der Java Version 1.2 ist Swing Bestandteil der \ac{JRE}. Swing
+  wurde in den letzten Jahren immer weiter ausgebaut und ist somit der Standard
+  für die Entwicklung von Desktop- und Applet-Applikationen in Java.
+  
+  \section{Grundlagen}
+  
+  Unter Swing versteht man eine Reihe von leichtgewichtigen Komponenten zur
+  Programmierung von grafischen Oberflächen. Mit leichtgewichtigen Komponenten
+  meint man, dass alle Komponenten zu 100\% in Java geschrieben sind. Sie sind
+  somit plattformübergreifend einsetzbar und sehen überall gleich aus. Die Swing
+  Komponenten sind im \ac{JRE} unter dem Packet \(javax.swing\) eingeordnet,
+  zusätzlich gibt es das Packet \(javax.accessibility\), welches als
+  Abstraktion des User Interfaces dient.
+  
+  \subsection{Komponenten}
+  
+  Swing kennt drei Hirarchien von Komponenten: Top-Level-, Intermediate- und
+  Atomic Components.
+  Unter Atomic Components versteht man einzelne Bausteine wie ein
+  \(javax.swing.JButton\), ein einfach Knopf, oder ein
+  \(javax.swing.JTextField\), ein einfaches Textfeld.
+  Intermediate Components bieten vielfältige Möglichkeiten an, um andere
+  Intermediate Components zu unterteilen oder zu gruppieren. Zusätzlichen
+  können sie auch eine beliebige Anzahl von Atomic Components enthalten. Gängige
+  Vertreter sind \(javax.swing.JPanel\), eine Komponente zur Gruppierung anderer
+  Komponenten, oder \(javax.swing.JSplitPane\), eine Komponente zur
+  Unterteilung einer Komponente in zwei Teile.
+  Die Top-Level Components sind \(javax.swing.JFrame\),
+  zur Darstellung einer vollwertigen Fenster-Applikation,
+  \(javax.swing.JDialog\), für Dialogfenster und \(javax.swing.JApplet\), zur
+  Entwicklung von Java-Applets mit Swing.
+  
+  \subsection{Layouts}
+  
+  Viele Komponenten in Swing haben ein Layout, vorallem die Intermediate
+  Components. Das Layout regelt die Anordnung der Komponenten und das Verhalten,
+  falls sich die Grösse einer Komponente ändert. Swing definiert ein paar eigene
+  Layouts, man kann aber auch die bestehenden Layouts aus dem Paket
+  \(java.awt\), wie zum Beispiel \(java.awt.GridBagLayout\) verwenden. Swing
+  bietet auch die Möglichkeit eigene Layouts zu definieren, was zum Beispiel
+  JGoodies mit dem Freeware Projekt \(JGoodies Forms\) gemacht hat, siehe
+  \cite{JGoodiesForms}
+    
+  \subsection{Eventbasierte Kommunikation der Komponenten}
+  
+  Das Programmiermodell mit Java Swing ist Eventbasiert. Dabei können Events
+  definiert werden, z.B. ein Mausklick auf einen Knopf, bei welchen eine Aktion
+  ausgeführt werden soll, z.B. das speichern eines Dokuments. Die eventbasierte
+  Kommunikation zwischen den Swing Komponenten ist nach dem Observer Design
+  Pattern implementiert, siehe \cite{ObserverDesignPattern}.
+  
+  \subsection{Hilfsmittel}
+  
+  Die Klasse \(javax.swing.SwingUtilities\) bietet eine vielzahl von
+  Hilfsfunktionen, welche bei der Entwicklung von Swing Applikationen verwendet
+  werden können. Zusätzlich bietet Swing es eine handvoll weiterer Klassen,
+  welche einem das Leben als Programmierer erleichtern. Ein paar nennenswerte
+  sind: \(javax.swing.UIManager\), um das aktuelle Look \& Feel zu managen,
+  \(javax.swing.BorderFactory\), für das zeichnen von Rahmen um eine
+  Komponente, oder auch \(java.swing.SwingWorkder<T,V>\), um asynchrone Tasks
+  zu verarbeiten.
+  
+  \section{Pluggable Look \& Feel}
+  
+  Das Erscheinungsbild und das Verhalten der Swing Komponenten, auch genannt
+  Look \& Feel, kann für alle Swing Komponenten separat definiert werden. Es
+  lässt dem Programmiere die Möglichkeit offen, alle Komponenten individuell zu
+  gestalten. Durch die Delegation an ein separates Objekt, kann das Look \& Feel
+  zur Laufzeit ausgetauscht werden.
+  
+  \section{Multithreading}
+  
+  Swing ist zum grössten Teil nicht thread-save. Das heisst, auf ein Swing
+  Objekt sollte nur mit einem Thread zugegriffen werden. Für den Zugriff und
+  die Instanziirung von Java Swing Objekt steht der \ac{EDT} zur Verfügung,
+  welcher alle Events, welche von einer Swing Komponente generiert wurde,
+  abarbeitet.
+  
+  \subsection{Asynchrone Tasks}
+  
+  Damit der \ac{EDT} bei länger dauernden Tasks nicht blockert wird, stellt
+  Swing das Konzept vom SwingWorker zur Verfügung, siehe \cite{SwingWorker}.
+  Dabei können Tasks, zum Beispiel eine lang andauernde Berechnung, an einen
+  neuen Thread deligiert werden. Die benötigte Klasse heisst: 
+  \(javax.swing.SwingWorker<T,V>\).  

@@ -7,14 +7,14 @@
   
   Es gibt verschiedene Methoden wie man bei der Auswahl einer Softwarelösung
   vorgehen kann. Um eine möglichst objektive Betrachtung zu gewährleisten, wurde
-  die Methode der gewichteten \ac{NWA}\cite{Nutzwertanalyse} gewählt.
+  die Methode der gewichteten \ac{NWA} gewählt, siehe \cite{Nutzwertanalyse}.
   Diese Methode stammt aus dem Bereich der quantitativen Analysemethoden der
   Eintscheidungstheorie. Um eine möglichst präzise objektive Gewichtung der
-  einzelnen Faktoren zu erhalten wurde die Methode \ac{AHP} gewählt. Diese
-  Methode stammt aus dem Bereich der präskriptiven Entscheidungstheorie. Der
-  \ac{AHP} wurde von Thomas L. Saaty in den 70er Jahren des 20.
-  Jahrhunderts entwickelt und im Buch ``The Analytic Hierarchy Process:
-  Planning, Priority Setting, Resource
+  einzelnen Faktoren zu erhalten wurde die Methode \ac{AHP} gewählt, siehe
+  \cite{AnalyticHierarchyProcess}. Diese Methode stammt aus dem Bereich der
+  präskriptiven Entscheidungstheorie. Der \ac{AHP} wurde von Thomas L. Saaty in
+  den 70er Jahren des 20. Jahrhunderts entwickelt und im Buch ``The Analytic
+  Hierarchy Process: Planning, Priority Setting, Resource
   Allocation''\cite{AnalyticHierarchyProcessBook} veröffentlicht.
   
   \subsection{Gewichtete Nutzwertanalyse}
@@ -99,6 +99,79 @@
  
   \subsection{Analytic Hierarchy Process}
   
+  Der Analytic Hierarchy Process stamt aus der Feder eines Mathematikers. Aus
+  diesem Grund ist das Verfahren auch einiges Anspruchsvoller als eine
+  gewichtete Nutzwertanalyse. Ich gehe hier nicht auf die ganzen Details ein, da
+  es den Rahmen der Diplomarbeit übersteigen würde. Totzdem soll eine grober
+  Überblick über den \ac{AHP} gegeben werden.
+  
+  Der \ac{AHP} besteht aus drei Phasen, siehe \cite{AnalyticHierarchyProcess}: 
+  
+  \begin{enumerate}
+    \item Sammeln der Daten
+    \item Daten vergleichen und gewichten
+    \item Daten verarbeiten
+  \end{enumerate}
+  
+  \subsubsection{1. Sammeln der Daten}
+  
+  In der ersten Phase sollen alle Daten, die für eine Entscheidungsfindung
+  erheblich sind, gesammelt werden.
+  
+  \begin{itemize}
+    \item Zuerst soll eine konkrete Frage formuliert werden, für welche die
+    beste Antwort gesucht wird.
+    \item Danach sollen zu der gestellten Frage alle Kriterien  gesucht werden,
+    welche die Lösung beeinflussen können.
+    \item Als letztes sollen alle Alternativen gesucht werden, welche als
+    mögliche Lösung infrage kommen.
+  \end{itemize}
+  
+  \subsubsection{2. Daten vergleichen und gewichten}
+  
+  In der zweiten Phase folgt nun die Gegenüberstellung, Vergleich und Bewertung
+  aller Kriterien beziehungsweise Alternativen in zwei Unterschritten.
+  
+  \begin{itemize}
+    \item Jedes Kriterium wird jedem anderen gegenübergestellt und darauf
+    verlgichen, was eine grössere Bedeutung in der gestellten Frage hat. Die
+    Skala geht von 1 bis 9, siehe Tabelle \ref{tab:vergleichsgrade}.
+    \item Für jedes Kriterium wird jede mögliche Alternativen mit jeder anderen
+    gegenübergestellt und auf ihre Eignung hin untersuchen, welche Alternative
+    am besten zur Erfüllung des jeweiligen Kriteriums passt. Die Skala geht von
+    1 bis 9, siehe Tabelle \ref{tab:vergleichsgrade}.
+  \end{itemize}
+  
+  \begin{table}[h]
+    \begin{center}
+      \begin{tabular}{lc}
+        \toprule
+        Bedeutung & Skala\\
+        \midrule
+        gleiche Bedeutung & 1\\
+        leicht grössere Bedeutung & 2 - 3\\
+        viel grössere Bedeutung & 4 - 6\\
+        erheblich grössere Bedeutung & 7 - 8\\
+        absolut dominierend & 9\\
+        \bottomrule
+      \end{tabular}
+      \caption{Skala der Vergleichsgrade}
+      \label{tab:vergleichsgrade}
+    \end{center}
+  \end{table}
+    
+  \subsubsection{3. Daten verarbeiten}
+  
+  Mit einem mathematischen Modell, kann der \ac{AHP} nun eine präzise Gewichtung
+  aller Kriterien errechnen. Mit der Gewichtung der Kriterien und dem Vergleich
+  der Alternativen, kann der \ac{AHP} nun berechnen, welches die beste Lösung
+  (Alternative) für die gestellt Frage ist.
+  Diese Berechnungen werden meistens mit der Unterstütztung einer Software
+  gemacht. Als Beispiel gibt es JAHP 2.1, was ein Java Programm ist, mit 
+  welchem der gesammte Prozess des \ac{AHP} abgebildet und berechnet werden
+  kann. Das Programm wird unter den Bedingungen der GNU General Public License
+  vertrieben.
+    
   \subsection{Kombination beider Methoden}
   
   Diese beiden Methoden können auch kombiniert eingesetzt

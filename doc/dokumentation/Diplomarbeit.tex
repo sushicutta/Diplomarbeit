@@ -174,7 +174,9 @@ automark,
   \let\label\orglabel 
   \orgdescriptionlabel{#1}% 
 } 
-\makeatother 
+\makeatother
+
+\usepackage{ae} % Schöne Schriften für PDF-Dateien
 
 \title{Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
 Applikationen}
@@ -298,23 +300,7 @@ Applikationen}
   
   \chapter{Java Swing Applikationen}
 
-  \section{Grundlagen}
-  
-  \subsection{JAVA}
-  
-  \subsection{Programmiermodell}
-  
-  \subsubsection{Komponenten}
-  
-  \subsubsection{Layouts}
-    
-  \subsubsection{Events}
-  
-  \subsection{Look \& Feel}
-  
-  \subsection{Multithreading}
-  
-  \subsection{Alternativen (SWT, \ldots)}
+  \input{./kapitel/javaSwingApplikationen.tex}
 
   \cleardoublepage
    
@@ -444,17 +430,8 @@ Applikationen}
   % ===========================================================================
   
   \chapter{Abkürzungsverzeichnis}
-  \begin{acronym}
-    \setlength{\itemsep}{-\parsep}
-    \acro{OO}{Objektorientierung}
-    \acro{ABC}{Alphabeth}
-    \acro{URL}{Uniform Resource Locator}
-    \acro{RIA}{Rich Internet Application}
-    \acro{Ajax}{Asynchronous JavaScript and XML}
-    \acro{ZSI}{Zentrale Server Infrastruktur}
-    \acro{AHP}{Analytic Hierarchy Process}
-    \acro{NWA}{Nutzwertanalyse}
-  \end{acronym}
+
+  \input{./kapitel/acronym.tex}
   
   % ===========================================================================
   % Abbildungsverzeichnis beginns here
