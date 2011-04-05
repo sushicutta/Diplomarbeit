@@ -35,10 +35,15 @@ automark,
 
 \usepackage[ngerman]{babel}
 
+\usepackage[ngerman]{translator}
+
 \usepackage{tocbasic}
 
 % Use utf-8 encoding for foreign characters
 \usepackage[utf8]{inputenc}
+
+\usepackage{lmodern} % Latin Modern
+
 % \usepackage[applemac]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -48,12 +53,14 @@ automark,
 % Silbentrennung kann unterdrückt werden
 \usepackage{hyphenat}
 
-% Tradmark
-\def\TTra{\textsuperscript{\texttrademark}}
-
 %1.5 Zeilenabstand
 \usepackage[onehalfspacing]{setspace}
 
+% Schöne Schriften für PDF-Dateien
+\usepackage{ae}
+
+% Tradmark
+\def\TTra{\textsuperscript{\texttrademark}}
 
 % Festlegung des Seitenstils (scrpage2)
 \pagestyle{scrheadings}
@@ -143,6 +150,7 @@ automark,
   pdfmenubar=true,        % show Acrobat’s menu?
   pdffitwindow=true,      % window fit to page when opened
   pdfstartview={FitH},    % fits the width of the page to the window
+  plainpages=false,
   pdftitle={Diplomarbeit},   
   pdfauthor={Roman Würsch},
   pdfsubject={Evaluation eines Java Web Frameworks zur Ablösung bestehender Java
@@ -150,11 +158,15 @@ automark,
   pdfcreator={TeX Live 2009},
   pdfproducer={pdfTeX, Version 3.1415926-1.40.10},
   pdfnewwindow=true,      % links in new window
-  colorlinks=false,       % false: boxed links; true: colored links
-  linkcolor=red,          % color of internal links
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=blue,         % color of internal links
   citecolor=green,        % color of links to bibliography
   filecolor=magenta,      % color of file links
-  urlcolor=cyan          % color of external links
+  urlcolor=cyan           % color of external links
+	% linkcolor=black,      % color of internal links
+	% citecolor=black,      % color of links to bibliography
+	% filecolor=black,      % color of file links
+	% urlcolor=black        % color of external links
 }
 
 \ifpdf
@@ -175,8 +187,6 @@ automark,
   \orgdescriptionlabel{#1}% 
 } 
 \makeatother
-
-\usepackage{ae} % Schöne Schriften für PDF-Dateien
 
 \title{Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
 Applikationen}
