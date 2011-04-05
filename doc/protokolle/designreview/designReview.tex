@@ -30,6 +30,13 @@
 %\usepackage{amssymb}
 %\usepackage{latexsym}
 
+% schöne Tabelle zeichnen
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.4} %Die Zeilenabstände in Tabllen angepasst.
+
+% für variable Breiten
+\usepackage{tabularx}
+
 % Surround parts of graphics with box
 \usepackage{boxedminipage}
 
@@ -38,6 +45,32 @@
 
 % If you want to generate a toc for each chapter (use with book)
 \usepackage{minitoc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage[ngerman]{translator}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern} % Latin Modern
+
+% \usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Setup for fullpage use
+%\usepackage{fullpage}
+
+% Silbentrennung kann unterdrückt werden
+\usepackage{hyphenat}
+
+%1.5 Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+% Schöne Schriften für PDF-Dateien
+\usepackage{ae}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -52,13 +85,13 @@
 % Documenttext beginns here
 % =============================================================================
 
-\title{Design-Review Protokoll}
+\title{Design-review Protokoll}
     
 \author{Studierender - Roman Würsch\\
-	Auftraggeber - Bernhard Mäder, ZKB\\
-    Projektbetreuer - Beat Seeliger\\
-    Experte - tbd\\
-    Vertreter des Studiengangs Informatik - tbd\\
+    \\
+    Diplomarbeit - Evaluation eines\\
+    Java Web Frameworks zur Ablösung\\
+    bestehender Java Swing Applikationen\\
     \\
     HSZ-T - Technische Hochschule Zürich}
     
@@ -66,29 +99,20 @@
 
 \begin{document}
 
-    \ifpdf
-        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
-    \else
-        \DeclareGraphicsExtensions{.eps, .jpg}
-    \fi
+  \ifpdf
+      \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+  \else
+      \DeclareGraphicsExtensions{.eps, .jpg}
+  \fi
 
-    \maketitle
+  \maketitle
 
-    \pagenumbering{arabic}
+  \pagenumbering{arabic}
 
-    % \tableofcontents
+  % \tableofcontents
 
-    \chapter{Design-Review Protokoll}
+  \chapter{Design-review Protokoll}
 
-    \section{Diplomarbeit}
-    Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
-    Applikationen
-
-    \section{Beschlüsse}
-    \begin{itemize}
-        \item Beschluss 1
-        \item Beschluss 2
-        \item Beschluss 3
-    \end{itemize}
+  \input{./kapitel/protokoll.tex}
     
 \end{document}

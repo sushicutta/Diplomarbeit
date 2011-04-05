@@ -423,6 +423,8 @@ Applikationen}
 
   \input{./kapitel/acronym.tex}
   
+  \cleardoublepage
+  
   % ===========================================================================
   % Abbildungsverzeichnis beginns here
   % ===========================================================================
@@ -430,12 +432,16 @@ Applikationen}
   % Abbildungsverzeichnis
   \listoffigures
   
+  \cleardoublepage
+  
   % ===========================================================================
   % Tabellenverzeichnis beginns here
   % ===========================================================================
   
   % Tabellenverzeichnis
   \listoftables
+  
+  \cleardoublepage
   
   % ===========================================================================
   % Literaturverzeichnis beginns here
@@ -445,7 +451,21 @@ Applikationen}
   \bibliographystyle{alpha}
   % verwendet Literaturverzeichnis.bib
   % \renewcommand\bibname{Literaturverzeichnis} % Titel überschreiben
-  \cleardoublepage
   \bibliography{Literaturverzeichnis}
+  \cleardoublepage
+
+  % ===========================================================================
+  % Protokolle beginns here
+  % ===========================================================================
+ 
+  \chapter{Kick-off Protokoll}
+
+  \input{../protokolle/kickoff/kapitel/protokoll.tex}
+  
+  \cleardoublepage
+   
+  \chapter{Design-review Protokoll}
+  
+  \input{../protokolle/designreview/kapitel/protokoll.tex}
 
 \end{document}

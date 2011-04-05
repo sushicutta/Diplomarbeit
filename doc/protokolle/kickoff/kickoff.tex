@@ -30,6 +30,13 @@
 %\usepackage{amssymb}
 %\usepackage{latexsym}
 
+% schöne Tabelle zeichnen
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.4} %Die Zeilenabstände in Tabllen angepasst.
+
+% für variable Breiten
+\usepackage{tabularx}
+
 % Surround parts of graphics with box
 \usepackage{boxedminipage}
 
@@ -38,6 +45,32 @@
 
 % If you want to generate a toc for each chapter (use with book)
 \usepackage{minitoc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage[ngerman]{translator}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern} % Latin Modern
+
+% \usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Setup for fullpage use
+%\usepackage{fullpage}
+
+% Silbentrennung kann unterdrückt werden
+\usepackage{hyphenat}
+
+%1.5 Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+% Schöne Schriften für PDF-Dateien
+\usepackage{ae}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -55,10 +88,10 @@
 \title{Kick-off Protokoll}
     
 \author{Studierender - Roman Würsch\\
-	Auftraggeber - Bernhard Mäder, ZKB\\
-    Projektbetreuer - Beat Seeliger\\
-    Experte - tbd\\
-    Vertreter des Studiengangs Informatik - tbd\\
+    \\
+    Diplomarbeit - Evaluation eines\\
+    Java Web Frameworks zur Ablösung\\
+    bestehender Java Swing Applikationen\\
     \\
     HSZ-T - Technische Hochschule Zürich}
     
@@ -66,38 +99,20 @@
 
 \begin{document}
 
-    \ifpdf
-        \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
-    \else
-        \DeclareGraphicsExtensions{.eps, .jpg}
-    \fi
+  \ifpdf
+      \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+  \else
+      \DeclareGraphicsExtensions{.eps, .jpg}
+  \fi
 
-    \maketitle
+  \maketitle
 
-    \pagenumbering{arabic}
+  \pagenumbering{arabic}
 
-    % \tableofcontents
-
-    \chapter{Kick-off Protokoll}
-
-    \section{Diplomarbeit}
-    Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
-    Applikationen
-
-    \section{Beschlüsse}
-    \begin{itemize}
-        \item Gemäss Email von Herr Stern vom 17. März 2011
-        \begin{itemize}
-          \item ``Sie führen in Absprache mit Ihrem Betreuer ein inhaltliches
-          Kick-Off durch. Gibt Ihr Betreuer sein OK anschliessend, fahren Sie
-          mit der Bearbeitung der Arbeit fort (kein Zeitverlust für Sie).''
-          \item ``An dem von Ihnen gebuchten Termin am 13. April führen wir
-          ein verkürztes Kick-Off durch, dieses wird auch als das formale
-          Kick-Off in EBS eingetragen und protokolliert.''
-        \end{itemize} 
-        \item Beschluss A
-        \item Beschluss B
-        \item Beschluss C
-    \end{itemize}
+  % \tableofcontents
+    
+  \chapter{Kick-off Protokoll}
+    
+  \input{./kapitel/protokoll.tex}
     
 \end{document}

@@ -1,13 +1,13 @@
 #TeXlipse project settings
-#Mon Mar 21 14:37:07 CET 2011
+#Tue Apr 05 19:57:20 CEST 2011
 builderNum=2
 outputDir=out/
 makeIndSty=
 bibrefDir=
 outputFormat=pdf
 tempDir=
-mainTexFile=Diplomarbeit.tex
-outputFile=Diplomarbeit.pdf
+mainTexFile=designReview.tex
+outputFile=designReview.pdf
 langSpell=de
 markDer=false
-srcDir=doc/dokumentation
+srcDir=doc/protokolle/designreview
