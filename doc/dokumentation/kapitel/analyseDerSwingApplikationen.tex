@@ -61,24 +61,58 @@
   
   Der Analyst hat explizite Kenntnisse über das Innenleben des zu
   analysierenden Programms, zudem steht ihm der Sourcecode zur Verfügung. Mit
-  der Hilfe des Sourcecodes können Sinnvolle Schlüsse im Bezug auf die Analyse
+  der Hilfe des Sourcecodes können sinnvolle Schlüsse im Bezug auf die Analyse
   getroffen werden, da Spezialfälle, welche nicht offensichtlich sind,
   analysiert werden können. Als Beispiel dafür, möchte ich eine kurze
-  Codesequenz zeigen:
+  Codesequenz zeigen, siehe \ref{lst:dreifacherMausklick} Zeile 4. Dabei wird
+  auf einen dreifachen Mausklick abgefragt. Da ein solches Verhalten nicht
+  intuitiv ist, würde das ohne Sourcecode wahrscheinlich nicht gefunden werden.:
+  \newline
   
-  \begin{lstlisting}[language=Java]
+  \begin{lstlisting}[
+    captionpos=b,
+    caption=Spezialfall - dreifacher Mausklick,
+    label=lst:dreifacherMausklick
+  ]
   component.addMouseListener(new MouseAdapter() {
 
     public void mouseClicked(MouseEvent evt) {
       if (evt.getClickCount() == 3) {
         System.out.println("triple-click");
-      } else if (evt.getClickCount() == 2) {
-        System.out.println("double-click");
       }
     }
 
   }
   \end{lstlisting}
+  
+  \subsection{Probleme bei der Verwendung von Bibliotheken}
+  
+  Gemäss \cite{GUIAnalysenUndBibliotheken} S. 1f. besteht ebenfalls ein Problem
+  bei der Verwendung von Bibliotheken. Die Grundproblematik besteht darin,
+  dass eine Bibliothek evtl. ohne Zugriff auf deren Sourcecode verwendet wird.
+  Damit wird das Verfahren der White-Box Programmanalyse für GUI Elemente aus
+  dieser Bibliothek unmöglich.
+  
+  Falls der Sourcecode vorhanden ist und eien statische Programmanalyse
+  angestrebt wird, dann kann sich das verwenden von zusätzlichen Bibliotheken
+  negativ auf die Präzision der Analyse auswirken. Zudem ist es üblich, dass 
+  Bibliotheken meisst um ein Vielfaches grösser sind als das zu analysierende
+  Programm, was zu einem erhöhten Aufwand führen kann.
+  
+  \section{Wahl des Verfahrens}
+  
+  Die Wahl des Verfahrens der Analyse soll wie in der Grafik
+  \ref{img:guiAnalyse} durchgeführt werden. Falls es dabei zu einer statischen
+  Programmanalyse kommen sollte, soll die wenn mögliche mit der \ac{IDE}
+  IntelliJ durchgeführt werden.
+  
+  \begin{figure}[ht]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./image/guiAnalyse.png}
+      \caption{Wahl des Verfahrens der Programmanalyse}
+      \label{img:guiAnalyse}
+    \end{center}
+  \end{figure}
   
   \section{Auswahl der Applikationen}
   

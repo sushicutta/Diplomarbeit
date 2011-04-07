@@ -136,8 +136,9 @@ numbers=left,
 numberstyle=\small,
 frame=single,
 backgroundcolor=\color{blue!3},
-caption={Java-Code}
 }
+
+\usepackage{caption}
 
 % If you want to generate a toc for each chapter (use with book)
 \usepackage{minitoc}
@@ -456,6 +457,9 @@ Applikationen}
   \listoftables
   
   \cleardoublepage
+  
+  \renewcommand{\lstlistlistingname}{Listingverzeichnis}
+  \lstlistoflistings
   
   % ===========================================================================
   % Literaturverzeichnis beginns here
