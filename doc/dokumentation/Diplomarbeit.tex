@@ -120,8 +120,24 @@ automark,
 % Surround parts of graphics with box
 \usepackage{boxedminipage}
 
+\usepackage[svgnames]{xcolor}
+
 % Package for including code in the document
 \usepackage{listings}
+
+\lstset{language=java,
+basicstyle=\small,
+keywordstyle=\color{blue!80!black!100},
+identifierstyle=,
+commentstyle=\color{green!50!black!100},
+stringstyle=\ttfamily,
+breaklines=true,
+numbers=left,
+numberstyle=\small,
+frame=single,
+backgroundcolor=\color{blue!3},
+caption={Java-Code}
+}
 
 % If you want to generate a toc for each chapter (use with book)
 \usepackage{minitoc}
@@ -330,9 +346,7 @@ Applikationen}
    
   \chapter{Analyse der Swing Applikationen}
   
-  \section{Auswahl der Applikationen}
-  
-  \section{Kategorisierung von verwendeten Swing Komponenten}
+  \input{./kapitel/analyseDerSwingApplikationen.tex}
 
   \cleardoublepage
    

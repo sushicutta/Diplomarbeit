@@ -1,0 +1,85 @@
+  Dieses Kapitel behandelt die Analyse von Java Swing Applikationen. Dabei
+  werden mögliche Techniken erläutert, sowie deren Einsatz. Als Ergebniss wird
+  eine Kategorisierung der verwendeten Swing Komponenten aufgelistet.
+  
+  \section{Grundlagen}
+  
+  Zur Analyse von bestehender Software gibt es verschiedene Ansätze. Aus dem
+  Bereich der Qualitätssicherung kommt die Technik der statischen oder
+  dynamischen Programmanalyse, siehe \cite{SoftwareanalyseBegriffeUndTechniken}
+  S. 5. Die dynamische Programmanalyse wird darin unterteilt in White-Box-
+  und Black-Box-Tests, siehe Grafik \ref{img:programmanalyse}. In meiner Arbeit
+  werde ich keine Tests ausführen, sondern die Analyse von \ac{GUI} Elementen.
+  
+  \begin{figure}[ht]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./image/programmanalyse.png}
+      \caption{Überblick über konventionelle Testmethoden (nach
+      \cite{SoftwareanalyseBegriffeUndTechniken} S. 5)}
+      \label{img:programmanalyse}
+    \end{center}
+  \end{figure}
+  
+  \subsection{Statische Programmanalyse}
+
+  Die statische Programmanalyse basiert auf der Anaylse des Sourcecodes. Das
+  bedingt, dass der Sourcecode zugägnglich ist. Als Softwareentwickler, kennt
+  man das Verfahren eventuell aus der integrierten Entwicklungsumbegung
+  (\acs{IDE})\acused{IDE}. Es gibt \acp{IDE}, wie zum Beispiel IntelliJ, siehe
+  \cite{StaticCodeAnalysisIntelliJ}, die das Verfahren der statischen
+  Programmanalyse nutzen. Wenn man Code schreibt, dann analysieren die
+  \acp{IDE} den geschriebenen Code auf dessen syntaktische, semantische und
+  lexikalische Informationen, siehe
+  \cite{SoftwareQualitaetsmanagementInDerPraxis} S. 216f.
+  
+  Im Artikel \cite{GUIAnalysenUndBibliotheken} befasst sich der Author damit,
+  was man bei GUI lastiger Software durch eine statische Programmanaylse in
+  Erfahrung bringen kann. Nach Aussage des Authors kann man bei deren
+  Vorgeschlagenen Techniken folgendes erreichen:
+  
+  ``\begin{itshape}Im Rahmen dieser Analyse wird erkannt, welche Teile des
+  Programms zur GUI gehören, welche Widgets das Programm enthält, welche
+  Attribute, mit ihren Werten, diese Widgets besitzen, wie diese Widgets mit
+  Events untereinander verbunden sind und wie sie in den einzelnen Fenstern der
+  GUI strukturiert
+  sind.\end{itshape}''\footnote{\cite{GUIAnalysenUndBibliotheken}
+  Zusammenfassung - Seite 1}
+    
+  \subsection{Dynamische Programmanalyse}
+  
+  Bei der dynamischen Programmanalyse wir das zu analysierende Programm 
+  ausgeführt. Die dynamische Programmanalyse wird in zwei Unterarten aufgeteilt,
+  das Black-Box Verfahren und das White-Box Verfahren.
+    
+  \subsubsection{Black-Box Verfahren}
+  
+  Der Analyst hat keinerlei Informationen über das Innenleben des zu
+  analysierenden Programms. Die Analyse basiert auf der intuitiven Bedienung der
+  grafischen Oberfläche, durch den Analysten.
+  
+  \subsubsection{White-Box Verfahren}
+  
+  Der Analyst hat explizite Kenntnisse über das Innenleben des zu
+  analysierenden Programms, zudem steht ihm der Sourcecode zur Verfügung. Mit
+  der Hilfe des Sourcecodes können Sinnvolle Schlüsse im Bezug auf die Analyse
+  getroffen werden, da Spezialfälle, welche nicht offensichtlich sind,
+  analysiert werden können. Als Beispiel dafür, möchte ich eine kurze
+  Codesequenz zeigen:
+  
+  \begin{lstlisting}[language=Java]
+  component.addMouseListener(new MouseAdapter() {
+
+    public void mouseClicked(MouseEvent evt) {
+      if (evt.getClickCount() == 3) {
+        System.out.println("triple-click");
+      } else if (evt.getClickCount() == 2) {
+        System.out.println("double-click");
+      }
+    }
+
+  }
+  \end{lstlisting}
+  
+  \section{Auswahl der Applikationen}
+  
+  \section{Kategorisierung von verwendeten Swing Komponenten}
