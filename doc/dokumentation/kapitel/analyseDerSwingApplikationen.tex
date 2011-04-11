@@ -1,6 +1,8 @@
-  Dieses Kapitel behandelt die Analyse von Java Swing Applikationen. Dabei
-  werden mögliche Techniken erläutert, sowie deren Einsatz. Als Ergebniss wird
-  eine Kategorisierung der verwendeten Swing Komponenten aufgelistet.
+  Dieses Kapitel behandelt die Analyse von Java Swing Applikationen. Die
+  Analyse betrifft die Swing Komponenten, und Komponenten die in einen
+  Zusammenhang mit Swing Komponenten stehen. Dabei werden mögliche Techniken
+  und deren Einsatz erläutert. Als Ergebniss wird eine Kategorisierung der
+  verwendeten Swing Komponenten aufgelistet.
   
   \section{Grundlagen}
   
@@ -8,8 +10,9 @@
   Bereich der Qualitätssicherung kommt die Technik der statischen oder
   dynamischen Programmanalyse, siehe \cite{SoftwareanalyseBegriffeUndTechniken}
   S. 5. Die dynamische Programmanalyse wird darin unterteilt in White-Box-
-  und Black-Box-Tests, siehe Grafik \ref{img:programmanalyse}. In meiner Arbeit
-  werde ich keine Tests ausführen, sondern die Analyse von \ac{GUI} Elementen.
+  und Black-Box-Tests, siehe Abbildung \ref{img:programmanalyse}. In meiner
+  Arbeit werde diese Methoden zur Analyse von Elementen der grafischen
+  Benutzeroberfläche einsetzten.
   
   \begin{figure}[ht]
     \begin{center}
@@ -33,7 +36,7 @@
   \cite{SoftwareQualitaetsmanagementInDerPraxis} S. 216f.
   
   Im Artikel \cite{GUIAnalysenUndBibliotheken} befasst sich der Author damit,
-  was man bei GUI lastiger Software durch eine statische Programmanaylse in
+  was man bei \ac{GUI} lastiger Software durch eine statische Programmanaylse in
   Erfahrung bringen kann. Nach Aussage des Authors kann man bei deren
   Vorgeschlagenen Techniken folgendes erreichen:
   
@@ -64,10 +67,10 @@
   der Hilfe des Sourcecodes können sinnvolle Schlüsse im Bezug auf die Analyse
   getroffen werden, da Spezialfälle, welche nicht offensichtlich sind,
   analysiert werden können. Als Beispiel dafür, möchte ich eine kurze
-  Codesequenz zeigen, siehe \ref{lst:dreifacherMausklick} Zeile 4. Dabei wird
-  auf einen dreifachen Mausklick abgefragt. Da ein solches Verhalten nicht
+  Codesequenz zeigen, siehe Listing \ref{lst:dreifacherMausklick} Zeile 4.
+  Dabei wird auf einen dreifachen Mausklick abgefragt. Da ein solches Verhalten nicht
   intuitiv ist, würde das ohne Sourcecode wahrscheinlich nicht gefunden werden.:
-  \newline
+  \newpage
   
   \begin{lstlisting}[
     captionpos=b,
@@ -75,45 +78,94 @@
     label=lst:dreifacherMausklick
   ]
   component.addMouseListener(new MouseAdapter() {
-
     public void mouseClicked(MouseEvent evt) {
       if (evt.getClickCount() == 3) {
         System.out.println("triple-click");
       }
     }
-
-  }
+  });
   \end{lstlisting}
   
   \subsection{Probleme bei der Verwendung von Bibliotheken}
   
   Gemäss \cite{GUIAnalysenUndBibliotheken} S. 1f. besteht ebenfalls ein Problem
   bei der Verwendung von Bibliotheken. Die Grundproblematik besteht darin,
-  dass eine Bibliothek evtl. ohne Zugriff auf deren Sourcecode verwendet wird.
-  Damit wird das Verfahren der White-Box Programmanalyse für GUI Elemente aus
-  dieser Bibliothek unmöglich.
+  dass eine Bibliothek eventuell ohne Zugriff auf deren Sourcecode verwendet
+  wird. Damit wird das Verfahren der statischen Programmanalyse und der
+  dynamischen White-Box Programmanalyse unmöglich.
   
-  Falls der Sourcecode vorhanden ist und eien statische Programmanalyse
-  angestrebt wird, dann kann sich das verwenden von zusätzlichen Bibliotheken
-  negativ auf die Präzision der Analyse auswirken. Zudem ist es üblich, dass 
-  Bibliotheken meisst um ein Vielfaches grösser sind als das zu analysierende
-  Programm, was zu einem erhöhten Aufwand führen kann.
+  Falls eine statische Programmanalyse angestrebt wird, und der Sourcecode der
+  verwendeten Bibliotheken vorhanden ist, kann sich das negativ auf die
+  Präzision der Analyse auswirken. Denn es ist üblich, dass Bibliotheken
+  meisst um ein Vielfaches grösser sind als das zu analysierende Programm. Der
+  Aufwand wird durch die grössere Menge an Sourcecode zudem erhöht.
   
   \section{Wahl des Verfahrens}
   
-  Die Wahl des Verfahrens der Analyse soll wie in der Grafik
+  Die Wahl des Verfahrens der Analyse soll wie in der Abbildung
   \ref{img:guiAnalyse} durchgeführt werden. Falls es dabei zu einer statischen
   Programmanalyse kommen sollte, soll die wenn mögliche mit der \ac{IDE}
   IntelliJ durchgeführt werden.
   
   \begin{figure}[ht]
     \begin{center}
-      \includegraphics[width=0.4\textwidth]{./image/guiAnalyse.png}
+      \includegraphics[width=0.5\textwidth]{./image/guiAnalyse.png}
       \caption{Wahl des Verfahrens der Programmanalyse}
       \label{img:guiAnalyse}
     \end{center}
   \end{figure}
   
   \section{Auswahl der Applikationen}
+  
+  Es sollen drei Applikationen, welche von der Zürcher Kantonalbank entwickelt
+  wurden, analysiert werden. Die Applikationen sollen mit Java Swing entwickelt
+  worden sein. Die Applikationen werden in der Tabelle
+  \ref{tab:zuAnalysierendeJavaSwingApplikationen} aufgelistet.
+  
+  \begin{table}[ht]
+    \begin{center}
+      \begin{tabular}{llr}
+        \toprule
+        Applikation & Version & Sourcecode vorhanden \\
+        \midrule
+        Strukti Live & Version 1.2 & Ja\\
+        Strukti Online & Version 3.0 & Ja\\
+        VAST & Version 1.1 & Ja\\
+        \bottomrule
+      \end{tabular}
+      \caption{Zu analysierende Java Swing Applikationen}
+      \label{tab:zuAnalysierendeJavaSwingApplikationen}
+    \end{center}
+  \end{table}
+  
+  \subsection{Strukti Live 1.2}
+  
+  Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
+  Produkte. Die Applikation kann auf dem Internetauftritt der ZKB
+  heruntergeladen werden. Unter der \ac{URL} \url{http://www.zkb.ch/struktilive}
+  sind alle nötigen Informationen ersichtlich.
+  
+  In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
+  Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
+  und ob deren Sourcecode zugänglich ist.
+  
+  \begin{table}[ht]
+    \begin{center}
+      \begin{tabular}{lllr}
+        \toprule
+        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
+        \midrule
+        Swingx & xx & xx & Ja\\
+        JFreeChart & xx & xx & Ja\\
+        \bottomrule
+      \end{tabular}
+      \caption{Verwendete Bibliotheken von Strukti Live 1.2}
+      \label{tab:bibliothekenStruktiLive}
+    \end{center}
+  \end{table}
+  
+  \subsection{Strukti Online 3.0}
+  
+  \subsection{VAST 1.1}
   
   \section{Kategorisierung von verwendeten Swing Komponenten}
