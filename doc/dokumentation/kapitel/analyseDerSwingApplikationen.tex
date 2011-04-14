@@ -16,7 +16,7 @@
   
   \begin{figure}[ht]
     \begin{center}
-      \includegraphics[width=0.7\textwidth]{./image/programmanalyse.png}
+      \includegraphics[width=0.6\textwidth]{./image/programmanalyse.png}
       \caption{Überblick über konventionelle Testmethoden (nach
       \cite{SoftwareanalyseBegriffeUndTechniken} S. 5)}
       \label{img:programmanalyse}
@@ -70,7 +70,8 @@
   Codesequenz zeigen, siehe Listing \ref{lst:dreifacherMausklick} Zeile 4.
   Dabei wird auf einen dreifachen Mausklick abgefragt. Da ein solches Verhalten nicht
   intuitiv ist, würde das ohne Sourcecode wahrscheinlich nicht gefunden werden.:
-  \newpage
+  \newline
+  %\newpage
   
   \begin{lstlisting}[
     captionpos=b,
@@ -121,6 +122,7 @@
   wurden, analysiert werden. Die Applikationen sollen mit Java Swing entwickelt
   worden sein. Die Applikationen werden in der Tabelle
   \ref{tab:zuAnalysierendeJavaSwingApplikationen} aufgelistet.
+  \newline
   
   \begin{table}[ht]
     \begin{center}
@@ -143,26 +145,101 @@
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
   Produkte. Die Applikation kann auf dem Internetauftritt der ZKB
   heruntergeladen werden. Unter der \ac{URL} \url{http://www.zkb.ch/struktilive}
-  sind alle nötigen Informationen ersichtlich.
+  sind alle nötigen Informationen ersichtlich. Die Wahl ist desshalb auf Strukti
+  Live gefallen, da es eine Applikation ist, die von der ZKB veröffentlicht
+  wurde, somit werden bei der Anlayse keine sensiblen Informationen
+  preisgegeben.
   
   In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
-  Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
-  und ob deren Sourcecode zugänglich ist.
+  Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich.
+  \newline
   
   \begin{table}[ht]
     \begin{center}
-      \begin{tabular}{lllr}
+      \begin{tabular}{lp{4.5cm}ccp{2cm}}
         \toprule
-        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
+        Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
         \midrule
-        Swingx & xx & xx & Ja\\
-        JFreeChart & xx & xx & Ja\\
+        core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL & Ja\\
+        bogatyr\_0.60.jar & Abstraktion einiger Swing Komponenten & 0.60 & GPL &
+        Ja\\
+        jfreechart-1.0.10.jar & Charting Library für Java & 1.0.10 & LGPL & Ja\\
+        jcommon-1.0.13.jar & JFreeChart extension & 1.0.13 & LGPL & Ja\\
+        ZKB\_CICD\_0.40.jar & Swing Komponenten im ZKB Design & 0.40 & - & Ja\\
         \bottomrule
       \end{tabular}
       \caption{Verwendete Bibliotheken von Strukti Live 1.2}
       \label{tab:bibliothekenStruktiLive}
     \end{center}
   \end{table}
+  
+  Gemäss der dynamischen White-Box Programmanalyse werden alle Komponenten, die
+  Java Swing zur Verfügung stellt in der Applikation gesucht. Die Komponenten
+  können in der Dokumentation zu Java Swing von Oracle gefunden werden, siehe
+  \cite{SwingComponentsByOracle}. Zudem sollen alle Komponenten, welche durch
+  externe Bibliotheken zur Verfügung gestellt werden, gesucht werden. Die
+  Suche findet durch einen visuellen Vergleich der Komponenten statt, wenn
+  nötig kann auch der Sourcecode in die Suche miteinbezogen werden. Es soll eine
+  Auflistung aller gefundenen Komponenten erstellt werden.
+  
+  \subsubsection{Top-Level-Komponenten}
+  
+  \begin{itemize}
+  \item JFrame mit JRootPane, siehe Abbildung \ref{img:SL-01}
+  \item JDialog, siehe Abbildung \ref{img:SL-02}
+  \end{itemize}
+  
+  \subsubsection{Intermediate-Komponenten}
+  
+  \begin{itemize}
+  \item JPanel, siehe Abbildung \ref{img:SL-01}
+  \item JScrollPane, siehe Abbildung \ref{img:SL-01}
+  \item JTabbedPane, siehe Abbildung \ref{img:SL-03}
+  \end{itemize}
+  
+  \subsubsection{Atomic-Komponenten}
+  
+  \begin{itemize}
+  \item JLabel, siehe Abbildung \ref{img:SL-01}
+  \item JButton, siehe Abbildung \ref{img:SL-01}
+  \item JCheckBox, siehe Abbildung \ref{img:SL-01}
+  \item JSlider, siehe Abbildung \ref{img:SL-02}
+  \item JTextField, siehe Abbildung \ref{img:SL-02}
+  \item JRadioButton, siehe Abbildung \ref{img:SL-02}
+  \item JToolTip, siehe Abbildung \ref{img:SL-03}
+  \end{itemize}
+  
+  \subsubsection{Spezielle Komponenten}
+  
+  \begin{itemize}
+  \item JFreeChart, siehe Abbildung \ref{img:SL-02}
+  \item xhtml und CSS Renderer Panel, siehe Abbildung \ref{img:SL-03}
+  \item externer Link, siehe Abbildung \ref{img:SL-03}
+  \end{itemize}
+  
+  \begin{figure}[htb]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./image/SL/SL-01.png}
+      \caption{Strukti Live 1.2 (I)}
+      \label{img:SL-01}
+    \end{center}
+  \end{figure}
+  
+  \begin{figure}[htb]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./image/SL/SL-02.png}
+      \caption{Strukti Live 1.2 (II)}
+      \label{img:SL-02}
+    \end{center}
+  \end{figure}
+  
+  \begin{figure}[htb]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./image/SL/SL-03.png}
+      \caption{Strukti Live 1.2 (III)}
+      \label{img:SL-03}
+    \end{center}
+  \end{figure}
   
   \subsection{Strukti Online 3.0}
   

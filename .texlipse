@@ -1,13 +1,13 @@
 #TeXlipse project settings
-#Wed Apr 13 14:09:45 CEST 2011
+#Thu Apr 14 13:07:21 CEST 2011
 builderNum=2
 outputDir=out/
 makeIndSty=
 bibrefDir=
 outputFormat=pdf
 tempDir=
-mainTexFile=kickoff.tex
-outputFile=kickoff.pdf
+mainTexFile=Diplomarbeit.tex
+outputFile=Diplomarbeit.pdf
 langSpell=de
 markDer=false
-srcDir=doc/protokolle/kickoff
+srcDir=doc/dokumentation
