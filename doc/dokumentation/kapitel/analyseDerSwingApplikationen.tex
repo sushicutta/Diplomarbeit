@@ -104,9 +104,15 @@
   \section{Wahl des Verfahrens}
   
   Die Wahl des Verfahrens der Analyse soll wie in der Abbildung
-  \ref{img:guiAnalyse} durchgeführt werden. Falls es dabei zu einer statischen
-  Programmanalyse kommen sollte, soll die wenn mögliche mit der \ac{IDE}
-  IntelliJ durchgeführt werden.
+  \ref{img:guiAnalyse} durchgeführt werden. Leider wurde während der
+  Durchführung der Diplomarbeit kein sinnvoll einsetzbares Werkzeug zur
+  statischen Programmanalyse für Java Swing Applikationen gefunden. Somit wurde
+  im Falle von vorhandenem Quellcode nur das dynamische White-Box Verfahren
+  angewendet.
+  
+  % Falls es dabei zu einer statischen
+  %Programmanalyse kommen sollte, soll die wenn mögliche mit der \ac{IDE}
+  %IntelliJ durchgeführt werden.
   
   \begin{figure}[ht]
     \begin{center}
@@ -132,7 +138,7 @@
         \midrule
         Strukti Live & Version 1.2 & Ja\\
         Strukti Online & Version 3.0 & Ja\\
-        VAST & Version 1.1 & Ja\\
+        ?? & ?? & ??\\
         \bottomrule
       \end{tabular}
       \caption{Zu analysierende Java Swing Applikationen}
@@ -140,15 +146,20 @@
     \end{center}
   \end{table}
   
+  Strukti Live 1.2 wurde desshalb gewählt, weil es eine Applikation ist, die
+  von der ZKB veröffentlicht wurde, somit werden bei der Anlayse keine
+  sensiblen Informationen preisgegeben.
+  
+  Strukti Online 3.0 wurde desshalb gewählt, weil eine mögliche Migration zur
+  Webapplikation schon einmal disskutiert wurde.
+  
   \subsection{Strukti Live 1.2}
   
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
   Produkte. Die Applikation kann auf dem Internetauftritt der ZKB
-  heruntergeladen werden. Unter der \ac{URL} \url{http://www.zkb.ch/struktilive}
-  sind alle nötigen Informationen ersichtlich. Die Wahl ist desshalb auf Strukti
-  Live gefallen, da es eine Applikation ist, die von der ZKB veröffentlicht
-  wurde, somit werden bei der Anlayse keine sensiblen Informationen
-  preisgegeben.
+  heruntergeladen werden. Unter der Internetadresse
+  \url{http://www.zkb.ch/struktilive} sind alle nötigen Informationen
+  enthalten.
   
   In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich.
@@ -161,11 +172,11 @@
         Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
         \midrule
         core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL & Ja\\
-        bogatyr\_0.60.jar & Abstraktion einiger Swing Komponenten & 0.60 & GPL &
-        Ja\\
+        %bogatyr\_0.60.jar & Abstraktion einiger Swing Komponenten & 0.60 & GPL
+        %& Ja\\
         jfreechart-1.0.10.jar & Charting Library für Java & 1.0.10 & LGPL & Ja\\
-        jcommon-1.0.13.jar & JFreeChart extension & 1.0.13 & LGPL & Ja\\
-        ZKB\_CICD\_0.40.jar & Swing Komponenten im ZKB Design & 0.40 & - & Ja\\
+        %jcommon-1.0.13.jar & JFreeChart extension & 1.0.13 & LGPL & Ja\\
+        %ZKB\_CICD\_0.40.jar & Swing Komponenten im ZKB Design & 0.40 & - & Ja\\
         \bottomrule
       \end{tabular}
       \caption{Verwendete Bibliotheken von Strukti Live 1.2}
@@ -185,42 +196,45 @@
   \subsubsection{Top-Level-Komponenten}
   
   \begin{itemize}
-  \item JFrame mit JRootPane, siehe Abbildung \ref{img:SL-01}
-  \item JDialog, siehe Abbildung \ref{img:SL-02}
+    \item \(javax.swing.JFrame\) mit javax.swing.JRootPane, siehe Abbildung
+    \ref{img:SL-01}
+    \item \(javax.swing.JDialog\), siehe Abbildung \ref{img:SL-02}
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
   
   \begin{itemize}
-  \item JPanel, siehe Abbildung \ref{img:SL-01}
-  \item JScrollPane, siehe Abbildung \ref{img:SL-01}
-  \item JTabbedPane, siehe Abbildung \ref{img:SL-03}
+    \item \(javax.swing.JPanel\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JScrollPane\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JTabbedPane\), siehe Abbildung \ref{img:SL-03}
   \end{itemize}
   
   \subsubsection{Atomic-Komponenten}
   
   \begin{itemize}
-  \item JLabel, siehe Abbildung \ref{img:SL-01}
-  \item JButton, siehe Abbildung \ref{img:SL-01}
-  \item JCheckBox, siehe Abbildung \ref{img:SL-01}
-  \item JSlider, siehe Abbildung \ref{img:SL-02}
-  \item JTextField, siehe Abbildung \ref{img:SL-02}
-  \item JRadioButton, siehe Abbildung \ref{img:SL-02}
-  \item JToolTip, siehe Abbildung \ref{img:SL-03}
+    \item \(javax.swing.JLabel\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JButton\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JCheckBox\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JSlider\), siehe Abbildung \ref{img:SL-02}
+    \item \(javax.swing.JTextField\), siehe Abbildung \ref{img:SL-02}
+    \item \(javax.swing.JRadioButton\), siehe Abbildung \ref{img:SL-02}
+    \item \(javax.swing.JToolTip\), siehe Abbildung \ref{img:SL-03}
   \end{itemize}
   
   \subsubsection{Spezielle Komponenten}
   
   \begin{itemize}
-  \item JFreeChart, siehe Abbildung \ref{img:SL-02}
-  \item xhtml und CSS Renderer Panel, siehe Abbildung \ref{img:SL-03}
-  \item externer Link, siehe Abbildung \ref{img:SL-03}
+    \item \(org.jfree.chart.JFreeChart\), siehe Abbildung \ref{img:SL-02}
+    \item \(org.xhtmlrenderer.simple.XHTMLPanel\), siehe Abbildung
+    \ref{img:SL-03}
+    \item \(javax.swing.JLabel\) als externer Link, siehe Abbildung
+    \ref{img:SL-03}
   \end{itemize}
   
   \begin{figure}[htb]
     \begin{center}
       \includegraphics[width=\textwidth]{./image/SL/SL-01.png}
-      \caption{Strukti Live 1.2 (I)}
+      \caption{Strukti Live 1.2 - Screenshot I}
       \label{img:SL-01}
     \end{center}
   \end{figure}
@@ -228,7 +242,7 @@
   \begin{figure}[htb]
     \begin{center}
       \includegraphics[width=\textwidth]{./image/SL/SL-02.png}
-      \caption{Strukti Live 1.2 (II)}
+      \caption{Strukti Live 1.2 - Screenshot II}
       \label{img:SL-02}
     \end{center}
   \end{figure}
@@ -236,10 +250,47 @@
   \begin{figure}[htb]
     \begin{center}
       \includegraphics[width=\textwidth]{./image/SL/SL-03.png}
-      \caption{Strukti Live 1.2 (III)}
+      \caption{Strukti Live 1.2 - Screenshot III}
       \label{img:SL-03}
     \end{center}
   \end{figure}
+  
+  \subsubsection{Zusammenspiel von Komponenten}
+
+  Durch das Zusammenspiel einzelner Komponenten können ``neue'' Komponenten
+  entstehen. In Strukti Live wurden folgende erkannt und mit einem
+  entsprechenden Namen versehen.
+  
+  \begin{description}
+    \item[Button-Matrix]
+    Buttons werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Dabei können die Buttons entsprechend ihrer
+    Renditechancen (x-Achse) und deren Kapitalschutz (y-Achse) eingeordnet
+    werden.
+    \item[Akkordeon]
+    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
+    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
+    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+    \item[Filter]
+    Es wurde ein Filter mit \(javax.swing.JCheckBox\) Komponenten implementiert.
+    Die möglichen Filteroptionen werden als Checkbox dargestellt und können
+    somit aus- beziehungsweise eingeschalten werden.
+    \item[Menüführung]
+    Die Menüführung wurde durch das Observer-Pattern, siehe
+    \cite{ObserverEntwurfsmuster}, implementiert. Dabei wird in einem Modell
+    der jeweilige Status der Applikation durch das Drücken eines
+    \(javax.swing.JButton\) angepasst, wobei sich die jeweiligen
+    \(javax.swing.JPanel\), welche auf Änderungen des Modells höhren, sich neu
+    zeichnen.
+    \item[Komponentenupdate]
+    Ebenfalls mit dem Observer-Pattern, siehe \cite{ObserverEntwurfsmuster},
+    wurde die Aktualisierung von Komponenten, welche zusammen hängen,
+    realisiert. Als Beispiel dient ein Verbund der Komponenten
+    \(javax.swing.JTextField\), \(javax.swing.JSlider\) und
+    \(org.jfree.chart.JFreeChart\). Dabei werden bei einer Änderung des Wert bei
+    dem Slider oder dem Textfeld alle anderen Komponenten entsprechend
+    aktualisiert.
+  \end{description}
   
   \subsection{Strukti Online 3.0}
   
@@ -263,31 +314,6 @@
       \end{tabular}
       \caption{Verwendete Bibliotheken von Strukti Online X.X}
       \label{tab:bibliothekenStruktiOnline}
-    \end{center}
-  \end{table}
-  
-  \subsection{VAST 1.1}
-  
-  VAST ist ein Tool zur Analyse von Kredit- und Hypothekportfolios der Zürcher
-  Kantonalbank. Die Applikation wird aktuell nur zum internen Gebrauch
-  entwickelt.
-  
-  In der Tabelle \ref{tab:bibliothekenVAST} sind alle verwendeten Bibliotheken,
-  welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich, und ob deren
-  Sourcecode zugänglich ist.
-  
-  \begin{table}[ht]
-    \begin{center}
-      \begin{tabular}{lllr}
-        \toprule
-        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
-        \midrule
-        Swingx & xx & xx & Ja\\
-        JFreeChart & xx & xx & Ja\\
-        \bottomrule
-      \end{tabular}
-      \caption{Verwendete Bibliotheken von VAST 1.1}
-      \label{tab:bibliothekenVAST}
     \end{center}
   \end{table}
   
