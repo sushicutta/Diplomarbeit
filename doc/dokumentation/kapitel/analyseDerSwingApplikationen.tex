@@ -110,10 +110,6 @@
   im Falle von vorhandenem Quellcode nur das dynamische White-Box Verfahren
   angewendet.
   
-  % Falls es dabei zu einer statischen
-  %Programmanalyse kommen sollte, soll die wenn mögliche mit der \ac{IDE}
-  %IntelliJ durchgeführt werden.
-  
   \begin{figure}[ht]
     \begin{center}
       \includegraphics[width=0.5\textwidth]{./image/guiAnalyse.png}
@@ -121,6 +117,44 @@
       \label{img:guiAnalyse}
     \end{center}
   \end{figure}
+  
+  \section{Durchführung der Analyse}
+  
+  Gemäss des gewählten Verfahrens sollen alle Komponenten, die Java Swing zur
+  Verfügung stellt, in der Applikation gesucht werden. Die Komponenten können in
+  der Dokumentation zu Java Swing von Oracle gefunden werden, siehe
+  \cite{SwingComponentsByOracle}. Zudem sollen alle Komponenten, welche durch
+  externe Bibliotheken zur Verfügung gestellt werden, gesucht werden. Die Suche
+  findet durch einen visuellen Vergleich der Komponenten statt, wenn möglich
+  kann auch der Sourcecode in die Suche miteinbezogen werden. Um das ganze für
+  den Leser nachvollziehbar zu machen, sollen die gefundenen Komponenten mit
+  Hilfe von Screenshots gezeigt werden.
+  
+  Als Resultat soll eine Auflistung aller gefundenen Komponenten erstellt
+  werden. Die Auflistung wird in folgende Gruppen unterteilt:
+  
+  \begin{itemize}
+    \item Top-Level-Komponenten
+    \item Intermediate-Komponenten
+    \item Atomic-Komponenten
+    \item Spezielle Komponenten
+  \end{itemize}
+  
+  \noindent
+  Es sollen auch erkannte GUI Paradigmen aufgelistet werden. Dabei gibt es 
+  Design-Patterns, siehe \cite{DesignPattern}, die verwendet werden. Durch das
+  Zusammenspiel einzelner Swing Komponenten können ``neue'' Komponenten
+  entstehen. Leider sind die meisten Design-Pattern und ``neuen'' Komponenten
+  nicht mehr mit Hilfe von Screenshots nachvollziehbar. Das jeweilige Verhalten
+  soll desshalb in ein paar Sätzen beschrieben werden.
+  
+  Als Resultat soll eine Auflistung aller GUI Paradigmen erstellt werden. Die
+  Auflistung wird in die folgenden Gruppen unterteilt:
+  
+   \begin{itemize}
+    \item Design-Patterns
+    \item neue Komponenten
+  \end{itemize}
   
   \section{Auswahl der Applikationen}
   
@@ -138,7 +172,7 @@
         \midrule
         Strukti Live & Version 1.2 & Ja\\
         Strukti Online & Version 3.0 & Ja\\
-        ?? & ?? & ??\\
+        tbd & ?? & ??\\
         \bottomrule
       \end{tabular}
       \caption{Zu analysierende Java Swing Applikationen}
@@ -146,14 +180,20 @@
     \end{center}
   \end{table}
   
+  \subsection{Begründung}
+  
+  \begin{description}
+  \item[Strukti Live 1.2]
   Strukti Live 1.2 wurde desshalb gewählt, weil es eine Applikation ist, die
   von der ZKB veröffentlicht wurde, somit werden bei der Anlayse keine
   sensiblen Informationen preisgegeben.
-  
+  \item[Strukti Online]
   Strukti Online 3.0 wurde desshalb gewählt, weil eine mögliche Migration zur
   Webapplikation schon einmal disskutiert wurde.
+  \item[tbd]
+  \end{description}
   
-  \subsection{Strukti Live 1.2}
+  \section{Strukti Live 1.2}
   
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
   Produkte. Die Applikation kann auf dem Internetauftritt der ZKB
@@ -184,14 +224,7 @@
     \end{center}
   \end{table}
   
-  Gemäss der dynamischen White-Box Programmanalyse werden alle Komponenten, die
-  Java Swing zur Verfügung stellt in der Applikation gesucht. Die Komponenten
-  können in der Dokumentation zu Java Swing von Oracle gefunden werden, siehe
-  \cite{SwingComponentsByOracle}. Zudem sollen alle Komponenten, welche durch
-  externe Bibliotheken zur Verfügung gestellt werden, gesucht werden. Die
-  Suche findet durch einen visuellen Vergleich der Komponenten statt, wenn
-  nötig kann auch der Sourcecode in die Suche miteinbezogen werden. Es soll eine
-  Auflistung aller gefundenen Komponenten erstellt werden.
+  \subsection{Gefundene Komponenten}
   
   \subsubsection{Top-Level-Komponenten}
   
@@ -255,26 +288,11 @@
     \end{center}
   \end{figure}
   
-  \subsubsection{Zusammenspiel von Komponenten}
+  \subsection{Gefundene GUI Paradigmen}
 
-  Durch das Zusammenspiel einzelner Komponenten können ``neue'' Komponenten
-  entstehen. In Strukti Live wurden folgende erkannt und mit einem
-  entsprechenden Namen versehen.
+  \subsubsection{Design-Patterns}
   
   \begin{description}
-    \item[Button-Matrix]
-    Buttons werden in einer Matrix angeordnet, um sie entsprechend ihrer
-    Funktion zu ordnen. Dabei können die Buttons entsprechend ihrer
-    Renditechancen (x-Achse) und deren Kapitalschutz (y-Achse) eingeordnet
-    werden.
-    \item[Akkordeon]
-    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
-    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
-    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
-    \item[Filter]
-    Es wurde ein Filter mit \(javax.swing.JCheckBox\) Komponenten implementiert.
-    Die möglichen Filteroptionen werden als Checkbox dargestellt und können
-    somit aus- beziehungsweise eingeschalten werden.
     \item[Menüführung]
     Die Menüführung wurde durch das Observer-Pattern, siehe
     \cite{ObserverDesignPattern}, implementiert. Dabei wird in einem Modell
@@ -288,11 +306,25 @@
     realisiert. Als Beispiel dient ein Verbund der Komponenten
     \(javax.swing.JTextField\), \(javax.swing.JSlider\) und
     \(org.jfree.chart.JFreeChart\). Dabei werden bei einer Änderung des Wert bei
-    dem Slider oder dem Textfeld alle anderen Komponenten entsprechend
-    aktualisiert.
+    dem Slider oder dem Textfeld die Werte aller anderen Komponenten
+    entsprechend aktualisiert.
   \end{description}
   
-  \subsection{Strukti Online 3.0}
+  \subsubsection{``neue'' Komponenten}
+  
+  \begin{description}
+    \item[Button-Matrix]
+    Buttons werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Dabei können die Buttons entsprechend ihrer
+    Renditechancen (x-Achse) und deren Kapitalschutz (y-Achse) eingeordnet
+    werden.
+    \item[Akkordeon]
+    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
+    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
+    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+  \end{description}
+  
+  \section{Strukti Online 3.0}
   
   Strukti Online ist ein Emissionstool der Zürcher Kantonalbank für
   strukturierte Produkte. Die Applikation wird aktuell nur zum internen
@@ -317,4 +349,155 @@
     \end{center}
   \end{table}
   
-  \section{Kategorisierung von verwendeten Swing Komponenten}
+  \subsection{Gefundene Komponenten}
+  
+  \subsubsection{Top-Level-Komponenten}
+  
+  \begin{itemize}
+    \item top
+  \end{itemize}
+  
+  \subsubsection{Intermediate-Komponenten}
+  
+  \begin{itemize}
+    \item intermediate
+  \end{itemize}
+  
+  \subsubsection{Atomic-Komponenten}
+  
+  \begin{itemize}
+    \item atomic
+  \end{itemize}
+  
+  \subsubsection{Spezielle Komponenten}
+    
+  \begin{itemize}
+    \item special
+  \end{itemize}
+  
+  \subsection{Gefundene GUI Paradigmen}
+    
+  \subsubsection{Design-Patterns}
+  
+  \begin{description}
+    \item[Pattern]
+  \end{description}
+  
+  \subsubsection{``neue'' Komponenten}
+  
+  \begin{description}
+    \item[new Component]
+  \end{description}
+  
+  \section{tbd}
+  
+  Tbd ist ein blablabla Tool
+  
+  In der Tabelle \ref{tab:bibliothekenTbd} sind alle verwendeten
+  Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
+  und ob deren Sourcecode zugänglich ist.
+  
+  \begin{table}[ht]
+    \begin{center}
+      \begin{tabular}{lllr}
+        \toprule
+        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
+        \midrule
+        tbd & xx & xx & Ja\\
+        tbd & xx & xx & Ja\\
+        \bottomrule
+      \end{tabular}
+      \caption{Verwendete Bibliotheken von TBD X.X}
+      \label{tab:bibliothekenTbd}
+    \end{center}
+  \end{table}
+  
+  \subsection{Gefundene Komponenten}
+  
+  \subsubsection{Top-Level-Komponenten}
+  
+  \begin{itemize}
+    \item top
+  \end{itemize}
+  
+  \subsubsection{Intermediate-Komponenten}
+  
+  \begin{itemize}
+    \item intermediate
+  \end{itemize}
+  
+  \subsubsection{Atomic-Komponenten}
+  
+  \begin{itemize}
+    \item atomic
+  \end{itemize}
+  
+  \subsubsection{Spezielle Komponenten}
+    
+  \begin{itemize}
+    \item special
+  \end{itemize}
+  
+  \subsection{Gefundene GUI Paradigmen}
+    
+  \subsubsection{Design-Patterns}
+  
+  \begin{description}
+    \item[Pattern]
+  \end{description}
+  
+  \subsubsection{``neue'' Komponenten}
+  
+  \begin{description}
+    \item[new Component]
+  \end{description}
+  
+  \section{Liste der Komponenten}
+  
+  Die Auflistung aller gefundenen Komponenten soll als Grundlage für die Analyse
+  der Web Frameworks dienen. Bei der Analyse soll geprüft werden, ob die hier
+  erkannten Komponenten implementiert werden können. Folgende Komponenten
+  wurden in den Applikationen gefunden:
+  
+  \subsection{Top-Level-Komponenten}
+  
+  \begin{itemize}
+    \item top
+  \end{itemize}
+  
+  \subsection{Intermediate-Komponenten}
+  
+  \begin{itemize}
+    \item intermediate
+  \end{itemize}
+  
+  \subsection{Atomic-Komponenten}
+  
+  \begin{itemize}
+    \item atomic
+  \end{itemize}
+  
+  \subsection{Spezielle Komponenten}
+  
+  \begin{itemize}
+    \item special
+  \end{itemize}
+  
+  \section{Liste der GUI Paradigmen}
+  
+  Die Auflistung aller gefundenen GUI Paradigmen soll als Grundlage für die
+  Analyse der Web Frameworks dienen. Bei der Analyse soll geprüft werden, ob
+  die hier erkannten GUI Paradigmen implementiert werden können. Folgende GUI
+  Paradigmen wurden in den Applikationen gefunden:
+      
+  \subsection{Design-Patterns}
+  
+  \begin{description}
+    \item[Pattern]
+  \end{description}
+  
+  \subsection{``Neue'' Komponenten}
+  
+  \begin{description}
+    \item[new Component]
+  \end{description}
