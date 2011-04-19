@@ -166,12 +166,13 @@
   
   \begin{table}[ht]
     \begin{center}
-      \begin{tabular}{llr}
+      \begin{tabular}{llp{2cm}p{3.5cm}}
         \toprule
-        Applikation & Version & Sourcecode vorhanden \\
+        Applikation & Version & Sourcecode vorhanden & GUI enthält sensible
+        Informationen\\
         \midrule
-        Strukti Live & Version 1.2 & Ja\\
-        Strukti Online & Version 3.0 & Ja\\
+        Strukti Live & Version 1.2 & Ja & Nein\\
+        Strukti Online & Version 2.10.0 & Ja & Ja\\
         tbd & ?? & ??\\
         \bottomrule
       \end{tabular}
@@ -183,23 +184,24 @@
   \subsection{Begründung}
   
   \begin{description}
-  \item[Strukti Live 1.2]
-  Strukti Live 1.2 wurde desshalb gewählt, weil es eine Applikation ist, die
-  von der ZKB veröffentlicht wurde, somit werden bei der Anlayse keine
+  \item[Strukti Live]
+  Strukti Live 1.2 wurde gewählt, weil es eine Applikation ist, die
+  von der ZKB veröffentlicht wurde. Somit werden bei der Anlayse keine
   sensiblen Informationen preisgegeben.
   \item[Strukti Online]
-  Strukti Online 3.0 wurde desshalb gewählt, weil eine mögliche Migration zur
-  Webapplikation schon einmal disskutiert wurde.
+  Strukti Online 2.10.0 wurde gewählt, weil eine mögliche Migration
+  zur Web Applikation schon einmal in der \ac{ZKB} zur Disskusion stant.
   \item[tbd]
   \end{description}
   
-  \section{Strukti Live 1.2}
+  \section{Strukti Live}
   
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
-  Produkte. Die Applikation kann auf dem Internetauftritt der ZKB
-  heruntergeladen werden. Unter der Internetadresse
-  \url{http://www.zkb.ch/struktilive} sind alle nötigen Informationen
-  enthalten.
+  Produkte. Die Applikation kann auf dem Internetauftritt der
+  \ac{ZKB}\footnote{Unter der Internetadresse
+  \url{http://www.zkb.ch/struktilive} sind alle nötigen Informationen zu Strukti
+  Live enthalten.} heruntergeladen werden. Es wurde die aktuelle Version 1.2 für
+  die Analyse verwendet.
   
   In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich.
@@ -229,9 +231,9 @@
   \subsubsection{Top-Level-Komponenten}
   
   \begin{itemize}
-    \item \(javax.swing.JFrame\) mit javax.swing.JRootPane, siehe Abbildung
-    \ref{img:SL-01}
     \item \(javax.swing.JDialog\), siehe Abbildung \ref{img:SL-02}
+    \item \(javax.swing.JFrame\) mit \(javax.swing.JRootPane\), siehe Abbildung
+    \ref{img:SL-01}
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
@@ -245,22 +247,22 @@
   \subsubsection{Atomic-Komponenten}
   
   \begin{itemize}
-    \item \(javax.swing.JLabel\), siehe Abbildung \ref{img:SL-01}
     \item \(javax.swing.JButton\), siehe Abbildung \ref{img:SL-01}
     \item \(javax.swing.JCheckBox\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JLabel\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JRadioButton\), siehe Abbildung \ref{img:SL-02}
     \item \(javax.swing.JSlider\), siehe Abbildung \ref{img:SL-02}
     \item \(javax.swing.JTextField\), siehe Abbildung \ref{img:SL-02}
-    \item \(javax.swing.JRadioButton\), siehe Abbildung \ref{img:SL-02}
     \item \(javax.swing.JToolTip\), siehe Abbildung \ref{img:SL-03}
   \end{itemize}
   
   \subsubsection{Spezielle Komponenten}
   
   \begin{itemize}
+    \item \(javax.swing.JLabel\) als externer Link, siehe Abbildung
+    \ref{img:SL-03}
     \item \(org.jfree.chart.JFreeChart\), siehe Abbildung \ref{img:SL-02}
     \item \(org.xhtmlrenderer.simple.XHTMLPanel\), siehe Abbildung
-    \ref{img:SL-03}
-    \item \(javax.swing.JLabel\) als externer Link, siehe Abbildung
     \ref{img:SL-03}
   \end{itemize}
   
@@ -324,11 +326,16 @@
     oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
   \end{description}
   
-  \section{Strukti Online 3.0}
+  \section{Strukti Online}
   
-  Strukti Online ist ein Emissionstool der Zürcher Kantonalbank für
-  strukturierte Produkte. Die Applikation wird aktuell nur zum internen
-  Gebrauch entwickelt.
+  Strukti Online ist ein Emissionstool der \ac{ZKB} für strukturierte Produkte.
+  Die Applikation wird aktuell nur zum internen Gebrauch entwickelt und basiert
+  auf Java Swing. Es wurde die aktuelle Version 2.10.0 für die Analyse
+  verwendet.
+  
+  Da es sich um eine interne Applikation handelt, werden keine Screenshots
+  der Applikation gezeigt, da anahand dessen eventuell Rückschlüsse auf die
+  Business-Logik gemacht werden könnten.
   
   In der Tabelle \ref{tab:bibliothekenStruktiOnline} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
@@ -336,15 +343,18 @@
   
   \begin{table}[ht]
     \begin{center}
-      \begin{tabular}{lllr}
+      \begin{tabular}{lp{4.5cm}ccp{2cm}}
         \toprule
-        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
+        Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
         \midrule
-        Swingx & xx & xx & Ja\\
-        JFreeChart & xx & xx & Ja\\
+        core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL & Ja\\
+        jfreechart-1.0.10.jar & Charting Library für Java & 1.0.10 & LGPL & Ja\\
+        forms.jar & Layout System aus der JGoodies Palette & 1.2.1 & BSD open
+        source license & Ja\\
+        swingx-1.0.jar & Swing Komponenten Erweiterung & 1.0 & LGPL & Ja\\
         \bottomrule
       \end{tabular}
-      \caption{Verwendete Bibliotheken von Strukti Online X.X}
+      \caption{Verwendete Bibliotheken von Strukti Online 2.10.0}
       \label{tab:bibliothekenStruktiOnline}
     \end{center}
   \end{table}
@@ -354,25 +364,46 @@
   \subsubsection{Top-Level-Komponenten}
   
   \begin{itemize}
-    \item top
+    \item \(javax.swing.JDialog\)
+    \item \(javax.swing.JFrame\) mit \(javax.swing.JRootPane\)
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
   
   \begin{itemize}
-    \item intermediate
+    \item \(javax.swing.JLayerdPane\)
+    \item \(javax.swing.JPanel\)
+    \item \(javax.swing.JScrollPane\)
+    \item \(javax.swing.JTabbedPane\)
   \end{itemize}
   
   \subsubsection{Atomic-Komponenten}
-  
   \begin{itemize}
-    \item atomic
+    \item \(javax.swing.JButton\)
+    \item \(javax.swing.JCheckbox\)
+    \item \(javax.swing.JComboBox\)
+    \item \(javax.swing.JFileChooser\)
+    \item \(javax.swing.JLabel\)
+    \item \(javax.swing.JRadioButton\)
+    \item \(javax.swing.JPasswordField\)
+    \item \(javax.swing.JSeparator\)
+    \item \(javax.swing.JSlider\)
+    \item \(javax.swing.JSpinner\)
+    \item \(javax.swing.JTable\)
+    \item \(javax.swing.JTextArea\)
+    \item \(javax.swing.JTextField\)
+    \item \(javax.swing.JTextPane\)
+    \item \(javax.swing.JToolTip\)
   \end{itemize}
   
   \subsubsection{Spezielle Komponenten}
     
   \begin{itemize}
-    \item special
+    \item \(javax.swing.JLabel\) als externer Link
+    \item \(org.jfree.chart.JFreeChart\)
+    \item \(org.xhtmlrenderer.simple.XHTMLPanel\)
+    \item \(org.jdesktop.swingx.JXBusyLabel\)
+    \item \(org.jdesktop.swingx.JXDatePicker\)
   \end{itemize}
   
   \subsection{Gefundene GUI Paradigmen}
