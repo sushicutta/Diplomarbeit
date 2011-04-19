@@ -197,11 +197,10 @@
   \section{Strukti Live}
   
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
-  Produkte. Die Applikation kann auf dem Internetauftritt der
-  \ac{ZKB}\footnote{Unter der Internetadresse
-  \url{http://www.zkb.ch/struktilive} sind alle nötigen Informationen zu Strukti
-  Live enthalten.} heruntergeladen werden. Es wurde die aktuelle Version 1.2 für
-  die Analyse verwendet.
+  Produkte. Die Applikation kann auf dem Internetauftritt \footnote{Unter der
+  Internetadresse \url{http://www.zkb.ch/struktilive} sind alle nötigen
+  Informationen zu Strukti Live enthalten.} der \ac{ZKB} heruntergeladen
+  werden. Es wurde die aktuelle Version 1.2 für die Analyse verwendet.
   
   In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich.
@@ -290,9 +289,7 @@
     \end{center}
   \end{figure}
   
-  \subsection{Gefundene GUI Paradigmen}
-
-  \subsubsection{Design-Patterns}
+  \subsection{Gefundene Design-Patterns}
   
   \begin{description}
     \item[Menüführung]
@@ -312,18 +309,21 @@
     entsprechend aktualisiert.
   \end{description}
   
-  \subsubsection{``neue'' Komponenten}
+  \subsection{Gefundene ``neue'' Komponenten}
   
   \begin{description}
     \item[Button-Matrix]
-    Buttons werden in einer Matrix angeordnet, um sie entsprechend ihrer
-    Funktion zu ordnen. Dabei können die Buttons entsprechend ihrer
-    Renditechancen (x-Achse) und deren Kapitalschutz (y-Achse) eingeordnet
-    werden.
+    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Hinter jedem JButton steckt ein Finanzprodukt, das bei
+    einem Klick angezeigt werden kann. Die JButtons können entsprechend
+    ihrer Renditechancen (x-Achse) und deren Kapitalschutzes (y-Achse)
+    angeordnet werden.
     \item[Akkordeon]
     Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
     Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
-    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden. Zudem gibt
+    es in der Titelleiste ein Info-Button, wo ein Dialog mit
+    Hintergrundinformationen geöffnet werden kann.
   \end{description}
   
   \section{Strukti Online}
@@ -334,8 +334,8 @@
   verwendet.
   
   Da es sich um eine interne Applikation handelt, werden keine Screenshots
-  der Applikation gezeigt, da anahand dessen eventuell Rückschlüsse auf die
-  Business-Logik gemacht werden könnten.
+  der Applikation gezeigt, da anhand dessen eventuell Rückschlüsse auf die
+  Business-Logik gemacht werden könnte.
   
   In der Tabelle \ref{tab:bibliothekenStruktiOnline} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
@@ -405,19 +405,44 @@
     \item \(org.jdesktop.swingx.JXBusyLabel\)
     \item \(org.jdesktop.swingx.JXDatePicker\)
   \end{itemize}
-  
-  \subsection{Gefundene GUI Paradigmen}
     
-  \subsubsection{Design-Patterns}
+  \subsection{Gefundene Design-Patterns}
   
   \begin{description}
-    \item[Pattern]
+    \item[MVC]
+    Das Zusammenspiel von Model, View und Kontroller wurde strikte nach dem
+    MVC-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S. 15ff.
+    \item[Observer]
+    Einfache Aktuallisierungen zwischen Komponenten wurden strikte nach dem
+    Observer-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S.
+    2ff.
+    \item[Tabellen-Filter]
+    Durch die Verwendung von JRadioButton, JComboBox, JXDatePicker und JSpinner
+    wurden bei den meisten Ansicht von Tabellen Filter gebaut, damit die Daten
+    auf das Wesentliche reduziert werden können. Datei wurde für jede relevante
+    Spalten der Tabelle entsprechend deren Datentyp eine dieser Komponenten
+    gewählt.
   \end{description}
   
-  \subsubsection{``neue'' Komponenten}
+  \subsection{Gefundene ``neue'' Komponenten}
   
   \begin{description}
-    \item[new Component]
+    \item[Button-Matrix]
+    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Hinter jedem JButton steckt ein spezifisches
+    vorbewertetes Finanzprodukt, das bei einem Click angezeigt werden kann.
+    Die JButtons können entsprechend ihrer Laufzeit (x-Achse) und der
+    Underlyings\footnote{Auch Basiswerte genannt, siehe \cite{Basiswerte}} des
+    hinterlegten Finanzprodukts (y-Achse) angeordnet werden. Die Matrix, kann
+    wie eine Tabelle nach Laufzeiten sortiert werden.
+    \item[Akkordeon]
+    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
+    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
+    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+    \item[Zeit-Panel]
+    Durch die Kombination einer \(org.jdesktop.swingx.JXDatePicker\) und einer
+    \(javax.swing.JSpinner\) Komponente kann ein Datum mit Uhrzeit ausgewählt
+    werden.
   \end{description}
   
   \section{tbd}
