@@ -13,6 +13,7 @@
   \newline
   
   \begin{table}[ht]
+    \sffamily 
     \begin{center}
       \begin{tabular}{llp{2cm}p{3.5cm}}
         \toprule
@@ -101,6 +102,7 @@
   \newline
   
   \begin{table}[ht]
+    \sffamily 
     \begin{center}
       \begin{tabular}{lp{4.5cm}ccp{2cm}}
         \toprule
@@ -236,20 +238,28 @@
   und ob deren Sourcecode zugänglich ist.
   
   \begin{table}[ht]
+    \sffamily 
     \begin{center}
-      \begin{tabular}{lp{4.5cm}ccp{2cm}}
-        \toprule
-        Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
-        \midrule
-        core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL & Ja\\
-        jfreechart-1.0.10.jar & Charting Library für Java & 1.0.10 & LGPL & Ja\\
-        forms.jar & Layout System aus der JGoodies Palette & 1.2.1 & BSD open
-        source license & Ja\\
-        swingx-1.0.jar & Swing Komponenten Erweiterung & 1.0 & LGPL & Ja\\
-        \bottomrule
-      \end{tabular}
-      \caption{Verwendete Bibliotheken von Strukti Online 2.10.0}
-      \label{tab:bibliothekenStruktiOnline}
+      \begin{threeparttable}
+        \begin{tabular}{lp{4.5cm}ccp{2cm}}
+          \toprule
+          Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
+          \midrule
+          core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL &
+          Ja\\
+          jfreechart-1.0.10.jar & Charting Library für Java & 1.0.10 & LGPL
+          & Ja\\
+          forms.jar & Layout System aus der JGoodies Palette & 1.2.1 &
+          BSD\tnote{1} & Ja\\
+          swingx-1.0.jar & Swing Komponenten Erweiterung & 1.0 & LGPL & Ja\\
+          \bottomrule
+        \end{tabular}
+        \caption{Verwendete Bibliotheken von Strukti Online 2.10.0}
+        \label{tab:bibliothekenStruktiOnline}
+        \begin{tablenotes}[++]\footnotesize 
+          \item[1] Es handelt sich dabei um die ``BSD open source license''
+        \end{tablenotes} 
+      \end{threeparttable}
     \end{center}
   \end{table}
   
@@ -348,6 +358,7 @@
   und ob deren Sourcecode zugänglich ist.
   
   \begin{table}[ht]
+    \sffamily 
     \begin{center}
       \begin{tabular}{lllr}
         \toprule
