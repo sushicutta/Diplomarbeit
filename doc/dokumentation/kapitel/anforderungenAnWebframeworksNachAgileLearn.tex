@@ -1,0 +1,242 @@
+  Folgende Anforderungen stammen aus dem Dokument ``\begin{itshape}18
+  Anforderungen an Webframeworks -
+  OpenDoc\end{itshape}'', siehe \cite{AnforderungenAnWebframeworks}, und werden
+  hier zusammengefasst.
+  
+  \section{Auflistung der Anforderungen}
+  
+  Die Anforderungen sind hier aufgelistet und mit einer ID in der Form
+  Soll\}-\{Laufnummer\} versehen, da die Anforderungen als Soll-Kriterien für
+  die Evaluation der Java Web Frameworks dienen.
+  
+  \begin{description}
+
+    \item[Soll-01 - Zugriffskontrolle
+    (Authentifizierung/Authorisation/Rollenverwaltung)\label{itm:Soll-01}]
+
+    Ein Webframework sollte EntwicklerInnen verschiedene Mechanismen
+    bereitstellen, um die Anwendung vor fremden und unerlaubten Zugriff schützen
+    zu können.
+
+    Authentifizierung/Autorisierung: Üblicherweise werden im Vorfeld Rollen für
+    verschiedenen Gruppen festgelegt. Das Ziel einer sicheren Webanwendung ist
+    es, bestimmte Bereiche einer Seite abzusichern und die Rechte aller
+    Benutzer je nach Rolle einzuschränken. Anhand der Rolle wird deren
+    Benutzer für die festgelegten Bereiche autorisiert.
+
+    Vertraulichkeit / Verschlüsselung: Sensible Daten, wie Passwörter und
+    Personendaten, müssen vor dem Zugriff und der Kenntnisnahme von Dritten
+    geschützt werden. Hierfür werden die Daten während der Übertragung
+    verschlüsselt. Für eine sichere Datenübertragung werden meist
+    Verschlüsselungsprotokolle wie SSL (Secure Sockets Layer), sowie dessen
+    Nachfolger TLS (Transport Layer Security) eingesetzt. Diese gelten als
+    relativ sicher und sind bei Transaktionen bei einer Bank unverzichtbar.
+
+    \item[Soll-02 - Form-Validierung\label{itm:Soll-02}]
+    Das Verarbeiten von Formularen bzw. die Handhabung von Benutzereingaben und
+    -aktionen gehört zu den täglichen Aufgaben der Webentwicklung. Die Logik
+    für server- und clientseitiges Validieren ist im Idealfall nur einmal
+    implementiert.
+
+    Server-Side Validation: Das Webframework soll die Mögichkeit bieten,
+    eingegebene Daten einfach zu überprüfen. Dabei soll für jede Eigenschaft
+    eines Datenmodells (Model) ein Wertebereich definierbar sein, zusätzlich
+    soll geprüft werden, ob die Eingabe erforderlich ist. Die Programmierlogik
+    soll minimal sein. Nach dem Senden der Daten wird alles überprüft und ggf.
+    entsprechende Fehlermeldungen zurückgegeben.
+
+    Client-Side Validation: Das Webframework soll wenn möglich schon auf dem
+    Client validieren. Wenn möglich, sollen die Daten gleich bei oder kurz nach
+    der Eingabe überprüft werden, wobei die Logik auf dem Server implementiert
+    ist. Beispiel: Ist der Anmeldename schon vergeben. Dadurch werden
+    Serverressourcen gespart und der Benutzer hat ein direktes Feedback.
+
+    \item[Soll-03 - Modulare Architektur\label{itm:Soll-03}]
+
+    Eine Webanwendung stellt ein Zusammenspiel verschiedenster
+    Internettechnologien dar, die wiederum hinsichtlich ihrer Entwicklung einem
+    stetigen Wandel unterliegen. Die Herausforderung für die Entwickler ist es,
+    die Entwicklung der Technologien im Auge zu behalten um gegebenenfalls
+    Neuheiten oder Änderungen im System anzupassen. Eine Webanwendung sollte
+    daher in all ihren Bestandteilen möglichst wartbar bleiben.
+
+    \item[Soll-04 - Schnittstellen und Webservices\label{itm:Soll-04}]
+
+    Interoperabilität beschreibt den Austausch von Informationen verschiedener
+    Softwaresysteme. Es gibt verschiedene Technologien, mit denen ein
+    Informationsaustausch umgesetzt werden kann - REST, SOAP und RPC sind am
+    weitesten verbreitet. Das Webframework sollte Mechanismen und Funktionen
+    zur Umsetzung von Schnittstellen bereitstellen.
+    
+    \item[Soll-05 - MVC-Entwurfsmuster\label{itm:Soll-05}]
+    Besonders im Web hat sich das Model-View-Controller Entwurfsmuster als
+    quasi Standard-Architekturmuster für Webanwendungen etabliert und hält
+    daher Einzug bei den meisten Webframeworks. Es dient zur Strukturierung der
+    Software in drei Einheiten. Das Model (Datenmodell) enthält die
+    Geschäftslogik - die Informationen die dargestellt werden. Der Controller
+    (Steuerung) ist die Schnittstelle zwischen der View und dem Datenmodell. Er
+    nimmt Benutzeraktionen entgegen (z.B. Formulardaten) und leitet sie an ein
+    bestimmtes Datenmodell weiter. Der Controller führt dann Operationen wie
+    speichern, ändern und löschen auf dem Datenmodell (besser gesagt dem
+    Objekt) aus. Die View ist die Präsentationsschicht und stellt die Daten
+    dar, die es vom Controller entgegennimmt. Jedoch sollte eine View nicht
+    ohne einen Controller neue Objekte erzeugen oder speichern (Trennung von
+    Logik und Darstellung). Mit dem MVC-Entwurfsmuster können u.a.
+    ProgrammiererInnen und DesignerInnen während der Entwicklung unabhängig
+    voneinander arbeiten.
+
+    \item[Soll-06 - Testing\label{itm:Soll-06}]
+
+    Testing ist mit test-driven development (TDD), vor allem in der agilen
+    Softwareentwicklung, ein fester Bestandteil während der Projektentwicklung.
+    Vor der Implementierung überprüft der Programmierer, mittels Unit-Tests, 
+    konsequent das Verhalten jeglicher Komponenten. Gerade kritische Prozesse
+    und Transaktionen (zum Beispiel eine Banküberweisung) sollten ausgiebig
+    getestet werden. Das Webframework soll die Möglichkeit von Unit-Tests
+    bieten.
+
+    \item[Soll-07 - Internationalisierung und Lokalisierung\label{itm:Soll-07}]
+
+    Viele Webanwendungen richten sich mittlerweile an ein internationales
+    Publikum. Dank der Offenheit und der weiten Verbreitung des Internets lassen
+    sich dadurch sehr einfach neue Zielgruppen (BenutzerInnen) erschließen.
+    Jedoch gilt es, einige Vorraussetzungen und Besonderheiten bei der
+    Internationalisierung von Webanwendungen zu beachten. Zunächst müssen
+    sämtliche Texte übersetzt und möglicherweise in neue Datenbanken ausgelagert
+    werden. Hierbei ist zu berücksichtigen, dass es länderspezifische
+    Zeichensätze, Zahlen, Datum und Währungswerte gibt. Hinzu kommt, dass unter
+    Umständen auch spezielle Grafiken neu erstellt werden müssen.
+    
+    \item[Soll-08 - Object Relational Mapping (ORM)\label{itm:Soll-08}]
+    Die meisten Webframeworks unterstützen das objektorientierte
+    Programmierparadigma. Im Zusammenhang mit relationalen Datenbanken kommt es
+    allerdings zu grundlegenden Problemen, weil der Zustand und das Verhalten
+    eines Objekts nicht in einer relationalen Datenbank gespeichert werden
+    kann. Dies ist auf die beiden widersprüchlichen Konzepte von
+    objektorientierter Programmierung (OOP) und relationalen
+    Datenbankmanagementsystemen (RDMS) zurückzuführen. Im Gegensatz zu
+    objektorientierten Datenbanken, werden beim ORM die Tabellen aus der
+    Datenbank als Klassen abgebildet (gemappt). Durch die Klassenabbildung wird
+    für den/die ProgrammiererIn wieder die gewohnte OOP-Umgebung geschaffen.
+    Wenn ein Objekt erstellt oder geändert wird, ist der Mapper verantwortlich,
+    um diese Informationen in der Datenbank zu speichern und auch ggfs. wieder
+    zu löschen. ORM bildet somit eine Schnittstelle zwischen OOP und
+    relationalen Datenbanken.
+
+    Unterstützung von Transaktionen: Bei der Speicherung von Informationen in
+    mehreren Datenbanktabellen muss sicher gestellt sein, dass entweder alle
+    oder keine Informationen gespeichert werden.
+
+    \item[Soll-09 - Scaffolding / Rapid Prototyping\label{itm:Soll-09}]
+
+    Mit Scaffolding ist das automatische Generien von den sogenannten CRUD-Pages
+    (Create, Read, Update, Delete) gemeint.
+
+    Scaffolding und das dadurch verstandene Rapid Prototyping ist ein
+    wesentlicher Aspekt der agilen Softwareentwicklung (zum Beispiel in
+    Verwendung mit der Scrum-Methodik). Gerade zu Beginn eines Projekts eignet
+    sich das Rapid Prototyping, da Änderungen in den Models umgehend in die
+    Views eingebunden werden können.
+
+    \item[Soll-10 - Caching\label{itm:Soll-10}]
+
+    Neben der Übertragunsgeschwindigkeit gibt es eine Menge anderer Faktoren,
+    die für eine leistungsstarke Webanwendung entscheidend sind. Ein Aspekt ist
+    das Caching - das Zwischenspeichern von Daten, die häufig verwendet bzw.
+    aufgerufen werden.
+
+    Das Caching kann meist auf verschiedenen Ebenen implementiert werden: Auf
+    dem Client, auf dem Webserver und auf der Datenbankebene. Dabei soll das
+    Webframework diese Mechanismen unterstützen und es ermöglichen, diese
+    einfach zu aktivieren und zu kalibrieren.  
+
+    \item[Soll-11 - View-Engine\label{itm:Soll-11}]
+
+    View Engines werden eingesetzt, um das Arbeiten mit den Views zu
+    erleichtern. Sie unterstützen vor allem das Templating - das Erstellen von
+    Vorlagen. Durch typisierte Views wird eine Webanwendung robuster, weil
+    weniger fehleranfällig; durch partial Views (oft auch nur als partials
+    bezeichnet) werden einzelne Elemente oder Bereiche der Benutzeroberfläche
+    wiederverwendbar gemacht. Diese Vorlagen können von mehreren Views genutzt
+    werden. Dadurch wird deutlich weniger redundanter Code erstellt. Dies ist
+    ein wichtiger Aspekt in Bezug auf das Don’t repeat yourself (DRY) Prinzip.
+
+    \item[Soll-12 - Dokumentation\label{itm:Soll-12}]
+
+    Eine Webanwendung ist aus Entwicklersicht eine Zusammenfassung
+    verschiedenster Technologien (Webframeworks, Bibliotheken, Schnittstellen).
+    Über das Application Programming Interface (API) haben Programmierer Zugriff
+    auf die verfügbaren Funktionen. Nicht selten erstreckt sich die
+    Dokumentation einer API über mehrere hundert Seiten. Für Programmierer ist
+    es daher von enormer Bedeutung, dass die Bibliotheken gut strukturiert und
+    verständlich beschrieben sind. Schlecht oder gar nicht dokumentierte
+    Technologien erhöhen die Fehlerquote und sind oft ausschlaggebend für einen
+    nicht flüssigen Workflow.
+
+    \item[Soll-13 - Community\label{itm:Soll-13}]
+
+    Die beteiligten Personen in den Foren, Mailing-Listen oder Wikis bilden im
+    Zusammenhang mit Webframeworks die Community. Es findet dabei ein
+    Wissensaustausch statt, der weit über die standard-Dokumentation hinaus
+    geht. Die Nutzer helfen sich gegenseitig bei Problemen und Fehlern und oft
+    hinterlassen sie mit ihren Einträgen wiederum einen Lösungsansatz, der
+    zukünftig von anderen wieder aufgegriffen werden kann. Es ist daher 
+    wichtig, dass den Anwendern eine Möglichkeit geboten wird, sich
+    auszutauschen, gemeinsam Fehlermeldungen zu deuten und Lösungsansätze zu
+    entwickeln.
+
+    \item[Soll-14 - IDE-Unterstützung\label{itm:Soll-14}]
+
+    In der Softwareentwicklung ist die IDE das Basiswerkzeug für die
+    Programmierer. Die Entwicklungsumgebung stellt den Entwicklern verschiedene
+    Komponenten zur Verfügung, wie Editor, Compiler, Linker oder Debugger.
+    Hinzu kommen mit Syntaxhighlighting, Refactoring und Code-Formatierung
+    weitere wichtige Funktionen, die die Entwickler in vielerlei Hinsicht enorm
+    unterstützen.
+
+    \item[Soll-15 - Kosten für Entwicklungswerkzeuge\label{itm:Soll-15}]
+
+    Je nach verfügbaren finanziellen Mitteln spielen die Kosten von
+    Entwicklungswerkzeugen und Technologien durchaus eine Rolle. Bei beiden
+    Faktoren hat man meist die Wahl zwischen kostenlosen (OpenSource) und
+    kommerziellen Produkten. Je nach Webanwendung müssen somit Lizenzgebühren
+    für die Entwicklungswerkzeuge, Server zum Ausführen der Anwendung und
+    Datenbankserver berücksichtigt werden. Dabei ist es wichtig die richtige
+    Mischung verschiedener Komponenten zu finden.
+  
+    \item[Soll-16 - Eignung für agile Entwicklung\label{itm:Soll-16}]
+
+    Die herkömmlichen Methoden der Software-Entwicklung werden heute oft durch
+    neue agile Methoden, wie Extreme Programming oder Scrum abgelöst. Sie
+    fokussieren auf das Wesentliche und stehen für deutlich mehr Flexibilität in
+    der Entwicklungsphase als konventionelle Methoden. Verschiedene Technologien
+    unterstützen die agilen Methoden. Refactoring, Testing spielt dabei eine
+    wichtige Rolle und soll unterstützt werden.
+
+    \item[Soll-17 - Lernkurve für EntwicklerInnen\label{itm:Soll-17}]
+
+    Zur Umsetzung einer komplexen Webanwendung wird den Entwicklern ein Wissen
+    über verschiedenste Bereiche der Softwareentwicklung abverlangt.
+    Glücklicherweise gibt es für die Webentwicklung keinen einheitlichen
+    Standard, der festlegt, wie eine Webanwendung entwickelt werden muss. Das
+    Internet bietet für jeden Bereich eine Auswahl unterschiedlicher
+    Technologien an. Daher müssen vor der Entwicklung mehrere Entscheidungen
+    getroffen werden - hinsichtlich Programmiersprache, Javascript-Framework
+    oder Datenbankserver. Es werden daher oft Technologien gewählt, die leicht
+    zu erlernen und verstehen sind.
+
+    Wichtig ist, dass man einen schnellen Einstieg bekommt und Erfolge bald
+    sichtbar werden, um die Motivation der Entwickler zu erhöhen.
+
+    \item[Soll-18 - AJAX-Unterstützung\label{itm:Soll-18}]
+
+    Durch das Aufkommen von Javascript-Bibliotheken wie jQuery und Prototype
+    haben sich vollkommen neue Möglichkeiten eröffnet mit Javascript auf dem
+    Client zu arbeiten und mit AJAX wurde die Kommunikation zwischen Server und
+    Client im Web revolutioniert. Die direkte Unterstützung eines
+    Javascript-Frameworks ist für ein Webframework sinnvoll und erwünscht.
+
+    Darüber hinaus sollte die unterstützte Bibliothek lose gekoppelt sein, und
+    damit austauschbar. Sogenanntes unobtrusive Javascript, bei dem auch bei
+    abgeschaltetem Javascript die Anwendung funktioniert, ist auch eine Anforderung.
+  \end{description}
