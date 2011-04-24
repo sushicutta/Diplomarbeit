@@ -98,6 +98,9 @@
     \item Unwichtig
   \end{itemize}
   
+  Es sollen nur die ``wichtigen'' Soll-Kriterien in die Evaluation mit
+  einbezogen werden.
+  
   \subsection{Wichtige Aspekte im Software-Lebenszyklus für die ZKB}
   
   \begin{description}
@@ -302,13 +305,64 @@
   
   \subsection{Begründung}
   
+  \subsubsection{Alternative A}
+  
+  \subsubsection{Alternative B}
+  
+  \subsubsection{Alternative C}
+  
+  \subsubsection{Alternative D}  
+  
   \subsection{Prüfen auf bestehende KO-Kriterien}
   
   \section{Gewichtete Nutzwertanalyse mit dem Analytic Hirarchy Process}
   
   \subsection{Bestimmen der Kriterien}
   
+  Die Kriterien, welche in die Evaluation miteinbezogen werden, und somit für
+  jede Alternative untersucht werden soll, sind die ``wichtigen''
+  Soll-Kriterien:
+  
+  \begin{itemize}
+    \item Soll-01 - Zugriffskontrolle 
+    (Authentifizierung/Authorisation/Rollenverwaltung)
+    \item Soll-03 - Modulare Architektur
+    \item Soll-06 - Testing
+    \item Soll-12 - Dokumentation
+    \item Soll-13 - Community
+    \item Soll-18 - AJAX-Unterstützung
+  \end{itemize}
+  
   \subsection{Bestimmen der Gewichte mit dem Analytic Hirarchy Process}
+  
+  Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Dabei
+  werden alle ``wichtigen'' Soll-Kriterien miteinander verglichen. Die
+  Vergleichsmatrix ist in der Tabelle \ref{tab:gewichtungDerSollKriterien}
+  ersichtlich.
+  
+  \begin{table}[!h]
+    \sffamily 
+    \begin{center}
+
+      \begin{tabular}{l|cccccc|r}
+        \toprule
+        Vergleich & Soll-01 & Soll-03 & Soll-06 & Soll-12 & Soll-13 & Soll-18
+        & Gewichtung\\
+        \midrule
+        Soll-01 & 1 & 5 & 3 & 5 & 5 & 3 & 34.81 \%\\
+        Soll-03 & $\frac{1}{5}$ & 1 & $\frac{1}{3}$ & 1 & 1 & $\frac{1}{5}$ &
+        5.91 \%\\
+        Soll-06 & $\frac{1}{3}$ & 3 & 1 & 3 & 3 & 1 & 17.93 \%\\
+        Soll-12 & $\frac{1}{5}$ & 1 & $\frac{1}{3}$ & 1 & $\frac{1}{3}$ &
+        $\frac{1}{5}$ & 4.85 \% \\
+        Soll-13 & $\frac{1}{5}$ & 1 & $\frac{1}{3}$ & 3 & 1 & $\frac{1}{5}$ &
+        9.07 \%\\ Soll-18 & $\frac{1}{3}$ & 5 & 1 & 5 & 5 & 1 & 27.43\%\\
+        \bottomrule
+      \end{tabular}
+      \caption{Gewichtung der Soll-Kriterien nach der Methode AHP.}
+      \label{tab:gewichtungDerSollKriterien}
+    \end{center}
+  \end{table}
   
   \subsection{Bestimmen des Erfüllungsgrads}
   
