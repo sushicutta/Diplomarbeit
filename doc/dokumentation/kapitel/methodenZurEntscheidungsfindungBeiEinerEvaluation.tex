@@ -19,9 +19,9 @@
   
   \section{Gewichtete Nutzwertanalyse}
   
-  Bei der gewichteten \ac{NWA} wird eine Menge von Kandidaten, auf deren
+  Bei der gewichteten \ac{NWA} wird eine Menge von Alternativen, auf deren
   Nutzen, miteinander verglichen. Der Vergleich wird über \(n\) vergleichbare
-  Alternativen geführt. Dabei werden die einzelnen Alternativen mit einem
+  Kriterien geführt. Dabei werden die einzelnen Kriterien mit einem
   Erfüllungsgrad \(e_i\) bewertet. Die Skala der Erfüllungsgrade ist in der
   Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
   \newline
@@ -45,9 +45,9 @@
     \end{center}
   \end{table}
   
-  Jede Alternative wird durch einen Gewichtungsfaktor \(g_i\) versehen, was
-  die Präferenz der Alternative wiederspiegelt. Dabei gilt: Die Gewichte gi werden
-  so gewählt, dass ihre Summe 1 (100\%) ergibt, siehe Formel \ref{eq:gewicht}.
+  Jedes Kriterium wird durch einen Gewichtungsfaktor \(g_i\) versehen, was
+  die Präferenz des Kriteriums wiederspiegelt. Dabei gilt: Die Gewichte gi
+  werden so gewählt, dass ihre Summe 1 (100\%) ergibt, siehe Formel \ref{eq:gewicht}.
 
   \begin{equation}
     \label{eq:gewicht}
@@ -63,19 +63,19 @@
     Nutzwert := \sum \limits_{i=1}^n e_i \cdot g_i
   \end{equation}
   
-  Für jeden zu evaluierenden Kandidaten soll geprüft werden, ob eines der
-  KO-Kriterien erfüllt ist, was zu einem Ausschluss des Kandidaten führen würde.
-  Falls das nicht der Fall ist, wird der Nutzwert des Kandidaten berechnet.
-  Derjenige Kandidat mit dem grössten Nutzwert entspricht am meisten den
-  Anforderungen.
+  Für jede zu evaluierende Alternative soll geprüft werden, ob eines der
+  KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
+  würde. Falls das nicht der Fall ist, wird der Nutzwert der Alternative
+  berechnet. Diejenige Alternative mit dem grössten Nutzwert entspricht am
+  meisten den Anforderungen.
   
   \subsection{Anschauliches Beispiel}
   
-  Als anschauliches Beispiel sollen zwei Kandidaten - Auto \(A\) und \(B\) -
-  miteinander verglichen werden. Sie sollen auf deren Alternativen - Leistung,
+  Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A\) und \(B\) -
+  miteinander verglichen werden. Sie sollen auf deren Kriterien - Leistung,
   Aussehen und Alltagstauglichkeit - verglichen werden. In der Tabelle
   \ref{tab:beispielNwa} ist das Beispiel ersichtlich. Das Resultat zeigt, dass
-  das Auto \(A\) dem Auto \(B\)  gegenüber bevorzugt werden soll, da der
+  das Auto \(A\) dem Auto \(B\) gegenüber bevorzugt werden soll, da der
   Nutzwert \(5.0 > 4.7\) ist. 
   
   \begin{table}[ht]
@@ -83,7 +83,7 @@
     \begin{center}
       \begin{tabular}{lrrrrr}
         \toprule
-        Alternativen & Gewichtung \(g\) & \(e_A\) & Wertigkeit \(A\) & \(e_B\)
+        Kriterien & Gewichtung \(g\) & \(e_A\) & Wertigkeit \(A\) & \(e_B\)
         & Wertigkeit \(B\)\\
         \midrule
         Leistung            & 0.3 & 7 & 2.1 & 9 & 2.7 \\

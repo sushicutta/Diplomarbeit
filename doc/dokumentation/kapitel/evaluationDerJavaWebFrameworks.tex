@@ -324,6 +324,14 @@
   
   \section{Prüfen auf bestehende KO-Kriterien}
   
+  \subsection{Welche KO-Kriterien sollen nicht beachtet werden}
+  
+  ECMA-Script soll nicht verwendet werden
+  
+  Struts 1.3 mit ZIP Framework muss verwendet werden.
+  
+  usw.
+  
   \subsection{A-1}
   
   \subsection{A-2}
@@ -359,12 +367,19 @@
   
   \subsection{Bestimmen der Gewichte mit dem Analytic Hirarchy Process}
   
-  Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Dafür
-  wird das Java Programm JAHP 2.1 verwendet. Es werden alle ``wichtigen'' 
-  Soll-Kriterien miteinander verglichen. Die Vergleichsmatrix und die daraus
-  resultierende Gewichtung ist in der Tabelle
+  Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Für
+  den Vergleich der Soll-Kriterien wird die Frage - \begin{itshape}``Wie
+  wichtig ist das Soll-Kriterium für die \ac{ZKB}?''\end{itshape} - gestellt.
+  
+  Es werden alle ``wichtigen'' Soll-Kriterien miteinander verglichen. Die
+  Vergleichsmatrix und die daraus resultierende Gewichtung ist in der Tabelle
   \ref{tab:gewichtungDerSollKriterien} und der Abbildung
-  \ref{img:gewichtungSollKriterien} ersichtlich.
+  \ref{img:gewichtungSollKriterien} ersichtlich. Für die Werte in der
+  Vergleichsmatix wird die Skala der Vergleichsgrad, siehe Tabelle
+  \ref{tab:vergleichsgrade}, verwendet.
+  
+  Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wird das
+  Java Programm JAHP 2.1 verwendet.
   
   \begin{table}[!h]
     \sffamily 
@@ -397,6 +412,121 @@
     \end{center}
   \end{figure}
   
-  \subsection{Bestimmen des Erfüllungsgrads}
+  \subsection{Bestimmen des Erfüllungsgrades}
+  
+  Für die Werte zur Bestimmung der Erfüllungsgrade wird die Skala der
+  Erfüllungsgrade, siehe Tabelle \ref{tab:erfuellungsgrade}, verwendet.
   
   \section{Resultat}
+  
+  \subsection{A-1 - ULC, Canoo RIA Suite}
+  
+  Siehe Tabelle \ref{tab:nwaA1}.
+  
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{l|rrr}
+        \toprule
+        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
+        \(_A-_1\) \\
+        \midrule
+        Soll-01   & 34.81 \% & x & y \\
+        Soll-03   &  5.91 \% & x & y \\
+        Soll-06   & 17.93 \% & x & y \\
+        Soll-12   &  4.85 \% & x & y \\
+        Soll-13   &  9.07 \% & x & y \\
+        Soll-18   & 27.43 \% & x & y \\
+        \midrule
+        \midrule
+        Ergebnis  & 100.00 \% &   & z \\
+        \bottomrule
+      \end{tabular}
+      \caption{Nutzwertanalyse der Alternative A-1}
+      \label{tab:nwaA1}
+    \end{center}
+  \end{table}
+  
+  \subsection{A-2 - Struts 1.3 mit ZIP - Framework}
+  
+  Siehe Tabelle \ref{tab:nwaA2}.
+  
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{l|rrr}
+        \toprule
+        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
+        \(_A-_2\) \\
+        \midrule
+        Soll-01   & 34.81 \% & x & y \\
+        Soll-03   &  5.91 \% & x & y \\
+        Soll-06   & 17.93 \% & x & y \\
+        Soll-12   &  4.85 \% & x & y \\
+        Soll-13   &  9.07 \% & x & y \\
+        Soll-18   & 27.43 \% & x & y \\
+        \midrule
+        \midrule
+        Ergebnis  & 100.00 \% &   & z \\
+        \bottomrule
+      \end{tabular}
+      \caption{Nutzwertanalyse der Alternative A-2}
+      \label{tab:nwaA2}
+    \end{center}
+  \end{table}
+  
+  \subsection{A-3 - Vaadin}
+  
+  Siehe Tabelle \ref{tab:nwaA3}.
+  
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{l|rrr}
+        \toprule
+        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
+        \(_A-_3\) \\
+        \midrule
+        Soll-01   & 34.81 \% & x & y \\
+        Soll-03   &  5.91 \% & x & y \\
+        Soll-06   & 17.93 \% & x & y \\
+        Soll-12   &  4.85 \% & x & y \\
+        Soll-13   &  9.07 \% & x & y \\
+        Soll-18   & 27.43 \% & x & y \\
+        \midrule
+        \midrule
+        Ergebnis  & 100.00 \% &   & z \\
+        \bottomrule
+      \end{tabular}
+      \caption{Nutzwertanalyse der Alternative A-3}
+      \label{tab:nwaA3}
+    \end{center}
+  \end{table}
+  
+  \subsection{A-4 - TBD}
+  
+  Siehe Tabelle \ref{tab:nwaA4}.
+  
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{l|rrr}
+        \toprule
+        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
+        \(_A-_4\) \\
+        \midrule
+        Soll-01   & 34.81 \% & x & y \\
+        Soll-03   &  5.91 \% & x & y \\
+        Soll-06   & 17.93 \% & x & y \\
+        Soll-12   &  4.85 \% & x & y \\
+        Soll-13   &  9.07 \% & x & y \\
+        Soll-18   & 27.43 \% & x & y \\
+        \midrule
+        \midrule
+        Ergebnis  & 100.00 \% &   & z \\
+        \bottomrule
+      \end{tabular}
+      \caption{Nutzwertanalyse der Alternative A-4}
+      \label{tab:nwaA4}
+    \end{center}
+  \end{table}
