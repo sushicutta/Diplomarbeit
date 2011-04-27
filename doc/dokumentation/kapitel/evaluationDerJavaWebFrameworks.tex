@@ -301,21 +301,45 @@
   \section{Auswahl der Java Web Frameworks}
   
   Es sollen vier Java Web Frameworks für die Evaluation ausgewählt werden. Ein
-  Java Web Framework, das in Frage kommt, wird Alternative genannt.
+  Java Web Framework, das in Frage kommt, wird Alternative genannt. Jede
+  Alternative wird mit einer ID in der Form \{A\}-\{Laufnummer\} versehen.
   
   \subsection{Begründung}
   
-  \subsubsection{ULC - Canoo RIA Suite}
+  Es soll für jede Alternative der Grund der Wahl erläutert werden.
   
-  \subsubsection{Struts 1.3 mit ZIP - Framework}
+  \subsubsection{A-1 - ULC, Canoo RIA Suite}
   
-  \subsubsection{Vaadin}
+  Gemäss Kick-off Protokoll Beschluss soll dieses Framework als Alternative
+  gewählt werden. Zudem wird die ULC, Canoo RIA Suite in den schweizer Banken
+  Credit Suisse und UBS eingesetzt.
   
-  \subsubsection{TBD}  
+  \subsubsection{A-2 - Struts 1.3 mit ZIP - Framework}
   
-  \subsection{Prüfen auf bestehende KO-Kriterien}
+  Bestehendes Framework, das in der ZKB bis jetzt eingesetzt wird.
   
+  \subsubsection{A-3 - Vaadin}
+  
+  \subsubsection{A-4 - TBD}  
+  
+  \section{Prüfen auf bestehende KO-Kriterien}
+  
+  \subsection{A-1}
+  
+  \subsection{A-2}
+  
+  \subsection{A-3}
+
+  \subsection{A-4}
+    
   \section{Gewichtete Nutzwertanalyse mit dem Analytic Hirarchy Process}
+  
+  Es sollen die Soll-Kriterien, auf welche die Frameworks verglichen werden,
+  bestimmt werden. Danach soll nach der Methode des \ac{AHP} die Gewichtung der
+  Soll-Kriterien vorgenommen und, zur Berechnung der Nutzwertanalyse,
+  verwendet werden. Für jede mögliche Alternative soll der Erfüllungsgrad der
+  Soll-Kriterien bestimmt und, zur Berechnung der Nutzwertanalyse, vewendet
+  werden. Das Resultat der Nutzwertanalyse soll dargestellt werden.
   
   \subsection{Bestimmen der Kriterien}
   
@@ -337,8 +361,10 @@
   
   Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Dafür
   wird das Java Programm JAHP 2.1 verwendet. Es werden alle ``wichtigen'' 
-  Soll-Kriterien miteinander verglichen. Die Vergleichsmatrix ist in der Tabelle
-  \ref{tab:gewichtungDerSollKriterien} ersichtlich.
+  Soll-Kriterien miteinander verglichen. Die Vergleichsmatrix und die daraus
+  resultierende Gewichtung ist in der Tabelle
+  \ref{tab:gewichtungDerSollKriterien} und der Abbildung
+  \ref{img:gewichtungSollKriterien} ersichtlich.
   
   \begin{table}[!h]
     \sffamily 
@@ -358,10 +384,18 @@
         9.07 \%\\ Soll-18 & $\frac{1}{3}$ & 5 & 1 & 5 & 5 & 1 & 27.43 \%\\
         \bottomrule
       \end{tabular}
-      \caption{Gewichtung der Soll-Kriterien nach der Methode AHP.}
+      \caption{Vergleichsmatrix der Soll-Kriterien nach der Methode des AHP.}
       \label{tab:gewichtungDerSollKriterien}
     \end{center}
   \end{table}
+  
+  \begin{figure}[ht]
+    \begin{center}
+      \includegraphics[width=0.95\textwidth]{./image/gewichtungSollKriterien.pdf}
+      \caption{Gewichtung der Soll-Kriterien nach der Methode des AHP}
+      \label{img:gewichtungSollKriterien}
+    \end{center}
+  \end{figure}
   
   \subsection{Bestimmen des Erfüllungsgrads}
   
