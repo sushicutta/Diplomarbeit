@@ -40,7 +40,9 @@
   \item[Strukti Online]
   Strukti Online 2.10.0 wurde gewählt, weil eine mögliche Migration
   zur Web Applikation schon einmal in der \ac{ZKB} zur Disskusion stant.
-  \item[tbd]
+  \item[Hedo Tool]
+  Hedo Tool 1.0.710 wurde gewählt, da die Applikation über ein hochstehendes
+  \ac{GUI} verfügt.
   \end{description}
   
   \section{Durchführung der Analyse}
@@ -127,14 +129,14 @@
   
   \begin{itemize}
     \item \(javax.swing.JDialog\), siehe Abbildung \ref{img:SL-02}
-    \item \(javax.swing.JFrame\) mit \(javax.swing.JRootPane\), siehe Abbildung
-    \ref{img:SL-01}
+    \item \(javax.swing.JFrame\), siehe Abbildung \ref{img:SL-01}
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
   
   \begin{itemize}
     \item \(javax.swing.JPanel\), siehe Abbildung \ref{img:SL-01}
+    \item \(javax.swing.JRootPane\), siehe Abbildung \ref{img:SL-01}
     \item \(javax.swing.JScrollPane\), siehe Abbildung \ref{img:SL-01}
     \item \(javax.swing.JTabbedPane\), siehe Abbildung \ref{img:SL-03}
   \end{itemize}
@@ -188,20 +190,19 @@
   \subsection{Gefundene Design-Patterns}
   
   \begin{description}
-    \item[Menüführung]
+    \item[Observer]
     Die Menüführung wurde durch das Observer-Pattern, siehe
     \cite{ObserverDesignPattern}, implementiert. Dabei wird in einem Modell
     der jeweilige Status der Applikation durch das Drücken eines
     \(javax.swing.JButton\) angepasst, wobei sich die jeweiligen
     \(javax.swing.JPanel\), welche auf Änderungen des Modells höhren, sich neu
     zeichnen.
-    \item[Komponentenupdate]
-    Ebenfalls mit dem Observer-Pattern, siehe \cite{ObserverDesignPattern},
-    wurde die Aktualisierung von Komponenten, welche zusammen hängen,
-    realisiert. Als Beispiel dient ein Verbund der Komponenten
-    \(javax.swing.JTextField\), \(javax.swing.JSlider\) und
-    \(org.jfree.chart.JFreeChart\). Dabei werden bei einer Änderung des Wert bei
-    dem Slider oder dem Textfeld die Werte aller anderen Komponenten
+
+    Ebenfalls mit dem Observer-Pattern wurde die Aktualisierung von Komponenten,
+    welche zusammen hängen, realisiert. Als Beispiel dient ein Verbund der
+    Komponenten \(javax.swing.JTextField\), \(javax.swing.JSlider\) und
+    \(org.jfree.chart.JFreeChart\). Dabei werden bei einer Änderung des Wert
+    bei dem Slider oder dem Textfeld die Werte aller anderen Komponenten
     entsprechend aktualisiert.
   \end{description}
   
@@ -269,7 +270,7 @@
   
   \begin{itemize}
     \item \(javax.swing.JDialog\)
-    \item \(javax.swing.JFrame\) mit \(javax.swing.JRootPane\)
+    \item \(javax.swing.JFrame\)
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
@@ -277,6 +278,7 @@
   \begin{itemize}
     \item \(javax.swing.JLayerdPane\)
     \item \(javax.swing.JPanel\)
+    \item \(javax.swing.JRootPane\)
     \item \(javax.swing.JScrollPane\)
     \item \(javax.swing.JTabbedPane\)
   \end{itemize}
@@ -322,9 +324,9 @@
     2ff.
     \item[Tabellen-Filter]
     Durch die Verwendung von JRadioButton, JComboBox, JXDatePicker und JSpinner
-    wurden bei den meisten Ansicht von Tabellen Filter gebaut, damit die Daten
+    wurden, bei den meisten Ansicht von Tabellen, Filter gebaut, damit die Daten
     auf das Wesentliche reduziert werden können. Datei wurde für jede relevante
-    Spalten der Tabelle entsprechend deren Datentyp eine dieser Komponenten
+    Spalten der Tabelle, entsprechend deren Datentyp, eine dieser Komponenten
     gewählt.
   \end{description}
   
@@ -349,27 +351,40 @@
     werden.
   \end{description}
   
-  \section{tbd}
+  \section{Hedo Tool}
   
-  Tbd ist ein blablabla Tool
+  Hedo Tool ist eine Applikation zur Gewichtung verschiedener Rating-Modelle
+  für Wohneigentum. Die Applikation wird aktuell nur zum internen Gebrauch
+  entwickelt und basiert auf Java Swing. Es wird die aktuelle Version 1.0.710
+  für die Analyse verwendet.
   
-  In der Tabelle \ref{tab:bibliothekenTbd} sind alle verwendeten
+  In der Tabelle \ref{tab:bibliothekenHedoTool} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
-  und ob deren Sourcecode zugänglich ist.
+  und ob deren Sourcecode zugänglich ist.  
   
   \begin{table}[ht]
     \sffamily 
     \begin{center}
-      \begin{tabular}{lllr}
-        \toprule
-        Bibliothek & Version & Lizenz & Sourcecode vorhanden \\
-        \midrule
-        tbd & xx & xx & Ja\\
-        tbd & xx & xx & Ja\\
-        \bottomrule
-      \end{tabular}
-      \caption{Verwendete Bibliotheken von TBD X.X}
-      \label{tab:bibliothekenTbd}
+      \begin{threeparttable}
+        \begin{tabular}{lp{4.5cm}ccp{2cm}}
+          \toprule
+          Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
+          \midrule
+          binding-2.0.6.jar & Swing Data Binding Framework aus der JGoodies
+          Palette & 2.0.6 & BSD\tnote{1} & Ja\\
+          forms.jar & Layout System aus der JGoodies Palette & 1.2.1 &
+          BSD\tnote{1} & Ja\\
+          swingx-1.0.jar & Swing Komponenten Erweiterung & 1.0 & LGPL & Ja\\
+          validation-2.0.1.jar & Validiert und präsentiert Validationsresultate
+          & 2.0.1 & BSD\tnote{1} & Ja\\
+          \bottomrule
+        \end{tabular}
+        \caption{Verwendete Bibliotheken von Hedo Tool 1.0.710}
+        \label{tab:bibliothekenHedoTool}
+        \begin{tablenotes}[++]\footnotesize 
+          \item[1] Es handelt sich dabei um die ``BSD open source license''
+        \end{tablenotes} 
+      \end{threeparttable}
     \end{center}
   \end{table}
   
@@ -378,25 +393,45 @@
   \subsubsection{Top-Level-Komponenten}
   
   \begin{itemize}
-    \item top
+    \item \(javax.swing.JDialog\)
+    \item \(javax.swing.JFrame\)
   \end{itemize}
   
   \subsubsection{Intermediate-Komponenten}
   
   \begin{itemize}
-    \item intermediate
+    \item \(javax.swing.JLayerdPane\)
+    \item \(javax.swing.JPanel\)
+    \item \(javax.swing.JRootPane\)
+    \item \(javax.swing.JScrollPane\)
   \end{itemize}
   
   \subsubsection{Atomic-Komponenten}
   
   \begin{itemize}
-    \item atomic
+    \item \(javax.swing.JButton\)
+    \item \(javax.swing.JCheckbox\)
+    \item \(javax.swing.JComboBox\)
+    \item \(javax.swing.JFileChooser\)
+    \item \(javax.swing.JFormattedTextField\)
+    \item \(javax.swing.JLabel\)
+    \item \(javax.swing.JMenuBar\)
+    \item \(javax.swing.JMenu\)
+    \item \(javax.swing.JMenuItem\)
+    \item \(javax.swing.JProgressBar\)
+    \item \(javax.swing.JSeparator\)
+    \item \(javax.swing.JSpinner\)
+    \item \(javax.swing.JTable\)
+    \item \(javax.swing.JTextField\)
+    \item \(javax.swing.JTextPane\)
+    \item \(javax.swing.JToolTip\)
   \end{itemize}
   
   \subsubsection{Spezielle Komponenten}
     
   \begin{itemize}
-    \item special
+    \item \(javax.swing.JLabel\) als externer Link
+    \item \(org.jdesktop.swingx.JXBusyLabel\)
   \end{itemize}
   
   \subsection{Gefundene GUI Paradigmen}
@@ -404,61 +439,118 @@
   \subsubsection{Design-Patterns}
   
   \begin{description}
-    \item[Pattern]
+    \item[MVC]
+    Das Zusammenspiel von Model, View und Kontroller wurde strikte nach dem
+    MVC-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S. 15ff.
+    \item[Observer]
+    Einfache Aktuallisierungen zwischen Komponenten wurden strikte nach dem
+    Observer-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S.
+    2ff.
+    \item[Worker]
+    Asynchrone Jobs, die viel Rechenzeit in Anspruch nehmen, wurden mit
+    \(javax.swing.SwingWorker<V,T>\) gelöst.
   \end{description}
   
   \subsubsection{``neue'' Komponenten}
   
-  \begin{description}
-    \item[new Component]
-  \end{description}
+  Es wurden keine ``neuen'' Komponenten indentifiziert.
   
   \section{Liste der Komponenten}
   
-  Die Auflistung aller gefundenen Komponenten soll als Grundlage für die Analyse
-  der Web Frameworks dienen. Bei der Analyse soll geprüft werden, ob die hier
-  erkannten Komponenten implementiert werden können. Folgende Komponenten
-  wurden in den Applikationen gefunden:
+  Die Auflistung aller gefunden Komponenten soll die vereinigte Menge aller
+  gefundenen Komponenten wiederspiegeln. Die Auflistung soll als Grundlage für
+  die Analyse, ob eine Implementierung der erkannten Swingkomponenten möglich
+  ist, dienen. Folgende Komponenten wurden in den Applikationen gefunden:
   
   \subsection{Top-Level-Komponenten}
   
   \begin{itemize}
-    \item top
+    \item \(javax.swing.JDialog\)
+    \item \(javax.swing.JFrame\)
   \end{itemize}
   
   \subsection{Intermediate-Komponenten}
   
   \begin{itemize}
-    \item intermediate
+    \item \(javax.swing.JLayerdPane\)
+    \item \(javax.swing.JPanel\)
+    \item \(javax.swing.JRootPane\)
+    \item \(javax.swing.JScrollPane\)
+    \item \(javax.swing.JTabbedPane\)
   \end{itemize}
   
   \subsection{Atomic-Komponenten}
   
   \begin{itemize}
-    \item atomic
+    \item \(javax.swing.JButton\)
+    \item \(javax.swing.JCheckbox\)
+    \item \(javax.swing.JComboBox\)
+    \item \(javax.swing.JFileChooser\)
+    \item \(javax.swing.JFormattedTextField\)
+    \item \(javax.swing.JLabel\)
+    \item \(javax.swing.JMenuBar\)
+    \item \(javax.swing.JMenu\)
+    \item \(javax.swing.JMenuItem\)
+    \item \(javax.swing.JPasswordField\)
+    \item \(javax.swing.JProgressBar\)
+    \item \(javax.swing.JRadioButton\)
+    \item \(javax.swing.JSeparator\)
+    \item \(javax.swing.JSlider\)
+    \item \(javax.swing.JSpinner\)
+    \item \(javax.swing.JTable\)
+    \item \(javax.swing.JTextArea\)
+    \item \(javax.swing.JTextField\)
+    \item \(javax.swing.JTextPane\)
+    \item \(javax.swing.JToolTip\)
   \end{itemize}
   
   \subsection{Spezielle Komponenten}
   
   \begin{itemize}
-    \item special
+    \item \(javax.swing.JLabel\) als externer Link
+    \item \(org.jfree.chart.JFreeChart\)
+    \item \(org.xhtmlrenderer.simple.XHTMLPanel\)
+    \item \(org.jdesktop.swingx.JXBusyLabel\)
+    \item \(org.jdesktop.swingx.JXDatePicker\)
   \end{itemize}
   
   \section{Liste der GUI Paradigmen}
   
-  Die Auflistung aller gefundenen GUI Paradigmen soll als Grundlage für die
-  Analyse der Web Frameworks dienen. Bei der Analyse soll geprüft werden, ob
-  die hier erkannten GUI Paradigmen implementiert werden können. Folgende GUI
-  Paradigmen wurden in den Applikationen gefunden:
+  Die Auflistung aller gefundenen GUI Paradigmen soll die vereinigte Menge aller
+  gefundenen GUI Paradigmen wiederspiegeln. Die Auflistung soll als Grundlage für
+  die Analyse, ob eine Implementierung der erkannten GUI Paradigmen möglich
+  ist, dienen. Folgende GUI Paradigmen wurden in den Applikationen gefunden:
       
   \subsection{Design-Patterns}
   
   \begin{description}
-    \item[Pattern]
+    \item[MVC]
+    Siehe \cite{GUIDesignPatterns} S. 15ff.
+    \item[Observer]
+    Siehe \cite{GUIDesignPatterns} S. 2ff.
+    \item[Tabellen-Filter]
+    Durch die Verwendung von JRadioButton, JComboBox, JXDatePicker und JSpinner
+    wurden bei den meisten Ansicht von Tabellen Filter gebaut, damit die Daten
+    auf das Wesentliche reduziert werden können. Datei wurde für jede relevante
+    Spalten der Tabelle entsprechend deren Datentyp eine dieser Komponenten
+    gewählt.
+    \item[Worker]
+    Asynchrone Jobs, die viel Rechenzeit in Anspruch nehmen, werden mit
+    \(javax.swing.SwingWorker<V,T>\) gelöst.
   \end{description}
   
   \subsection{``Neue'' Komponenten}
   
   \begin{description}
-    \item[new Component]
+    \item[Button-Matrix]
+    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen.
+    \item[Akkordeon]
+    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
+    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
+    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+    \item[Zeit-Panel]
+    Durch die Kombination einer \(org.jdesktop.swingx.JXDatePicker\) und einer
+    \(javax.swing.JSpinner\) Komponente kann ein Datum mit Uhrzeit ausgewählt
+    werden.
   \end{description}
