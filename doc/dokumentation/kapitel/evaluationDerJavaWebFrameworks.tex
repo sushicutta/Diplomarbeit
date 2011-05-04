@@ -306,31 +306,62 @@
   
   \subsection{Begründung}
   
-  Es soll für jede Alternative der Grund der Wahl erläutert werden.
+  Es soll für jede Alternative der Grund der Wahl erläutert werden. In Absprache
+  mit dem Projektbetreuer sollen aus den verschiednen Typen von Java Web
+  Frameworks jeweils eines gewählt werden. Es wurden folgende Typen definiert:
+  
+  \begin{itemize}
+    \item \ac{RIA} - Frameworks
+    \item MVC - Frameworks
+    \item Java Script/HTML/CSS - Cross-Compiler Frameworks
+    \item bereits eingesetzte Frameworks
+  \end{itemize}
   
   \subsubsection{A-1 - ULC, Canoo RIA Suite}
   
-  Gemäss Kick-off Protokoll Beschluss soll dieses Framework als Alternative
-  gewählt werden. Zudem wird die ULC, Canoo RIA Suite in den schweizer Banken
-  Credit Suisse und UBS eingesetzt.
+  ULC, Canoo RIA Suite zählt zu den \ac{RIA} Frameworks. Gemäss Kick-off
+  Protokoll Beschluss soll dieses Framework als Alternative gewählt werden.
+  Zudem wird die ULC, Canoo RIA Suite in den schweizer Banken Credit Suisse und
+  UBS eingesetzt.
   
-  \subsubsection{A-2 - Struts 1.3 mit ZIP - Framework}
+  \subsubsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
-  Bestehendes Framework, das in der ZKB bis jetzt eingesetzt wird.
+  MVC - Framework, das in der ZKB bis jetzt eingesetzt wird.
   
-  \subsubsection{A-3 - Vaadin}
+  \subsubsection{A-3 - Vaadin 6.5.7}
   
-  \subsubsection{A-4 - TBD}  
+  Vaadin zählt zu den Cross-Compiler Frameworks und baut auf \ac{GWT} auf.
+  
+  \subsubsection{A-4 - Apache Wicket 1.4.17}
+  
+  Bestehendes Framework, das in der ZKB bis jetzt eingesetzt wird. An dieser
+  Stelle ist zu erwähnen, dass der Einsatz aufgrund von Ausnahmegenehmigungen
+  eingesetzt werden darf. Diese müssten im Falle einer erfolgreichen Evaluation
+  ebenfalls beantragt werden.
   
   \section{Prüfen auf bestehende KO-Kriterien}
   
+  Es soll eine Prüfung aller Frameworks statt finden, ob es gegen definierte
+  KO-Kriterien verstösst. Falls das der Fall ist, wird das Framework von der
+  Evaluation ausgeschlossen. In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt
+  es gewisse KO-Kriterien, die im Rahmen der Diplomarbeit ausser Kraft treten.
+  
   \subsection{Welche KO-Kriterien sollen nicht beachtet werden}
   
-  ECMA-Script soll nicht verwendet werden
+  Damit die Durchführung der Evaluation einen Sinn ergibt, sollen einige
+  KO-Kriteiren nicht beachtet werden. In Absprache mit dem Fachbetreuer der
+  \ac{ZKB} wurden folgende KO-Kriterien im Rahmen der Diplomarbeit als
+  unzulässlich befunden:
   
-  Struts 1.3 mit ZIP Framework muss verwendet werden.
-  
-  usw.
+  \begin{itemize}
+    \item \ref{itm:KO-09} - Für Java-Applikationen (Internet, Extranet und
+    Intranet) wird das ZIP-Framework eingesetzt.
+    \item \ref{itm:KO-16} - Die Internet-Applikationen funktionieren auch
+    eingeschränkt, ohne dass die Skript-Funktion im Browser aktiviert ist.
+    \item \ref{itm:KO-20} - Für Ultra Thin Clients bzw. Browser-basierende
+    Applikationen muss das aktuelle, Struts-basierende HTML-Client-Framework
+    der ZKB Internet Plattform verwendet werden.
+  \end{itemize}
   
   \subsection{A-1}
   
