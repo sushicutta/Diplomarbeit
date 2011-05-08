@@ -168,7 +168,9 @@
   Mit einem mathematischen Modell, kann der \ac{AHP} nun eine präzise Gewichtung
   aller Kriterien errechnen. Mit der Gewichtung der Kriterien und dem Vergleich
   der Alternativen, kann der \ac{AHP} nun berechnen, welches die beste Lösung
-  (Alternative) für die gestellt Frage ist.
+  (Alternative) für die gestellt Frage ist. Aus dem mathematischen Modell
+  heraus, kann nun ein Inkonsistenzfaktor errechnet werden, der eine Aussage
+  macht, wie logisch die Bewertungen zueinander sind.
   
   Diese Berechnungen werden meistens mit der Unterstütztung einer Software
   gemacht. Als Beispiel gibt es JAHP 2.1\footnote{Für Hintergrundinformationen
@@ -179,11 +181,49 @@
     
   \section{Kombination beider Methoden}
   
-  Diese beiden Methoden können auch kombiniert eingesetzt
-  werden\cite{AhpNwaKombination}, da der \ac{AHP} relativ komplex in der
-  Umsetztung ist. Als Kombination kann die Nutzwertanalyse als Methode
-  verwendet werden, und der \ac{AHP} wird für die präzise berechnung der
-  Gewichtung einzelner Entscheidungskriterien verwendet. Aus der Kombination
-  entsteht somit eine neue Methode, welche durch die Verständlichkeit der
-  \ac{NWA} und der objektiven Gewichtung des \ac{AHP} eine plausable Evaluation
-  ermöglicht.
+  Diese beiden Methoden können auch kombiniert eingesetzt werden, siehe
+  \cite{AhpNwaKombination}, da der \ac{AHP} relativ komplex in der Umsetztung
+  ist. Als Kombination kann die Nutzwertanalyse als Methode verwendet werden,
+  und der \ac{AHP} wird für die präzise berechnung der Gewichtung einzelner
+  Entscheidungskriterien verwendet. Aus der Kombination entsteht somit eine
+  neue Methode, welche durch die Verständlichkeit der \ac{NWA} und der
+  objektiven Gewichtung des \ac{AHP} eine plausable Evaluation ermöglicht.
+  
+  In der Abbildung \ref{img:ablaufEvaluation} ist der komplette Ablauf einer
+  Evaluation mit der kombinierten Methode ersichtlich.
+    
+  \begin{figure}[ht]
+    \begin{center}
+      \includegraphics[width=0.5\textwidth]{./image/ablaufEvaluation.pdf}
+      \caption{Ablauf einer Evaluation mit der kombinierten Methode aus
+      Nutzwertanalyse und \ac{AHP}}
+      \label{img:ablaufEvaluation}
+    \end{center}
+  \end{figure}
+  
+  \subsection{Verbesserung der Gewichtung}
+  
+  Damit die Gewichtung noch präziser bestimmt werden kann, gibt es verschiedene
+  Ansätze. Zwei Ansätze möchte ich hier erläutern:
+  
+  \begin{itemize}
+    \item Die Sensitivitätsanalyse, siehe \cite{Sensitivitaetsanalyse}.
+    
+    Dabei wird ein einzelner Werte in der Gewichtung gezielt verändert, und das
+    Resultat wird danach geprüft. Bei der Methode des \ac{AHP} könnte zum
+    Beispiel der Inkonsistenzfaktor geprüft werden, wenn dieser sich Positiv
+    verändert, dann zeigt das eine Vergesserung der Gewichtung. Das Vorgehen
+    wird iterativ, bis zur Unterschreitung einer definierten Schwelle des
+    Inkonsistenzfaktors, fortgeführt.
+    
+    \item Statistische Methoden, wie der Mittelwert oder der Median, siehe
+    \cite{Median} und \cite{Mittelwert}.
+    
+    Dabei wird der Prozess der Gewichtung von mehr als einer Person
+    durchgeführt. Das Ergebniss wird aufgrund der statistischen Methoden
+    normalisiert.
+  \end{itemize}
+  
+  Diese Ansätze zur Verbesserung der Gewichtung werden im Rahmen der
+  Diplomarbeit nicht durchgeführt, sollen aber bei einer anderen Anwendung nicht
+  ausgeschlossen werden.

@@ -1,7 +1,11 @@
-  Dieses Kapitel behandelt die Evaluation der Java Web Frameworks. Es werden die
-  Methoden zur Entscheidungsfindung bei einer Evaluation angewendet. Mit der
-  definition von sinnvollen Rahmenbedingungen soll die Evaluation durchgeführt
-  und die Resultate vorgelegt werden.
+  Dieses Kapitel behandelt die Evaluation der Java Web Frameworks. Es wird die
+  kombinierte Methode aus dem Kapitel 
+  \ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
+  (\nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}, S.
+  \pageref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}ff)
+  angewendet. Mit der definition von sinnvollen Rahmenbedingungen soll die
+  Evaluation durchgeführt und das Resultate in Form einer Rangliste vorgelegt
+  werden.
     
   \section{Rahmenbedingungen für die Evaluierung}
   
@@ -38,8 +42,8 @@
   Anforderungen an Webframeworks -
   OpenDoc\end{itshape}'', siehe \cite{AnforderungenAnWebframeworks}, und werden
   im Anhang \ref{chapter:18AnforderungenNachAgileLearn}
-  \nameref{chapter:18AnforderungenNachAgileLearn} S.
-  \pageref{chapter:18AnforderungenNachAgileLearn}ff zusammengefasst und mit
+  (\nameref{chapter:18AnforderungenNachAgileLearn}, S.
+  \pageref{chapter:18AnforderungenNachAgileLearn}ff) zusammengefasst und mit
   einer ID versehen.
 
   \subsection{KO-Kriterien}
@@ -80,8 +84,8 @@
   Das Dokument wurde analysiert und alle Grundsätze, welche für diese
   Diplomarbeit relevanten sind, werden im Anhang
   \ref{chapter:GrundsaetzeDerZkbItArchitektur}
-  \nameref{chapter:GrundsaetzeDerZkbItArchitektur} auf S.
-  \pageref{chapter:GrundsaetzeDerZkbItArchitektur}ff aufgelistet und mit einer
+  (\nameref{chapter:GrundsaetzeDerZkbItArchitektur}, S.
+  \pageref{chapter:GrundsaetzeDerZkbItArchitektur}ff) aufgelistet und mit einer
   ID versehen.
 
   \section{Priorisierung der Soll-Kriterien}
@@ -314,7 +318,7 @@
     \item \ac{RIA} - Frameworks
     \item MVC - Frameworks
     \item Java Script/HTML/CSS - Cross-Compiler Frameworks
-    \item bereits eingesetzte Frameworks
+    \item In der \ac{ZKB} bereits eingesetzte Frameworks
   \end{itemize}
   
   \subsubsection{A-1 - ULC, Canoo RIA Suite}
@@ -326,32 +330,26 @@
   
   \subsubsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
-  MVC - Framework, das in der ZKB bis jetzt eingesetzt wird.
+  MVC - Framework, das in der ZKB bereits eingesetzt wird.
   
   \subsubsection{A-3 - Vaadin 6.5.7}
   
-  Vaadin zählt zu den Cross-Compiler Frameworks und baut auf \ac{GWT} auf.
+  Vaadin zählt zu den Java Script/HTML/CSS - Cross-Compiler Frameworks und baut
+  auf \ac{GWT} auf.
   
   \subsubsection{A-4 - Apache Wicket 1.4.17}
   
-  Bestehendes Framework, das in der ZKB bis jetzt eingesetzt wird. An dieser
-  Stelle ist zu erwähnen, dass der Einsatz aufgrund von Ausnahmegenehmigungen
-  eingesetzt werden darf. Diese müssten im Falle einer erfolgreichen Evaluation
-  ebenfalls beantragt werden.
-  
-  \section{Prüfen auf bestehende KO-Kriterien}
-  
-  Es soll eine Prüfung aller Frameworks statt finden, ob es gegen definierte
-  KO-Kriterien verstösst. Falls das der Fall ist, wird das Framework von der
-  Evaluation ausgeschlossen. In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt
-  es gewisse KO-Kriterien, die im Rahmen der Diplomarbeit ausser Kraft treten.
-  
-  \subsection{Welche KO-Kriterien sollen nicht beachtet werden}
+  Ein Framework das in der ZKB bereits eingesetzt wird. An dieser Stelle ist zu
+  erwähnen, dass der Einsatz aufgrund von Ausnahmegenehmigungen eingesetzt
+  werden darf. Diese müssten im Falle einer erfolgreichen Evaluation ebenfalls
+  beantragt werden.
+
+  \section{KO-Kriterien die nicht beachtet werden sollen}
   
   Damit die Durchführung der Evaluation einen Sinn ergibt, sollen einige
-  KO-Kriteiren nicht beachtet werden. In Absprache mit dem Fachbetreuer der
-  \ac{ZKB} wurden folgende KO-Kriterien im Rahmen der Diplomarbeit als
-  unzulässlich befunden:
+  KO-Kriterien nicht beachtet werden. In Absprache mit dem Fachbetreuer der
+  \ac{ZKB} betrifft das folgende KO-Kriterien, die im Rahmen der Diplomarbeit
+  nicht berücksichtigt werden:
   
   \begin{itemize}
     \item \ref{itm:KO-09} - Für Java-Applikationen (Internet, Extranet und
@@ -363,13 +361,54 @@
     der ZKB Internet Plattform verwendet werden.
   \end{itemize}
   
-  \subsection{A-1}
+  \section{Prüfen der zu beachtenden KO-Kriterien}
   
-  \subsection{A-2}
-  
-  \subsection{A-3}
+  Es soll eine Prüfung aller Frameworks statt finden, ob es gegen definierte
+  KO-Kriterien verstösst. Falls das der Fall ist, wird das Framework von der
+  Evaluation ausgeschlossen. In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt
+  es gewisse KO-Kriterien, die im Rahmen der Diplomarbeit ausser Kraft treten,
+  diese sollen nicht beachtet werden.
 
-  \subsection{A-4}
+  \subsection{A-1 - ULC, Canoo RIA Suite}
+  
+  Leider wurde wärend der Analyse festgestellt, dass die ULC, Canoo RIA Suite
+  nur in einer Java Virtual Machine\footnote{Die Java Virtual Machine ist der
+  Teil der \ac{JRE}, der für die Ausführung des Java-Bytecodes verantwortlich
+  ist, siehe \cite{JavaVirtualMachine}.} lauffähig ist. Das wird über die
+  Technik von Java-Web-Start\footnote{Java-Web-Start ist eine Technik von
+  Oracle (damals entwickelt von Sun Microsystems), die es ermöglicht, Java-Anwendungen
+  über das Internet mit nur einem Klick zu starten. Im Unterschied zu
+  Java-Applets benötigen Java-Web-Start-Anwendungen keinen Browser, um ablaufen
+  zu können, siehe \cite{JavaWebStart}.} oder mit der Hilfe von einem
+  Java-Applet\footnote{Ein Java-Applet ist ein Computerprogramm, das in der
+  Programmiersprache Java verfasst wurde und normalerweise in einem Webbrowser
+  ausgeführt wird, siehe \cite{JavaApplet}.} vollbracht. Das ist ersichtlich im
+  ULC Architektur Guide, siehe \cite{ULCArchitectureGuide} S. 18. Damit
+  verstösst diese Alternative gegen die KO-Kriterien \ref{itm:KO-18} und
+  \ref{itm:KO-19}. Aufgrund des Vorgehens aus der Abbildung
+  \ref{img:ablaufEvaluation} wird diese Alternative aus der Evaluation
+  ausgeschlossen.
+  
+  Der Client könnte auch als standalone Client implementiert oder in einen
+  bestehenden Client integriert werden. Das nützt nichts, da diese Situation
+  bereits mit den Java Swing Clients besteht, und abgelöst werden soll.
+  
+  Falls sich die Grundsätze der IT-Architektur der \ac{ZKB} in der Zunkunft
+  dahingehend ändern, dass Java Web Start oder Java Applets verwendet werden
+  dürften, stellt die ULC, Canoo RIA Suite ein gute Alternative zur Ablösung
+  bestehender Swing Applikationen.
+  
+  \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
+  
+  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
+  
+  \subsection{A-3 - Vaadin 6.5.7}
+  
+  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
+
+  \subsection{A-4 - Apache Wicket 1.4.17}
+  
+  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
     
   \section{Gewichtete Nutzwertanalyse mit dem Analytic Hirarchy Process}
   
@@ -412,6 +451,10 @@
   Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wird das
   Java Programm JAHP 2.1 verwendet.
   
+  Der Inkonsistenzfaktor beträgt 0.04754 und ist somit sehr klein. Die
+  getroffenen Annahmen der Gewichtung sollten desshalb aussagekräftig sein.
+  \newline
+  
   \begin{table}[!h]
     \sffamily 
     \begin{center}
@@ -452,33 +495,10 @@
   
   \subsection{A-1 - ULC, Canoo RIA Suite}
   
-  Siehe Tabelle \ref{tab:nwaA1}.
+  Wurde aufgrund der KO-Kriterien \ref{itm:KO-18} und \ref{itm:KO-19} aus der
+  Evaluation ausgeschlossen.
   
-  \begin{table}[ht]
-    \sffamily 
-    \begin{center}
-      \begin{tabular}{l|rrr}
-        \toprule
-        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
-        \(_A-_1\) \\
-        \midrule
-        Soll-01   & 34.81 \% & x & y \\
-        Soll-03   &  5.91 \% & x & y \\
-        Soll-06   & 17.93 \% & x & y \\
-        Soll-12   &  4.85 \% & x & y \\
-        Soll-13   &  9.07 \% & x & y \\
-        Soll-18   & 27.43 \% & x & y \\
-        \midrule
-        \midrule
-        Ergebnis  & 100.00 \% &   & z \\
-        \bottomrule
-      \end{tabular}
-      \caption{Nutzwertanalyse der Alternative A-1}
-      \label{tab:nwaA1}
-    \end{center}
-  \end{table}
-  
-  \subsection{A-2 - Struts 1.3 mit ZIP - Framework}
+  \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
   Siehe Tabelle \ref{tab:nwaA2}.
   
@@ -501,12 +521,13 @@
         Ergebnis  & 100.00 \% &   & z \\
         \bottomrule
       \end{tabular}
-      \caption{Nutzwertanalyse der Alternative A-2}
+      \caption{Nutzwertanalyse der Alternative A-2 - Struts 1.3.10 mit
+      ZIP-Framework}
       \label{tab:nwaA2}
     \end{center}
   \end{table}
   
-  \subsection{A-3 - Vaadin}
+  \subsection{A-3 - Vaadin 6.5.7}
   
   Siehe Tabelle \ref{tab:nwaA3}.
   
@@ -529,12 +550,12 @@
         Ergebnis  & 100.00 \% &   & z \\
         \bottomrule
       \end{tabular}
-      \caption{Nutzwertanalyse der Alternative A-3}
+      \caption{Nutzwertanalyse der Alternative A-3 - Vaadin 6.5.7}
       \label{tab:nwaA3}
     \end{center}
   \end{table}
   
-  \subsection{A-4 - TBD}
+  \subsection{A-4 - Apache Wicket 1.4.17}
   
   Siehe Tabelle \ref{tab:nwaA4}.
   
@@ -557,7 +578,7 @@
         Ergebnis  & 100.00 \% &   & z \\
         \bottomrule
       \end{tabular}
-      \caption{Nutzwertanalyse der Alternative A-4}
+      \caption{Nutzwertanalyse der Alternative A-4 - Apache Wicket 1.4.17}
       \label{tab:nwaA4}
     \end{center}
   \end{table}
