@@ -62,24 +62,26 @@
 
   \subsubsection{Grundsätze aus der IT-Architektur der Zürcher Kantonalbank}
   
-  Ein Grundsatz wird im Handbuch wer IT-Architektur wie folgt definiert:\\
+  Ein Grundsatz wird im Handbuch wer IT-Architektur wie folgt definiert:
+  \newline
   
   ``\begin{itshape}Es sind Grundsätze definiert, nach denen sich die Baupläne
   der IT-Systeme zu richten haben. Die Grundsätze sind ein Regelwerk mit
   Weisungscharakter.\end{itshape}''
   \footnote{\cite{ZkbHandbuchDerItArchitektur} Kapitel 1.3 - \begin{itshape}Was
   ist die IT-Architektur der ZKB\end{itshape}, Seite 11}
-  \\
-  \\
+  \newline
+
   \noindent
-  Dabei gibt es eine Hintertür:\\
+  Dabei gibt es eine Hintertür:
+  \newline
 
   ``\begin{itshape}Grundsätze sind verbindliche Vorgaben (Konventionen), von
   denen nur in begründeten Ausnahmen abgewichen werden kann.\end{itshape}''
   \footnote{\cite{ZkbHandbuchDerItArchitektur} Kapitel 1.8 -
   \begin{itshape}Leseanleitung\end{itshape}, Seite 14}
-  \\
-  \\
+  \newline
+  
   \noindent
   Das Dokument wurde analysiert und alle Grundsätze, welche für diese
   Diplomarbeit relevanten sind, werden im Anhang
@@ -529,7 +531,85 @@
   
   \subsection{A-3 - Vaadin 6.5.7}
   
-  Siehe Tabelle \ref{tab:nwaA3}.
+  Das Ergebnis ist in der Tabelle \ref{tab:nwaA3} ersichtlich. Die Begründung
+  der gegebenen Punkt wird hier noch erläutert.
+  
+  \subsubsection{Soll-01 - Zugriffskontrolle - 7 Punkte}
+  
+  Vaadin biete keine Unterstützung für Authentifizierung und Autorisierung an.
+  Es gibt ein alternatives Projekt, das sich
+  vaadin-appfoundation\footnote{Projektinformationen sind hier zu finden:
+  \url{http://code.google.com/p/vaadin-appfoundation/}} nennt. Dieses Projekt
+  beinhaltet ein Authorisierungs Modul, mit dem ein Rollenkonzept implementiert
+  werden kann.
+  
+  \noindent
+  Vaadin behauptet von sich, eines der sichersten Web Frameworks zu sein.
+  \newline
+  
+  \begin{itshape}``The server-side architecture of Vaadin is immune to the usual
+  risks affecting many other RIA frameworks. Your business logic and UI state
+  are kept securely on the server, and never sent to the browser where it could
+  be analyzed by a potential attacker. Vaadin doesn't even trust the components
+  or the RPC model of GWT, which is used to render the UI.
+
+  In addition, we have implemented several other security mechanisms in Vaadin
+  to prevent eg. man-in-the-middle and cross-site scripting
+  attacks.''\end{itshape}
+  \footnote{Siehe \cite{VaadinSecurityAlerts}}
+  \newline
+  
+  \noindent
+  Zwei Punkte abzug, da keine Rollenverwaltung vorhanden ist.
+  
+  \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
+  
+  Vaadin bietet ein eigenes Add-on Repository an, unter welchem Erweiterungen
+  zum Framework bezogen werden können. Das deutet auf eine modulare Architektur
+  hin. Wie modular die Architektur wirklich ist, konnte ich nach meinem Research
+  nicht genau abschätzen.
+  
+  Desshalb gibt es nur fünf Punkte.
+  
+  \subsubsection{Soll-06 - Testing - 9 Punkte}
+  
+  Für das Framework steht eine komplette Test Suite namens TestBench zur
+  Verfügung. Mit TestBench können UI Regressionstest aufgezeichnet und
+  automatisiert durchgeführt werden. TestBench ist eine kostenpflichtige
+  Extension zu Vaadin. Das ganze basiert auf Selenium, einem Open Source
+  Projekt zur Abwicklung von Tests im Web-Umfeld, und JUnit, einem Open Source
+  Projekt zur Abbildung von Unit Tests.
+  
+  Da ein Test Framework existiert, das auf aktuellen Techniken basiert, gibt es
+  die maximale Punktzahl.
+  
+  \subsubsection{Soll-12 - Dokumentation - 8 Punkte}
+  
+  Die Entwickler haben sogleich ein komplettes Buch zum Framework mit vielen
+  hilfreichen Beispielen geschrieben. Das Buch ist in HTML oder als PDF frei
+  verfügbar und kostenlos. Es enthält alle wichtigen Informationen, welche zur
+  Entwicklung nötig sind. Auf Amazone gibt es nur ein weiteres Buch, das sich
+  diesem Framework gewidmet hat, das ist aber nicht weiter schlimm, da das
+  Framework relativ neu ist.
+  
+  Die Dokumentation wird auf der Website mit einer Menge von Tutorials
+  abgerundet. Es existieren auch die üblichen Dinge, wie das JavaDoc zum
+  \ac{API}, die Hinweise auf die Lizenz, \ac{FAQ} und vieles mehr. Das alles
+  wirk sehr sauber, schön und vollständig.
+  
+  Leider existiert die Dokumentation nur auf Englisch, desshalb gibt es einen
+  Punkt Abzug.
+  
+  \subsubsection{Soll-13 - Community - Punkte}
+  
+  Kennzahlen : - 62 Contributers
+  183 User auf ohloh sagen, I use it.
+
+  \subsubsection{Soll-18 - AJAX-Unterstützung - 9 Punkte}
+  
+  \ac{Ajax} wird massiv unterstützt. Alle \ac{UI} Aktionen basieren auf diesem
+  Prinzip. Zudem kann eine Javascript Library wie JQuery oder Prototype
+  integriert werden. Desshalb gibt es die maximale Punktzahl.
   
   \begin{table}[ht]
     \sffamily 
@@ -539,12 +619,12 @@
         Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
         \(_A-_3\) \\
         \midrule
-        Soll-01   & 34.81 \% & x & y \\
-        Soll-03   &  5.91 \% & x & y \\
-        Soll-06   & 17.93 \% & x & y \\
-        Soll-12   &  4.85 \% & x & y \\
+        Soll-01   & 34.81 \% & 7 & 2.4367 \\
+        Soll-03   &  5.91 \% & 5 & 0.2955 \\
+        Soll-06   & 17.93 \% & 9 & 1.6137 \\
+        Soll-12   &  4.85 \% & 8 & 0.3880 \\
         Soll-13   &  9.07 \% & x & y \\
-        Soll-18   & 27.43 \% & x & y \\
+        Soll-18   & 27.43 \% & 9 & 2.4687 \\
         \midrule
         \midrule
         Ergebnis  & 100.00 \% &   & z \\
