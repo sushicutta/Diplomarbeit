@@ -24,7 +24,6 @@
   Kriterien geführt. Dabei werden die einzelnen Kriterien mit einem
   Erfüllungsgrad \(e_i\) bewertet. Die Skala der Erfüllungsgrade ist in der
   Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
-  \newline
   
   \begin{table}[ht]
     \sffamily 
@@ -47,7 +46,9 @@
   
   Jedes Kriterium wird durch einen Gewichtungsfaktor \(g_i\) versehen, was
   die Präferenz des Kriteriums wiederspiegelt. Dabei gilt: Die Gewichte gi
-  werden so gewählt, dass ihre Summe 1 (100\%) ergibt, siehe Formel \ref{eq:gewicht}.
+  werden so gewählt, dass ihre Summe 1 (100\%) ergibt, siehe Formel
+  \ref{eq:gewicht}.
+  \newline
 
   \begin{equation}
     \label{eq:gewicht}
@@ -55,14 +56,18 @@
   \end{equation}
 
   \newpage
-
+  
+  \noindent
   Der Nutzwert ergibt sich durch die Formel \ref{eq:nutzwert}:
+  \newline
 
   \begin{equation}
     \label{eq:nutzwert}
     Nutzwert := \sum \limits_{i=1}^n e_i \cdot g_i
   \end{equation}
+  \newline
   
+  \noindent
   Für jede zu evaluierende Alternative soll geprüft werden, ob eines der
   KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
   würde. Falls das nicht der Fall ist, wird der Nutzwert der Alternative
@@ -74,9 +79,9 @@
   Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A\) und \(B\) -
   miteinander verglichen werden. Sie sollen auf deren Kriterien - Leistung,
   Aussehen und Alltagstauglichkeit - verglichen werden. In der Tabelle
-  \ref{tab:beispielNwa} ist das Beispiel ersichtlich. Das Resultat zeigt, dass
-  das Auto \(A\) dem Auto \(B\) gegenüber bevorzugt werden soll, da der
-  Nutzwert \(5.0 > 4.7\) ist. 
+  \ref{tab:beispielNwa} ist ersichtlich, dass das Auto \(A\) dem Auto \(B\)
+  gegenüber bevorzugt werden soll, da der Nutzwert \(5.0 > 4.7\) höher ist.
+  \newline
   
   \begin{table}[ht]
     \sffamily 
@@ -224,6 +229,7 @@
     normalisiert.
   \end{itemize}
   
+  \noindent
   Diese Ansätze zur Verbesserung der Gewichtung werden im Rahmen der
-  Diplomarbeit nicht durchgeführt, sollen aber bei einer anderen Anwendung nicht
-  ausgeschlossen werden.
+  Diplomarbeit nicht durchgeführt, sollen aber bei einer anderen Anwendung
+  nicht ausgeschlossen werden.

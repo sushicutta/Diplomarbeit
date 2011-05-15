@@ -104,6 +104,7 @@
     \item Unwichtig
   \end{itemize}
   
+  \noindent
   Es sollen nur die ``wichtigen'' Soll-Kriterien in die Evaluation mit
   einbezogen werden.
   
@@ -138,6 +139,7 @@
     \end{center}
   \end{figure}
   
+  \noindent
   Es soll eine Konsolidierung statt finden, zwischen den 18 Soll-Kriterien und
   den wichtigen Aspekten im Software-Lebenszyklus für die \ac{ZKB}. Die
   Konsolidierung wird in der Tabelle \ref{tab:kosolidierungDerSollKriterien}
@@ -285,7 +287,7 @@
   Caching kann bei Webseiten mit viel statischen Content die Datenmenge, die
   übertragen wird, enorm reduzieren. Bei Business-Applikationen, die über eine
   Rollenverwaltung verfügen, sind die Daten die übertragen werden, meistens sehr
-  individuell. Somit besteht keine Nachfrage nach Caching
+  individuell. Somit besteht keine grosse Nachfrage nach Caching
   
   \item[Soll-11 - View-Engine]
   Da Java eine Objekt Orientierte Sprache ist, wird das schon von der Sprache
@@ -353,8 +355,8 @@
   
   \subsubsection{A-3 - Vaadin 6.5.7}
   
-  Vaadin zählt zu den Java Script/HTML/CSS - Cross-Compiler Frameworks und baut
-  auf \ac{GWT} auf.
+  Vaadin zählt zu den Java Script/\ac{HTML}/\ac{CSS} - Cross-Compiler Frameworks
+  und baut auf \ac{GWT} auf.
   
   \subsubsection{A-4 - Apache Wicket 1.4.17}
   
@@ -365,13 +367,34 @@
   
   \section{Prüfen der zu beachtenden KO-Kriterien}
   
-  Es soll eine Prüfung aller Frameworks statt finden, ob es gegen definierte
-  KO-Kriterien verstösst. Falls das der Fall ist, wird das Framework von der
-  Evaluation ausgeschlossen. In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt
-  es gewisse KO-Kriterien, die im Rahmen der Diplomarbeit ausser Kraft treten,
-  diese sollen nicht beachtet werden.
+  Es soll eine Prüfung aller Java Web Frameworks statt finden, ob ein solches
+  gegen definierte KO-Kriterien verstösst. Falls das der Fall ist, wird das
+  Framework von der Evaluation ausgeschlossen. In Absprache mit dem
+  Fachbetreuer der \ac{ZKB} gibt es gewisse KO-Kriterien, die im Rahmen der
+  Diplomarbeit ausser Kraft treten, diese sollen nicht beachtet werden. Das
+  Resultat wird in der Tabelle \ref{tab:gefundeneKOKriterien} dargestellt.
+  \newline
+  
+  \begin{table}[!h]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{lcc}
+        \toprule
+        Java Web Framework & Verstoss gg KO-Kriterium & Ausschluss\\
+        \midrule
+        A1 - ULC, Canoo RIA Suite & \ref{itm:KO-18} & Ja\\
+        & \ref{itm:KO-19} &\\
+        A2 - Struts 1.3.10 mit ZIP-Framework & - & Nein\\
+        A3 - Vaadin 6.5.7 & - & Nein\\
+        A4 - Apache Wicket 1.4.17 & - & Nein\\
+        \bottomrule
+      \end{tabular}
+      \caption{Verstösse gegen KO-Kriterien}
+      \label{tab:gefundeneKOKriterien}
+    \end{center}
+  \end{table}
 
-  \subsection{A-1 - ULC, Canoo RIA Suite}
+  \subsection{A-1 - ULC, Canoo RIA Suite - Gefundene KO-Kriterien}
   
   Leider wurde wärend der Analyse festgestellt, dass die ULC, Canoo RIA Suite
   nur in einer Java Virtual Machine\footnote{Die Java Virtual Machine ist der
@@ -398,19 +421,8 @@
   Falls sich die Grundsätze der IT-Architektur der \ac{ZKB} in der Zunkunft
   dahingehend ändern, dass Java Web Start oder Java Applets verwendet werden
   dürften, stellt die ULC, Canoo RIA Suite ein gute Alternative zur Ablösung
-  bestehender Swing Applikationen.
-  
-  \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
-  
-  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
-  
-  \subsection{A-3 - Vaadin 6.5.7}
-  
-  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
-
-  \subsection{A-4 - Apache Wicket 1.4.17}
-  
-  Es wurde keine KO-Kriterien gefunden, die für diese Alternative zutreffen.
+  bestehender Swing Applikationen. Die Eignung müsste zu diesem Zeitpunkt neu
+  geprüft werden.
     
   \section{Gewichtete Nutzwertanalyse mit dem Analytic Hirarchy Process}
   
@@ -450,7 +462,7 @@
   Vergleichsmatix wird die Skala der Vergleichsgrad, siehe Tabelle
   \ref{tab:vergleichsgrade}, verwendet.
   
-  Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wird das
+  Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wurde das
   Java Programm JAHP 2.1 verwendet.
   
   Der Inkonsistenzfaktor beträgt 0.04754 und ist somit sehr klein. Die
@@ -460,7 +472,7 @@
   \begin{table}[!h]
     \sffamily 
     \begin{center}
-      \begin{tabular}{l|cccccc|r}
+      \begin{tabular}{r|cccccc|r}
         \toprule
         Vergleich & Soll-01 & Soll-03 & Soll-06 & Soll-12 & Soll-13 & Soll-18
         & Gewichtung\\
@@ -507,7 +519,7 @@
   \begin{table}[ht]
     \sffamily 
     \begin{center}
-      \begin{tabular}{l|rrr}
+      \begin{tabular}{r|rrr}
         \toprule
         Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
         \(_A-_2\) \\
@@ -537,7 +549,7 @@
   \begin{table}[ht]
     \sffamily 
     \begin{center}
-      \begin{tabular}{l|rrr}
+      \begin{tabular}{r|rrr}
         \toprule
         Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
         \(_A-_3\) \\
@@ -609,8 +621,8 @@
   
   Die Entwickler haben sogleich ein komplettes Buch zum Framework mit vielen
   hilfreichen Beispielen geschrieben, siehe \cite{BookOfVaadin}. Das Buch ist
-  in HTML oder als PDF frei verfügbar und kostenlos. Es enthält alle wichtigen
-  Informationen, welche zur Entwicklung nötig sind. Auf Amazone gibt es nur ein
+  in \ac{HTML} oder als \ac{PDF} frei verfügbar und kostenlos. Es enthält alle
+  wichtigen Informationen, welche zur Entwicklung nötig sind. Auf Amazone gibt es nur ein
   weiteres Buch, das sich diesem Framework gewidmet hat, das ist aber nicht
   weiter schlimm, da das Framework relativ neu ist.
   
@@ -671,7 +683,7 @@
   \begin{table}[ht]
     \sffamily 
     \begin{center}
-      \begin{tabular}{l|rrr}
+      \begin{tabular}{r|rrr}
         \toprule
         Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
         \(_A-_4\) \\

@@ -3,7 +3,11 @@ In diesem Kapitel soll behandelt werden, ob eine Implementierung, der im Kapitel
 (\nameref{chapter:AnalyseDerJavaSwingApplikationen}, S.
 \pageref{chapter:AnalyseDerJavaSwingApplikationen}ff) gefundenen Java Swing
 Komponenten, äquivalent möglich ist. Dabei sollen die Dokumentationen und
-Tutorials, welche für die Frameworks vorhanden sind, als Grundlage dienen.
+Tutorials, welche für die Frameworks vorhanden sind, als Grundlage dienen. Die
+Prüfung soll durch einen visuellen Vergleich statt finden, ob die 32 gefundenen
+Komponenten und die sieben gefundenen GUI Paradigmen abgedeckt sind. Das
+Resultat soll in Form einer Tabelle mit dem jeweiligen Abdeckungsgrad
+dargestellt werden.
 
 Es wird auf die Prüfung der Komponenten vom Framework ``A1 - ULC, Canoo RIA
 Suite'' verzichtet, da es aufgrund der Evaluation als mögliche Alternative
@@ -13,6 +17,63 @@ entfällt.
 
 \section{A3 - Vaadin 6.5.7}
 
+In der Dokumentation zu Vaadin gibt es eine komplette Übersicht aller
+unterstützten Komponenten, siehe \cite{VaadinKomponenten}. Diese können online
+mit einem Browser betrachtet und auf deren Usability ausprobiert werden.
+Folgende Komponenten werden unterstützt:
+
+\begin{itemize}
+  \item Es werden alle Top-Level Komponenten unterstützt
+  \item Es werden alle Intermediate-Komponenten unterstützt
+  \item Es werden alle Atomic-Komponenten bis auf das
+  \(JFormattedTextField\) unterstützt.
+  \item Es werden alle speziellen Komponenten bis auf
+  \(JFreeChart\) unterstützt. Dafür gibt es ein offizielles
+  Add-on mit dem Namen ``JFreeChart wrapper for Vaadin'', welches die
+  Unterstützung von \(JFreeChart\) in den Formaten PNG und SVG sichert.
+  \item Die ``Neuen'' Komponenten können alle implementiert werden. Das
+  Akkordeon und der Zeit-Panel werden schon von Haus aus unterstützt.
+\end{itemize}
+
+\noindent
+Folgende Design-Patterns werden unterstützt:
+
+\begin{itemize}
+  \item Das MVC-Pattern wird unterstützt
+  \item Das Observer-Pattern wird unterstützt
+  \item Tabellen-Filter werden unterstützt
+  \item Duch die Unterstützung von Ajax ist das Worker-Pattern abgedeckt.
+\end{itemize}
+
+\noindent
+Es werden alle Komponenten bis auf das \(JFormattedTextField\) und
+\(JFreeChart\)\footnote{Es ist zu bedenken, dass für das \(JFreeChart\) ein
+Add-on existiert, diese Komponente wurde nicht in die Abdeckung
+miteingerechnet.} unterstützt, das ist eine Abdeckung von 93.75\%. Es werden
+alle GUI Paradigmen unterstützt, das ist eine Abdeckung von 100.00\%.
+
 \section{A4 - Apache Wicket 1.4.17}
 
 \section{Resultat}
+
+In der Tabelle \ref{tab:unterstuetztungDerKomponenten} wird die Abdeckung der
+unterstützten Komponenten und GUI Paradigmen dargestellt.
+\newline
+
+\begin{table}[!h]
+  \sffamily 
+  \begin{center}
+    \begin{tabular}{lrr}
+      \toprule
+      Java Web Framework & GUI Komponenten & GUI Paradigmen\\
+      \midrule
+      A1 - ULC, Canoo RIA Suite & Prüfung entfällt & Prüfung entfällt\\
+      A2 - Struts 1.3.10 mit ZIP-Framework & xx.xx\% & xx.xx\%\\
+      A3 - Vaadin 6.5.7 & 93.75\% & 100.00\%\\
+      A4 - Apache Wicket 1.4.17 & xx.xx\% & xx.xx\%\\
+      \bottomrule
+    \end{tabular}
+    \caption{Abdeckungsgrad der gefundenen GUI Komponenten und Paradigmen}
+    \label{tab:unterstuetztungDerKomponenten}
+  \end{center}
+\end{table}
