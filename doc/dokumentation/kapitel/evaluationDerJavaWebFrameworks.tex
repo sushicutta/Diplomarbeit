@@ -560,15 +560,15 @@
   
   \subsubsection{Soll-01 - Zugriffskontrolle - 7 Punkte}
   
-  Vaadin biete keine Unterstützung für Authentifizierung und Autorisierung an.
-  Es gibt ein alternatives Projekt, das sich
+  Vaadin biete von sich aus keine Unterstützung für Authentifizierung und
+  Autorisierung an. Es gibt aber ein alternatives Projekt, das sich
   vaadin-appfoundation\footnote{Projektinformationen sind hier zu finden:
-  \url{http://code.google.com/p/vaadin-appfoundation/}} nennt. Dieses Projekt
-  beinhaltet ein Authorisierungs Modul, mit dem ein Rollenkonzept implementiert
-  werden kann.
+  \url{http://code.google.com/p/vaadin-appfoundation/}} nennt und im
+  offiziellen Vaadin add-on Repository verfügbar ist. Dieses Projekt beinhaltet
+  ein Authorisierungs Modul, mit dem ein Rollenkonzept implementiert werden kann.
   
-  \noindent
-  Vaadin behauptet von sich, eines der sichersten Web Frameworks zu sein.
+  Zum Thema Sicherheit behauptet Vaadin von sich, derzeit eines der sichersten
+  Web Frameworks zu sein.
   \newline
   
   \begin{itshape}``The server-side architecture of Vaadin is immune to the usual
@@ -580,20 +580,18 @@
   In addition, we have implemented several other security mechanisms in Vaadin
   to prevent eg. man-in-the-middle and cross-site scripting
   attacks.''\end{itshape}
-  \footnote{Siehe \cite{VaadinSecurityAlerts}}
+  \footnote{Vaadin Ltd., 2011, siehe \cite{VaadinSecurityAlerts}}
   \newline
   
   \noindent
-  Zwei Punkte abzug, da keine Rollenverwaltung vorhanden ist.
+  Zwei Punkte abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
   
   \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
   
   Vaadin bietet ein eigenes Add-on Repository an, unter welchem Erweiterungen
   zum Framework bezogen werden können. Das deutet auf eine modulare Architektur
   hin. Wie modular die Architektur wirklich ist, konnte ich nach meinem Research
-  nicht genau abschätzen.
-  
-  Desshalb gibt es nur fünf Punkte.
+  nicht genau abschätzen, desshalb gibt es nur fünf Punkte.
   
   \subsubsection{Soll-06 - Testing - 9 Punkte}
   
@@ -610,11 +608,11 @@
   \subsubsection{Soll-12 - Dokumentation - 8 Punkte}
   
   Die Entwickler haben sogleich ein komplettes Buch zum Framework mit vielen
-  hilfreichen Beispielen geschrieben. Das Buch ist in HTML oder als PDF frei
-  verfügbar und kostenlos. Es enthält alle wichtigen Informationen, welche zur
-  Entwicklung nötig sind. Auf Amazone gibt es nur ein weiteres Buch, das sich
-  diesem Framework gewidmet hat, das ist aber nicht weiter schlimm, da das
-  Framework relativ neu ist.
+  hilfreichen Beispielen geschrieben, siehe \cite{BookOfVaadin}. Das Buch ist
+  in HTML oder als PDF frei verfügbar und kostenlos. Es enthält alle wichtigen
+  Informationen, welche zur Entwicklung nötig sind. Auf Amazone gibt es nur ein
+  weiteres Buch, das sich diesem Framework gewidmet hat, das ist aber nicht
+  weiter schlimm, da das Framework relativ neu ist.
   
   Die Dokumentation wird auf der Website mit einer Menge von Tutorials
   abgerundet. Es existieren auch die üblichen Dinge, wie das JavaDoc zum
@@ -632,14 +630,32 @@
   
   Laut ohloh\footnote{ohloh ist eine Community Plattform für
   Softwareentwickler, siehe \url{http://www.ohloh.net/}} gibt es 183 User, die
-  Vaadin verwenden und 62 Contributer.
+  Vaadin verwenden und 62 Contributer. Die meisten Commits werden von den
+  Mitarbeitern der Firma Vaadin Ltd gemacht, welche das Framework
+  erfunden hat.
   
-  Bei DZone\footnote{Eine weitere Community Plattform für Softwareentwickler,
-  siehe \url{http://www.dzone.com/}} findet man 75 Posts, welche sich direkt mit
-  Vaadin befassen
+  Bei DZone\footnote{Eine Community Plattform für Softwareentwickler, welche
+  unter dem Namen ``Javalobby - The heart of the Java developer community''
+  einen speziellen Bereich für Java Entwicklert hat, siehe
+  \url{http://www.dzone.com/}} findet man 75 Posts, welche sich direkt mit
+  Vaadin befassen. Dies wurde mit dem Suchbegriff ``Vaadin'' eruiert.
   
-  Die Community für Vaadin ist gerade dabei sich zu bilden und noch nicht sehr
-  stark, somit sind es nur 4 Punkte.
+  Für Vaadin gibt es ein DZone Refcard\footnote{Sogenannte Cheat Sheets, die
+  meistens von den Entwicklern eines Frameworks selbst verfasst werden. Sie
+  stehen gratis unter der \ac{URL} \url{http://refcardz.dzone.com/} zur
+  Verfügung.} Wenn für ein Framework ein Refcard existiert, sagt das aus, dass
+  es von der Community verwendet wird.
+  
+  Die Firma Vaadin Ltd bietet mit Vaadin Pro die Möglichkeit von bug-fix
+  priority, direkten Support durch das Vaadin Entwicklungs Team und Zugriff auf
+  eine Vaadin knowledge base, siehe \cite{VaadinPro}. Zudem können gegen ein
+  Entgeld Fachkräfte für einen Tag oder drei Wochen (ein Sprint im Sinne von
+  Scrum) verpflichtet werden. Es gibt auch die Möglichkeit einen Proof of
+  Concept durch das Vaadin Entwicklungs Team erstellen zu lassen.
+  
+  Der Support durch die Firma Vaadin Ltd ist sehr gut, die Community für Vaadin
+  ist aber gerade erst dabei sich zu bilden und noch nicht sehr stark, somit
+  sind es nur 4 Punkte.
 
   \subsubsection{Soll-18 - AJAX-Unterstützung - 9 Punkte}
   

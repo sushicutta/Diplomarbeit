@@ -16,6 +16,16 @@
     \end{center}
   \end{figure}
   
+  \section{Java Runtime Environment}
+  
+  In allen Segmenten der Infrastruktur wird mindestens das \ac{JRE} von
+  Oracle\footnote{ehemals Sun Microsystems} in der Version 1.5 zur Verfügung
+  gestellt. An einigen stellen, zum Beispiel bei den Clients ist auch die
+  Version 1.6 verfügbar. Diese Informationen beziehen sich auf den aktuellen
+  Stand und können sich jederzeit ändern. Grundsätzlich wird nicht davon
+  ausgegangen, dass ein Rückschritt in der Version vorgenommen wird, sondern
+  das man gemäss der Evolution auf eine neuere Version wechselt.
+  
   \section{Load-Balancing und Transport}
   
   Für das Load-Balancing und den Transport wird der Apache HTTP Server 2
@@ -23,9 +33,9 @@
   verfügbar, siehe \cite{ZkbHandbuchDerItArchitektur} S. 146.
   
   Der Transport über \ac{HTTP} und \ac{HTTPS} gehört zu den Standardfunktionen
-  des Apache HTTP Servers 2. Zudem können statische Daten direkt über den Apache HTTP
-  Server 2 zur Verfügung gestellt werden, ohne das die Präsentations-Logik oder
-  die Business-Logik damit belastet werden.
+  des Apache HTTP Servers 2. Zudem können statische Daten direkt über den
+  Apache HTTP Server 2 zur Verfügung gestellt werden, ohne das die
+  Präsentations-Logik oder die Business-Logik damit belastet werden.
   
   Die Verbindung zur Präsentations-Logik und auch das Load-Balancing wird mit
   dem Modul\footnote{Der Apache HTTP Server 2 hat einen modularen Aufbau, womit
@@ -50,12 +60,12 @@
   
   Für die Kommunikation zwischen der Präsentations-Logik und der Business-Logik
   werden Webservices auf der Basis von \ac{SOAP}, \ac{RMI} oder \ac{CORBA}
-  verwendet.
+  verwendet. Es gibt auch eine \ac{ZKB} spezifische Lösung namens ZIP.net.
   
   Das für die Präsentations-Logik und die Business-Logik eigene JBoss AS
   Instazen verwendet werden, entspricht nicht ganz den Vorgaben, wie sie
-  im Handbuch der IT-Architektur beschrieben sind, es wird aber in der Praxis so
-  umgesetzt.
+  im Handbuch der IT-Architektur beschrieben sind, es wird aber in der Praxis
+  oft so umgesetzt.
     
   \section{Business-Logik}
   
@@ -72,7 +82,8 @@
   
   \section{Datenschicht}
   
-  Die Datenschicht wird meistens mit einem \ac{RDBMS} gemacht. Normalerweise
-  wird Oracle eingesetzt. Je nach grösse der Applikation kann es sein, dass
-  mehrere verschiedene \ac{RDBMS} zum Einsatz kommen.
+  Die Datenschicht wird meistens mit einem \ac{RDBMS} abgebildet. Normalerweise
+  wird die Enterpriselösung von Oracle eingesetzt. Je nach grösse der
+  Applikation kann es sein, dass mehrere verschiedene \ac{RDBMS} zum Einsatz
+  kommen.
 
