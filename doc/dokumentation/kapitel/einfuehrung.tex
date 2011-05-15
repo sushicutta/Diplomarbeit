@@ -41,31 +41,36 @@
   
   Die Zürcher Kantonalbank setzt bei der Entwicklung von Software als Inhouse
   Lösungen auf Java Swing Applikationen und auf Java Web Applikationen. Die
-  Java Web Applikationen basieren auf dem Web Framework Apache Struts 1.3
+  Java Web Applikationen basieren auf dem Web Framework Apache Struts 1.3.10
   mit einer von der ZKB erstellten Erweiterung namens \ac{ZIP}. Da eine Lösung
   als Java Web Applikationen zentral verwaltet werden kann, gibt es erhebliche
   Einsparungen im Bereich Testing, Deployment und Patching. Somit sollen in
-  Zukunft Java Swing Applikationen auf Java Web Applikationen umgerüstet werden.
+  Zukunft Java Swing Applikationen auf Java Web Applikationen umgerüstet
+  werden.
   
-  Das Framework Apache Struts 1.3 ist mitlerweilen in die Jahre gekommen. Es
+  Das Framework Apache Struts 1.3.10 ist mitlerweilen in die Jahre gekommen. Es
   basiert auf dem Prinzip von ``request und response''. Wann immer eine Aktion
   von einem User in der Applikation gemacht wird, sei es das Ansteuern eines
   Links oder das Absenden eines Formulars, wird die Webseite, welche die
   Applikation repräsentiert, neu geladen. Heutzutage gibt es Frameworks, welche
   einem ermöglichen eine Web Applikation zu entwicklen, die sich bei der
-  Bedienung wie eine klassische Desktop Applikation anfühlen. Dies wird durch
-  die Technik von \ac{Ajax} realisiert.
+  Bedienung wie eine klassische Desktop Applikation anfühlt. Dabei werden
+  nur Bereiche neu geladen, wo sich die zu darstellenden Informationen geändert
+  haben. Dies wird durch die Technik von \ac{Ajax} realisiert.
   
   Bei \ac{Ajax} können Daten einer Web Applikation, ohne die komplette Webseite
   neu zu laden, verändert werden. Dies erlaubt es Web Applikationen, auf
   Benutzer Aktionen schneller zu reagieren, da vermieden wird, dass statische
-  Daten, die sich unter Umständen nicht geändert haben, immer wieder über das
-  Netzwerk übertragen werden müssen.
+  Daten, die sich unter Umständen nicht verändert haben, immer wieder neu
+  übertragen werden. Das beinhaltet nicht nur Informationen die dargestellt
+  werden, sondern auch die \ac{HTML}, \ac{CSS} und Java Script Ressourcen, die
+  für die Darstellung notwendig sind.
   
-  Apache Struts 1.3 unterstützt \ac{Ajax} nicht direkt, das kann aber über
+  Apache Struts 1.3.10 unterstützt \ac{Ajax} nicht direkt, das kann über
   Erweiterungen ermöglicht werden. Es gibt Java Web Frameworks, welche diese
-  Technik out of the box mitbringen. Eine Evaluation soll zeigen welches dieser
-  Java Web Frameworks am besten für einen möglichen Einsatz geeignet ist.
+  Technik out of the box mitbringen. Eine Evaluation soll zeigen ob eines dieser
+  Java Web Frameworks vielleicht besser für einen möglichen Einsatz geeignet
+  ist.
   
   \section{Zielsetzung}
   
@@ -88,29 +93,38 @@
   
   \section{Struktur}
   
-  Die Struktur des Dokuments wird in verschiedene Teile gegliedert. Diese Teile
-  bauen aufeinander auf und setzten meistens die Erkenntnisse der vorhergehenden
-  Kapitel voraus.
+  Die Struktur des Dokuments wurde in sechs verschiedene Teile gegliedert.
+  Diese Elemente bauen aufeinander auf und setzten meistens die Erkenntnisse
+  der vorhergehenden Bestandteile voraus.
   
-  \subsection{Informeller Teil}
+  \begin{description}
+    
+  \item[Einführung]
   
+  In der \nameref{chapter:Einfuehrung} wird die Motivation für die Diplomarbeit
+  erläutert, ebenso wird auf die Zielsetzung eingegangen. Die Gliederung des
+  Berichts wird in der Struktur aufgeschlüsselt. Zudem befindet sich hier auch
+  eine Danksagung.
+  
+  \item[Basisinformationen]
+    
   In den Kapiteln 
   \nameref{chapter:JavaSwingApplikationen}, 
   \nameref{chapter:RichInternetApplikationen} und
-  \nameref{chapter:InfrastrukturDerZuercherKantonalbank} werden informationen
-  zu diesen Themen vermittelt. Dabei werden hauptsächlich Begriffe aus diesen
-  Bereichen erklärt und mit Hilfe von Abbildungen dargestellt. Die
-  Informationen welche erläutert werden, dienen als Grundlage für die weiteren
-  Kapitel.
-  
-  \subsection{Methodiken}
+  \nameref{chapter:InfrastrukturDerZuercherKantonalbank} werden
+  Hintergrundinformationen zu diesen Themen vermittelt. Dabei werden
+  hauptsächlich Begriffe aus diesen Bereichen erklärt und mit Hilfe von
+  Abbildungen dargestellt. Die Informationen welche erläutert werden, dienen
+  als Grundlage für die weiteren Kapitel.
+
+  \item[Methodiken]
   
   In den Kapiteln \nameref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}
   und \nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation} werden
   Methodiken erarbeitet. Diese Methoden sollen für die Durchführung, der in der
   Aufgabenstellung gestellten Aufgaben, verwendet werden.
   
-  \subsection{Durchführung der Arbeiten}
+  \item[Durchführung der gestellten Aufgaben]
   
   In den Kapiteln \ref{chapter:AnalyseDerJavaSwingApplikationen} bis
   \ref{chapter:ProofOfConcept} werden die erwarteten Ergebnisse
@@ -121,34 +135,50 @@
   Implementierung der gefundenen Swingkomponenten geprüft. Als Abschluss wird
   mit einem Proof of Concept die erarbeiteten Ergebnisse bestätigt.
   
-  \subsection{Erkenntnisse}
+  \item[Erkenntnisse]
   
   Die Kapitel \ref{chapter:EmpfehlungFuerEinJavaWebFramework} bis
   \ref{chapter:Reflexion} wiederspiegeln die Erkenntnisse, welche im Laufe
   der Diplomarbeit gewonnen wurden. Dabei wird eine
   \nameref{chapter:EmpfehlungFuerEinJavaWebFramework} für die Züricher
   Kantonalbank ausgepsrochen, ebenso wird ein Fazit gezogen und ein Ausblick
-  gewährt. Mit einer Reflexion sollen dargelegten theoretischen Grundlagen, die
-  gewählten Methoden sowie die Auswertung der Ergebnisse evaluiert werden.
-
-  \subsection{Informationen im Anhang}
+  gewährt. Mit einer \nameref{chapter:Reflexion} sollen dargelegten
+  theoretischen Grundlagen, die gewählten Methoden sowie die Auswertung der
+  Ergebnisse evaluiert werden.
+  
+  \item[Anhang]
   
   Im Anhang sind Informationen zu finden, die entweder mit den
   \nameref{chapter:Rahmenbedingungen} der Diplomarbeit zu tun haben, wie das
   \nameref{chapter:Personalienblatt}, die \nameref{chapter:Aufgabenstellung}, die
   \nameref{chapter:Projektadministration} oder die Protokolle zu den offiziellen
-  Terminen, oder es handelt sich um Hintergrundinformationen, welche vom Umfang
-  her zu kostspielig gewesen sind, dass sie in der Arbeit platz gefunden
-  hätten. Zudem befinden sich hier auch sämtliche Verzeichnisse, insbesondere
-  das \bibname.
+  Terminen, oder es handelt sich um Zusatzinformationen, welche vom Umfang her
+  zu kostspielig gewesen sind, dass sie in der Arbeit Platz gefunden hätten.
+  Zudem befinden sich hier auch sämtliche Verzeichnisse, insbesondere das
+  \bibname.
+  
+  \end{description}
   
   \section{Danksagung}
   
-  Linus Gätzi und Miriam Gätzi
-  Beat Seeliger
-  Bernhard Mäder
-  Allink GmbH
-  Stefan Pudig
-  Alle die mich sonst unterstützt haben.  
+  An dieser Stelle möchte ich mich bei all jenen bedanken, die mich in meiner
+  Studienzeit unterstützt haben. Der grösste Dank gilt meiner Freundin und
+  unserem gemeinsamen Sohn Linus, die in dieser stressigen Zeit ertragen haben.
   
+  Ich möchte mich in dieser Form bei Beat Seeliger bedanken, der mich als
+  Betreuer bei meiner Diplomarbeit unterstützt und mir mit seiner hilfsbereiten
+  und unkomplizierten Art und Weise zur Seite gestanden ist.
   
+  Ebenfalls bedanken möchte ich mich bei Berhard Mäder von der Zürcher
+  Kantonalbank, der mir die Arbeit ermöglicht hat und dessen Türen für mich
+  immer offen standen.
+  
+  Weiterhin bedanke ich mich bei meinem Arbeitgeber und Freund Silvan Spross,
+  der mir genügend Zeit für die Vollendung der Diplomarbeit gewährt und mit der
+  notwendigen Infrastruktur der allink GmbH versorgt hat. Der Dank gilt
+  auch ihm und auch Stefan Laubenberger, weil sie die Arbeit gegengelesen
+  haben.
+  
+  Zum Schluss bedanke ich mich auch bei Stefan Pudig, XXX XXX und YYY YYY, die
+  mich mit wichtigen Informationen unterstützt haben.
+    
