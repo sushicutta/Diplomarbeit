@@ -304,6 +304,23 @@
   
   \end{description}
   
+  \section{KO-Kriterien die nicht beachtet werden sollen}
+  
+  Damit die Durchführung der Evaluation einen Sinn ergibt, sollen einige
+  KO-Kriterien nicht beachtet werden. In Absprache mit dem Fachbetreuer der
+  \ac{ZKB} betrifft das folgende KO-Kriterien, die im Rahmen der Diplomarbeit
+  nicht berücksichtigt werden:
+  
+  \begin{itemize}
+    \item \ref{itm:KO-09} - Für Java-Applikationen (Internet, Extranet und
+    Intranet) wird das ZIP-Framework eingesetzt.
+    \item \ref{itm:KO-16} - Die Internet-Applikationen funktionieren auch
+    eingeschränkt, ohne dass die Skript-Funktion im Browser aktiviert ist.
+    \item \ref{itm:KO-20} - Für Ultra Thin Clients bzw. Browser-basierende
+    Applikationen muss das aktuelle, Struts-basierende HTML-Client-Framework
+    der ZKB Internet Plattform verwendet werden.
+  \end{itemize}
+  
   \section{Auswahl der Java Web Frameworks}
   
   Es sollen vier Java Web Frameworks für die Evaluation ausgewählt werden. Ein
@@ -345,23 +362,6 @@
   erwähnen, dass der Einsatz aufgrund von Ausnahmegenehmigungen eingesetzt
   werden darf. Diese müssten im Falle einer erfolgreichen Evaluation ebenfalls
   beantragt werden.
-
-  \section{KO-Kriterien die nicht beachtet werden sollen}
-  
-  Damit die Durchführung der Evaluation einen Sinn ergibt, sollen einige
-  KO-Kriterien nicht beachtet werden. In Absprache mit dem Fachbetreuer der
-  \ac{ZKB} betrifft das folgende KO-Kriterien, die im Rahmen der Diplomarbeit
-  nicht berücksichtigt werden:
-  
-  \begin{itemize}
-    \item \ref{itm:KO-09} - Für Java-Applikationen (Internet, Extranet und
-    Intranet) wird das ZIP-Framework eingesetzt.
-    \item \ref{itm:KO-16} - Die Internet-Applikationen funktionieren auch
-    eingeschränkt, ohne dass die Skript-Funktion im Browser aktiviert ist.
-    \item \ref{itm:KO-20} - Für Ultra Thin Clients bzw. Browser-basierende
-    Applikationen muss das aktuelle, Struts-basierende HTML-Client-Framework
-    der ZKB Internet Plattform verwendet werden.
-  \end{itemize}
   
   \section{Prüfen der zu beachtenden KO-Kriterien}
   
@@ -491,9 +491,8 @@
   \subsection{Bestimmen des Erfüllungsgrades}
   
   Für die Werte zur Bestimmung der Erfüllungsgrade wird die Skala der
-  Erfüllungsgrade, siehe Tabelle \ref{tab:erfuellungsgrade}, verwendet.
-  
-  \section{Resultat}
+  Erfüllungsgrade, siehe Tabelle \ref{tab:erfuellungsgrade}, verwendet. Die
+  Begründung der gegebenen Punkt wird für jeden Punkt erläutert.
   
   \subsection{A-1 - ULC, Canoo RIA Suite}
   
@@ -502,7 +501,8 @@
   
   \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
-  Siehe Tabelle \ref{tab:nwaA2}.
+  Das Ergebnis ist in der Tabelle \ref{tab:nwaA2} ersichtlich. Der Nutzwert
+  liegt bei xx.xx.
   
   \begin{table}[ht]
     \sffamily 
@@ -531,8 +531,32 @@
   
   \subsection{A-3 - Vaadin 6.5.7}
   
-  Das Ergebnis ist in der Tabelle \ref{tab:nwaA3} ersichtlich. Die Begründung
-  der gegebenen Punkt wird hier noch erläutert.
+  Das Ergebnis ist in der Tabelle \ref{tab:nwaA3} ersichtlich. Der Nutzwert
+  liegt bei 7.5654.
+    
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{l|rrr}
+        \toprule
+        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
+        \(_A-_3\) \\
+        \midrule
+        Soll-01   & 34.81 \% & 7 & 2.4367 \\
+        Soll-03   &  5.91 \% & 5 & 0.2955 \\
+        Soll-06   & 17.93 \% & 9 & 1.6137 \\
+        Soll-12   &  4.85 \% & 8 & 0.3880 \\
+        Soll-13   &  9.07 \% & 4 & 0.3628 \\
+        Soll-18   & 27.43 \% & 9 & 2.4687 \\
+        \midrule
+        \midrule
+        Ergebnis  & 100.00 \% &   & 7.5654 \\
+        \bottomrule
+      \end{tabular}
+      \caption{Nutzwertanalyse der Alternative A-3 - Vaadin 6.5.7}
+      \label{tab:nwaA3}
+    \end{center}
+  \end{table}
   
   \subsubsection{Soll-01 - Zugriffskontrolle - 7 Punkte}
   
@@ -600,10 +624,22 @@
   Leider existiert die Dokumentation nur auf Englisch, desshalb gibt es einen
   Punkt Abzug.
   
-  \subsubsection{Soll-13 - Community - Punkte}
+  \subsubsection{Soll-13 - Community - 4 Punkte}
   
-  Kennzahlen : - 62 Contributers
-  183 User auf ohloh sagen, I use it.
+  Das Framework Vaadin ist unter seinem Namen noch nicht sehr lange bekannt,
+  früher wurde es unter dem Namen IT Mill entwickelt. Das kann zu einem leicht
+  falschen Resultat führen, wenn man die Community nach Vaadin untersucht.
+  
+  Laut ohloh\footnote{ohloh ist eine Community Plattform für
+  Softwareentwickler, siehe \url{http://www.ohloh.net/}} gibt es 183 User, die
+  Vaadin verwenden und 62 Contributer.
+  
+  Bei DZone\footnote{Eine weitere Community Plattform für Softwareentwickler,
+  siehe \url{http://www.dzone.com/}} findet man 75 Posts, welche sich direkt mit
+  Vaadin befassen
+  
+  Die Community für Vaadin ist gerade dabei sich zu bilden und noch nicht sehr
+  stark, somit sind es nur 4 Punkte.
 
   \subsubsection{Soll-18 - AJAX-Unterstützung - 9 Punkte}
   
@@ -611,33 +647,10 @@
   Prinzip. Zudem kann eine Javascript Library wie JQuery oder Prototype
   integriert werden. Desshalb gibt es die maximale Punktzahl.
   
-  \begin{table}[ht]
-    \sffamily 
-    \begin{center}
-      \begin{tabular}{l|rrr}
-        \toprule
-        Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
-        \(_A-_3\) \\
-        \midrule
-        Soll-01   & 34.81 \% & 7 & 2.4367 \\
-        Soll-03   &  5.91 \% & 5 & 0.2955 \\
-        Soll-06   & 17.93 \% & 9 & 1.6137 \\
-        Soll-12   &  4.85 \% & 8 & 0.3880 \\
-        Soll-13   &  9.07 \% & x & y \\
-        Soll-18   & 27.43 \% & 9 & 2.4687 \\
-        \midrule
-        \midrule
-        Ergebnis  & 100.00 \% &   & z \\
-        \bottomrule
-      \end{tabular}
-      \caption{Nutzwertanalyse der Alternative A-3 - Vaadin 6.5.7}
-      \label{tab:nwaA3}
-    \end{center}
-  \end{table}
-  
   \subsection{A-4 - Apache Wicket 1.4.17}
   
-  Siehe Tabelle \ref{tab:nwaA4}.
+  Das Ergebnis ist in der Tabelle \ref{tab:nwaA4} ersichtlich. Der Nutzwert
+  liegt bei xx.xx.
   
   \begin{table}[ht]
     \sffamily 
@@ -662,3 +675,5 @@
       \label{tab:nwaA4}
     \end{center}
   \end{table}
+
+  \section{Resultat}
