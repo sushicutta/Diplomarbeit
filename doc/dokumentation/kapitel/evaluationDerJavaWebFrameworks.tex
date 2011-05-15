@@ -9,8 +9,10 @@
     
   \section{Rahmenbedingungen für die Evaluierung}
   
-  Die Rahmenbedingungen für die Evaluierung werden über Soll-Kriterien und
-  KO-Kriterien festgelegt.
+  Über Soll-Kriterien und KO-Kriterien werden die Rahmenbedingungen für die
+  Evaluierung festgelegt. Die Soll-Kriterien wiederspiegeln die Anforderungen,
+  welche an ein Java Web Framework gestellt werden. Die KO-Kriterien dienen zum
+  Ausschluss, nicht geeigneter Frameworks.
 
   \subsection{Soll-Kriterien}
   
@@ -95,8 +97,9 @@
   Da 18 Soll-Kriterien definiert wurden und diese in jeder Alternative 
   untersucht werden müssten, würde das den Rahmen der Diplomarbeit sprengen.
   Desshalb sollen die Soll-Kriterien in eine Hirarchie entsprechend ihrer
-  Wichtigkeit für die \ac{ZKB} aufgeteilt werden. Die Hirarchie wird in drei
-  Gruppen aufgeteilt:
+  Wichtigkeit für die \ac{ZKB} aufgeteilt werden. Es sollen nur die
+  ``wichtigen'' Soll-Kriterien in die Evaluation mit einbezogen werden. Die
+  Hirarchie wird desshalb in drei Gruppen aufgeteilt:
   
   \begin{itemize}
     \item Wichtig
@@ -105,8 +108,7 @@
   \end{itemize}
   
   \noindent
-  Es sollen nur die ``wichtigen'' Soll-Kriterien in die Evaluation mit
-  einbezogen werden.
+
   
   \subsection{Wichtige Aspekte im Software-Lebenszyklus für die ZKB}
   
@@ -139,13 +141,7 @@
     \end{center}
   \end{figure}
   
-  \noindent
-  Es soll eine Konsolidierung statt finden, zwischen den 18 Soll-Kriterien und
-  den wichtigen Aspekten im Software-Lebenszyklus für die \ac{ZKB}. Die
-  Konsolidierung wird in der Tabelle \ref{tab:kosolidierungDerSollKriterien}
-  gezeigt.
-  
-  \begin{table}[!h]
+  \begin{table}[h!]
     \sffamily 
     \begin{center}
       \begin{threeparttable}
@@ -189,8 +185,13 @@
     \end{center}
   \end{table}
   
-  Die Soll-Kriterien mit zwei oder mehr + werden als ``wichtig'', mit einem
-  + als ``nice to have'' und ohne + als ``nicht wichtig'' priorisiert.
+  \noindent
+  Es soll eine Konsolidierung statt finden, zwischen den 18 Soll-Kriterien und
+  den wichtigen Aspekten im Software-Lebenszyklus für die \ac{ZKB}. Die
+  Konsolidierung wird in der Tabelle \ref{tab:kosolidierungDerSollKriterien}
+  gezeigt. Die Soll-Kriterien mit zwei oder mehr + werden als ``wichtig'', mit
+  einem + als ``nice to have'' und ohne + als ``nicht wichtig'' priorisiert. Die
+  Gründe für die Priorisierung soll anschliessend erläutert werden.
   
   \subsection{Wichtig}
   
@@ -202,7 +203,7 @@
   Rollenverwalung, kann eine Applikation sicher implementiert werden.
   
   \item[Soll-03 - Modulare Architektur]
-  Um wärend der Maintenance-Phase des Software-Lebenszyklus notwendige
+  Um wärend der Maintenance-Phase des Software Lebenszyklus notwendige
   Anpassungen an einer Applikation machen zu können, ist eine modulare
   Architekur von grossem Vorteil. Zudem ist das auch wärend der
   Entwicklungs-Phase hilfreich.
@@ -279,8 +280,8 @@
   verwendet wird, stellt dies keine Anforderung an ein Java Web Framework.
   
   \item[Soll-09 - Scaffolding / Rapid Prototyping]
-  Mit Scaffolding und Rapid Prototyping kann in der Programmier-Phase des
-  Software-Lebenszyklus die Arbeit erleichtert werden. In der Maintenance-Phase
+  Scaffolding und Rapid Prototyping kann in der Programmier-Phase des
+  Software-Lebenszyklus die Arbeit erleichtern. In der Maintenance-Phase
   ergibt sich daraus kein Benefit.
   
   \item[Soll-10 - Caching]
@@ -369,10 +370,14 @@
   
   Es soll eine Prüfung aller Java Web Frameworks statt finden, ob ein solches
   gegen definierte KO-Kriterien verstösst. Falls das der Fall ist, wird das
-  Framework von der Evaluation ausgeschlossen. In Absprache mit dem
-  Fachbetreuer der \ac{ZKB} gibt es gewisse KO-Kriterien, die im Rahmen der
-  Diplomarbeit ausser Kraft treten, diese sollen nicht beachtet werden. Das
-  Resultat wird in der Tabelle \ref{tab:gefundeneKOKriterien} dargestellt.
+  Framework von der Evaluation ausgeschlossen. Falls das nicht zutrifft, wird
+  das Framework in die Evaluation miteinbezogen, siehe Abbildung
+  \ref{img:ablaufEvaluation}.
+  
+  In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt es gewisse KO-Kriterien,
+  die im Rahmen der Diplomarbeit ausser Kraft treten, diese sollen nicht
+  beachtet werden. Das Resultat wird in der Tabelle
+  \ref{tab:gefundeneKOKriterien} dargestellt.
   \newline
   
   \begin{table}[!h]
@@ -394,7 +399,7 @@
     \end{center}
   \end{table}
 
-  \subsection{A-1 - ULC, Canoo RIA Suite - Gefundene KO-Kriterien}
+  \subsection{A-1 - ULC, Canoo RIA Suite - KO-Kriterien gefunden}
   
   Leider wurde wärend der Analyse festgestellt, dass die ULC, Canoo RIA Suite
   nur in einer Java Virtual Machine\footnote{Die Java Virtual Machine ist der
