@@ -180,7 +180,7 @@
           \item[(Im)] Image
           \item[++] hat grossen Einfluss
           \item[+] hat Einfluss
-        \end{tablenotes} 
+        \end{tablenotes}
       \end{threeparttable}
     \end{center}
   \end{table}
@@ -457,15 +457,24 @@
   \subsection{Bestimmen der Gewichte mit dem Analytic Hirarchy Process}
   
   Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Für
-  den Vergleich der Soll-Kriterien wird die Frage - \begin{itshape}``Wie
-  wichtig ist das Soll-Kriterium für die \ac{ZKB}?''\end{itshape} - gestellt.
+  den Vergleich der Soll-Kriterien wird die Frage gestellt:
+  \begin{itshape}``Wie wichtig ist das Soll-Kriterium für die
+  \ac{ZKB}?''\end{itshape}.
   
-  Es werden alle ``wichtigen'' Soll-Kriterien miteinander verglichen. Die
+  Es werden nur alle ``wichtigen'' Soll-Kriterien miteinander verglichen. Die
   Vergleichsmatrix und die daraus resultierende Gewichtung ist in der Tabelle
   \ref{tab:gewichtungDerSollKriterien} und der Abbildung
   \ref{img:gewichtungSollKriterien} ersichtlich. Für die Werte in der
   Vergleichsmatix wird die Skala der Vergleichsgrad, siehe Tabelle
-  \ref{tab:vergleichsgrade}, verwendet.
+  \ref{tab:vergleichsgrade}, verwendet. Die gewählten Werte wurden vom
+  Studenten, im Sinne der \ac{ZKB}, vergeben. Um eine objektivere Vergabe der
+  Punkte zu erhalten, müssten die erläuterten Ansätze\footnote{Es gibt sicher
+  noch weitere Ansätze die nicht aufgeführt wurden, welche die Qualität der
+  Gewichtung verbessern würden.} aus dem Abschnitt
+  \ref{subsection:VerbesserungDerGewichtung}
+  \nameref{subsection:VerbesserungDerGewichtung} (auf Seite
+  \pageref{subsection:VerbesserungDerGewichtung}) angewendet werden, auf deren
+  Einsatz im Rahmen der Diplomarbeit verzichtet wurde.
   
   Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wurde das
   Java Programm JAHP 2.1 verwendet.
@@ -513,13 +522,13 @@
   
   \subsection{A-1 - ULC, Canoo RIA Suite}
   
-  Wurde aufgrund der KO-Kriterien \ref{itm:KO-18} und \ref{itm:KO-19} aus der
-  Evaluation ausgeschlossen.
+  ULC, Canoo Ria Suite wurde aufgrund der KO-Kriterien \ref{itm:KO-18} und
+  \ref{itm:KO-19} aus der Evaluation ausgeschlossen.
   
   \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
-  Das Ergebnis ist in der Tabelle \ref{tab:nwaA2} ersichtlich. Der Nutzwert
-  liegt bei xx.xx.
+  Das Ergebnis der Nutzwertanalyse ist in der Tabelle \ref{tab:nwaA2}
+  ersichtlich. Der Nutzwert liegt bei xx.xx.
   
   \begin{table}[ht]
     \sffamily 
@@ -545,11 +554,23 @@
       \label{tab:nwaA2}
     \end{center}
   \end{table}
+    
+  \subsubsection{Soll-01 - Zugriffskontrolle - X Punkte}
+  
+  \subsubsection{Soll-03 - Modulare Architektur - X Punkte}
+  
+  \subsubsection{Soll-06 - Testing - X Punkte}
+  
+  \subsubsection{Soll-12 - Dokumentation - X Punkte}
+  
+  \subsubsection{Soll-13 - Community - X Punkte}
+
+  \subsubsection{Soll-18 - AJAX-Unterstützung - X Punkte}
   
   \subsection{A-3 - Vaadin 6.5.7}
   
-  Das Ergebnis ist in der Tabelle \ref{tab:nwaA3} ersichtlich. Der Nutzwert
-  liegt bei 7.5654.
+  Das Ergebnis der Nutzwertanalyse ist in der Tabelle \ref{tab:nwaA3}
+  ersichtlich. Der Nutzwert liegt bei 7.0168.
     
   \begin{table}[ht]
     \sffamily 
@@ -564,10 +585,10 @@
         Soll-06   & 17.93 \% & 9 & 1.6137 \\
         Soll-12   &  4.85 \% & 8 & 0.3880 \\
         Soll-13   &  9.07 \% & 4 & 0.3628 \\
-        Soll-18   & 27.43 \% & 9 & 2.4687 \\
+        Soll-18   & 27.43 \% & 7 & 1.9201 \\
         \midrule
         \midrule
-        Ergebnis  & 100.00 \% &   & 7.5654 \\
+        Ergebnis  & 100.00 \% &   & 7.0168 \\
         \bottomrule
       \end{tabular}
       \caption{Nutzwertanalyse der Alternative A-3 - Vaadin 6.5.7}
@@ -607,7 +628,13 @@
   
   Vaadin bietet ein eigenes Add-on Repository an, unter welchem Erweiterungen
   zum Framework bezogen werden können. Das deutet auf eine modulare Architektur
-  hin. Wie modular die Architektur wirklich ist, konnte ich nach meinem Research
+  hin.
+  
+  Es können eigene \ac{GUI} Komponenten erstellt und auch einfach
+  wiederverwendet werden. Dafür verwendet Vaadin den modularen Aufbau von
+  \ac{GWT}.
+  
+  Wie modular die Architektur wirklich ist, konnte ich nach meinem Research
   nicht genau abschätzen, desshalb gibt es nur fünf Punkte.
   
   \subsubsection{Soll-06 - Testing - 9 Punkte}
@@ -627,9 +654,11 @@
   Die Entwickler haben sogleich ein komplettes Buch zum Framework mit vielen
   hilfreichen Beispielen geschrieben, siehe \cite{BookOfVaadin}. Das Buch ist
   in \ac{HTML} oder als \ac{PDF} frei verfügbar und kostenlos. Es enthält alle
-  wichtigen Informationen, welche zur Entwicklung nötig sind. Auf Amazone gibt es nur ein
-  weiteres Buch, das sich diesem Framework gewidmet hat, das ist aber nicht
-  weiter schlimm, da das Framework relativ neu ist.
+  wichtigen Informationen, welche zur Entwicklung nötig sind. Auf
+  Amazone\footnote{Amazon ist ein online Buchladen, siehe
+  \url{http://www.amazon.de}} gibt es nur ein weiteres Buch, das sich diesem
+  Framework gewidmet hat, das ist aber nicht weiter schlimm, da das Framework
+  relativ neu ist.
   
   Die Dokumentation wird auf der Website mit einer Menge von Tutorials
   abgerundet. Es existieren auch die üblichen Dinge, wie das JavaDoc zum
@@ -660,7 +689,7 @@
   Für Vaadin gibt es ein DZone Refcard\footnote{Sogenannte Cheat Sheets, die
   meistens von den Entwicklern eines Frameworks selbst verfasst werden. Sie
   stehen gratis unter der \ac{URL} \url{http://refcardz.dzone.com/} zur
-  Verfügung.} Wenn für ein Framework ein Refcard existiert, sagt das aus, dass
+  Verfügung.}. Wenn für ein Framework ein Refcard existiert, sagt das aus, dass
   es von der Community verwendet wird.
   
   Die Firma Vaadin Ltd bietet mit Vaadin Pro die Möglichkeit von bug-fix
@@ -670,20 +699,33 @@
   Scrum) verpflichtet werden. Es gibt auch die Möglichkeit einen Proof of
   Concept durch das Vaadin Entwicklungs Team erstellen zu lassen.
   
-  Der Support durch die Firma Vaadin Ltd ist sehr gut, die Community für Vaadin
-  ist aber gerade erst dabei sich zu bilden und noch nicht sehr stark, somit
+  Der Support durch die Firma Vaadin Ltd sieht sehr gut aus, die Community für
+  Vaadin ist aber gerade erst dabei sich zu bilden und noch nicht sehr stark, somit
   sind es nur 4 Punkte.
 
-  \subsubsection{Soll-18 - AJAX-Unterstützung - 9 Punkte}
+  \subsubsection{Soll-18 - AJAX-Unterstützung - 7 Punkte}
   
-  \ac{Ajax} wird massiv unterstützt. Alle \ac{UI} Aktionen basieren auf diesem
-  Prinzip. Zudem kann eine Javascript Library wie JQuery oder Prototype
-  integriert werden. Desshalb gibt es die maximale Punktzahl.
+  \ac{Ajax} wird massiv unterstützt. Alle \ac{UI} Komponenten und deren
+  Aktionen, sowie auch das ganze Layout Management basieren auf diesem Prinzip.
+  Das Programmiermodell sieht vor, dass der Entwickler alle möglichen
+  Funktionalitäten komplett in Java entwickeln kann, sodass das Framework alle
+  dafür notwendigen Java Script funktionalitäten generiert. Zudem kann eine
+  zusätzliche Javascript Library wie JQuery oder Prototype in die Applikation
+  integriert werden.
+  
+  Leider können Vaadin Applikationen nicht auf die Verwendung von Java
+  Script verzichten. Wenn Java Script im Browser nicht unterstützt oder
+  deaktiviert ist, können Vaadin Applikationen nicht ausgeführt werden. Durch
+  das fehlen einer Fallbacklösung gibt es zwei Punkte abzug.
   
   \subsection{A-4 - Apache Wicket 1.4.17}
   
-  Das Ergebnis ist in der Tabelle \ref{tab:nwaA4} ersichtlich. Der Nutzwert
-  liegt bei xx.xx.
+  Um an wertvolle Informationen über Apache Wicket zu kommen, habe ich Stefan
+  Pudig interviewt. Er hatte schon ein Projekt in Apache Wicket implementiert,
+  und kennt sich im allgemeinen mit der Materie aus. Zudem wurde das Buch
+  ``Wicket - Komponentenbasierte Webanwendungen im Java'', siehe \cite{Wicket} als
+  Referenz verwendet. Das Ergebnis der Nutzwertanalyse ist in der Tabelle
+  \ref{tab:nwaA4} ersichtlich. Der Nutzwert liegt bei 6.4282.
   
   \begin{table}[ht]
     \sffamily 
@@ -693,20 +735,135 @@
         Kriterien & Gewichtung \(g\) & Erfüllungsgrad \(e\) & Wertigkeit
         \(_A-_4\) \\
         \midrule
-        Soll-01   & 34.81 \% & x & y \\
-        Soll-03   &  5.91 \% & x & y \\
-        Soll-06   & 17.93 \% & x & y \\
-        Soll-12   &  4.85 \% & x & y \\
-        Soll-13   &  9.07 \% & x & y \\
-        Soll-18   & 27.43 \% & x & y \\
+        Soll-01   & 34.81 \% & 7 & 2.4367 \\
+        Soll-03   &  5.91 \% & 5 & 0.2955 \\
+        Soll-06   & 17.93 \% & 6 & 1.0758 \\
+        Soll-12   &  4.85 \% & 7 & 0.3395 \\
+        Soll-13   &  9.07 \% & 7 & 0.6349 \\
+        Soll-18   & 27.43 \% & 6 & 1.6458 \\
         \midrule
         \midrule
-        Ergebnis  & 100.00 \% &   & z \\
+        Ergebnis  & 100.00 \% &   & 6.4282 \\
         \bottomrule
       \end{tabular}
       \caption{Nutzwertanalyse der Alternative A-4 - Apache Wicket 1.4.17}
       \label{tab:nwaA4}
     \end{center}
   \end{table}
+  
+  \subsubsection{Soll-01 - Zugriffskontrolle - 7 Punkte}
+  
+  Es existieren folgende Security Features, welche von Grund auf dabei sind:
+  
+  \begin{itemize}
+    \item Wenn über HTTPS kommuniziert wird, wird ein Session Hijecking
+    unterbunden, sofern kein Zugriff auf die Server Komponente, in der Apache
+    Wicket läuft, besteht.
+    \item Cross-Site Scripting wird anhand einer Escaping
+    Funktion\footnote{Hierunter versteht man ein Maskierten der
+    JavaScript-Funktionszeichen, sodass diese nicht ausgeführt, sondern
+    angezeigt werden, siehe \cite{Wicket} S. 299} verhindert.
+    \item SQL-Injection wird ebenfalls anhand eines Escapings unterbunden. Zudem
+    wird einem geraten in Java mit \(PreparedStatements\) zu arbeiten, damit
+    übergebene Parameter nicht mehr interpretiert werden, siehe \cite{Wicket} S.
+    299.
+    \item Authentifizierung und Autorisierung Mechanismen werden vom Framework
+    nur grundlegend unterstützt. 
+    \item Ein Rollenkonzept wird von Grundauf nicht angeboten, dafür gibt es ein
+    zusätzliches Framework namens ``Wicket Auth Roles''. 
+  \end{itemize}
+  
+  \noindent
+  Zwei Punkte abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
+  
+  \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
+  
+  Bei diesem Punkt stütze ich mich auf die Aussagen von Stefan Pudig.
+  
+  Ein offzielles Add-on oder Plugin Repository existiert nicht für Apache
+  Wicket. Dafür können zusätzliche Features in der Form von Bibliotheken manuell
+  zum Projekt hinzugefügt werden. Zudem wird eine Maven Integration
+  gewährleistet.
+  
+  Die Erweiterung von Komponenten des grafischen User Interfaces (UI) wird sehr
+  gut unterstützt. Durch die Fähikeit des Vererbens können Konponenten einfach
+  abgeleitet und verändert werden. Diese können dann auch einfach
+  wiederverwendet werden.
+  
+  Wie modular das Framework selber ist, konnte Stefan Pudig mir nicht nennen, er
+  meint aber, dass die meisten Business Applikationen mit den bestehenden
+  Komponenten abgebildet werden können.
+  
+  Durch das fehlen eines Add-on Repositories gibt es nur fünf Punkte.
+  
+  \subsubsection{Soll-06 - Testing - 6 Punkte}
+  
+  Wicket bietet eine \ac{API} an, mit welcher UnitTests durchgeführt werden
+  können. Es können damit alle gängigen funktionalitäten des Frameworks
+  getestet werden, siehe \cite{Wicket} S. 255ff. Dafür muss die Applikation
+  nicht deployed werden, sondern die Applikation wird direkt instanziirt.
+  
+  Leider wird kein möglichkeit geboten, Regressionstests abzubilden. Dafür muss
+  man auf auf bestehende Lösungen, wie
+  Selenium\footnote{Siehe \url{http://www.seleniumhq.org/} oder
+  \url{http://code.google.com/p/webdriver}} zurückgreiffen.
+  
+  Da von Grund auf keine Regressionstests möglich sind gibt es nur sechs Punkte
+  
+  \subsubsection{Soll-12 - Dokumentation - 7 Punkte}
+
+  Auf Amazon werden fünf Bücher zum Apache Wicket Framework
+  angeboten. Das sind genug Referenzen, um sich in die Thematik tief
+  einzuarbeiten.
+  
+  Die Projektseite\footnote{Apache Wicket Projektseite, siehe
+  \url{http://wicket.apache.org/}} ist schlicht und übersichtlich, wie man das
+  von Apache Projekten gewohnt ist. Es ist das JavaDoc zum \ac{API} verfügbar,
+  es gibt eine Handvoll Beispiele, und eine Übersicht zu den unterstützten
+  Komponenten, zudem gibt es eine komplette Dokumentation zum Thema Wicket. Ein
+  paar Links, zu Blogs, die sich mit der Materie befassen, werden auch
+  propagiert.
+  
+  Eine unumgängliche Erweiterung der Dokumentation ist das offizielle
+  Wiki\footnote{Siehe \url{https://cwiki.apache.org/WICKET/}}. Hier werden alle
+  notwendigen Informationen und Tips und Tricks zusammengezogen.
+  
+  Alles in allem ist der Umfang gut, die erwähnten Bereiche sind aber nur in
+  Englisch verfügbar. Zudem wirkt die Dokumentation eher wie zusammengewürfelt.
+  Desshalb gibt es zwei Punkte abzug.
+ 
+  \subsubsection{Soll-13 - Community - 7 Punkte}
+  
+  Wicket existiert seit dem Jahr 2004, siehe \cite{WikiWicket}.
+
+  Laut ohloh gibt es 119 User, die Apache Wicket verwenden und 42 Contributer.
+
+  Bei DZone findet man 546 Posts, welche sich direkt, oder eventuell auch
+  indirekt, mit Apache Wicket befassen.
+
+  Für Apache Wicket gibt es eine DZone Refcard.
+  
+  Durch das sich Apache Wicket nun schon über sieben Jahre im Java Web Framework
+  Zirkus halten konnte und es immer noch eine aktive Community gibt, werden
+  sieben Punkte erteilt.
+  
+  \subsubsection{Soll-18 - AJAX-Unterstützung - 6 Punkte}
+  
+  Wicket bietet eine AJAX Unterstützung an, bei der die Funktionalität komplett
+  in Java entwickelt werden kann. Die dafür notwendigen Java Script
+  Funktionalitäten werden durch das Framework generiert.
+  
+  Leider werden nur eine begrenzte Anzahl von Komponenten angeboten, welche
+  via \ac{Ajax} an Funktionalität gewinnen. Es handelt sich dabei um bekannte
+  Anwendungsfälle, wie: Formvalidierung, Paging navigation, Panel lazy loading
+  oder TextFiel autocompletion. Es gibt noch ein paar weitere Szenarien,
+  die ich hier nicht erwähnt habe. Zudem kann eine zusätzliche Javascript
+  Library wie JQuery oder Prototype in die Applikation integriert werden, um
+  damit das \ac{GUI} aufzuwerten.
+  
+  Wicket bietet eine Fallback Strategie für gewisse Komponenten. Damit wird die
+  Funktionalität auch bei fehlender Java Script Unterstütung gewährleistet.
+  
+  Durch die begrenzte Unterstützung von Komponenten gibt es nur sechs Punkte
 
   \section{Resultat}
