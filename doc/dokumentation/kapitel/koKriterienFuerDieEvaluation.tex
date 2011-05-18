@@ -1,0 +1,60 @@
+  Anhand einer Menge von KO-Kriterien wird die Auswahl der Alternativen
+  eingeschränkt. Die KO-Kriterien sind aus dem \begin{itshape}Handbuch der
+  IT-Architektur\end{itshape}, siehe \cite{ZkbHandbuchDerItArchitektur}, der
+  \ac{ZKB} entnommen. Die Namensgebung in dem Handbuch unterscheidet sich
+  leicht, es wird nicht von KO-Kriterien, sondern von Grundsätzen gesprochen.
+  
+  KO-Kriterien sind Vorgaben, welche zwingend erfüllt sein müssen. Falls ein
+  Kriterium nicht erfüllt werden kann, fällt die Entscheidung auf diese
+  Alternative negativ aus. Jedem KO-Kriterium wird für die Identifikation eine
+  eindeutige ID vergeben. Die ID setzt sich folgendermassen zusammen: 
+  \{KO\}-\{Laufnummer\}.
+
+  \section{Grundsätze aus der IT-Architektur der Zürcher Kantonalbank}
+  
+  Ein Grundsatz wird im Handbuch wer IT-Architektur wie folgt definiert:
+  \newline
+  
+  ``\begin{itshape}Es sind Grundsätze definiert, nach denen sich die Baupläne
+  der IT-Systeme zu richten haben. Die Grundsätze sind ein Regelwerk mit
+  Weisungscharakter.\end{itshape}''
+  \footnote{\cite{ZkbHandbuchDerItArchitektur} Kapitel 1.3 - \begin{itshape}Was
+  ist die IT-Architektur der ZKB\end{itshape}, Seite 11}
+  \newline
+
+  \noindent
+  Dabei gibt es eine Hintertür:
+  \newline
+
+  ``\begin{itshape}Grundsätze sind verbindliche Vorgaben (Konventionen), von
+  denen nur in begründeten Ausnahmen abgewichen werden kann.\end{itshape}''
+  \footnote{\cite{ZkbHandbuchDerItArchitektur} Kapitel 1.8 -
+  \begin{itshape}Leseanleitung\end{itshape}, Seite 14}
+  \newline
+  
+  \noindent
+  Das Dokument wurde analysiert und alle Grundsätze, welche für diese
+  Diplomarbeit relevanten sind, werden im Anhang
+  \ref{chapter:GrundsaetzeDerZkbItArchitektur}
+  \nameref{chapter:GrundsaetzeDerZkbItArchitektur} (auf Seite 
+  \pageref{chapter:GrundsaetzeDerZkbItArchitektur}ff) aufgelistet und mit einer
+  ID versehen. Insgesamt wurden 44 Grundsätze erkannt, welche einen Einfluss
+  auf die Evaluation haben könnten.
+  
+  \section{KO-Kriterien die im Rahmen der Diplomarbeit nicht beachtet werden
+  sollen}\label{section:KoKriterienDieNichtBeachtetWerden}
+  
+  Damit die Durchführung der Evaluation einen Sinn ergibt, sollen einige
+  KO-Kriterien nicht beachtet werden. In Absprache mit dem Fachbetreuer der
+  \ac{ZKB} betrifft das folgende KO-Kriterien, die im Rahmen der Diplomarbeit
+  nicht berücksichtigt werden:
+  
+  \begin{itemize}
+    \item \ref{itm:KO-09} - Für Java-Applikationen (Internet, Extranet und
+    Intranet) wird das ZIP-Framework eingesetzt.
+    \item \ref{itm:KO-16} - Die Internet-Applikationen funktionieren auch
+    eingeschränkt, ohne dass die Skript-Funktion im Browser aktiviert ist.
+    \item \ref{itm:KO-20} - Für Ultra Thin Clients bzw. Browser-basierende
+    Applikationen muss das aktuelle, Struts-basierende HTML-Client-Framework
+    der ZKB Internet Plattform verwendet werden.
+  \end{itemize}
