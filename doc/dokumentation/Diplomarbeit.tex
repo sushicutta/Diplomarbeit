@@ -10,16 +10,18 @@
 \documentclass[
 11pt, % Schriftgrösse
 a4paper, % A4 Papier
-BCOR25mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
+%%%%%%%% BCOR25mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
+BCOR15mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
 DIV14, % Satzspiegel festlegen siehe
        % http://www.ctex.org/documents/packages/nonstd/koma-script.pdf
 footsepline = false, % Trennlinie zwischen Textkörper und Fußzeile
                      % bei normalen Seiten
 headsepline, % Trennlinie zwischen Kopfzeile und Textkörper
              % bei normalen Seiten
-twoside, % Zweiseitig
+oneside,
+%%%%%%%% twoside, % Zweiseitig
 openright,
-%halfparskip, % Europäischer Satz mit Abstand zwischen den Absätzen
+halfparskip, % Europäischer Satz mit Abstand zwischen den Absätzen
 abstracton, % inkl. Abstract
 listof=totocnumbered, % Abb.- und Tab.verzeichnis im Inhaltsverzeichnis
 bibliography=totocnumbered % Lit.zeichnis in Inhaltsverzeichnis aufnehmen
@@ -47,6 +49,8 @@ automark,
 % \usepackage[applemac]{inputenc}
 \usepackage[T1]{fontenc}
 
+
+
 % Setup for fullpage use
 %\usepackage{fullpage}
 
@@ -65,18 +69,18 @@ automark,
 % Festlegung des Seitenstils (scrpage2)
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\automark[chapter]{section}
+\automark[section]{chapter}
 
-\lehead{\sffamily\upshape\headmark}
-\cehead{}
-\rehead{}
-\lefoot[\pagemark]{\upshape \pagemark}
-\cefoot{}
-\refoot{}
+%\lehead{\sffamily\upshape\headmark}
+%\cehead{}
+%\rehead{}
+%\lefoot[\pagemark]{\upshape \pagemark}
+%\cefoot{}
+%\refoot{}
+\lohead{\sffamily\upshape\leftmark}
+%\cohead{}
 
-\lohead{}
-\cohead{}
-\rohead{\sffamily\upshape\headmark}
+%\rohead{\sffamily\upshape\leftmark}
 \lofoot{}
 \cofoot{}
 \rofoot[\pagemark]{\scshape \pagemark}
@@ -146,6 +150,9 @@ backgroundcolor=\color{blue!3},
 % Mehrere Spalten (Für das Abkürzungsverzeichnis)
 \usepackage{multicol}
 
+% Mehrer Zellen Verbinden in einer Tabelle
+\usepackage{multirow}
+
 % Abkürzungsverzeichnis erstellen.
 \usepackage[printonlyused]{acronym}
 
@@ -163,6 +170,8 @@ backgroundcolor=\color{blue!3},
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
+
+\usepackage{natbib}
 
 \usepackage[hyperfootnotes=false]{hyperref}
 \hypersetup{
@@ -591,7 +600,7 @@ Applikationen}
   \bibliographystyle{alpha}
   % verwendet Literaturverzeichnis.bib
   % \renewcommand\bibname{Literaturverzeichnis} % Titel überschreiben
-  
+  %\bibliographystyle{unsrtnat}
   \bibliography{Literaturverzeichnis}\label{chapter:Literaturverzeichnis}
   
   \cleardoublepage

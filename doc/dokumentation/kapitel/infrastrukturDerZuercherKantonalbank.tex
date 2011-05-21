@@ -75,15 +75,18 @@
   
   Die Datenschicht wird über die Datenbankschnittstelle \ac{JDBC} angebunden.
   Der JBoss AS bietet für die meisten \ac{RDBMS} alles, was dafür benötigt
-  wird.
+  wird. Es gibt auch die Konstellation, bei der ein \ac{ORM}, wie zum Beispiel
+  Hibernate, verwendet wird.
   
-  Die Kommunikation zwischen der Web Applikation und der ZKB spezifischen
-  Middleware findet ebenfalls hier in der Business-Logik statt.
-  
+  Die Kommunikation zwischen der Applikation und der ZKB spezifischen Middleware
+  findet ebenfalls hier in der Business-Logik statt. Für die synchrone
+  Kommunikation steht der \ac{BRE} zur Verfügung. Für die asynchrone
+  Kommunikation gibt es Metro, was eine \ac{MOM} ist.
+    
   \section{Datenschicht}
   
   Die Datenschicht wird meistens mit einem \ac{RDBMS} abgebildet. Normalerweise
-  wird die Enterpriselösung von Oracle eingesetzt. Je nach grösse der
-  Applikation kann es sein, dass mehrere verschiedene \ac{RDBMS} zum Einsatz
+  wird die Enterprise taugliche Lösung von Oracle eingesetzt. Je nach grösse
+  der Applikation kann es sein, dass mehrere verschiedene \ac{RDBMS} zum Einsatz
   kommen.
 
