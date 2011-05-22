@@ -12,10 +12,11 @@
   und Black-Box-Tests, siehe Abbildung \ref{img:programmanalyse}. In meiner
   Arbeit werde diese Methoden zur Analyse von Elementen der grafischen
   Benutzeroberfläche einsetzten.
+  \newline
   
   \begin{figure}[ht]
     \begin{center}
-      \includegraphics[width=0.6\textwidth]{./image/programmanalyse.pdf}
+      \includegraphics[width=0.8\textwidth]{./image/programmanalyse.pdf}
       \caption{Überblick über konventionelle Testmethoden (nach
       \cite{SoftwareanalyseBegriffeUndTechniken} S. 5)}
       \label{img:programmanalyse}
@@ -35,7 +36,7 @@
   \cite{SoftwareQualitaetsmanagementInDerPraxis} S. 216f.
   
   \noindent
-  Im Artikel GUI Analysen und Bibliotheken,
+  Im Artikel \begin{itshape}GUI Analysen und Bibliotheken\end{itshape},
   siehe \cite{GUIAnalysenUndBibliotheken} befasst sich der Author damit, was
   man bei \ac{GUI} lastiger Software durch eine statische Programmanaylse in
   Erfahrung bringen kann. Nach Aussage des Authors kann man bei deren
@@ -86,12 +87,13 @@
       if (evt.getClickCount() == 3) {
         System.out.println("triple-click");
       }
-    }});
+    }
+  });
   \end{lstlisting}
   
   \subsection{Probleme bei der Verwendung von Bibliotheken}
   
-  Gemäss \cite{GUIAnalysenUndBibliotheken} S. 1f. besteht ebenfalls ein Problem
+  Gemäss \cite{GUIAnalysenUndBibliotheken} S. 1f. besteht ein Problem
   bei der Verwendung von Bibliotheken. Die Grundproblematik besteht darin,
   dass eine Bibliothek eventuell ohne Zugriff auf deren Sourcecode verwendet
   wird. Damit wird das Verfahren der statischen Programmanalyse und der
@@ -111,11 +113,10 @@
   statischen Programmanalyse für Java Swing Applikationen gefunden. Somit wurde
   im Falle von vorhandenem Quellcode nur das dynamische White-Box Verfahren
   angewendet.
-  \newline
   
-  \begin{figure}[ht]
+  \begin{figure}[htb]
     \begin{center}
-      \includegraphics[width=0.5\textwidth]{./image/guiAnalyse.pdf}
+      \includegraphics[width=\textwidth]{./image/guiAnalyse.pdf}
       \caption{Wahl des Verfahrens der Programmanalyse}
       \label{img:guiAnalyse}
     \end{center}

@@ -21,16 +21,16 @@
   
   Bei der gewichteten \ac{NWA} wird eine Menge von Alternativen, auf deren
   Nutzen, miteinander verglichen. Der Vergleich wird über \(n\) vergleichbare
-  Kriterien geführt. Dabei werden die einzelnen Kriterien mit einem
-  Erfüllungsgrad \(e_i\) bewertet. Die Skala der Erfüllungsgrade ist in der
-  Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
+  Kriterien geführt, auch Anforderungen genannt. Dabei werden die einzelnen
+  Kriterien mit einem Erfüllungsgrad \(e_i\) bewertet. Die Skala der
+  Erfüllungsgrade ist in der Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
   
-  \begin{table}[ht]
+  \begin{table}[hbt]
     \sffamily 
     \begin{center}
       \begin{tabular}{lc}
         \toprule
-        Erfüllungsgrad & Skala\\
+        \textbf{Erfüllungsgrad} & \textbf{Skala}\\
         \midrule
         nicht erfüllt & 0\\
         schlecht & 1, 2\\
@@ -45,49 +45,44 @@
   \end{table}
   
   Jedes Kriterium wird durch einen Gewichtungsfaktor \(g_i\) versehen, was
-  die Präferenz des Kriteriums wiederspiegelt. Dabei gilt: Die Gewichte gi
-  werden so gewählt, dass ihre Summe 1 (100\%) ergibt, siehe Formel
+  die Präferenz des Kriteriums wiederspiegelt. Dabei gilt: Die Gewichte \(g_i\)
+  werden so gewählt, dass ihre Summe 1.0 (100\%) ergibt, siehe Formel
   \ref{eq:gewicht}.
-  \newline
+
+  Für jede zu evaluierende Alternative soll geprüft werden, ob eines der
+  KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
+  würde, siehe Abbildung \ref{img:rahmenbedingungenPruefen}, Falls das nicht der
+  Fall ist, wird der Nutzwert der Alternative berechnet. Der Nutzwert ergibt
+  sich durch die Formel \ref{eq:nutzwert}. Diejenige Alternative mit dem
+  grössten Nutzwert entspricht am meisten den Anforderungen.
 
   \begin{equation}
     \label{eq:gewicht}
-    Gewicht := \sum \limits_{i=1}^n g_i = 1
+    Gewicht := \sum \limits_{i=1}^n g_i = 1.0
   \end{equation}
   
-  \noindent
-  Der Nutzwert ergibt sich durch die Formel \ref{eq:nutzwert}:
-  \newline
-
   \begin{equation}
     \label{eq:nutzwert}
     Nutzwert := \sum \limits_{i=1}^n e_i \cdot g_i
   \end{equation}
-  \newline
-  
-  \noindent
-  Für jede zu evaluierende Alternative soll geprüft werden, ob eines der
-  KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
-  würde. Falls das nicht der Fall ist, wird der Nutzwert der Alternative
-  berechnet. Diejenige Alternative mit dem grössten Nutzwert entspricht am
-  meisten den Anforderungen.
   
   \subsection{Anschauliches Beispiel}
   
-  Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A\) und \(B\) -
-  miteinander verglichen werden. Sie sollen auf deren Kriterien - Leistung,
-  Aussehen und Alltagstauglichkeit - verglichen werden. In der Tabelle
-  \ref{tab:beispielNwa} ist ersichtlich, dass das Auto \(A\) dem Auto \(B\)
-  gegenüber bevorzugt werden soll, da der Nutzwert \(5.0 > 4.7\) höher ist.
+  Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A\) und Auto
+  \(B\) - miteinander auf die Kriterien - Leistung, Aussehen und
+  Alltagstaublichkeit - verglichen werden. In der Tabelle \ref{tab:beispielNwa}
+  ist ersichtlich, dass das Auto \(A\) dem Auto \(B\) gegenüber bevorzugt
+  werden soll.
   \newline
   
-  \begin{table}[ht]
+  \begin{table}[h!]
     \sffamily 
     \begin{center}
       \begin{tabular}{lrrrrr}
         \toprule
-        Kriterien & Gewichtung \(g\) & \(e_A\) & Wertigkeit \(A\) & \(e_B\)
-        & Wertigkeit \(B\)\\
+        \textbf{Kriterien} & \textbf{Gewichtung \(g\)} & \textbf{\(e_A\)} &
+        \textbf{Wertigkeit \(A\)} & \textbf{\(e_B\)} & \textbf{Wertigkeit
+        \(B\)}\\
         \midrule
         Leistung            & 0.3 & 7 & 2.1 & 9 & 2.7 \\
         Aussehen            & 0.2 & 2 & 0.4 & 5 & 1.0 \\
@@ -101,6 +96,16 @@
       \label{tab:beispielNwa}
     \end{center}
   \end{table}
+  
+  \begin{figure}[htb]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./image/rahmenbedingungenPruefen.pdf}
+      \caption{Die Alternativen sollen gegen KO-Kriterien geprüft werden.}
+      \label{img:rahmenbedingungenPruefen}
+    \end{center}
+  \end{figure}
+  
+  \clearpage
  
   \section{Analytic Hierarchy Process}
   
@@ -152,7 +157,7 @@
     \begin{center}
       \begin{tabular}{lc}
         \toprule
-        Bedeutung & Skala\\
+        \textbf{Bedeutung} & \textbf{Skala}\\
         \midrule
         gleiche Bedeutung & 1\\
         leicht grössere Bedeutung & 2 - 3\\
@@ -197,9 +202,8 @@
     
   \begin{figure}[ht]
     \begin{center}
-      \includegraphics[width=0.47\textwidth]{./image/ablaufEvaluation.pdf}
-      \caption{Ablauf einer Evaluation mit der kombinierten Methode aus
-      Nutzwertanalyse und \ac{AHP}}
+      \includegraphics[width=0.75\textwidth]{./image/kompletterAblaufDerEvaluation.pdf}
+      \caption{Ablauf einer Evaluation mit der kombinierten Methode aus Nutzwertanalyse und \ac{AHP}}
       \label{img:ablaufEvaluation}
     \end{center}
   \end{figure}

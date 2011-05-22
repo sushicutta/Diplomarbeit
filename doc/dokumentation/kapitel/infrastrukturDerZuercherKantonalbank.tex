@@ -1,16 +1,15 @@
   Im diesem Kapitel, soll auf die IT-Infrastruktur der \ac{ZKB} im Bereich der
   Web Applikationen eingegangen werden. Diese Informationen werden später dazu
-  verwendet, um zu Prüfen, ob ein Java Web Framework den Ansprüchen der
-  IT-Infrastruktur genügt. Die Informationen, welche hier beschrieben werden,
-  stammen aus dem Handbuch der ZKB IT-Architektur, siehe
-  \cite{ZkbHandbuchDerItArchitektur}. In der Abbildung
-  \ref{img:infrastrukturZkb} ist die Standardkonfiguration, wie sie heute
-  verwendet wird, ersichtlich.
+  verwendet, um zu Prüfen, ob ein Java Web Framework den gestellten Ansprüchen
+  genügt. Die Informationen, welche hier beschrieben werden, stammen aus dem
+  Handbuch der ZKB IT-Architektur, siehe \cite{ZkbHandbuchDerItArchitektur}. In
+  der Abbildung \ref{img:infrastrukturZkb} ist die Standardkonfiguration, wie
+  sie heute verwendet wird, ersichtlich.
   
-  \begin{figure}[ht]
+  \begin{figure}[hbtp]
     \begin{center}
-      \includegraphics[width=0.87\textwidth]{./image/infrastrukturZkb.pdf}
-      \caption{Architektur von Internet-Applikationen (nach
+      \includegraphics[width=0.80\textwidth]{./image/infrastrukturZkb.pdf}
+      \caption{Architektur von Java Web Applikationen (nach
       \cite{ZkbHandbuchDerItArchitektur} S. 145)}
       \label{img:infrastrukturZkb}
     \end{center}
@@ -18,19 +17,20 @@
   
   \section{Java Runtime Environment}
   
-  In allen Segmenten der Infrastruktur wird mindestens das \ac{JRE} von
-  Oracle\footnote{ehemals Sun Microsystems} in der Version 1.5 zur Verfügung
-  gestellt. An einigen stellen, zum Beispiel bei den Clients ist auch die
-  Version 1.6 verfügbar. Diese Informationen beziehen sich auf den aktuellen
-  Stand und können sich jederzeit ändern. Grundsätzlich wird nicht davon
-  ausgegangen, dass ein Rückschritt in der Version vorgenommen wird, sondern
-  das man gemäss der Evolution auf eine neuere Version wechselt.
+  In praktisch allen Segmenten der IT-Infrastruktur wird das \ac{JRE}
+  von Oracle\footnote{ehemals Sun Microsystems} mindestens in der Version 1.5
+  zur Verfügung gestellt. An einigen Stellen, zum Beispiel bei den Clients ist
+  auch die Version 1.6 verfügbar. Diese Informationen beziehen sich auf den
+  aktuellen Stand und können sich jederzeit ändern. Grundsätzlich wird nicht
+  davon ausgegangen, dass ein Rückschritt in der Version vorgenommen wird,
+  sondern das man gemäss der Evolution auf eine neuere Version wechselt.
   
   \section{Load-Balancing und Transport}
   
   Für das Load-Balancing und den Transport wird der Apache HTTP Server 2
-  verwendet. Er gilt als anerkannter Standard und ist auf allen ZKB Plattformen
-  verfügbar, siehe \cite{ZkbHandbuchDerItArchitektur} S. 146.
+  verwendet. Er gilt als anerkannter Standard und ist für allen von der \ac{ZKB}
+  verwendeten Plattformen verfügbar, siehe \cite{ZkbHandbuchDerItArchitektur}
+  S. 146.
   
   Der Transport über \ac{HTTP} und \ac{HTTPS} gehört zu den Standardfunktionen
   des Apache HTTP Servers 2. Zudem können statische Daten direkt über den

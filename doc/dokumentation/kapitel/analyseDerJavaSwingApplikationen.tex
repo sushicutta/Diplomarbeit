@@ -6,7 +6,17 @@
   (\nameref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}, S.
   \pageref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}ff) angewendet.
   Als Ergebniss wird eine Kategorisierung der verwendeten Swing Komponenten
-  aufgelistet.
+  aufgelistet. Der Ablauf wird in der Abbildung
+  \ref{img:kompletteApplikationsAnalyse} dargestellt.
+  \newline
+    
+  \begin{figure}[htb]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./image/kompletteApplikationsAnalyse.pdf}
+      \caption{Ablauf der Analyse der Java Swing Applikationen}
+      \label{img:kompletteApplikationsAnalyse}
+    \end{center}
+  \end{figure}
   
   \section{Auswahl der Java Swing Applikationen}
   
@@ -21,8 +31,8 @@
     \begin{center}
       \begin{tabular}{llp{2cm}p{3.5cm}}
         \toprule
-        Applikation & Version & Sourcecode vorhanden & GUI enthält sensible
-        Informationen\\
+        \textbf{Applikation} & \textbf{Version} & \textbf{Sourcecode vorhanden}
+        & \textbf{GUI enthält sensible Informationen}\\
         \midrule
         Strukti Live & 1.2 & Ja & Nein\\
         Strukti Online & 2.10.0 & Ja & Ja\\
@@ -38,15 +48,15 @@
   
   \begin{description}
   \item[Strukti Live]
-  Strukti Live 1.2 wurde gewählt, weil es eine Applikation ist, die
-  von der ZKB veröffentlicht wurde. Somit werden bei der Anlayse keine
-  sensiblen Informationen preisgegeben.
+  Wurde gewählt, weil diese Applikation von der ZKB veröffentlicht wurde. Somit
+  werden bei der Anlayse keine sensiblen Informationen preisgegeben.
+  
   \item[Strukti Online]
-  Strukti Online 2.10.0 wurde gewählt, weil eine mögliche Migration
-  zur Web Applikation schon einmal in der \ac{ZKB} zur Disskusion stant.
+  Wurde gewählt, weil eine mögliche Migration zur Web Applikation schon einmal
+  in der \ac{ZKB} zur Disskusion stant.
+  
   \item[Hedo Tool]
-  Hedo Tool 1.0.710 wurde gewählt, da die Applikation über ein hochstehendes
-  \ac{GUI} verfügt.
+  Wurde gewählt, da die Applikation über ein hochstehendes \ac{GUI} verfügt.
   \end{description}
   
   \section{Durchführung der Analyse}
@@ -98,10 +108,10 @@
   \section{Strukti Live}
   
   Strukti Live ist ein Lerntool der Zürcher Kantonalbank für strukturierte
-  Produkte. Die Applikation kann auf dem Internetauftritt \footnote{Unter der
-  Internetadresse \url{http://www.zkb.ch/struktilive} sind alle nötigen
-  Informationen zu Strukti Live enthalten.} der \ac{ZKB} heruntergeladen
-  werden. Es wurde die aktuelle Version 1.2 für die Analyse verwendet.
+  Produkte. Die Applikation kann auf dem Internetauftritt \footnote{Unter 
+  \url{http://www.zkb.ch/struktilive} sind alle nötigen Informationen zu Strukti
+  Live enthalten.} der \ac{ZKB} heruntergeladen werden. Es wurde die aktuelle
+  Version 1.2 für die Analyse verwendet.
   
   In der Tabelle \ref{tab:bibliothekenStruktiLive} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich.
@@ -112,7 +122,8 @@
     \begin{center}
       \begin{tabular}{lp{4.5cm}ccp{2cm}}
         \toprule
-        Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
+        \textbf{Bibliothek} & \textbf{Funktion} & \textbf{Version} &
+        \textbf{Lizenz} & \textbf{Quellcode vorhanden}\\
         \midrule
         core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL & Ja\\
         %bogatyr\_0.60.jar & Abstraktion einiger Swing Komponenten & 0.60 & GPL
@@ -195,43 +206,43 @@
   
   \begin{description}
     \item[Observer]
-    Die Menüführung wurde durch das Observer-Pattern, siehe
-    \cite{ObserverDesignPattern}, implementiert. Dabei wird in einem Modell
-    der jeweilige Status der Applikation durch das Drücken eines
-    \(javax.swing.JButton\) angepasst, wobei sich die jeweiligen
-    \(javax.swing.JPanel\), welche auf Änderungen des Modells höhren, sich neu
+    Die Menüführung wurde durch das Observer-Pattern\footnote{Siehe
+    \cite{GUIDesignPatterns} S. 2ff} implementiert. Dabei wird in einem
+    Modell durch das Drücken eines \(javax.swing.JButton\) der jeweilige Status
+    der Applikation angepasst. Die entsprechen \(javax.swing.JPanel\), welche
+    auf Änderungen des Modells höhren, können sich dann jeweils neu
     zeichnen.
 
-    Ebenfalls mit dem Observer-Pattern wurde die Aktualisierung von Komponenten,
-    welche zusammen hängen, realisiert. Als Beispiel dient ein Verbund der
+    Ebenfalls mit dem Observer-Pattern realisiert wurde die Aktualisierung
+    von Komponenten welche zusammen hängen. Als Beispiel dient ein Verbund der
     Komponenten \(javax.swing.JTextField\), \(javax.swing.JSlider\) und für die
     grafische Darstellung \(org.jfree.chart.JFreeChart\). Dabei werden bei
-    einer Änderung des Wert bei dem Slider oder dem Textfeld die Werte aller
-    anderen Komponenten entsprechend aktualisiert.
+    einer Änderung des Wert bei dem \(JSlider\) oder dem \(JTextfeld\) die Werte
+    aller anderen Komponenten entsprechend aktualisiert.
   \end{description}
   
   \subsection{Gefundene ``neue'' Komponenten}
   
   \begin{description}
     \item[Button-Matrix]
-    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
-    Funktion zu ordnen. Hinter jedem JButton steckt ein Finanzprodukt, das bei
-    einem Klick angezeigt werden kann. Die JButtons können entsprechend
+    \(JButtons\) werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Hinter jedem \(JButton\) steckt ein Finanzprodukt, das
+    bei einem Klick angezeigt werden kann. Die \(JButtons\) können entsprechend
     ihrer Renditechancen (x-Achse) und deren Kapitalschutzes (y-Achse)
     angeordnet werden.
     \item[Akkordeon]
     Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
-    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
-    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden. Zudem gibt
-    es in der Titelleiste ein Info-Button, wo ein Dialog mit
+    \(JPanel\) als Titelleiste funktioniert. In der Titelleiste kann über ein
+    Minus- oder Plussymbol ein weiterer \(JPanel\) ein- oder ausgeklappt werden.
+    Zudem gibt es in der Titelleiste ein \(JButton\), wo ein Dialog mit
     Hintergrundinformationen geöffnet werden kann.
   \end{description}
   
   \section{Strukti Online}
   
   Strukti Online ist ein Emissionstool der \ac{ZKB} für strukturierte Produkte.
-  Die Applikation wird aktuell nur zum internen Gebrauch entwickelt und basiert
-  auf Java Swing. Es wurde die aktuelle Version 2.10.0 für die Analyse
+  Die Applikation wird aktuell nur für den internen Gebrauch entwickelt und
+  basiert auf Java Swing. Es wurde die aktuelle Version 2.10.0 für die Analyse
   verwendet.
   
   Da es sich um eine interne Applikation handelt, werden keine Screenshots
@@ -248,7 +259,8 @@
       \begin{threeparttable}
         \begin{tabular}{lp{4.5cm}ccp{2cm}}
           \toprule
-          Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
+          \textbf{Bibliothek} & \textbf{Funktion} & \textbf{Version} &
+          \textbf{Lizenz} & \textbf{Quellcode vorhanden}\\
           \midrule
           core-renderer.jar & XHtml und CSS Renderer für Swing & R8 & LGPL &
           Ja\\
@@ -321,34 +333,39 @@
   \begin{description}
     \item[MVC]
     Das Zusammenspiel von Model, View und Kontroller wurde strikte nach dem
-    MVC-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S. 15ff.
+    MVC Design-Pattern\footnote{Siehe \cite{GUIDesignPatterns} S. 15ff.}
+    implementiert.
+    
     \item[Observer]
     Einfache Aktuallisierungen zwischen Komponenten wurden strikte nach dem
-    Observer-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S.
-    2ff.
+    Observer Design-Pattern\footnote{Siehe \cite{GUIDesignPatterns} S. 2ff.}
+    implementiert.
+    
     \item[Tabellen-Filter]
-    Durch die Verwendung von JRadioButton, JComboBox, JXDatePicker und JSpinner
-    wurden, bei den meisten Ansicht von Tabellen, Filter gebaut, damit die Daten
-    auf das Wesentliche reduziert werden können. Datei wurde für jede relevante
-    Spalten der Tabelle, entsprechend deren Datentyp, eine dieser Komponenten
-    gewählt.
+    Durch die Verwendung von \(JRadioButton\), \(JComboBox\), \(JXDatePicker\)
+    und \(JSpinner\) wurden, bei den meisten Ansicht von Tabellen, Filter gebaut,
+    damit die Daten auf das Wesentliche reduziert werden können. Datei wurde
+    für jede relevante Spalten der Tabelle, entsprechend deren Datentyp, eine
+    dieser Komponenten gewählt.
   \end{description}
   
   \subsection{Gefundene ``neue'' Komponenten}
   
   \begin{description}
     \item[Button-Matrix]
-    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
-    Funktion zu ordnen. Hinter jedem JButton steckt ein spezifisches
-    vorbewertetes Finanzprodukt, das bei einem Click angezeigt werden kann.
-    Die JButtons können entsprechend ihrer Laufzeit (x-Achse) und der
+    \(JButtons\) werden in einer Matrix angeordnet, um sie entsprechend ihrer
+    Funktion zu ordnen. Hinter jedem \(JButton\) steckt ein spezifisches
+    vorbewertetes Finanzprodukt, das bei einem Mouseclick angezeigt werden
+    kann. Die \(JButtons\) können entsprechend ihrer Laufzeit (x-Achse) und der
     Underlyings\footnote{Auch Basiswerte genannt, siehe \cite{Basiswerte}} des
     hinterlegten Finanzprodukts (y-Achse) angeordnet werden. Die Matrix, kann
     wie eine Tabelle nach Laufzeiten sortiert werden.
+    
     \item[Akkordeon]
     Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
-    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
-    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
+    \(JPanel\) als Titelleiste funktioniert. In der Titelleiste kann über ein
+    Minus- oder Plussymbol ein weiterer \(JPanel\) ein- oder ausgeklappt werden.
+    
     \item[Zeit-Panel]
     Durch die Kombination einer \(org.jdesktop.swingx.JXDatePicker\) und einer
     \(javax.swing.JSpinner\) Komponente kann ein Datum mit Uhrzeit ausgewählt
@@ -362,6 +379,10 @@
   entwickelt und basiert auf Java Swing. Es wird die aktuelle Version 1.0.710
   für die Analyse verwendet.
   
+  Da es sich um eine interne Applikation handelt, werden keine Screenshots der
+  Applikation gezeigt, da anhand dessen eventuell Rückschlüsse auf die
+  Business-Logik gemacht werden könnte.
+  
   In der Tabelle \ref{tab:bibliothekenHedoTool} sind alle verwendeten
   Bibliotheken, welche eine Interaktion mit dem \ac{GUI} haben, ersichtlich,
   und ob deren Sourcecode zugänglich ist.
@@ -373,7 +394,8 @@
       \begin{threeparttable}
         \begin{tabular}{lp{4.5cm}ccp{2cm}}
           \toprule
-          Bibliothek & Funktion & Version & Lizenz & Quellcode vorhanden?\\
+          \textbf{Bibliothek} & \textbf{Funktion} & \textbf{Version} &
+          \textbf{Lizenz} & \textbf{Quellcode vorhanden}\\
           \midrule
           binding-2.0.6.jar & Swing Data Binding Framework aus der JGoodies
           Palette & 2.0.6 & BSD\tnote{1} & Ja\\
@@ -444,11 +466,14 @@
   \begin{description}
     \item[MVC]
     Das Zusammenspiel von Model, View und Kontroller wurde strikte nach dem
-    MVC-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S. 15ff.
+    MVC Design-Pattern\footnote{Siehe \cite{GUIDesignPatterns} S. 15ff.}
+    implementiert.
+    
     \item[Observer]
     Einfache Aktuallisierungen zwischen Komponenten wurden strikte nach dem
-    Observer-Design-Pattern implementiert, siehe \cite{GUIDesignPatterns} S.
-    2ff.
+    Observer Design-Pattern\footnote{Siehe \cite{GUIDesignPatterns} S. 2ff.}
+    implementiert.
+    
     \item[Worker]
     Asynchrone Jobs, die viel Rechenzeit in Anspruch nehmen, wurden mit\\
     \(javax.swing.SwingWorker<V,T>\) gelöst.
@@ -463,7 +488,7 @@
   Die Auflistung aller gefunden Komponenten soll die vereinigte Menge aller
   gefundenen Komponenten wiederspiegeln. Die Auflistung soll als Grundlage für
   die Analyse, ob eine Implementierung der erkannten Swingkomponenten möglich
-  ist, dienen. Folgende Komponenten wurden in den Applikationen gefunden:
+  ist, dienen. Folgende 32 Komponenten wurden in den Applikationen gefunden:
   
   \subsection{Top-Level-Komponenten}
   
@@ -522,38 +547,22 @@
   Die Auflistung aller gefundenen GUI Paradigmen soll die vereinigte Menge aller
   gefundenen GUI Paradigmen wiederspiegeln. Die Auflistung soll als Grundlage für
   die Analyse, ob eine Implementierung der erkannten GUI Paradigmen möglich
-  ist, dienen. Folgende GUI Paradigmen wurden in den Applikationen gefunden:
+  ist, dienen. Folgende sieben GUI Paradigmen wurden in den Applikationen
+  gefunden:
       
   \subsection{Design-Patterns}
   
-  \begin{description}
-    \item[MVC]
-    Siehe \cite{GUIDesignPatterns} S. 15ff.
-    \item[Observer]
-    Siehe \cite{GUIDesignPatterns} S. 2ff.
-    \item[Tabellen-Filter]
-    Durch die Verwendung von JRadioButton, JComboBox, JXDatePicker und JSpinner
-    wurden bei den meisten Ansicht von Tabellen Filter gebaut, damit die Daten
-    auf das Wesentliche reduziert werden können. Datei wurde für jede relevante
-    Spalten der Tabelle entsprechend deren Datentyp eine dieser Komponenten
-    gewählt.
-    \item[Worker]
-    Asynchrone Jobs, die viel Rechenzeit in Anspruch nehmen, werden mit\\
-    \(javax.swing.SwingWorker<V,T>\) gelöst.
-  \end{description}
+  \begin{itemize}
+    \item MVC
+    \item Observer
+    \item Tabellen-Filter
+    \item Worker
+  \end{itemize}
   
   \subsection{``Neue'' Komponenten}
   
-  \begin{description}
-    \item[Button-Matrix]
-    JButtons werden in einer Matrix angeordnet, um sie entsprechend ihrer
-    Funktion zu ordnen.
-    \item[Akkordeon]
-    Ein Verbund von \(javax.swing.JPanel\) Komponenten, bei welchem ein
-    Panel als Titelleiste funktioniert. In der Titelleiste kann über ein Minus-
-    oder Plussymbol ein weiterer Panel ein- oder ausgeklappt werden.
-    \item[Zeit-Panel]
-    Durch die Kombination einer \(org.jdesktop.swingx.JXDatePicker\) und einer
-    \(javax.swing.JSpinner\) Komponente kann ein Datum mit Uhrzeit ausgewählt
-    werden.
-  \end{description}
+  \begin{itemize}
+    \item Button-Matrix
+    \item Akkordeon
+    \item Zeit-Panel
+  \end{itemize}
