@@ -9,14 +9,7 @@
   aufgelistet. Der Ablauf wird in der Abbildung
   \ref{img:kompletteApplikationsAnalyse} dargestellt.
   \newline
-    
-  \begin{figure}[htb]
-    \begin{center}
-      \includegraphics[width=\textwidth]{./image/kompletteApplikationsAnalyse.pdf}
-      \caption{Ablauf der Analyse der Java Swing Applikationen}
-      \label{img:kompletteApplikationsAnalyse}
-    \end{center}
-  \end{figure}
+
   
   \section{Auswahl der Java Swing Applikationen}
   
@@ -58,52 +51,6 @@
   \item[Hedo Tool]
   Wurde gewählt, da die Applikation über ein hochstehendes \ac{GUI} verfügt.
   \end{description}
-  
-  \section{Durchführung der Analyse}
-  
-  Die Wahl des Verfahrens zur Analyse von Java Swing Applikationen, soll, wie im
-  Kapitel \ref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen} erläutert,
-  gemacht werden. Gemäss des gewählten Verfahrens sollen alle Komponenten, die
-  Java Swing zur Verfügung stellt, in der Applikation gesucht werden. Die
-  Komponenten können in der Dokumentation von Oracle\footnote{Oracle ist die
-  Firma, welche Java entwickelt.} zu Java Swing gefunden werden, siehe
-  \cite{SwingComponentsByOracle}. Zudem sollen alle Komponenten, welche durch
-  externe Bibliotheken zur Verfügung gestellt werden, gesucht werden. Die Suche
-  findet durch einen visuellen Vergleich der Komponenten statt, wenn möglich
-  kann auch der Sourcecode in die Suche miteinbezogen werden. Um das ganze für
-  den Leser nachvollziehbar zu machen, sollen die gefundenen Komponenten mit
-  Hilfe von Screenshots gezeigt werden, wenn die Applikation für die
-  Öffentlichkeit bestimmt ist. Falls es sich bei der Analyse um eine
-  Applikation für den internen Gebrauch handelt, werden keine Screenshots
-  gezeigt. Es könnten Rückschlüsse auf die Business-Logik gemacht werden, was
-  nicht im Sinne der \ac{ZKB} ist.
-  
-  Als Resultat soll eine Auflistung aller gefundenen Komponenten erstellt
-  werden. Die Auflistung wird in folgende Gruppen unterteilt:
-  
-  \begin{itemize}
-    \item Top-Level-Komponenten
-    \item Intermediate-Komponenten
-    \item Atomic-Komponenten
-    \item Spezielle Komponenten
-  \end{itemize}
-  
-  \noindent
-  Als Ergänzung zu den Komponenten, sollen auch erkannte GUI Paradigmen
-  aufgelistet werden. Dabei gibt es Design-Patterns, siehe
-  \cite{DesignPattern}, die verwendet werden. Zusätzlich können durch das
-  Zusammenspiel einzelner Swing Komponenten auch ``neue'' Komponenten entstehen.
-  Leider sind die meisten Design-Pattern und ``neuen'' Komponenten nicht mehr
-  mit Hilfe von Screenshots nachvollziehbar. Das jeweilige Verhalten soll
-  desshalb in ein paar Sätzen beschrieben werden.
-  
-  Als Resultat soll eine Auflistung erstellt werden. Die Auflistung wird in die
-  folgenden Gruppen unterteilt:
-  
-  \begin{itemize}
-    \item Design-Patterns
-    \item neue Komponenten
-  \end{itemize}
   
   \section{Strukti Live}
   

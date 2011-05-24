@@ -10,20 +10,47 @@
   die Methode der gewichteten \ac{NWA} gewählt, siehe \cite{Nutzwertanalyse}.
   Diese Methode stammt aus dem Bereich der quantitativen Analysemethoden der
   Eintscheidungstheorie. Um eine möglichst präzise objektive Gewichtung der
-  einzelnen Faktoren zu erhalten wurde die Methode \ac{AHP} gewählt, siehe
-  \cite{AnalyticHierarchyProcess}. Diese Methode stammt aus dem Bereich der
-  präskriptiven Entscheidungstheorie. Der \ac{AHP} wurde von Thomas L. Saaty in
-  den 70er Jahren des 20. Jahrhunderts entwickelt und im Buch ``The Analytic
-  Hierarchy Process: Planning, Priority Setting, Resource
+  einzelnen Faktoren zu erhalten wurde dafür die Methode \ac{AHP} gewählt,
+  siehe \cite{AnalyticHierarchyProcess}. Diese Methode stammt aus dem Bereich
+  der präskriptiven Entscheidungstheorie. Der \ac{AHP} wurde von Thomas L.
+  Saaty in den 70er Jahren des 20. Jahrhunderts entwickelt und im Buch ``The
+  Analytic Hierarchy Process: Planning, Priority Setting, Resource
   Allocation'', siehe \cite{AnalyticHierarchyProcessBook}, veröffentlicht.
   
   \section{Gewichtete Nutzwertanalyse}
   
-  Bei der gewichteten \ac{NWA} wird eine Menge von Alternativen, auf deren
-  Nutzen, miteinander verglichen. Der Vergleich wird über \(n\) vergleichbare
-  Kriterien geführt, auch Anforderungen genannt. Dabei werden die einzelnen
-  Kriterien mit einem Erfüllungsgrad \(e_i\) bewertet. Die Skala der
-  Erfüllungsgrade ist in der Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
+  Bei der gewichteten \ac{NWA} wird eine Menge von Alternativen \(\{A1, A2,
+  A3, \ldots\}\), auf deren Nutzen, miteinander verglichen.
+  
+  Als Rahmenbedingung für die Durchführung der Nutzwertanalyse werden \(m\)
+  KO-Kriterien \(\{KO_1, KO_2, KO_3, \ldots, KO_m\}\) bestimmt. Ein
+  KO-Kriterium wird definiert durch die Erfüllung einer Bedingung. Wenn die Bedingung
+  zutrifft, führt das zum KO\footnote{Der Begriff KO steht für Knock-Out und
+  stammt aus der Boxwelt. Im falle einer Nutzwertanalyse bedeutet es, dass die
+  Alternative aus der Nutzwertanalyse ausgeschlossen wird.} einer darauf
+  geprüften Alternative.
+  
+  Für den Vergleich der Alternativen werden \(n\) vergleichbare
+  Soll-Kriterien, auch Anforderungen genannt, definiert \(\{Soll_1, Soll_2,
+  Soll_3, \ldots, Soll_n\}\). Jedes Soll-Kriterium wird durch einen
+  Gewichtungsfaktor \(g_i\) versehen, was die Präferenz des Soll-Kriteriums
+  wiederspiegelt. 
+
+  Die Gewichte \(g_i\) werden so gewählt, dass ihre Summe 1.0 (100\%) ergibt,
+  siehe Formel \ref{eq:gewicht}.
+  
+  Für jede zu evaluierende Alternative soll nun geprüft werden, ob eines
+  der KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
+  würde, siehe Abbildung \ref{img:rahmenbedingungenPruefen}.
+  
+  Falls das nicht für alle Alternativen der Fall ist, wird ein Vergleich der
+  im Rennen bleibenden Alternativen über die definierten Soll-Kriterien
+  geführt. Dabei werden für jede Alternative die einzelnen Soll-Kriterien mit
+  einem Erfüllungsgrad \(e_i\) bewertet. Die Skala der Erfüllungsgrade ist in
+  der Tabelle \ref{tab:erfuellungsgrade} ersichtlich.
+  
+  Der Nutzwert einer Alternative ergibt sich durch die Formel \ref{eq:nutzwert}.
+  \newline
   
   \begin{table}[hbt]
     \sffamily 
@@ -44,17 +71,10 @@
     \end{center}
   \end{table}
   
-  Jedes Kriterium wird durch einen Gewichtungsfaktor \(g_i\) versehen, was
-  die Präferenz des Kriteriums wiederspiegelt. Dabei gilt: Die Gewichte \(g_i\)
-  werden so gewählt, dass ihre Summe 1.0 (100\%) ergibt, siehe Formel
-  \ref{eq:gewicht}.
-
-  Für jede zu evaluierende Alternative soll geprüft werden, ob eines der
-  KO-Kriterien erfüllt ist, was zu einem Ausschluss der Alternative führen
-  würde, siehe Abbildung \ref{img:rahmenbedingungenPruefen}, Falls das nicht der
-  Fall ist, wird der Nutzwert der Alternative berechnet. Der Nutzwert ergibt
-  sich durch die Formel \ref{eq:nutzwert}. Diejenige Alternative mit dem
-  grössten Nutzwert entspricht am meisten den Anforderungen.
+  Diejenige Alternative mit dem grössten Nutzwert entspricht am meisten den
+  Anforderungen. Wie gut eine Alternative nun den gestellten Anforderungen
+  entspricht, kann anhand ihres berechneten Nutzwertes in der Tabelle
+  \ref{tab:erfuellungsgrade} abgelesen werden.
 
   \begin{equation}
     \label{eq:gewicht}
@@ -68,11 +88,12 @@
   
   \subsection{Anschauliches Beispiel}
   
-  Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A\) und Auto
-  \(B\) - miteinander auf die Kriterien - Leistung, Aussehen und
-  Alltagstaublichkeit - verglichen werden. In der Tabelle \ref{tab:beispielNwa}
-  ist ersichtlich, dass das Auto \(A\) dem Auto \(B\) gegenüber bevorzugt
-  werden soll.
+  Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A1\) und Auto
+  \(A2\) - miteinander auf die Soll-Kriterien - Leistung, Aussehen und
+  Alltagstaublichkeit - verglichen werden. Es wurden keine KO-Kriterien
+  definiert. In der Tabelle \ref{tab:beispielNwa} ist ersichtlich, dass das
+  Auto \(A1\) dem Auto \(A2\) gegenüber bevorzugt werden soll, da der Nutzwert
+  von \(A1\) (5.0) grösser ist als der Nutzwert von \(A2\) (4.7).
   \newline
   
   \begin{table}[h!]
@@ -80,9 +101,9 @@
     \begin{center}
       \begin{tabular}{lrrrrr}
         \toprule
-        \textbf{Kriterien} & \textbf{Gewichtung \(g\)} & \textbf{\(e_A\)} &
-        \textbf{Wertigkeit \(A\)} & \textbf{\(e_B\)} & \textbf{Wertigkeit
-        \(B\)}\\
+        \textbf{Kriterien} & \textbf{Gewichtung \(g\)} & \textbf{\(e_A_1\)} &
+        \textbf{Wertigkeit \(A1\)} & \textbf{\(e_A_2\)} & \textbf{Wertigkeit
+        \(A2\)}\\
         \midrule
         Leistung            & 0.3 & 7 & 2.1 & 9 & 2.7 \\
         Aussehen            & 0.2 & 2 & 0.4 & 5 & 1.0 \\
@@ -99,7 +120,7 @@
   
   \begin{figure}[htb]
     \begin{center}
-      \includegraphics[width=\textwidth]{./image/rahmenbedingungenPruefen.pdf}
+      \includegraphics[width=0.7\textwidth]{./image/rahmenbedingungenPruefen.pdf}
       \caption{Die Alternativen sollen gegen KO-Kriterien geprüft werden.}
       \label{img:rahmenbedingungenPruefen}
     \end{center}
@@ -196,18 +217,20 @@
   Entscheidungskriterien verwendet. Aus der Kombination entsteht somit eine
   neue Methode, welche durch die Verständlichkeit der \ac{NWA} und der
   objektiven Gewichtung des \ac{AHP} eine plausable Evaluation ermöglicht.
-  
-  In der Abbildung \ref{img:ablaufEvaluation} ist der komplette Ablauf einer
-  Evaluation mit der kombinierten Methode ersichtlich.
-    
-  \begin{figure}[ht]
+
+  \begin{figure}[h!]
     \begin{center}
-      \includegraphics[width=0.75\textwidth]{./image/kompletterAblaufDerEvaluation.pdf}
+      \includegraphics[width=0.7\textwidth]{./image/kompletterAblaufDerEvaluation.pdf}
       \caption{Ablauf einer Evaluation mit der kombinierten Methode aus Nutzwertanalyse und \ac{AHP}}
       \label{img:ablaufEvaluation}
     \end{center}
   \end{figure}
   
+  \section{}
+  
+  In der Abbildung \ref{img:ablaufEvaluation} ist der komplette Ablauf einer
+  Evaluation mit der kombinierten Methode ersichtlich.
+
   \section{Verbesserung der 
   Gewichtung}\label{subsection:VerbesserungDerGewichtung}
   
