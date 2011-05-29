@@ -97,11 +97,11 @@
         \textbf{Java Web Framework} & \textbf{Verstoss gg KO-Kriterium} &
         \textbf{Ausschluss}\\
         \midrule
-        A1 - ULC, Canoo RIA Suite & \ref{itm:KO-18} & Ja\\
+        A-1 - ULC, Canoo RIA Suite & \ref{itm:KO-18} & Ja\\
         & \ref{itm:KO-19} &\\
-        A2 - Struts 1.3.10 mit ZIP-Framework & - & Nein\\
-        A3 - Vaadin 6.5.7 & - & Nein\\
-        A4 - Apache Wicket 1.4.17 & - & Nein\\
+        A-2 - Struts 1.3.10 mit ZIP-Framework & - & Nein\\
+        A-3 - Vaadin 6.5.7 & - & Nein\\
+        A-4 - Apache Wicket 1.4.17 & - & Nein\\
         \bottomrule
       \end{tabular}
       \caption{Verstösse gegen KO-Kriterien}
@@ -171,8 +171,11 @@
   
   Die Bestimmung der Gewichte wird über die Methode des \ac{AHP} gemacht. Für
   den Vergleich der Soll-Kriterien wird die Frage gestellt:
+  
+  \begin{quote}
   \begin{itshape}``Wie wichtig ist das Soll-Kriterium für die
   \ac{ZKB}?''\end{itshape}.
+  \end{quote}
   
   Es werden nur alle ``wichtigen'' Soll-Kriterien miteinander verglichen. Die
   Vergleichsmatrix und die daraus resultierende Gewichtung ist in der Tabelle
@@ -240,8 +243,17 @@
   
   \subsection{A-2 - Struts 1.3.10 mit ZIP-Framework}
   
-  Das Ergebnis der Nutzwertanalyse ist in der Tabelle \ref{tab:nwaA2}
-  ersichtlich. Der Nutzwert liegt bei xx.xx.
+  Für Informationen zum Framework Struts 1.3.10 in Kombination mit dem \ac{ZIP}
+  Framework habe ich Marco Spörri interviewt. Er arbeitet seit längerer Zeit
+  damit. Struts 1.3.10 ist ein Open Source Framework, das von der Apache
+  Software Foundation gepflegt wird. Der \ac{ZIP} Teil ist eine Erweiterung,
+  welche in der \ac{ZKB} entwickelt wurde. Marco Spörri gehört zu den Personen,
+  welche aktuell daran Erweiterungen anbringt.
+
+  Das Ergebnis der Nutzwertanalyse ist in der Tabelle
+  \ref{tab:nwaA2} ersichtlich. Der Nutzwert liegt bei 3.9829 und ist somit
+  durchschnittlich, das entspricht dem Erfüllungsgrad
+  \begin{itshape}mittel\end{itshape}.
   
   \begin{table}[ht]
     \sffamily 
@@ -251,15 +263,15 @@
         \textbf{Kriterium} & \textbf{Gewichtung \(g\)} & \textbf{Erfüllungsgrad
         \(e\)} & \textbf{Wertigkeit \(_A-_2\)} \\
         \midrule
-        Soll-01   & 34.81 \% & x & y \\
-        Soll-03   &  5.91 \% & x & y \\
-        Soll-06   & 17.93 \% & x & y \\
-        Soll-12   &  4.85 \% & x & y \\
-        Soll-13   &  9.07 \% & x & y \\
-        Soll-18   & 27.43 \% & x & y \\
+        Soll-01   & 34.81 \% & 6 & 2.0886 \\
+        Soll-03   &  5.91 \% & 5 & 0.2955 \\
+        Soll-06   & 17.93 \% & 5 & 0.8965 \\
+        Soll-12   &  4.85 \% & 7 & 0.3395 \\
+        Soll-13   &  9.07 \% & 4 & 0.3628 \\
+        Soll-18   & 27.43 \% & 0 & 0.0 \\
         \midrule
         \midrule
-        Ergebnis  & 100.00 \% &   & z \\
+        Ergebnis  & 100.00 \% &   & 3.9829 \\
         \bottomrule
       \end{tabular}
       \caption{Nutzwertanalyse der Alternative A-2 - Struts 1.3.10 mit
@@ -268,22 +280,123 @@
     \end{center}
   \end{table}
     
-  \subsubsection{Soll-01 - Zugriffskontrolle - X Punkte}
+  \subsubsection{Soll-01 - Zugriffskontrolle - 6 Punkte}
   
-  \subsubsection{Soll-03 - Modulare Architektur - X Punkte}
+  Sowohl Struts, wie auch \ac{ZIP} bietet von Grund auf kein Rollenkonzept an.
   
-  \subsubsection{Soll-06 - Testing - X Punkte}
+  Die Authentifizierung wird ganz normal über eine Session-ID gelöst.
   
-  \subsubsection{Soll-12 - Dokumentation - X Punkte}
+  Die Authorisierung für alle Business relevanten requests wird vom
+  Businesslayer jedes mal geprüft.
   
-  \subsubsection{Soll-13 - Community - X Punkte}
+  Cross-Site Scripting wird über Escaping verhindert. Zudem werden alle
+  Formulardaten validiert und verifiziert, somit wird SQL-Injection unterbunden.
+  
+  Ein Mechanismus des \ac{ZIP} Frameworks lässt alle Namen der
+  \ac{HTML}-Formular Felder obfuskieren. Damit wird erreicht, dass aufgrund
+  der Daten, welche vom Browser an den Server gesendet werden, nicht direkt
+  auf die Businessfunktion zurückgeschlossen werden kann. Das obfuskieren der
+  Formularfelder Namen passiert bei jedem Aufbau einer HTML Seite von neuem. Das
+  Mapping zwischen den generierten Namen und den jeweiligen Businessfunktionen
+  wird auf dem Server gehalten.
+  
+  Die gängigsten Sicherheitsvorkerungen können getroffen werden, leider bietet
+  das Framework kein Rollenkonzept an, somit gibt es sechs Punkte
+  
+  \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
+  
+  Es steht kein Add-On oder Plugin Mechanismus zur Verfügung. Da
+  \ac{JSP}\footnote{JavaServer Pages, abgekürzt JSP, ist eine von Sun
+  Microsystems entwickelte Web-Programmiersprache. Sie erlaubt, Java-Code und
+  spezielle JSP-Aktionen in HTML- oder XML-Seiten einzubetten, siehe
+  \cite{JavaServerPages}.} für die View verwendet wird, kann durch die
+  Erweiterung von Tag-Bibliotheken\footnote{Tag-Bibliotheken sind ein
+  Bestandteil der JSP-Spezifikation. Mit ihrer Hilfe ist es möglich, JSP-Seiten
+  zu entwickeln, die nur noch wenig bis gar keinen Java-Code beinhalten, siehe
+  \cite{TagLibrary}} ein modularer Ansatz verfolgt werden. Neu entwickelte
+  Tag's werden im ZIP-Framework integriert und so für zukünftige Verwendung
+  zentral verwaltet.
+  
+  \ac{JSP} biete mit dem \(<jsp:include>\) Tag die Möglichkeit eines modularen
+  Ansatzes für die Softwareentwicklung. Jedoch ist die Trennung zwischen Model,
+  View und Controller bei JSP-Files meistens nicht sehr klar, was nicht gerade
+  im Sinne einer modularen Architektur ist.
+  
+  Wie überall in der Javawelt kann durch die Einbindung von
+  JAR-Dateien\footnote{Ein Java Archive (umgangssprachlich aufgrund der
+  Dateiendung auch JAR-Datei genannt) ist eine ZIP-Datei. JARs werden vor allem
+  zur Verteilung von Java-Klassenbibliotheken und -Programmen eingesetzt, siehe
+  \cite{JARDatei}} die Funktionalität des Frameworks erweitert werden.
+  
+  Durch den modularen Ansatz mit Tag-Bibliotheken gibt es fünf Punkte.
+  
+  \subsubsection{Soll-06 - Testing - 5 Punkte}
+  
+  Struts 1.3.10 biete grundsätzlich die Unterstützt für Unit Tests. Die
+  Notwendigen Klassen befinden sich im Package \(org.apache.struts.mock\).
+  
+  Für das Testen von Views gibt es keine Komponenten, desshalb muss auf Tools
+  von Drittanbieter, wie zum Beispiel Selenium, zurückgegriffen werden.
+  
+  Durch die Unterstützung von UnitTests gibts 5 Punkte.
+  
+  \subsubsection{Soll-12 - Dokumentation - 7 Punkte}
+  
+  Das Projekt Struts 1.3.10 bietet Dokumentation in der Form von JavaDoc, ein
+  FAQ und HowTo. Zudem werden Links zu FAQ's und HowTo's von Drittparteien
+  aufgelistet. Es gibt ein User Guide in dem alle Funktionen beschrieben werden.
+  
+  Auf Amazon gibt es eine Fülle von Büchern welche sich direkt mit Struts oder
+  indirekt mit \ac{JSP} befassen.
+  
+  Für das \ac{ZIP}-Framework existiert die Dokumentation der API, via JavaDoc.
+  Es existiert ein Tutorial Projekt, in welchem die möglichen Funktionen
+  implementiert sind. Zusätzlich gibt es eine Dokumentation die in Text
+  verfasst wurde und es existiert eine Präsentationsreihe, auf der Basis von
+  PowerPoint, die zu Schulungszecken erstellt wurde.
+  
+  Für das Framework existiert insgesammt eine solide Dokumentation somit gibt es
+  sieben Punkte.
+  
+  \subsubsection{Soll-13 - Community - 4 Punkte}
+  
+  Apache Struts 1.x wurde im Jahre 2000 ins Leben gerufen und hat somit schon
+  einige Jahre auf dem Buckel. Die aktuell stabile Version ist 1.3.10. Mit dem
+  Java Web Framework Struts 2 wurde die Nachfolgerin ins Leben gerufen, welche
+  aktuell in der Version 2.2.3 verfügbar ist.
+  
+  Laut ohloh\footnote{ohloh ist eine Community Plattform für
+  Softwareentwickler, siehe \url{http://www.ohloh.net/}} gibt es 89 User, die
+  Struts 1.x verwenden. Laut ohloh gibt es aktuell nur noch eine Person, welche
+  das Framework aktiv weiterentwickelt. Das liegt wohl daran, dass die Version
+  1.3.10 entweder sehr stabil ist, oder das die meisten Entwickler auf die 
+  neuste Version von Apache Struts 2.2.3 umgestiegen sind.
+  
+  Für Struts 1.x gibt es keine DZone Refcard.
+  
+  Bei DZone findet man 9136 Posts, welche sich mit Struts 1 befassen. Dies wurde
+  mit dem Suchbegriff ``Struts 1'' eruiert.
+  
+  Das ZIP-Framework wird von ca. 30 Personen eingesetzt und aktuell gibt es vier
+  Personen, welche Bugs beheben und Features einbauen. Das Framework wurde von
+  der \ac{ZKB} für eigene Zwecke entwicklet und wird auch nur innerhalb der
+  \ac{ZKB} verwendet.
+  
+  Struts 1.x ist wohl schon länger überhohlt und durch Struts 2.x abgelöst
+  worden. Das Zip-Framework wird aktuell noch weiterentwickelt und auch
+  eingesetzt. Durch die veraltete Grundlage mit Struts 1.x gibt es nur vier
+  Punkte.
 
-  \subsubsection{Soll-18 - AJAX-Unterstützung - X Punkte}
+  \subsubsection{Soll-18 - AJAX-Unterstützung - 0 Punkte}
+  
+  Apache Struts 1.3.10 und auch das ZIP-Framework bieten keine \ac{Ajax}
+  Unterstützung, somit gibt es null Punkte.
   
   \subsection{A-3 - Vaadin 6.5.7}
   
   Das Ergebnis der Nutzwertanalyse ist in der Tabelle \ref{tab:nwaA3}
-  ersichtlich. Der Nutzwert liegt bei 7.0168 und ist somit relativ hoch.
+  ersichtlich. Der Nutzwert liegt bei 7.0168 und ist somit relativ hoch und
+  entspricht dem Erfüllungsgrad \begin{itshape}gut\end{itshape}.
     
   \begin{table}[ht]
     \sffamily 
@@ -320,8 +433,8 @@
   
   Zum Thema Sicherheit behauptet Vaadin von sich, derzeit eines der sichersten
   Web Frameworks zu sein.
-  \newline
   
+  \begin{quote}
   \begin{itshape}``The server-side architecture of Vaadin is immune to the usual
   risks affecting many other RIA frameworks. Your business logic and UI state
   are kept securely on the server, and never sent to the browser where it could
@@ -332,9 +445,8 @@
   to prevent eg. man-in-the-middle and cross-site scripting
   attacks.''\end{itshape}
   \footnote{Vaadin Ltd., 2011, siehe \cite{VaadinSecurityAlerts}}
-  \newline
+  \end{quote}
   
-  \noindent
   Zwei Punkte abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
   
   \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
@@ -437,8 +549,12 @@
   Pudig interviewt. Er hatte schon ein Projekt in Apache Wicket implementiert,
   und kennt sich im allgemeinen mit der Materie aus. Zudem wurde das Buch
   ``Wicket - Komponentenbasierte Webanwendungen im Java'', siehe \cite{Wicket} als
-  Referenz verwendet. Das Ergebnis der Nutzwertanalyse ist in der Tabelle
-  \ref{tab:nwaA4} ersichtlich. Der Nutzwert liegt bei 6.4282.
+  Referenz verwendet.
+  
+  Das Ergebnis der Nutzwertanalyse ist in der Tabelle \ref{tab:nwaA4}
+  ersichtlich. Der Nutzwert liegt bei 6.4282 und sagt aus, dass das Framework
+  dem Erfüllungsgrad \begin{itshape}gut\end{itshape} entspricht.
+  \newline
   
   \begin{table}[ht]
     \sffamily 
@@ -580,3 +696,36 @@
   Durch die begrenzte Unterstützung von Komponenten gibt es nur sechs Punkte
 
   \section{Resultat}
+  
+  Die Evaluation ist knapp ausgegangen, zumindest auf dem vordersten zwei
+  Plätzen. Da hat ``A-3 - Vaadin 6.5.7'' gegenüber ``A-4 - Apache Wicket
+  1.4.17'' den leicht höheren Nutzwert erreicht.
+  
+  Das Java Web Framework ``A-2 - Struts 1.3.10 mit ZIP-Framework'', welches
+  aktuell von der IT-Architektur als der Standard vorgeschrieben wird, hat nur
+  mittelmässig abgeschnitten.
+
+  Das Framework ``A-1 - ULC, Canoo RIA Suite'' ist leider aufgrund der
+  KO-Kriterien aus der Evaluation ausgeschlossen worden.
+  
+  Das Endergebnis wird in der Tabelle \ref{tab:ergebnisDerEvaluation} in Form
+  einer Rangliste zusammenfassend dargestellt.
+  \newline
+  
+  \begin{table}[ht]
+    \sffamily 
+    \begin{center}
+      \begin{tabular}{clr}
+        \toprule
+        \textbf{Rang} & \textbf{Java Web Framework} & \textbf{Nutzwert} \\
+        \midrule
+        1 & A-3 - Vaadin 6.5.7 & 7.0168 \\
+        2 & A-4 - Apache Wicket 1.4.17 & 6.4282 \\
+        3 & A-2 - Struts 1.3.10 mit ZIP-Framework & 3.9829 \\
+        - & A-1 - ULC, Canoo RIA Suite & --- \\
+        \bottomrule
+      \end{tabular}
+      \caption{Ergebnis der Evaluation als Rangliste.}
+      \label{tab:ergebnisDerEvaluation}
+    \end{center}
+  \end{table}
