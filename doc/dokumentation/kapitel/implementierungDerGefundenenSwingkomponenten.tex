@@ -9,13 +9,72 @@ Komponenten und die sieben gefundenen GUI Paradigmen abgedeckt sind. Das
 Resultat soll in Form einer Tabelle mit dem jeweiligen Abdeckungsgrad
 dargestellt werden.
 
-Es wird auf die Prüfung der Komponenten vom Framework ``A1 - ULC, Canoo RIA
-Suite'' verzichtet, da es aufgrund der Evaluation als mögliche Alternative
-entfällt.
+Wie im Kapitel \ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
+(\nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}, S.
+\pageref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}ff)
+beschrieben, soll eine Mindestabdeckung von 80\% erzielt werden. Wenn das nicht
+erreicht wird, bedeutet das den Ausschluss des Frameworks aus der Evaluation.
 
-\section{A2 - Struts 1.3.10 mit ZIP-Framework}
+Es wird auf die Prüfung der Komponenten vom Framework ``A-1 - ULC, Canoo RIA
+Suite'' verzichtet, da es aufgrund der geprüften KO-Kriterien als mögliche
+Alternative entfällt.
 
-\section{A3 - Vaadin 6.5.7}
+\section{A-2 - Struts 1.3.10 mit ZIP-Framework}
+
+In der Dokumentation zu Apache Struts 1.3.10 befindet sich eine Übersicht der
+unterstützten Komponenten, siehe \cite{StrutsComponentes} und
+\cite{StrutsHtmlTag}. Es wird schnell klar, dass es sich dabei um die standard
+\ac{HTML} Komponenten handelt, welche über eine Tag-Bibliothek abstrahiert
+wurden. Folgende Komponenten werden unterstützt:
+
+\begin{itemize}
+  \item Struts 1.3.10 kennt keinen Tag um ein Dialogfenster zu öffnen. Dies kann
+  bewerkstelligt werden, indem auf JavaScript zurückgegriffen wird. Das wird so
+  von Struts 1.3.10 so nicht direkt unterstützt. Somit fehlt bei den Top-Level
+  Komponenten der Dialog
+  \item Es werden alle Intermediate-Komponenten bis auf den
+  \(TabbedPane\) unterstützt. Der \(ScrollPane\) wird über das ``FrameTag''
+  gelöst. \(Panel\), \(LayerdPane\) und \(RootPane\) werden mit dem ``HtmlTag''
+  abgedeckt.
+  \item Für folgende Atomic-Komponenten fehlt die Unterstützung:
+  \begin{itemize}
+    \item \(JFormattedTextField\)
+    \item \(JMenuBar\)
+    \item \(JMenu\)
+    \item \(JMenuItem\)
+    \item \(JProgressBar\)
+    \item \(JSlider\)
+    \item \(JSpinner\)
+    \item \(JToolTip\) (wird nur bedingt auf z.B. Images unterstützt)
+  \end{itemize}
+  \item Für folgende speziellen Komponenten fehlt die Unterstützung:
+  \begin{itemize}
+    \item \(JFreeChart\)
+    \item \(JXBusyLabel\)
+    \item \(JXDatePicker\)
+  \end{itemize}
+  \item Die ``Neuen'' Komponenten können grundsätzlich alle implementiert
+  werden.
+\end{itemize}
+
+Folgende Design-Patterns werden unterstützt:
+
+\begin{itemize}
+  \item Das MVC-Pattern wird unterstützt
+  \item Das Observer-Pattern wird nicht unterstützt
+  \item Tabellen-Filter werden unterstützt
+  \item Duch die fehlende \ac{Ajax} Unterstützung ist das
+  Worker-Pattern nicht abgedeckt.
+\end{itemize}
+
+Es ist zu erwähnen, das mit der fehlenden \ac{Ajax} Unterstützung das
+\ac{GUI} Verhalten einer Java Swing Applikation nicht nachgebaut werden kann.
+Alle Views funktionieren nach dem klassischen ``Click und Reload'' Prinzip.
+
+Das ergibt eine Abdeckung der GUI-Komponenten von 59.38\%. Die Abdeckung der
+GUI-Paradigmen ist ein wenig höher mit 71.43\%.
+
+\section{A-3 - Vaadin 6.5.7}
 
 In der Dokumentation zu Vaadin gibt es eine komplette Übersicht aller
 unterstützten Komponenten, siehe \cite{VaadinKomponenten}. Diese können online
@@ -36,7 +95,6 @@ Folgende Komponenten werden unterstützt:
   Akkordeon und der Zeit-Panel werden schon von Haus aus unterstützt.
 \end{itemize}
 
-\noindent
 Folgende Design-Patterns werden unterstützt:
 
 \begin{itemize}
@@ -46,36 +104,64 @@ Folgende Design-Patterns werden unterstützt:
   \item Duch die Unterstützung von Ajax ist das Worker-Pattern abgedeckt.
 \end{itemize}
 
-\noindent
 Es werden alle Komponenten bis auf das \(JFormattedTextField\) und
 \(JFreeChart\)\footnote{Es ist zu bedenken, dass für das \(JFreeChart\) ein
-Add-on existiert, diese Komponente wurde nicht in die Abdeckung
-miteingerechnet.} unterstützt, das ist eine Abdeckung von 93.75\%. Es werden
-alle GUI Paradigmen unterstützt, das ist eine Abdeckung von 100.00\%.
+Add-on existiert, diese Komponente wurde nicht in die Abdeckung der
+GUI-Komponenten miteingerechnet.} unterstützt, das ist eine Abdeckung der
+GUI-Komponenten von 93.75\%. Es werden alle GUI-Paradigmen unterstützt, das ist
+eine Abdeckung der GUI-Paradigmen von 100.00\%.
 
-\section{A4 - Apache Wicket 1.4.17}
+\section{A-4 - Apache Wicket 1.4.17}
+
+Es existiert eine Komponentenübersicht für das Framework Apache Wicket 1.4.17,
+siehe \cite{WicketComponents}.
 
 \section{Resultat}
 
 In der Tabelle \ref{tab:unterstuetztungDerKomponenten} wird die Abdeckung der
-unterstützten Komponenten und GUI Paradigmen dargestellt.
-\newline
+unterstützten GUI-Komponenten und Paradigmen dargestellt. Es werden nur die
+Alternativen mit einer Abdeckung von mindestens 80\% im weiteren
+Verlauf der Evaluation berücksichtigt. In der Tabelle
+\ref{tab:gesamtabdeckungUndObImplementierungMoeglichIst} ist für den
+Zweifelsfall die Gesamtabdeckung berechnet. Zudem ist ersichtlich, ob eine
+Implementierung der GUI-Komponenten und GUI-Paradigmen möglich ist, was
+bedeutet, dass mindestens 80\% abgedeckt sind.
 
 \begin{table}[!h]
   \sffamily 
   \begin{center}
     \begin{tabular}{lrr}
       \toprule
-      \textbf{Java Web Framework} & \textbf{GUI Komponenten} & \textbf{GUI
-      Paradigmen}\\
+      \textbf{Java Web Framework} & \textbf{GUI-Komponenten} &
+      \textbf{GUI-Paradigmen} \\
       \midrule
       A1 - ULC, Canoo RIA Suite & Prüfung entfällt & Prüfung entfällt\\
-      A2 - Struts 1.3.10 mit ZIP-Framework & xx.xx\% & xx.xx\%\\
+      A2 - Struts 1.3.10 mit ZIP-Framework & 59.38\% & 71.43\%\\
       A3 - Vaadin 6.5.7 & 93.75\% & 100.00\%\\
       A4 - Apache Wicket 1.4.17 & xx.xx\% & xx.xx\%\\
       \bottomrule
     \end{tabular}
-    \caption{Abdeckungsgrad der gefundenen GUI Komponenten und Paradigmen}
+    \caption{Abdeckungsgrad der gefundenen GUI-Komponenten und Paradigmen}
     \label{tab:unterstuetztungDerKomponenten}
+  \end{center}
+\end{table}
+
+\begin{table}[!h]
+  \sffamily 
+  \begin{center}
+    \begin{tabular}{lrp{3cm}}
+      \toprule
+      \textbf{Java Web Framework} & \textbf{Gesamtabdeckung} &
+      \textbf{Implementierung möglich}\\
+      \midrule
+      A1 - ULC, Canoo RIA Suite & Prüfung entfällt & Prüfung entfällt\\
+      A2 - Struts 1.3.10 mit ZIP-Framework & 61.54\% & Nein\\
+      A3 - Vaadin 6.5.7 & 94.87\% & Ja\\
+      A4 - Apache Wicket 1.4.17 & xx.xx\% & ???\\
+      \bottomrule
+    \end{tabular}
+    \caption{Gesamtabdeckung der Komponenten und ob die Implementierung möglich
+    ist}
+    \label{tab:gesamtabdeckungUndObImplementierungMoeglichIst}
   \end{center}
 \end{table}

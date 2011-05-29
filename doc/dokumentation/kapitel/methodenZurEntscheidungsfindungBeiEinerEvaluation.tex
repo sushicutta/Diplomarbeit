@@ -101,8 +101,8 @@
     \begin{center}
       \begin{tabular}{lrrrrr}
         \toprule
-        \textbf{Kriterien} & \textbf{Gewichtung \(g\)} & \textbf{\(e_A_1\)} &
-        \textbf{Wertigkeit \(A1\)} & \textbf{\(e_A_2\)} & \textbf{Wertigkeit
+        \textbf{Kriterien} & \textbf{Gewichtung \(g\)} & \textbf{\(e_{A1}\)} &
+        \textbf{Wertigkeit \(A1\)} & \textbf{\(e_{A2}\)} & \textbf{Wertigkeit
         \(A2\)}\\
         \midrule
         Leistung            & 0.3 & 7 & 2.1 & 9 & 2.7 \\
@@ -218,20 +218,7 @@
   neue Methode, welche durch die Verständlichkeit der \ac{NWA} und der
   objektiven Gewichtung des \ac{AHP} eine plausable Evaluation ermöglicht.
 
-  \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth]{./image/kompletterAblaufDerEvaluation.pdf}
-      \caption{Ablauf einer Evaluation mit der kombinierten Methode aus Nutzwertanalyse und \ac{AHP}}
-      \label{img:ablaufEvaluation}
-    \end{center}
-  \end{figure}
-  
-  \section{}
-  
-  In der Abbildung \ref{img:ablaufEvaluation} ist der komplette Ablauf einer
-  Evaluation mit der kombinierten Methode ersichtlich.
-
-  \section{Verbesserung der 
+  \subsection{Verbesserung der 
   Gewichtung}\label{subsection:VerbesserungDerGewichtung}
   
   Damit die Gewichtung noch präziser bestimmt werden kann, gibt es verschiedene
@@ -252,10 +239,114 @@
     
     Dabei wird der Prozess der Gewichtung von mehr als einer Person
     durchgeführt. Das Ergebniss wird aufgrund der statistischen Methoden
-    normalisiert.
+    normalisiert, was zu einem objektiveren Resultat führen wird.
   \end{itemize}
   
-  \noindent
   Diese Ansätze zur Verbesserung der Gewichtung werden im Rahmen der
-  Diplomarbeit nicht durchgeführt, sollen aber bei einer anderen Anwendung
+  Diplomarbeit nicht durchgeführt, sollen aber bei einer weiteren Anwendung
   nicht ausgeschlossen werden.
+  
+  \section{Integration in die IT-Infrastruktur prüfen}
+  
+  Damit ein Java Web Framework in der IT-Infrastruktur betrieben werden kann,
+  muss es deren Ansprüchen genügen. Es soll in einer Analysephase die
+  IT-Infrastruktur untersucht werden. Es soll analysiert werden, welche Version
+  des \ac{JRE} zur Verfügung gestellt wird, zusätzlich sollen die eingesetzten
+  Serverkomponenten veranschaulicht werden. Ein Augenmerk soll auch auf
+  eingesetzte Protokolle für die Kommunikation, sowie auf die vorgegebene
+  logische und physische Trennung von Schichten in der Serverinfrastruktur
+  gelegt werden.
+  
+  Wenn die Auswahl der zu evaluierenden Java Web Frameworks getroffen wurde,
+  soll aufgrund der analysierten IT-Infrastruktur geprüft werden, ob ein Betrieb
+  möglich ist. Falls der Betrieb nicht möglich wäre, würde das Java Web
+  Framework aus der Evaluation ausgeschlossen werden.
+  
+  \section{Abdeckung der GUI-Komponenten und Paradigmen}
+  
+  Da die Evaluation gemacht wird, um bestehende Java Swing Applikationen
+  abzulösen, soll auch ein Fokus auf das \ac{GUI} gelegt werden. Im Kapitel
+  \ref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}
+  (\nameref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}, S.
+  \pageref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}ff) wird
+  beschrieben, wie besetehende Java Swing Applikationen analysiert werden
+  können. Das daraus resultierende Ergebnis soll als Grundlage für die Prüfung
+  der Abdeckung der GUI-Komponenten und Paradigmen dienen.
+  
+  Die Prüfung der Abdeckung zielt darauf ab, herauszufinden, ob eine
+  Implementierung mit dem zu evaluierenden Java Web Framework, sinnvoll machbar
+  ist. Dabei werden alle erkannten GUI-Komponenten und GUI-Paradigmen der
+  analysierten Java Swing Applikationen genommen und mit der Dokumentation des
+  zu evaluierenden Java Web Frameworks verglichen. Im diesem Vergleich soll
+  festgestellt werden, ob eine Komponente oder ein Pardigma äquivalent
+  umsetzbar ist. Der Vergleich findet für jede Komponente und jedes
+  Paradigma statt und soll schlussendlich in der Form einer prozentualen
+  Abdeckung dokumentiert werden.
+  
+  Die jeweiligen Prozentangaben berechnen sich wie in den beiden Formeln
+  \ref{eq:AbdeckungGuiKomponenten} und \ref{eq:AbdeckungGuiParadigmen}
+  dargestellt.
+
+  \begin{equation}
+    \label{eq:AbdeckungGuiKomponenten}
+    Abdeckung\;GUI\;Komponenten = \frac
+    	{gefundene\;GUI\;Komponenten}
+    	{mögliche\;GUI\;Komponenten} * 100
+  \end{equation}
+
+  \begin{equation}
+    \label{eq:AbdeckungGuiParadigmen}
+    Abdeckung\;GUI\;Paradigmen = \frac
+    	{gefundene\;GUI\;Paradigmen}
+    	{mögliche\;GUI\;Paradigmen} * 100
+  \end{equation}
+  
+  Als Voraussetzung, das sich das Java Web Framework für eine mögliche Ablösung
+  eignet, soll eine Mindestabdeckung von 80\% aller Komponenten und
+  Paradigmen erreicht werden. Diese Schwelle ist verhandelbar und wurde in
+  diesem Fall aufgrund des Paretoprinzips\footnote{Das Paretoprinzip, auch
+  80-zu-20-Regel, besagt, dass 80\% der Ergebnisse in 20\% der Gesamtzeit eines
+  Projekts erreicht werden. Die verbleibenden 20\% der Ergebnisse verursachen
+  die meiste Arbeit, siehe \cite{Paretoprinzip}.} gewählt. Der Gedanke dahinter
+  ist, dass in einem möglichen Projekt zur Ablösung von einer Java Swing
+  Applikation mit dem zu evaluierenden Java Web Framework, in 20\% der Zeit die
+  meisten Views äquivalent implementiert werden können. Für die eventuell
+  fehlenden GUI-Komponenten oder GUI-Paradigmen sollte dann genügend Zeit zur
+  Verfügung stehen, um einen Workaround in der Implementierung auszuarbeiten.
+  
+  Ob eine Schwelle von 80\% genügend ist, sei dahingestellt, dies sollte in
+  einer weiteren Anwendung dieser Methode neu geprüft werden. In der Anwendung
+  im Rahmen dieser Diplomarbeit wird ein Java Web Framework, welches eine
+  Abdeckung von weniger als 80\% hat, aus der Evaluation ausgeschlossen.
+  
+  Natürlich wird auf eine möglichst hohe Gesamtabdeckung abgezielt. Wenn zwei
+  Java Web Frameworks den selben Nutzwert ausweisen, soll das Framework mit der
+  höheren Gesamtabdeckung der GUI-Komponenten und Paradigmen präferiert werden.
+  Die Gesamtabdeckung berechnet sich wird wie in der Formel
+  \ref{eq:AbdeckungGuiTotal} dargestellt.
+  
+  \begin{equation}
+    \label{eq:AbdeckungGuiTotal}
+    Gesamtabdeckung = \frac
+    	{gefundene\;Komponenten}
+    	{mögliche\;Komponenten} * 100
+  \end{equation} 
+
+  
+  
+  \section{Proof of Concept}
+    
+  \section{Ablauf einer Evaluation}
+  
+  In der Abbildung \ref{img:ablaufEvaluation} ist der komplette Ablauf einer
+  Evaluation mit der kombinierten Methode aus Nutzwertanalyse und
+  \ac{AHP} ersichtlich.
+  
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./image/kompletterAblaufDerEvaluation.pdf}
+      \caption{Ablauf einer Evaluation mit der kombinierten Methode aus
+      Nutzwertanalyse und \ac{AHP}}
+      \label{img:ablaufEvaluation}
+    \end{center}
+  \end{figure}
