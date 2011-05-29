@@ -260,7 +260,19 @@
   Wenn die Auswahl der zu evaluierenden Java Web Frameworks getroffen wurde,
   soll aufgrund der analysierten IT-Infrastruktur geprüft werden, ob ein Betrieb
   möglich ist. Falls der Betrieb nicht möglich wäre, würde das Java Web
-  Framework aus der Evaluation ausgeschlossen werden.
+  Framework aus der Evaluation ausgeschlossen werden. Der genaue Ablauf ist als
+  Flussdiagramm in der Abbildung \ref{img:integrationPruefen} ersichtlich.
+  
+  \clearpage
+  
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./image/integrationPruefen.pdf}
+      \caption{Es soll geprüft werden, ob die Integration in die
+      IT-Infrastruktur möglich ist}
+      \label{img:integrationPruefen}
+    \end{center}
+  \end{figure}
   
   \section{Abdeckung der GUI-Komponenten und Paradigmen}
   
@@ -317,7 +329,9 @@
   Ob eine Schwelle von 80\% genügend ist, sei dahingestellt, dies sollte in
   einer weiteren Anwendung dieser Methode neu geprüft werden. In der Anwendung
   im Rahmen dieser Diplomarbeit wird ein Java Web Framework, welches eine
-  Abdeckung von weniger als 80\% hat, aus der Evaluation ausgeschlossen.
+  Abdeckung von weniger als 80\% hat, aus der Evaluation ausgeschlossen. Dies
+  wird in der Abbildung \ref{img:implementierungPruefen} als Flussdiagramm
+  veranschaulicht.
   
   Natürlich wird auf eine möglichst hohe Gesamtabdeckung abgezielt. Wenn zwei
   Java Web Frameworks den selben Nutzwert ausweisen, soll das Framework mit der
@@ -328,13 +342,69 @@
   \begin{equation}
     \label{eq:AbdeckungGuiTotal}
     Gesamtabdeckung = \frac
-    	{gefundene\;Komponenten}
-    	{mögliche\;Komponenten} * 100
+    	{gefundene\;Komponenten\;\&\;Paradigmen}
+    	{mögliche\;Komponenten\;\&\;Paradigmen} * 100
   \end{equation} 
 
-  
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./image/implementierungPruefen.pdf}
+      \caption{Es soll geprüft werden, ob die GUI-Komponenten und Paradigmen
+      implementiert werden können}
+      \label{img:implementierungPruefen}
+    \end{center}
+  \end{figure}  
   
   \section{Proof of Concept}
+  
+  Für diejenige Alternative, für welche der höchste Nutzwert errechnet wurde,
+  die in die IT-Infrastruktur der \ac{ZKB} integriert werden kann und die eine
+  Mindestabdeckung von 80\% der gefundenen GUI-Komponenten und Paradigmen
+  aufweist, soll in einem Proof of Concept anhand eines Prototypen gezeigt
+  werden, dass sich die Evaluationsmethode bewährt hat.
+  
+  Die Definition der Anforderungen an den Prototypen werden mit der Technik der
+  User Stories gemacht, siehe \cite{UserStories}.
+  
+  \subsection{Was sind User Stories}
+  
+  User Stories beschreiben Anforderungen an eine Software in einer für Jedermann
+  verständlichen Sprache. Es sollen keine technischen Details genannt, sondern
+  viel eher Eigenschaften erläutert werden, die jeder versteht. Oft werden User
+  Stories als Aktionen in einem \ac{GUI} verfasst. Aus den User Stories kann
+  man jeweils Akzeptanztests \cite{AcceptanceTests} ableiten.
+  
+  Eine User Story sollte nicht mehr als drei Sätze haben. Das kommt daher, dass
+  eine User Story nie zu komplex sein darf. Wenn man mehr als drei Sätze für die
+  Beschreibung einer User Story braucht, sollte diese in mehrere kleinere User
+  Stories aufgeteilt werden, welche genug simpel sind, um wiederum in drei
+  Sätzen beschrieben zu werden.
+  
+  Jede User Story wird mit einer eindeutigen Nummer versehen: US-\{User Story
+  Nummer\}
+  
+  \subsection{Priorisierung der User Stories}
+  
+  Es soll eine Priorisierung der definierten User Stories gemacht werden. Die
+  Prioritäten werden in \begin{itshape}hoch\end{itshape},
+  \begin{itshape}mittel\end{itshape} und
+  \begin{itshape}tief\end{itshape} eingeteilt. Es sollen nur die ``hoch''
+  priorisierten User Stories umgesetzt werden.
+  
+  \subsection{Akzeptanztests zur Prüfung}
+  
+  Aus den ``hoch'' priorisierten User Stories können nun Akzeptanztests
+  abgeleitet werden. Eine User Story ist dann fertig und erfolgreich,
+  wenn sie technisch umgesetzt wurde und die dazu definierten Akzeptanztests
+  abgenommen wurden. Jeder Akzeptanztest wird mit einer eindeutigen Nummer
+  versehen: T-\{User Story Nummer\}.\{Test Nummer\}
+  
+  Der Proof of Concept ist dann erfolgreich, wenn alle Akzeptanztest erfolgreich
+  abgenommen wurden.
+  
+  Falls die Akzeptanztests nicht erfolgreich abgenommen werden konnten, zeigt
+  das, dass mit der Evaluation des Java Web Frameworks eine ungenügende
+  Alternative empfohlen wurde.
     
   \section{Ablauf einer Evaluation}
   

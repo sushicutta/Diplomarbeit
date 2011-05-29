@@ -33,9 +33,9 @@ wurden. Folgende Komponenten werden unterstützt:
   von Struts 1.3.10 so nicht direkt unterstützt. Somit fehlt bei den Top-Level
   Komponenten der Dialog
   \item Es werden alle Intermediate-Komponenten bis auf den
-  \(TabbedPane\) unterstützt. Der \(ScrollPane\) wird über das ``FrameTag''
-  gelöst. \(Panel\), \(LayerdPane\) und \(RootPane\) werden mit dem ``HtmlTag''
-  abgedeckt.
+  \(JTabbedPane\) unterstützt. Der \(JScrollPane\) wird über das ``FrameTag''
+  gelöst. \(JPanel\), \(JLayerdPane\) und \(JRootPane\) werden mit dem
+  ``HtmlTag'' abgedeckt.
   \item Für folgende Atomic-Komponenten fehlt die Unterstützung:
   \begin{itemize}
     \item \(JFormattedTextField\)
@@ -114,7 +114,38 @@ eine Abdeckung der GUI-Paradigmen von 100.00\%.
 \section{A-4 - Apache Wicket 1.4.17}
 
 Es existiert eine Komponentenübersicht für das Framework Apache Wicket 1.4.17,
-siehe \cite{WicketComponents}.
+siehe \cite{WicketComponents}. Die Komponenten basieren auf dem \ac{HTML}
+Standard. Es gibt ein Projekt namens Wicketstuff, welches zusätzliche
+Komponenten für das Framework zur Verfügung stellt. Diese Komponenten wurden
+ebenfalls miteinbezogen, da es sozusagen zu Apache Wicket dazugehört. Folgende
+Komponenten werden unterstützt:
+
+\begin{itemize}
+  \item Es werden alle Top-Level Komponenten unterstützt
+  \item Es werden alle Intermediate-Komponenten unterstützt
+  \item Für folgende Atomic-Komponenten fehlt die Unterstützung:
+  \begin{itemize}
+    \item \(JFormattedTextField\)
+    \item \(JSlider\) (würde mit dem Projekt wiquery funktionieren)
+  \end{itemize}
+  \item Es werden alle speziellen Komponenten unterstützt.
+  \item Die ``Neuen'' Komponenten können alle implementiert werden. Das
+  Akkordeon wird von Wicketstuff schon unterstützt.
+\end{itemize}
+
+Folgende Design-Patterns werden unterstützt:
+
+\begin{itemize}
+  \item Das MVC-Pattern wird unterstützt
+  \item Das Observer-Pattern wird unterstützt
+  \item Tabellen-Filter werden unterstützt
+  \item Duch die Unterstützung von Ajax ist das Worker-Pattern abgedeckt.
+\end{itemize}
+
+Es werden alle Komponenten bis auf das \(JFormattedTextField\) und
+\(JSlider\) unterstützt, das ist eine Abdeckung der GUI-Komponenten von 93.75\%.
+Es werden alle GUI-Paradigmen unterstützt, das ist eine Abdeckung der
+GUI-Paradigmen von 100.00\%.
 
 \section{Resultat}
 
@@ -123,9 +154,10 @@ unterstützten GUI-Komponenten und Paradigmen dargestellt. Es werden nur die
 Alternativen mit einer Abdeckung von mindestens 80\% im weiteren
 Verlauf der Evaluation berücksichtigt. In der Tabelle
 \ref{tab:gesamtabdeckungUndObImplementierungMoeglichIst} ist für den
-Zweifelsfall die Gesamtabdeckung berechnet. Zudem ist ersichtlich, ob eine
-Implementierung der GUI-Komponenten und GUI-Paradigmen möglich ist, was
-bedeutet, dass mindestens 80\% abgedeckt sind.
+Zweifelsfall, dass die Frameworks den selben Nutzwert ausweisen, die
+Gesamtabdeckung berechnet. Zudem ist ersichtlich, ob eine Implementierung der
+GUI-Komponenten und GUI-Paradigmen möglich ist, was bedeutet, dass mindestens
+80\% abgedeckt sind.
 
 \begin{table}[!h]
   \sffamily 
@@ -138,7 +170,7 @@ bedeutet, dass mindestens 80\% abgedeckt sind.
       A1 - ULC, Canoo RIA Suite & Prüfung entfällt & Prüfung entfällt\\
       A2 - Struts 1.3.10 mit ZIP-Framework & 59.38\% & 71.43\%\\
       A3 - Vaadin 6.5.7 & 93.75\% & 100.00\%\\
-      A4 - Apache Wicket 1.4.17 & xx.xx\% & xx.xx\%\\
+      A4 - Apache Wicket 1.4.17 & 93.75\% & 100.00\%\\
       \bottomrule
     \end{tabular}
     \caption{Abdeckungsgrad der gefundenen GUI-Komponenten und Paradigmen}
@@ -157,7 +189,7 @@ bedeutet, dass mindestens 80\% abgedeckt sind.
       A1 - ULC, Canoo RIA Suite & Prüfung entfällt & Prüfung entfällt\\
       A2 - Struts 1.3.10 mit ZIP-Framework & 61.54\% & Nein\\
       A3 - Vaadin 6.5.7 & 94.87\% & Ja\\
-      A4 - Apache Wicket 1.4.17 & xx.xx\% & ???\\
+      A4 - Apache Wicket 1.4.17 & 94.87\% & Ja\\
       \bottomrule
     \end{tabular}
     \caption{Gesamtabdeckung der Komponenten und ob die Implementierung möglich
