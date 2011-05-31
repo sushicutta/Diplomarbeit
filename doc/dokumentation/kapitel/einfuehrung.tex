@@ -2,75 +2,76 @@
   Vertriebskanal entwickelt. Viele Unternehmen haben das erkannt und setzen im
   Betriebsalltag die Möglichkeiten, die das Internet als Vertriebskanal bietet,
   ein. In der Finanzindustrie wurde dieser Schritt mit dem Online-Banking gegen
-  Ende der Neunzigerjahre gemacht. Dabei wurden die Dienstleistungen, die beim
-  klassischen Bankschalter bezogen werden konnten, mit einer Web Applikation,
-  über das Internet, nutzbar gemacht. Das eine Onlinestrategie funktioniert und
-  die Nachfrage dafür besteht, hat sich in den letzten Jahren in der
-  Finanzindustrie gezeigt.
+  Ende der Neunzigerjahre gemacht. Dabei wurden einige Dienstleistungen, die
+  beim klassischen Bankschalter bezogen werden konnten, mit einer Web
+  Applikation, über das Internet, nutzbar gemacht. Das eine Onlinestrategie
+  funktioniert und die Nachfrage dafür besteht, hat sich in den letzten Jahren
+  in der Finanzindustrie gezeigt.
   
   Die Informatik spielt in der Finanzindustrie im Allgemeinen eine wichtige
-  Rolle. Viele Finanzinstitute hier in der Schweiz zählen heute zu den grössten
-  Arbeitgebern in der Informatik, siehe \cite{WoArbeitenInformatikfachleute}.
-  Insgesammt gibt es in der Schweiz acht Unternehmen, welche selber nicht aus
-  der Informatik Branche kommen, die mehr als 500 Informatikfachleute
-  beschäftigen. Die Hälfte davon sind Finanzinstitute, namentlich sind das
-  Credit Suisse, UBS, Zürich Versicherung und die Post. In der \ac{ZKB} ist die
-  Informatik ebenfalls stark vertreten.
+  Rolle. Viele Finanzinstitute, hier in der Schweiz, zählen heute zu den
+  grössten Arbeitgebern in der Informatik, siehe
+  \cite{WoArbeitenInformatikfachleute}. Insgesammt gibt es in der Schweiz acht
+  Unternehmen, welche selber nicht aus der Informatik Branche kommen, die mehr
+  als 500 Informatikfachleute beschäftigen. Die Hälfte davon sind
+  Finanzinstitute, namentlich sind das Credit Suisse, UBS, Zürich Versicherung
+  und die Post. In der \ac{ZKB} ist die Informatik ebenfalls stark vertreten.
   
-  Durch die zunehmende Komplexität im Finanzgeschäft, reicht manchmal käuflich
+  Durch die zunehmende Komplexität im Finanzgeschäft, reichen manchmal 
   erwerbliche Softwarelösungen nicht vollends aus. Um den Vorsprung zur
   Konkurenz auszubauen, entwickelt die Finanzindustrie vielmals
-  Computerprogramme, welche die Automatisierung ihrer Prozesse ermöglicht,
-  oder mit denen Arbeiten in ihrem Kerngeschäft gemacht werden können.
+  Computerprogramme, welche die Automatisierung ihrer Prozesse ermöglicht, oder
+  mit denen Arbeiten in ihrem Kerngeschäft verrichtet werden können.
   
-  Aus einer selbst entwickelten Lösung heraus kann sich ein Geschäft für das
-  Finanzinstitut entwicklen. Eine solche Software könnte beispielsweise externen
-  Vermögensverwaltern zur Verfügung gestellt werden. Dabei gibt es verschiedene
-  Vertriebskanäle für Softwareprodukte. Das Internet ist einer davon, der sich
-  mit dem Onlinebanking bewährt hat, somit könnte sich das auch für
-  andere bestehende Lösungen bewähren.
+  Aus einer eigens entwickelten Lösung heraus kann sich ein neues Geschäft für
+  das Finanzinstitut eröffnen. Eine solche Software könnte beispielsweise
+  externen Vermögensverwaltern zur Verfügung gestellt werden. Dabei gibt es
+  verschiedene Vertriebskanäle für Softwareprodukte. Das Internet ist einer
+  davon. Er hat sich mit dem Onlinebanking bewährt und könnte sich somit auch
+  für andere bestehende Lösungen eignen.
   
   In der \ac{ZKB} existieren viele solcher Lösungen bereits. Diese sind
   aber nicht für eine Online-Strategie entwickelt worden, sondern für den
   internen Einsatz. Einige dieser Programme wurden als Desktop Applikationen
   entwickelt, das entspricht den Anforderungen für den internen Einsatz. Um den
-  Vertrieb zentral verwalten zu können, macht das Umrüsten, bestehender Desktop
-  Applikationen, auf eine Online-Lösung Sinn.
+  Vertrieb zentral verwalten zu können, macht das Umrüsten bestehender Desktop
+  Applikationen auf eine Online-Lösung Sinn.
   
   \section{Motivation}
   
-  Die Zürcher Kantonalbank setzt bei der Entwicklung von Software als Inhouse
-  Lösungen auf Java Swing Applikationen und auf Java Web Applikationen. Die
-  Java Web Applikationen basieren auf dem Web Framework Apache Struts 1.3.10
-  mit einer von der ZKB erstellten Erweiterung namens \ac{ZIP}. Da eine Lösung
-  als Java Web Applikationen zentral verwaltet werden kann, gibt es erhebliche
-  Einsparungen im Bereich Testing, Deployment und Patching. Somit sollen in
-  Zukunft Java Swing Applikationen auf Java Web Applikationen umgerüstet
-  werden.
+  Die Zürcher Kantonalbank setzt bei der Entwicklung von Inhouse
+  Softwarelösungen auf Java Swing Applikationen und auf Java Web Applikationen.
+  Die Java Web Applikationen basieren auf dem Web Framework Apache Struts
+  1.3.10 mit einer von der ZKB erstellten Erweiterung namens \ac{ZIP}. Da eine
+  Lösung als Java Web Applikation zentral verwaltet werden kann, gibt es
+  erhebliche Einsparungen im Bereich Testing, Deployment und Patching. Somit
+  sollen in Zukunft Java Swing Applikationen auf Java Web Applikationen
+  umgerüstet werden.
   
   Das Framework Apache Struts 1.3.10 ist mitlerweilen in die Jahre gekommen. Es
-  basiert auf dem Prinzip von ``request und response''. Wann immer eine Aktion
-  von einem User in der Applikation gemacht wird, sei es das Ansteuern eines
+  basiert auf dem Prinzip von ``full site reload''. Wann immer eine Aktion
+  von einem User in der Applikation ausgeführt wird, sei es das Ansteuern eines
   Links oder das Absenden eines Formulars, wird die Webseite, welche die
-  Applikation repräsentiert, neu geladen. Heutzutage gibt es Frameworks, welche
-  einem ermöglichen eine Web Applikation zu entwicklen, die sich bei der
-  Bedienung wie eine klassische Desktop Applikation anfühlt. Dabei werden
-  nur Bereiche neu geladen, wo sich die zu darstellenden Informationen geändert
-  haben. Dies wird durch die Technik von \ac{Ajax} realisiert.
+  Applikation repräsentiert, vollständig neu geladen. Heutzutage gibt es
+  Frameworks, welche einem ermöglichen eine Web Applikation zu entwicklen, die
+  sich bei der Bedienung wie eine klassische Desktop Applikation anfühlt. Dabei
+  werden nur Bereiche neu geladen, wo sich die zu darstellenden Informationen
+  geändert haben. Dies wird durch die Technik von \ac{Ajax}\footnote{XML ist
+  nicht zwingend, es kann auch mit JSON oder anderen Technologien gelöst
+  werden.} realisiert.
   
   Bei \ac{Ajax} können Daten einer Web Applikation, ohne die komplette Webseite
   neu zu laden, verändert werden. Dies erlaubt es Web Applikationen, auf
-  Benutzer Aktionen schneller zu reagieren, da vermieden wird, dass statische
+  Benutzeraktionen schneller zu reagieren, da vermieden wird, dass statische
   Daten, die sich unter Umständen nicht verändert haben, immer wieder neu
-  übertragen werden. Das beinhaltet nicht nur Informationen die dargestellt
-  werden, sondern auch die \ac{HTML}, \ac{CSS} und Java Script Ressourcen, die
-  für die Darstellung notwendig sind.
+  übertragen werden. Das beinhaltet nicht nur die sichtbaren Informationen,
+  sondern auch die \ac{HTML}, \ac{CSS} und Java Script Ressourcen, die für die
+  Darstellung notwendig sind.
   
   Apache Struts 1.3.10 unterstützt \ac{Ajax} nicht direkt, das kann über
   Erweiterungen ermöglicht werden. Es gibt Java Web Frameworks, welche diese
-  Technik out of the box mitbringen. Eine Evaluation soll zeigen ob eines dieser
-  Java Web Frameworks vielleicht besser für einen möglichen Einsatz geeignet
-  ist.
+  Technik ``out of the box'' mitbringen. Eine Evaluation soll zeigen, ob eines
+  dieser Java Web Frameworks besser für eine Anwendung geeignet ist.
   
   \clearpage
   
@@ -83,8 +84,8 @@
   Funktionalitäten der Benutzeroberfläche eruiert werden. Aufgrund der
   Anforderungen der IT-Architektur der Zürcher Kantonalbank sollen Java Web
   Frameworks auf die Validität der erhobenen Funktionalitäten verifiziert
-  werden. Die Java Web Frameworks, welche diesen Ansprüchen genügen, sollen auf
-  einen möglichen Einsatz in der Informatik Infrastruktur der Züricher
+  werden. Die Java Web Frameworks, welchen diesen Ansprüchen genügen, sollen
+  auf einen möglichen Einsatz in der Informatik Infrastruktur der Züricher
   Kantonalbank untersucht werden. Durch die Implementierung eines Prototyen
   soll gezeigt werden, dass die Umsetzung möglich ist. Schlussendlich soll eine
   Empfehlung für ein Java Web Framework ausgesprochen werden, für den Fall,
@@ -95,9 +96,8 @@
   
   \section{Struktur}
   
-  Die Struktur des Dokuments wurde in sechs verschiedene Teile gegliedert.
-  Diese Elemente bauen aufeinander auf und setzten meistens die Erkenntnisse
-  der vorhergehenden Bestandteile voraus.
+  Die Arbeit wurde in sechs Teile gegliedert. Diese Teile bauen aufeinander auf
+  und setzten meistens die Erkenntnisse der vorhergehenden Bestandteile voraus.
   
   \begin{description}
     
@@ -150,9 +150,9 @@
   der Diplomarbeit gewonnen wurden. Dabei wird eine
   \nameref{chapter:EmpfehlungFuerEinJavaWebFramework} für die Züricher
   Kantonalbank ausgepsrochen, ebenso wird ein Fazit gezogen und ein Ausblick
-  gewährt. Mit einer \nameref{chapter:Reflexion} sollen dargelegten
-  theoretischen Grundlagen, die gewählten Methoden sowie die Auswertung der
-  Ergebnisse evaluiert werden.
+  gewährt. Mit einer \nameref{chapter:Reflexion} sollen dargelegte
+  theoretische Grundlagen, die gewählten Methoden sowie die Auswertung der
+  Ergebnisse untersucht werden.
   
   \item[Anhang]
   
@@ -199,8 +199,8 @@
   
   \section{Danksagung}
   
-  An dieser Stelle möchte ich mich bei all jenen bedanken, die mich in meiner
-  Studienzeit unterstützt haben. Der grösste Dank gilt meiner Freundin und
+  An dieser Stelle möchte ich mich bei all jenen bedanken, die mich während
+  meiner Studienzeit unterstützt haben. Der grösste Dank gilt meiner Freundin und
   unserem gemeinsamen Sohn Linus, die mich jederzeit bedingungslos unterstützt
   haben. Auch möchte ich mich bei meinen Eltern bedankten, welche mich
   ebenfalls, im Bezug auf das Studium, gefördert haben.
@@ -216,7 +216,7 @@
   Weiterhin bedanke ich mich bei meinem Arbeitgeber und Freund Silvan Spross,
   der mir genügend Zeit für die Vollendung der Diplomarbeit gewährte und mit der
   notwendigen Infrastruktur der allink GmbH versorgt hat, damit ich einen
-  ruhigen Platz zum arbeiten hatte.
+  ruhigen Platz für die Durchführung der Arbeit hatte.
   
   Silvan Spross und Stefan Laubenberger möchte ich auch danken, da sie die
   Arbeit gegengelesen haben.

@@ -18,22 +18,22 @@
   
   Gemäss \cite{SwingComponentsHighscore}, kennt Swing drei Hirarchien von
   Komponenten: Top-Level, Intermediate und Atomic Components.
-  
-  Unter Atomic Components versteht man einzelne Bausteine wie ein
-  \(javax.swing.JButton\), ein einfacher Knopf, oder ein
-  \(javax.swing.JTextField\), ein einfaches Textfeld.
+
+  Die Top-Level Components sind \(javax.swing.JFrame\),
+  zur Darstellung einer vollwertigen Fenster-Applikation,
+  \(javax.swing.JDialog\), für Dialogfenster und \(javax.swing.JApplet\), zur
+  Entwicklung von Java-Applets mit Swing.
   
   Intermediate Components bieten vielfältige Möglichkeiten an, um andere
   Intermediate Components zu unterteilen oder zu gruppieren. Zusätzlichen
   können sie auch eine beliebige Anzahl von Atomic Components enthalten. Gängige
   Vertreter sind \(javax.swing.JPanel\), eine Komponente zur Gruppierung anderer
   Komponenten, oder \(javax.swing.JSplitPane\), eine Komponente zur
-  Unterteilung einer Komponente in zwei Teile.
+  Unterteilung einer Bereiches in zwei Teile.
   
-  Die Top-Level Components sind \(javax.swing.JFrame\),
-  zur Darstellung einer vollwertigen Fenster-Applikation,
-  \(javax.swing.JDialog\), für Dialogfenster und \(javax.swing.JApplet\), zur
-  Entwicklung von Java-Applets mit Swing.
+  Unter Atomic Components versteht man einzelne Bausteine wie ein
+  \(javax.swing.JButton\), ein einfacher Knopf, oder ein
+  \(javax.swing.JTextField\), ein einfaches Textfeld.  
   
   \subsection{Layouts}
   
@@ -49,7 +49,7 @@
   \subsection{Eventbasierte Kommunikation der Komponenten}
   
   Das Programmiermodell mit Java Swing ist Eventbasiert. Dabei können Events
-  definiert werden, zum Beispiel ein Mausklick auf einen Knopf, bei welchen
+  definiert werden, zum Beispiel ein Mausklick auf einen Knopf, bei welchem
   eine Aktion ausgeführt werden soll. Die Aktion könnte das Speichern eines
   Dokuments sein. Die eventbasierte Kommunikation zwischen den Swing
   Komponenten ist nach dem Observer Design Pattern implementiert, siehe
@@ -59,11 +59,11 @@
   
   Die Klasse \(javax.swing.SwingUtilities\) bietet eine vielzahl von
   Hilfsfunktionen, welche bei der Entwicklung von Swing Applikationen verwendet
-  werden kann. Zusätzlich bietet Swing eine handvoll weiterer Klassen,
-  welche einem das Leben als Programmierer erleichtert. Ein paar nennenswerte
-  sind: \(javax.swing.UIManager\), um das aktuelle Look \& Feel zu managen,
+  werden können. Zusätzlich bietet Swing eine handvoll Klassen, welche einem
+  das Leben als Programmierer erleichtern. Ein paar nennenswerte sind:
+  \(javax.swing.UIManager\), um das aktuelle Look \& Feel zu managen,
   \(javax.swing.BorderFactory\), für das zeichnen von Rahmen um eine
-  Komponente, oder auch \(java.swing.SwingWorkder<T,V>\), um asynchrone Tasks
+  Komponente, oder auch \(java.swing.SwingWorker\), um asynchrone Tasks
   zu verarbeiten.
   
   \section{Pluggable Look \& Feel}
@@ -76,18 +76,18 @@
   
   \section{Multithreading}
   
-  Swing ist zum grössten Teil nicht thread-save. Das heisst, auf ein Swing
+  Swing ist zum grössten Teil nicht thread-save. Das heisst, auf ein Java Swing
   Objekt sollte nur mit einem Thread zugegriffen werden. Für den Zugriff und
-  die Instanziirung von Java Swing Objekt steht der \ac{EDT} zur Verfügung,
-  welcher alle Events, welche von einer Swing Komponente generiert wurde,
-  abarbeitet.
+  die Instanziirung von Java Swing Objekten steht der \ac{EDT} zur Verfügung,
+  welcher zusätzlich auch alle Events, welche von Java Swing Komponenten
+  generiert wurden, abarbeitet.
   
-  \subsection{Asynchrone Tasks}
+  \section{Asynchrone Tasks}
   
   Damit der \ac{EDT} bei länger dauernden Tasks nicht blockert wird, stellt
   Swing das Konzept vom SwingWorker zur Verfügung, siehe \cite{SwingWorker}.
   Darüber kann der \ac{EDT} einen zusätzlichen Worker Tread starten. Durch das
   Abgeben von langandauernden Arbeiten an zusätzliche Threads, wird der
   \ac{EDT} nicht blockiert und kann sich so um das abarbeiten von Actions
-  kümmern. Somit ist auch gewährleistet, das das \ac{GUI} dadurch nicht
-  blockiert wird.
+  kümmern. Somit ist auch gewährleistet, dass die grafische Benutzeroberfläche
+  (\acs{GUI})\acused{GUI} dadurch nicht blockiert wird.

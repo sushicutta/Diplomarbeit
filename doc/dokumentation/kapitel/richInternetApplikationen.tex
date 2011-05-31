@@ -8,13 +8,12 @@
   Der Begriff \ac{RIA} ist mit der Entwicklung des Internets entstanden und
   wird heute oft verwendet. Für viele Leute ist \ac{RIA} ein synonmy für
   Webanwendungen, welche mit \ac{Ajax} realisiert werden. \ac{Ajax} bietet die
-  Möglichkeit eine ``reichhaltige'' Benutzeroberfläche zu entwickeln, so wie
-  man sich das von klassischen Desktopanwendungen gewöhnt ist. Die Grenze
-  zwischen der klassischen Webanwendung und einer Desktopapplikation scheint
-  damit zu verschwinden. Genauer betrachtet steht eine \ac{RIA} im
-  Technologiespektrum aber zwischen dem Rich Client und dem Thin Client, siehe
-  Abbildung \ref{img:webanwendungen}.
-  \newline
+  Möglichkeit eine Benutzeroberfläche zu entwickeln, so wie man sich das von
+  klassischen Desktopanwendungen gewöhnt ist. Die Grenze zwischen der
+  klassischen Webanwendung und einer Desktopapplikation scheint damit zu
+  verschwinden. Genauer betrachtet steht eine \ac{RIA} im Technologiespektrum
+  aber zwischen dem Rich Client und dem Thin Client, siehe Abbildung
+  \ref{img:webanwendungen}.
   
   \begin{figure}[h]
     \begin{center}
@@ -25,7 +24,6 @@
     \end{center}
   \end{figure}
   
-  \noindent
   Rich Client steht für kompilierte Desktopapplikationen und Thin Client für
   Webapplikationen welche im Webbrowser laufen, siehe
   \cite{WebApplicationSolutions} S. 4f. Da die Grenze zwischen \ac{RIA} und
@@ -34,10 +32,10 @@
   
   \section{Klassifikation}
   
-  Es wird eine Klassifikation aller \ac{RIA} in die Klassen der Plugin
-  orientierten, der Client orientierten und der Browser orientierten gemacht.
+  Es wird eine Klassifikation aller \ac{RIA} in die Klassen - Pluginorientiert,
+  Clientorientiert und Browserorientiert - gemacht.
   
-  \subsection{Plugin orientiert}
+  \subsection{Pluginorientiert}
   
   Plugin orientierte \ac{RIA} sind Applikationen, welche in einem Browser
   Plugin laufen. Dabei sind Adobe Flash, Java Applet und Microsoft Silverlight
@@ -45,16 +43,16 @@
   \cite{RichInternetApplications} und
   \cite{RichInternetApplicationMarketShare}.
 
-  \subsection{Client orientiert}
+  \subsection{Clientorientiert}
   
-  Unter Client orientiert versteht man lediglich, dass alle Desktopanwendungen,
+  Unter Clientorientiert versteht man lediglich, dass alle Desktopanwendungen,
   welche entweder mit den Internet kommunizieren oder zumindes über dieses
   ausgeliefert werden, zu dieser Kategorie gehören. Dies trifft nur zu, in der
   Annahme, dass Desktopanwendungen eine ``reichhaltige'' Bedienoberfläche
   anbieten, siehe \cite{RichInternetApplication}. Eine Java Swing Applikation
   könnte also auch als Client orientierte \ac{RIA} klassifiziert werden.
   
-  \subsection{Browser orientiert}
+  \subsection{Browserorientiert}
   
   Browser orientierte \ac{RIA} kommen aus der Evolution der Internettechnologie
   heraus. Da sich die Grundkonzepte der Internettechnologie in den letzten
@@ -66,17 +64,17 @@
   \subsubsection{Klassische Webanwendung}
   
   Um die Jahrtausenwende wurden klassische Webanwendung nach dem Prinzip von
-  ``Request - Response'' aufgebaut. Der Benutzer konnte mit einer Interaktion
+  ``full site relaod'' aufgebaut. Der Benutzer konnte mit einer Interaktion
   einen Statuswechsel von einer Seite zur Nächsten auslösen, zum Beispiel durch
   das anklicken eines Links oder mit dem Versenden eines HTML-Formulars, siehe
   Abbildung \ref{img:classicPageReload}. Der zeitliche Ablauf sieht mit einem
   \ac{UML} Sequenzdiagramm wie folgt aus, siehe Abbildung
   \ref{img:sequenzdiagrammClassicPageReload}. Dabei wurde immer der gesamte
-  Seiteninhalt neu geladen, was zu langen wartezeiten beim Laden der Seite und
+  Seiteninhalt neu geladen, was zu langen Wartezeiten beim Laden der Seite und
   zu einem ungewohnten Anwendergefühl, im Vergleich zu Desktopanwengungen,
   geführt hat. Zudem wurden immer alle Daten vom Server an den Browser
-  übermittelt, welche für die Darstellung der Webanwendung von Nöten war, siehe
-  \cite{AjaxInAction} S. 44ff.
+  übermittelt, welche für die Darstellung der Webanwendung von Nöten waren,
+  siehe \cite{AjaxInAction} S. 44ff.
   \newline
   
   \begin{figure}[hbt]
@@ -102,17 +100,17 @@
   Mit dem Konzept von \ac{Ajax}, bei dem der Browser asynchron Daten vom Server
   nachladen kann, wurde die Möglichkeit geschaffen, Anwendungen zu entwickeln,
   welche sich in der Bedienung wie Desktopanwendungen anfühlen, siehe Abbildung
-  \ref{img:ajaxPageReload}. Der zeitliche Ablauf sieht mit einem \ac{UML}
-  Sequenzdiagramm wie folgt aus, siehe Abbildung
-  \ref{img:sequenzdiagrammAjaxPageReload}. Das Prinzip funktioniert dadurch,
-  dass eine zusätzliche Schicht zwischen dem Browser und Server eingerichtet
-  wird. Diese Schicht, ich nenne sie hier Ajax-Engine, übernimmt die Kontrolle
-  über die Datenkommunikation zum Server. Die Ajax-Engine bietet die
-  Möglichkeit asynchron zur Clientinteraktion Daten vom Server anzufordern und
-  bei Erhalt dynamisch in die bestehende Seite einzuflechten. Das Ergebnis ist,
-  dass der Browser vom Server entkoppelt wird, wobei der Benutzer die Seite
-  weiterhin verwenden kann. Der Server kann nun im Hintergrund getätigte
-  Interaktionen verarbeiten.
+  \ref{img:ajaxPageReload}. Der zeitliche Ablauf einer Userinteraktion wird mit
+  einem \ac{UML} Sequenzdiagramm in der Abbildung
+  \ref{img:sequenzdiagrammAjaxPageReload} dargestellt. Das Prinzip funktioniert
+  dadurch, dass eine zusätzliche Schicht zwischen dem Browser und Server
+  eingerichtet wird. Diese Schicht, sie wird hier Ajax-Engine genannt, übernimmt
+  die Kontrolle über die Datenkommunikation zum Server. Die Ajax-Engine bietet
+  die Möglichkeit asynchron zur Clientinteraktion Daten vom Server anzufordern
+  und bei Erhalt dynamisch in die bestehende Seite einzuflechten. Das Ergebnis
+  ist, dass der Browser vom Server entkoppelt wird, wobei der Benutzer die Seite
+  weiterhin verwenden kann. Der Server kann nun getätigte Interaktionen im
+  Hintergrund verarbeiten.
   \newline
   
   \begin{figure}[hbt]
