@@ -3,6 +3,13 @@ Prototypen definiert werden. Als Grundlage sollen die Komponenten und
 Verhaltensmuster der Applikation Strukti Live 1.2 dienen, da die Applikation
 öffentlich verfügbar ist.
 
+Wie im Kapitel \ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
+(\nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}, S.
+\pageref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}ff)
+beschrieben, gilt der Proof of Concept als erfolgreich, wenn alle
+Akzeptanztests erfolgreich abgenommen wurden. Die Abnahme der Akzeptanztests
+erfolgt durch eine visuelle Prüfung.
+
 \section{Anforderungen mit User Stories}
 
 \begin{description}
@@ -11,8 +18,7 @@ Es soll das Fenster in sechs Teile (Panels) aufgeteilt werden. Die Aufteilung
 soll in drei Spalten und zwei Zeilen aufgeteilt werden, wobei die erste Zeile
 eine Höhe von 150px\footnote{px ist die Abkürzung für Pixel, zu Deutsch
 Bildpunkt. Ein Pixel bezeichnet die kleinste Einheit einer digitalen
-Rastergrafik.} und die zweite Zeile die verbleibende Anzahl Pixel des
-Browserfenster haben soll.
+Rastergrafik.} und die zweite Zeile eine höhe von 606px haben soll.
 
 \item[US-2\label{itm:US-2}]
 Es soll die erste und die dritte Spalte eine Breite von 220px und die zweite
@@ -36,8 +42,8 @@ Navigationspanel angesteuert werden können.
 \item[US-6\label{itm:US-6}]
 Der Navigationspanel soll eine zweistufige Navigation anbieten. Ansichten,
 welche Gruppiert werden können, sollen in der zweiten Stufe untergebracht
-werden. Gruppierte Ansichten sollen unterhalb der übergeordneten Ansicht
-eingeruckt dargestellt werden.
+werden. Navigationen, welche sich in der zweiten Stufe befinden, sollen
+unterhalb der übergeordneten Navigationen eingeruckt dargestellt werden.
 
 \item[US-7\label{itm:US-7}]
 Die aktuell angesteuerte Ansicht soll im Navigationspanel andersfarbig
@@ -61,48 +67,96 @@ Es sollen zwei Navigationen auf der zweiten Stufen unterhalb der Navigation
 ``Produktauswahl'' angezeigt werden. Die Navigationen sind
 ``Produktbeschreibung'' und ``Produktdesign''.
 
-\item[US-12]
+\item[US-12\label{itm:US-12}]
 Wenn der Navigationspunkt ``Einführung'' ausgewählt wird, soll in der zweiten
 Reihe und der zweiten Spalte ein Einführungstext zum Proof of Concept
 dargestellt werden.
 
-\item[US-13]
+\item[US-13\label{itm:US-13}]
 Wenn der Navigationspunkt ``Produktauswahl'' ausgewählt wird, soll in der
 zweiten Reihe und der zweiten Spalte eine Buttonmatrix mit den möglichen
 Produkten dargestellt werden. Die Navigationen ``Produktbeschreibung'' und
 ``Produktdesign'' sollen angezeigt werden und deaktiviert sein.
 
-\item[US-14]
+\item[US-14\label{itm:US-14}]
 Wenn der Navigationspunkt ``Produktauswahl'' ausgewählt wird, sollen in der
 zweiten Zeile und der dritten Spalte Filteroptionen für die Produkte in der Form
 von CheckBoxen dargestellt werden.
 
-\item[US-15]
+\item[US-15\label{itm:US-15}]
 Wenn eine Filteroption gewählt wird, sollen die Produkte entsprechend des
 Filters aktiv oder inaktiv gesetzt werden.
 
-\item[US-16]
-Wenn ein Produkt ausgewählt wird, dann soll die Produktbeschreibung angezeigt
-werden. Die Produktbeschreibung besteht aus einem Fliesstext und
-einem TabbedPanel welcher sechs Tabs hat: ``Eigenschaften'', ``Chancen \&
-Risiken'', ``Rückzahlungsmodus'', ``Beispiele'', ``Steuern'' und
-``Klassifizierung''. Die Navigationspunkte ``Produktbeschreibung'' und
-``Produktdesign'' sollen nun aktiv gesetzt werden.
+\item[US-16\label{itm:US-16}]
+Wenn ein Produkt ausgewählt wird, dann soll in der zweiten Reihe und der zweiten
+Spalte die Produktbeschreibung angezeigt werden. Die Produktbeschreibung
+besteht aus einem Fliesstext und einem TabbedPanel welcher sechs Tabs hat:
+``Eigenschaften'', ``Chancen \& Risiken'', ``Rückzahlungsmodus'',
+``Beispiele'', ``Steuern'' und ``Klassifizierung''. Die Navigationspunkte
+``Produktbeschreibung'' und ``Produktdesign'' sollen nun aktiv gesetzt werden.
 
-\item[US-17]
+\item[US-17\label{itm:US-17}]
 Wenn ein Tab ausgewählt wird, sollen die entsprechenden Informationen zum
 Produkt dargestellt werden.
 
-\item[US-18]
+\item[US-18\label{itm:US-18}]
 Wenn der Navigationspunkt ``Produktdesign'' ausgewählt wird, soll das
 Auszahlungsprofil eines möglichen Produkts dargestellt werden. Die notwendigen
 Eckdaten sollen in der zweiten Zeile und der dritten Spalte in der Form von
 Textfeldern oder Slidern dargestellt werden.
+
+\item[US-19\label{itm:US-19}]
+Wenn die Werte in den Textfeldern oder Slidern geändert werden, dann soll sich
+das Auszahlungsprofil entsprechend anpassen.
 \end{description}
 
 \section{Priorisierung der User Stories}
 
+Es werden alle UserStories als \begin{itshape}hoch\end{itshape} priorisiert.
+
 \section{Akzeptanztests}
+
+Für alle Akzeptanztests gilt als Voraussetzung, dass der Prototyp auf einem
+Applikationsserver läuft. Die Akzeptanztest werden mit den Webbrowsern Chrome
+und Safari durchgeführt, um sicherzustellen dass der Prototyp unabhängig vom
+Webbrowser implementiert wurde.
+
+\begin{description}
+\item[T-1.1\label{itm:T-1.1}]
+Die vorgegebenen Masseinheiten der Zeilen sollen mit einem Screenshot geprüft werden.
+
+\item[T-2.1\label{itm:T-2.1}]
+Die vorgegebenen Masseinheiten der Spalten sollen mit einem Screenshot geprüft werden.
+
+\item[T-3.1\label{itm:T-3.1}]
+Es soll geprüft werden, ob das Logo in der ersten Zeile und der ersten Spalte
+vorhanden ist.
+
+\item[T-3.2\label{itm:T-3.2}]
+Mit einem Klick auf das Logo soll die Startansicht geladen werden.
+
+\item[T-4.1\label{itm:T-4.1}]
+Es soll geprüft werden, ob der Panel in der ersten Zeile und der zweiten Spalte
+einen hellblau eingefärbten Hintergrund hat.
+
+\item[T-4.2\label{itm:T-4.2}]
+Durch das navigieren über verschiedene Menüpunkte, soll der Titel in der ersten
+Zeile und der zweiten Spalte, entsprechend der aktuellen Ansicht, angepasst
+werden.
+
+\item[T-5.1\label{itm:T-5.1}]
+Es soll geprüft werden, ob die Navigation in der zweiten Zeile und der
+ersten Spalte ersichtlich ist.
+
+\item[T-5.2\label{itm:T-5.2}]
+Durch das navigieren über verschiedene Menüpunkte, soll sich entsprechend die
+Ansicht ändern.
+
+\item[T-6.1\label{itm:T-6.1}]
+Es soll geprüft werden, ob gruppierte Navigationen unterhalb, der von ihnen
+übergeordnenten Navigation, eingeruckt dargestellt werden.
+
+\end{description}
 
 \section{Resultat}
 
