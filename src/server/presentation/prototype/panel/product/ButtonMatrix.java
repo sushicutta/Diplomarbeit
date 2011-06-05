@@ -1,6 +1,13 @@
 package server.presentation.prototype.panel.product;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import server.layout.StruktiLayout;
+import server.layout.StruktiLayout.FilterChangedEvent;
+import server.layout.StruktiLayout.FilterChangedListener;
+import server.layout.StruktiLayout.ProductMarketFilter;
+import server.layout.StruktiLayout.ProductProtectionFilter;
 
 import com.vaadin.event.MouseEvents.ClickEvent;
 import com.vaadin.event.MouseEvents.ClickListener;
@@ -13,7 +20,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
-public class ButtonMatrix extends Panel {
+public class ButtonMatrix extends Panel implements FilterChangedListener {
 	
 	private final GridLayout grid = new GridLayout(3, 3);
 	
@@ -31,6 +38,11 @@ public class ButtonMatrix extends Panel {
 	private void init() {
 		addStyleName(Reindeer.PANEL_LIGHT);
 		createLayout();
+		observe();
+	}
+	
+	private void observe() {
+		struktiLayout.addFilterChangedListener(this);
 	}
 	
 	private void createLayout() {
@@ -87,6 +99,13 @@ public class ButtonMatrix extends Panel {
 		
         grid.addComponent(topRight, 2, 0);
         grid.setComponentAlignment(topRight, Alignment.MIDDLE_CENTER);
+        
+        FilterContainer filterContainer = new FilterContainer();
+        filterContainer.addProductMarketFilter(ProductMarketFilter.RISING);
+        filterContainer.addProductProtectionFilter(ProductProtectionFilter.NO_PROTECTION);
+        
+        topRight.setData(filterContainer);
+        
 	}
 	
 	private void addCenter() {
@@ -117,6 +136,13 @@ public class ButtonMatrix extends Panel {
 		
         grid.addComponent(center, 1, 1);
         grid.setComponentAlignment(center, Alignment.MIDDLE_CENTER);
+        
+        FilterContainer filterContainer = new FilterContainer();
+        filterContainer.addProductMarketFilter(ProductMarketFilter.RISING);
+        filterContainer.addProductMarketFilter(ProductMarketFilter.SIDEWAYS);
+        filterContainer.addProductProtectionFilter(ProductProtectionFilter.LIMITED_PROTECTION);
+        
+        center.setData(filterContainer);
 		
 	}
 	
@@ -148,6 +174,12 @@ public class ButtonMatrix extends Panel {
 		
         grid.addComponent(bottomLeft, 0, 2);
         grid.setComponentAlignment(bottomLeft, Alignment.MIDDLE_CENTER);
+        
+        FilterContainer filterContainer = new FilterContainer();
+        filterContainer.addProductMarketFilter(ProductMarketFilter.RISING);
+        filterContainer.addProductProtectionFilter(ProductProtectionFilter.PROTECTION);
+        
+        bottomLeft.setData(filterContainer);
 		
 	}
 	
@@ -167,6 +199,73 @@ public class ButtonMatrix extends Panel {
 		struktiLayout.setSelectedProduct(StruktiLayout.Product.PROTEIN);
 		struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESCRIPTION);
 		getWindow().showNotification("Protein ausgewählt");
+	}
+	
+	private class FilterContainer {
+		
+		List<ProductMarketFilter> productMarketFilters = new ArrayList<ProductMarketFilter>();
+		
+		List<ProductProtectionFilter> productProtectionFilters = new ArrayList<ProductProtectionFilter>();
+	
+		private void addProductMarketFilter(ProductMarketFilter productMarketFilter) {
+			if (!productMarketFilters.contains(productMarketFilter)) {
+				productMarketFilters.add(productMarketFilter);
+			}
+		}
+		
+		private void addProductProtectionFilter(ProductProtectionFilter productProtectionFilter) {
+			if (!productProtectionFilters.contains(productProtectionFilter)) {
+				productProtectionFilters.add(productProtectionFilter);
+			}
+		}
+		
+	}
+
+	@Override
+	public void onFilterChanged(FilterChangedEvent event) {
+		checkEnabled(topRight, event);
+		checkEnabled(center, event);
+		checkEnabled(bottomLeft, event);
+	}
+	
+	private void checkEnabled(Panel panel, FilterChangedEvent event) {
+		
+		boolean enabled = true;
+		
+		FilterContainer filterContainer = (FilterContainer) panel.getData();
+		
+		if (event.getChangedProductMarketFilters().size() > 0) {
+			
+			for (ProductMarketFilter productMarketFilter : event.getChangedProductMarketFilters()) {
+				if (!filterContainer.productMarketFilters.contains(productMarketFilter)) {
+					enabled = false;
+					break;
+				}
+			}
+			
+		}
+		
+		if (event.getChangedProductProtectionFilters().size() > 0) {
+			
+			for (ProductProtectionFilter productProtectionFilter : event.getChangedProductProtectionFilters()) {
+				if (!filterContainer.productProtectionFilters.contains(productProtectionFilter)) {
+					enabled = false;
+					break;
+				}
+			}
+			
+		}
+		
+		if (enabled) {
+			panel.removeStyleName("productDeactivated");
+			panel.addStyleName("product");
+			panel.setEnabled(true);
+		} else {
+			panel.removeStyleName("product");
+			panel.addStyleName("productDeactivated");
+			panel.setEnabled(false);
+		}
+		
 	}
 	
 }

@@ -18,6 +18,10 @@
 		cursor: pointer;
         }
         
+.v-panel-content-productDeactivated > div {
+        background: #AAAAAA;
+        }
+        
 /* Label Colors */
 .v-label-topCenter {
 		color: #0064aa;

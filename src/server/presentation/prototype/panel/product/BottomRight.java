@@ -3,6 +3,7 @@ package server.presentation.prototype.panel.product;
 import server.layout.StruktiLayout;
 import server.layout.StruktiLayout.MenuChangedEvent;
 
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window.Notification;
@@ -22,6 +23,10 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 		layout.setSpacing(true);
 		layout.setMargin(true);
 
+		layout.setSizeFull();
+		
+		createLayout();
+		
         observeMenu();
 	}
 	
@@ -30,7 +35,7 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 	}
 	
 	private void createLayout() {
-		struktiLayout.setBottomLeft(this);
+		struktiLayout.setBottomRight(this);
 	}
 	
 	@Override
@@ -49,18 +54,25 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
                     "Ein unbekanntes Menu wurde geladen.",
                     Notification.TYPE_ERROR_MESSAGE);
 		}
-		createLayout();
-	}
-
-	private void onDesign() {
-		
-	}
-
-	private void onDescription() {
-		
 	}
 
 	private void onProducts() {
-		
+		removeAllComponents();
+		Filter filter = new Filter(struktiLayout);
+		filter.setSizeFull();
+		addComponent(filter);
 	}
+
+	private void onDescription() {
+		removeAllComponents();
+        Label bla = new Label("bla");
+        addComponent(bla);
+	}
+
+	private void onDesign() {
+		removeAllComponents();
+        Label fasel = new Label("fasel");
+        addComponent(fasel);
+	}
+
 }

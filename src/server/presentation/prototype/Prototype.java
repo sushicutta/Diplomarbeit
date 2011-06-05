@@ -5,6 +5,7 @@ import server.presentation.prototype.panel.BottomCenter;
 import server.presentation.prototype.panel.BottomLeft;
 import server.presentation.prototype.panel.TopCenter;
 import server.presentation.prototype.panel.TopLeft;
+import server.presentation.prototype.panel.product.BottomRight;
 
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.Window;
@@ -37,6 +38,8 @@ public class Prototype extends com.vaadin.Application {
         new BottomLeft(struktiLayout);
         
         new BottomCenter(struktiLayout);
+        
+        new BottomRight(struktiLayout);
         
     }
 

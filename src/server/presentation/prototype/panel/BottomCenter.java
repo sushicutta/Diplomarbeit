@@ -29,10 +29,10 @@ public class BottomCenter extends Panel implements StruktiLayout.MenuChangedList
 		
 		struktiLayout.setBottomCenter(this);
 		
-		observe();
+		observeMenu();
 	}
 	
-	private void observe() {
+	private void observeMenu() {
 		struktiLayout.addMenuChangedListener(this);
 	}
 	

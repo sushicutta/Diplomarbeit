@@ -24,6 +24,10 @@ public class StruktiLayout extends Panel {
 	Panel bottomRight;
 	
 	private Product selectedProduct = null;
+	
+	private List<ProductMarketFilter> productMarketFilters = new ArrayList<ProductMarketFilter>();
+	
+	private List<ProductProtectionFilter> productProtectionFilters = new ArrayList<ProductProtectionFilter>();
 
 	public StruktiLayout() {
     	
@@ -202,9 +206,18 @@ public class StruktiLayout extends Panel {
         grid.setComponentAlignment(bottomCenter, Alignment.MIDDLE_CENTER);
     }
     
-    public void setBottomRight(Component component) {
-    	bottomRight.removeAllComponents();
-    	bottomRight.addComponent(component);
+    public void setBottomRight(Panel panelBottomRight) {
+    	
+    	panelBottomRight.setCaption(null);
+    	panelBottomRight.setHeight("100%");
+    	panelBottomRight.setWidth(220, Sizeable.UNITS_PIXELS);
+    	
+    	bottomRight = panelBottomRight;
+    	
+    	grid.removeComponent(2, 1);
+        grid.addComponent(bottomRight, 2, 1);
+        grid.setComponentAlignment(bottomRight, Alignment.MIDDLE_CENTER);
+        
     }
     
     public enum MenuItem {
@@ -219,6 +232,18 @@ public class StruktiLayout extends Panel {
     	PUT_OPTION,
     	SOFT_RUNNER,
     	PROTEIN
+    }
+    
+    public enum ProductMarketFilter {
+    	RISING,
+    	SIDEWAYS,
+    	DECREASING
+    }
+    
+    public enum ProductProtectionFilter {
+    	PROTECTION,
+    	LIMITED_PROTECTION,
+    	NO_PROTECTION
     }
     
 	public class MenuChangedEvent extends Event {
@@ -264,5 +289,70 @@ public class StruktiLayout extends Panel {
 	public void setSelectedProduct(Product selectedProduct) {
 		this.selectedProduct = selectedProduct;
 	}
+	
+	public void addProductMarketFilter(Component source, ProductMarketFilter productMarketFilter) {
+		if (!productMarketFilters.contains(productMarketFilter)) {
+			productMarketFilters.add(productMarketFilter);
+		} else {
+			productMarketFilters.remove(productMarketFilter);
+		}
+		fireFilterChanged(source);
+	}
+	
+	public void addProductProtectionFilter(Component source, ProductProtectionFilter productProtectionFilter) {
+		if (!productProtectionFilters.contains(productProtectionFilter)) {
+			productProtectionFilters.add(productProtectionFilter);
+		} else {
+			productProtectionFilters.remove(productProtectionFilter);
+		}
+		fireFilterChanged(source);
+	}
+	
+	public class FilterChangedEvent extends Event {
+
+		final private List<ProductMarketFilter> changedProductMarketFilters;
+
+		final private List<ProductProtectionFilter> changedProductProtectionFilters;
+		
+		public FilterChangedEvent(Component source) {
+			super(source);
+			changedProductMarketFilters = new ArrayList<ProductMarketFilter>(productMarketFilters);
+			changedProductProtectionFilters = new ArrayList<ProductProtectionFilter>(productProtectionFilters);
+		}
+
+		public List<ProductMarketFilter> getChangedProductMarketFilters() {
+			return changedProductMarketFilters;
+		}
+
+		public List<ProductProtectionFilter> getChangedProductProtectionFilters() {
+			return changedProductProtectionFilters;
+		}
+		
+	}
+	
+	
+	public interface FilterChangedListener extends Serializable {
+		public void onFilterChanged(FilterChangedEvent event);
+	}
+	
+	List<FilterChangedListener> filterChangedListeners = new ArrayList<FilterChangedListener>();
+	
+    public void addFilterChangedListener(FilterChangedListener listener) {
+    	filterChangedListeners.add(listener);
+    }
+
+    public void removeFilterChangedListener(FilterChangedListener listener) {
+    	filterChangedListeners.remove(listener);
+    }
+    
+    public void fireFilterChanged(Component source) {
+    	for (FilterChangedListener filterChangedListener : filterChangedListeners) {
+    		filterChangedListener.onFilterChanged(new FilterChangedEvent(source));
+    	}
+    }
+    
+    public void addProductFilterChangedListener(FilterChangedListener listener) {
+    	filterChangedListeners.add(listener);
+    }
 
 }
