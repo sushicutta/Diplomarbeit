@@ -1,0 +1,16 @@
+@import url(../reindeer/styles.css);
+	
+/* Panel Colors */
+.v-panel-content-topCenter > div {
+        background: #d8eef7;
+        }
+        
+/* Label Colors */
+.v-label-topCenter {
+		color: #0064aa;
+		}
+		
+/* Button Colors */
+.menuButtonClicked .v-button-caption {
+		color: #0064aa;
+		}

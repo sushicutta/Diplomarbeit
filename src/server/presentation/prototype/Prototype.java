@@ -1,26 +1,43 @@
 package server.presentation.prototype;
 
-import server.layout.GridLayoutExample;
+import server.layout.StruktiLayout;
+import server.presentation.prototype.panel.BottomCenter;
+import server.presentation.prototype.panel.BottomLeft;
+import server.presentation.prototype.panel.TopCenter;
+import server.presentation.prototype.panel.TopLeft;
 
+import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.Window;
 
 @SuppressWarnings("serial")
 public class Prototype extends com.vaadin.Application {
+	
+	private StruktiLayout struktiLayout = new StruktiLayout();
 
-    /**
-     * Init is invoked on application load (when a user accesses the application
-     * for the first time).
-     */
-    @Override
+	@Override
     public void init() {
+    	
+    	setTheme("poc");
 
         // Main window is the primary browser window
-        final Window main = new Window("Hello window");
+        final Window main = new Window("Proof of Concept");
         setMainWindow(main);
-
-        // "Hello world" text is added to window as a Label component
-        main.addComponent(new GridLayoutExample());
-//        main.addComponent(new Label("Jo das isch es"));
+        main.addComponent(struktiLayout);
+        
+        main.setSizeUndefined();
+        
+        main.getContent().setHeight(842, Sizeable.UNITS_PIXELS);
+        
+        struktiLayout.setScrollable(true);
+        
+        new TopLeft(struktiLayout);
+        
+        new TopCenter(struktiLayout);
+        
+        new BottomLeft(struktiLayout);
+        
+        new BottomCenter(struktiLayout);
+        
     }
 
 }

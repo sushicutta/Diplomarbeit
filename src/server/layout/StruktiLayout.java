@@ -1,0 +1,251 @@
+package server.layout;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.vaadin.terminal.Sizeable;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
+
+@SuppressWarnings("serial")
+public class StruktiLayout extends Panel {
+	
+	final GridLayout grid = new GridLayout(3, 2);
+	
+	Panel topLeft;
+	Panel topCenter;
+	Panel topRight;
+	Panel bottomLeft;
+	Panel bottomCenter;
+	Panel bottomRight;
+
+    public StruktiLayout() {
+    	
+    	init();
+    	initTopLeft();
+    	initTopCenter();
+    	initTopRight();
+    	initBottomLeft();
+    	initBottomCenter();
+    	initBottomRight();
+    	
+    	initTest();
+
+    }
+    
+    private void init() {
+    	
+        getContent().setSizeFull();
+    	
+    	setWidth(1062, Sizeable.UNITS_PIXELS);
+    	setHeight("100%");
+    	
+    	setScrollable(true);
+    	
+        // Create a grid layout
+        grid.setSpacing(true);
+        
+        // Force Row 2 to Expand
+        grid.setRowExpandRatio(1, 1);
+
+        // The style allows us to visualize the cell borders in this example.
+        grid.addStyleName("struktigrid");
+
+        grid.setWidth(1024, Sizeable.UNITS_PIXELS);
+        grid.setHeight(768, Sizeable.UNITS_PIXELS);
+
+        // Add the layout to the containing layout.
+        addComponent(grid);
+
+
+    }
+    
+    private void initTopLeft() {
+        topLeft = new Panel("Top Left");
+        topLeft.setCaption(null);
+        topLeft.setHeight(150, Sizeable.UNITS_PIXELS);
+        topLeft.setWidth(220, Sizeable.UNITS_PIXELS);
+        grid.addComponent(topLeft, 0, 0);
+        grid.setComponentAlignment(topLeft, Alignment.MIDDLE_CENTER);
+    }
+    
+    private void initTopCenter() {
+        topCenter = new Panel("Top Center");
+        topCenter.setCaption(null);
+        topCenter.setHeight(150, Sizeable.UNITS_PIXELS);
+        topCenter.setWidth(552, Sizeable.UNITS_PIXELS);
+        topCenter.addStyleName("topCenter");
+        grid.addComponent(topCenter, 1, 0);
+        grid.setComponentAlignment(topCenter, Alignment.BOTTOM_LEFT);
+    }
+    
+    private void initTopRight() {
+        topRight = new Panel("Top Right");
+        topRight.setCaption(null);
+        topRight.setHeight(150, Sizeable.UNITS_PIXELS);
+        topRight.setWidth(220, Sizeable.UNITS_PIXELS);
+        grid.addComponent(topRight, 2, 0);
+        grid.setComponentAlignment(topRight, Alignment.MIDDLE_CENTER);
+    }
+    
+    private void initBottomLeft() {
+        bottomLeft = new Panel("Bottom Left");
+        bottomLeft.setCaption(null);
+        bottomLeft.setHeight("100%");
+        bottomLeft.setWidth(220, Sizeable.UNITS_PIXELS);
+        grid.addComponent(bottomLeft, 0, 1);
+        grid.setComponentAlignment(bottomLeft, Alignment.MIDDLE_CENTER);
+    }
+    
+    private void initBottomCenter() {
+        bottomCenter = new Panel("Bottom Center");
+        bottomCenter.setCaption(null);
+        bottomCenter.setHeight("100%");
+        bottomCenter.setWidth(552, Sizeable.UNITS_PIXELS);
+        grid.addComponent(bottomCenter, 1, 1);
+        grid.setComponentAlignment(bottomCenter, Alignment.MIDDLE_CENTER);
+    }
+    
+    private void initBottomRight() {
+        bottomRight = new Panel("Bottom Right");
+        bottomRight.setCaption(null);
+        bottomRight.setHeight("100%");
+        bottomRight.setWidth(220, Sizeable.UNITS_PIXELS);
+        grid.addComponent(bottomRight, 2, 1);
+        grid.setComponentAlignment(bottomRight, Alignment.MIDDLE_CENTER);
+    }
+    
+    private void initTest() {
+        Label labelTopLeft = new Label("Panel Top Left");
+        topLeft.addComponent(labelTopLeft);
+
+        Label labelTopCenter = new Label("Panel Top Center");
+        topCenter.addComponent(labelTopCenter);
+
+        Label labelTopRight = new Label("Panel Top Right");
+        topRight.addComponent(labelTopRight);
+
+        Label labelBottomLeft = new Label("Panel Bottom Left");
+        bottomLeft.addComponent(labelBottomLeft);
+        
+        Label labelBottomCenter = new Label("Panel Bottom Center");
+        bottomCenter.addComponent(labelBottomCenter);
+        
+        Label labelBottomRight = new Label("Panel Bottom Right");
+        bottomRight.addComponent(labelBottomRight);
+    }
+    
+    public void setTopLeft(Component component) {
+    	topLeft.removeAllComponents();
+    	
+    	GridLayout topLeftGrid = new GridLayout(1, 1);
+    	topLeftGrid.setSizeFull();
+    	topLeftGrid.setSpacing(true);
+    	topLeftGrid.setMargin(true);
+    	topLeftGrid.addComponent(component, 0, 0);
+    	topLeftGrid.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
+    	
+    	topLeft.setContent(topLeftGrid);
+
+    }
+    
+    public void setTopCenter(Panel panelTopCenter) {
+    	
+    	panelTopCenter.setCaption(null);
+    	panelTopCenter.setHeight(150, Sizeable.UNITS_PIXELS);
+    	panelTopCenter.setWidth(552, Sizeable.UNITS_PIXELS);
+    	panelTopCenter.addStyleName("topCenter");
+    	
+    	topCenter = panelTopCenter;
+    	
+    	grid.removeComponent(1, 0);
+        grid.addComponent(topCenter, 1, 0);
+        grid.setComponentAlignment(topCenter, Alignment.BOTTOM_LEFT);
+    
+    }
+    
+    public void setTopRight(Component component) {
+    	topRight.removeAllComponents();
+    	topRight.addComponent(component);
+    }
+    
+    public void setBottomLeft(Panel panelBottomLeft) {
+    	
+    	panelBottomLeft.setCaption(null);
+    	panelBottomLeft.setHeight("100%");
+    	panelBottomLeft.setWidth(220, Sizeable.UNITS_PIXELS);
+    	
+    	bottomLeft = panelBottomLeft;
+    	
+    	grid.removeComponent(0, 1);
+        grid.addComponent(bottomLeft, 0, 1);
+        grid.setComponentAlignment(bottomLeft, Alignment.MIDDLE_CENTER);
+    }
+    
+    public void setBottomCenter(Panel panelBottomCenter) {
+    	
+    	panelBottomCenter.setCaption(null);
+    	panelBottomCenter.setHeight("100%");
+    	panelBottomCenter.setWidth(552, Sizeable.UNITS_PIXELS);
+    	
+    	bottomCenter = panelBottomCenter;
+    	
+    	grid.removeComponent(1, 1);
+        grid.addComponent(bottomCenter, 1, 1);
+        grid.setComponentAlignment(bottomCenter, Alignment.MIDDLE_CENTER);
+    }
+    
+    public void setBottomRight(Component component) {
+    	bottomRight.removeAllComponents();
+    	bottomRight.addComponent(component);
+    }
+    
+    public enum MenuItem {
+    	NONE,
+    	INTRODUCTION,
+    	PRODUCTS,
+    	SUB_DESCRIPTION,
+    	SUB_DESIGN
+    }
+	
+	public class MenuChangedEvent extends Event {
+		
+		final MenuItem menuItem;
+
+        public MenuChangedEvent(Component source, MenuItem menuItem) {
+            super(source);
+            this.menuItem = menuItem;
+        }
+        
+        public MenuItem getMenuItem() {
+        	return menuItem;
+        }
+	}
+	
+	public interface MenuChangedListener extends Serializable {
+		
+		public void onMenuChanged(MenuChangedEvent event);
+		
+	}
+	
+	List<MenuChangedListener> menuChangedListeners = new ArrayList<MenuChangedListener>();
+	
+    public void addMenuChangedListener(MenuChangedListener listener) {
+    	menuChangedListeners.add(listener);
+    }
+
+    public void removeMenuChangedListener(MenuChangedListener listener) {
+    	menuChangedListeners.remove(listener);
+    }
+    
+    public void fireMenuChanged(Component source, MenuItem menuItem) {
+    	for (MenuChangedListener menuChangedListener : menuChangedListeners) {
+    		menuChangedListener.onMenuChanged(new MenuChangedEvent(source, menuItem));
+    	}
+    }
+
+}
