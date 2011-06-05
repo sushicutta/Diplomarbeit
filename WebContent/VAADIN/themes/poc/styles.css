@@ -5,9 +5,26 @@
         background: #d8eef7;
         }
         
+.v-panel-content-topRight > div {
+        background: #f3f3f3;
+        }
+
+.v-panel-content-product > div {
+        background: #60b6de;
+        }
+        
+.v-panel-content-product:hover > div {
+        background: #0064aa;
+		cursor: pointer;
+        }
+        
 /* Label Colors */
 .v-label-topCenter {
 		color: #0064aa;
+		}
+		
+.v-label-product {
+		color: #FFFFFF;
 		}
 		
 /* Button Colors */

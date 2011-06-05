@@ -22,8 +22,10 @@ public class StruktiLayout extends Panel {
 	Panel bottomLeft;
 	Panel bottomCenter;
 	Panel bottomRight;
+	
+	private Product selectedProduct = null;
 
-    public StruktiLayout() {
+	public StruktiLayout() {
     	
     	init();
     	initTopLeft();
@@ -88,6 +90,7 @@ public class StruktiLayout extends Panel {
         topRight.setCaption(null);
         topRight.setHeight(150, Sizeable.UNITS_PIXELS);
         topRight.setWidth(220, Sizeable.UNITS_PIXELS);
+        topRight.addStyleName("topRight");
         grid.addComponent(topRight, 2, 0);
         grid.setComponentAlignment(topRight, Alignment.MIDDLE_CENTER);
     }
@@ -212,6 +215,12 @@ public class StruktiLayout extends Panel {
     	SUB_DESIGN
     }
 	
+    public enum Product {
+    	PUT_OPTION,
+    	SOFT_RUNNER,
+    	PROTEIN
+    }
+    
 	public class MenuChangedEvent extends Event {
 		
 		final MenuItem menuItem;
@@ -247,5 +256,13 @@ public class StruktiLayout extends Panel {
     		menuChangedListener.onMenuChanged(new MenuChangedEvent(source, menuItem));
     	}
     }
+    
+    public Product getSelectedProduct() {
+		return selectedProduct;
+	}
+
+	public void setSelectedProduct(Product selectedProduct) {
+		this.selectedProduct = selectedProduct;
+	}
 
 }

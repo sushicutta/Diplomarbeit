@@ -13,7 +13,7 @@ import com.vaadin.ui.Window.Notification;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
-public class BottomLeft extends Panel implements Button.ClickListener, StruktiLayout.MenuChangedListener  {
+public class BottomLeft extends Panel implements Button.ClickListener, StruktiLayout.MenuChangedListener {
 	
 	private StruktiLayout struktiLayout;
 	
@@ -62,8 +62,8 @@ public class BottomLeft extends Panel implements Button.ClickListener, StruktiLa
 		addComponent(buttonProducts);
 		
 		if (menuItem.equals(StruktiLayout.MenuItem.PRODUCTS) ||
-			menuItem.equals(StruktiLayout.MenuItem.SUB_DESCRIPTION) ||
-			menuItem.equals(StruktiLayout.MenuItem.SUB_DESIGN)) {
+					menuItem.equals(StruktiLayout.MenuItem.SUB_DESCRIPTION) ||
+					menuItem.equals(StruktiLayout.MenuItem.SUB_DESIGN)) {
 			doSubMenu();
 		}
 		
@@ -98,6 +98,12 @@ public class BottomLeft extends Panel implements Button.ClickListener, StruktiLa
 		if (menuItem.equals(StruktiLayout.MenuItem.PRODUCTS)) {
 			buttonDescription.setEnabled(false);
 			buttonDesign.setEnabled(false);
+		}
+		
+		if (menuItem.equals(StruktiLayout.MenuItem.SUB_DESCRIPTION) ||
+					menuItem.equals(StruktiLayout.MenuItem.SUB_DESIGN)) {
+			buttonDescription.setEnabled(true);
+			buttonDesign.setEnabled(true);
 		}
 		
 		addComponent(subMenuPanel);

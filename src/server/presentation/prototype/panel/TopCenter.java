@@ -56,11 +56,11 @@ public class TopCenter extends Panel implements StruktiLayout.MenuChangedListene
 	}
 	
 	private void onMenuDescription() {
-		setTitle("Produktauswahl.Produktbeschreibung");
+		setTitle("Produktauswahl - Produktbeschreibung");
 	}
 	
 	private void onMenuDesign() {
-		setTitle("Produktauswahl.Produktdesign");
+		setTitle("Produktauswahl - Produktdesign");
 	}
 	
 
