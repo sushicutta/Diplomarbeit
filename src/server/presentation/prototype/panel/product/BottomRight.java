@@ -41,7 +41,7 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 	@Override
 	public void onMenuChanged(MenuChangedEvent event) {
 		if (event.getMenuItem().equals(StruktiLayout.MenuItem.INTRODUCTION)) {
-			
+			onIntroduction();
 		} else if (event.getMenuItem().equals(StruktiLayout.MenuItem.PRODUCTS)) {
 			onProducts();
 		} else if (event.getMenuItem().equals(StruktiLayout.MenuItem.SUB_DESCRIPTION)) {
@@ -56,6 +56,12 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 		}
 	}
 
+	private void onIntroduction() {
+		removeAllComponents();
+        Label bla = new Label("Panel Bottom Right");
+        addComponent(bla);
+	}
+
 	private void onProducts() {
 		removeAllComponents();
 		Filter filter = new Filter(struktiLayout);
@@ -65,14 +71,15 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 
 	private void onDescription() {
 		removeAllComponents();
-        Label bla = new Label("bla");
+        Label bla = new Label("Panel Bottom Right");
         addComponent(bla);
 	}
 
 	private void onDesign() {
 		removeAllComponents();
-        Label fasel = new Label("fasel");
-        addComponent(fasel);
+		Properties properties = new Properties(struktiLayout);
+		properties.setSizeFull();
+        addComponent(properties);
 	}
 
 }

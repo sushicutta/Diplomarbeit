@@ -186,19 +186,16 @@ public class ButtonMatrix extends Panel implements FilterChangedListener {
 	private void onPutOption() {
 		struktiLayout.setSelectedProduct(StruktiLayout.Product.PUT_OPTION);
 		struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESCRIPTION);
-		getWindow().showNotification("Put Option ausgewählt");
 	}
 	
 	private void onSoftRunner() {
 		struktiLayout.setSelectedProduct(StruktiLayout.Product.SOFT_RUNNER);
 		struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESCRIPTION);
-		getWindow().showNotification("Soft Runner ausgewählt");
 	}
 	
 	private void onProtein() {
 		struktiLayout.setSelectedProduct(StruktiLayout.Product.PROTEIN);
 		struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESCRIPTION);
-		getWindow().showNotification("Protein ausgewählt");
 	}
 	
 	private class FilterContainer {

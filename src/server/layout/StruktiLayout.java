@@ -10,9 +10,12 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.Window;
 
 @SuppressWarnings("serial")
 public class StruktiLayout extends Panel {
+	
+	public Window window;
 	
 	final GridLayout grid = new GridLayout(3, 2);
 	
@@ -29,7 +32,9 @@ public class StruktiLayout extends Panel {
 	
 	private List<ProductProtectionFilter> productProtectionFilters = new ArrayList<ProductProtectionFilter>();
 
-	public StruktiLayout() {
+	public StruktiLayout(Window window) {
+		
+		this.window = window;
     	
     	init();
     	initTopLeft();

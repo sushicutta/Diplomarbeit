@@ -13,7 +13,7 @@ import com.vaadin.ui.Window;
 @SuppressWarnings("serial")
 public class Prototype extends com.vaadin.Application {
 	
-	private StruktiLayout struktiLayout = new StruktiLayout();
+	private StruktiLayout struktiLayout;
 
 	@Override
     public void init() {
@@ -22,6 +22,9 @@ public class Prototype extends com.vaadin.Application {
 
         // Main window is the primary browser window
         final Window main = new Window("Proof of Concept");
+        
+        struktiLayout = new StruktiLayout(main);
+        
         setMainWindow(main);
         main.addComponent(struktiLayout);
         
