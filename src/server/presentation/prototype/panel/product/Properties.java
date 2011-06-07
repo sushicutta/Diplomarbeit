@@ -1,29 +1,26 @@
 package server.presentation.prototype.panel.product;
 
 import server.layout.StruktiLayout;
-import server.layout.StruktiLayout.ProductMarketFilter;
-import server.layout.StruktiLayout.ProductProtectionFilter;
 
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Window.Notification;
-import com.vaadin.ui.CheckBox;
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.Slider;
+import com.vaadin.ui.Slider.ValueOutOfBoundsException;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
 
 @SuppressWarnings("serial")
-public class Properties extends Panel implements ClickListener {
+public class Properties extends Panel {
 	
 	private StruktiLayout struktiLayout;
 	
-	private CheckBox raise = new CheckBox("Steigt", this);
-	private CheckBox sideway = new CheckBox("Seitwärts", this);
-	private CheckBox decrease = new CheckBox("Sinkt", this);
-
-	private CheckBox protection = new CheckBox("Kapitalschutz", this);
-	private CheckBox limitedProtection = new CheckBox("bedingter Kapitalschutz", this);
-	private CheckBox noProtection = new CheckBox("kein Kapitalschutz", this);
+	private Slider strike = new Slider("30 % - 200 %");
+	private Slider vola = new Slider("0 % - 60 %");
+	
+	private double strikeValue = 100.0d;
+	private double volaValue = 30.0d;
 	
 	public Properties(StruktiLayout struktiLayout) {
 		this.struktiLayout = struktiLayout;
@@ -41,51 +38,65 @@ public class Properties extends Panel implements ClickListener {
 	}
 
 	private void createLayout() {
-		Panel panelMarket = new Panel("Markterwartung");
+		Panel panelStrike = new Panel("Strike");
 		
-		raise.setImmediate(true);
-		panelMarket.addComponent(raise);
-		sideway.setImmediate(true);
-		panelMarket.addComponent(sideway);
-		decrease.setImmediate(true);
-		panelMarket.addComponent(decrease);
+		final Label strikeLabel = new Label("100.0");
 		
-		Panel panelProtection = new Panel("Kapitalschutz");
-		
-		protection.setImmediate(true);
-		panelProtection.addComponent(protection);
-		limitedProtection.setImmediate(true);
-		panelProtection.addComponent(limitedProtection);
-		noProtection.setImmediate(true);
-		panelProtection.addComponent(noProtection);
-		
-		addComponent(panelMarket);
-		addComponent(panelProtection);
-		
-	}
-
-	@Override
-	public void buttonClick(ClickEvent event) {
-		CheckBox checkBox = (CheckBox) event.getButton();
-		
-		if (checkBox.equals(raise)) {
-			struktiLayout.addProductMarketFilter(checkBox, ProductMarketFilter.RISING);
-		} else if (checkBox.equals(sideway)) {
-			struktiLayout.addProductMarketFilter(checkBox, ProductMarketFilter.SIDEWAYS);
-		} else if (checkBox.equals(decrease)) {
-			struktiLayout.addProductMarketFilter(checkBox, ProductMarketFilter.DECREASING);
-		} else if (checkBox.equals(protection)) {
-			struktiLayout.addProductProtectionFilter(checkBox, ProductProtectionFilter.PROTECTION);
-		} else if (checkBox.equals(limitedProtection)) {
-			struktiLayout.addProductProtectionFilter(checkBox, ProductProtectionFilter.LIMITED_PROTECTION);
-		} else if (checkBox.equals(noProtection)) {
-			struktiLayout.addProductProtectionFilter(checkBox, ProductProtectionFilter.NO_PROTECTION);
-		} else {
-			getWindow().showNotification(
-					"ButtonClickListener",
-                    "Ein unbekannter Filter wurde gewählt.",
-                    Notification.TYPE_ERROR_MESSAGE);
+		strike.setWidth("100%");
+		strike.setMin(30);
+		strike.setMax(200);
+		try {
+			strike.setValue(strikeValue);
+		} catch (ValueOutOfBoundsException e) {
+			// do Something
 		}
+		strike.setImmediate(true);
+		strike.addListener(new ValueChangeListener() {
+
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				strikeValue = Double.valueOf(event.getProperty().getValue().toString()).doubleValue();
+				strikeLabel.setValue(event.getProperty().getValue());
+				
+				struktiLayout.fireSliderValueChanged(strike, StruktiLayout.SliderEnum.STRIKE, strikeValue);
+
+			}
+			
+		});
+				
+		panelStrike.addComponent(strike);
+		panelStrike.addComponent(strikeLabel);
+		
+		Panel panelVola = new Panel("Volatilität");
+		
+		final Label volaLabel = new Label("30.0");
+		
+		vola.setWidth("100%");
+		vola.setMin(0);
+		vola.setMax(60);
+		try {
+			vola.setValue(volaValue);
+		} catch (ValueOutOfBoundsException e) {
+			// do Something
+		}
+		vola.setImmediate(true);
+		vola.addListener(new ValueChangeListener() {
+
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				volaValue = Double.valueOf(event.getProperty().getValue().toString()).doubleValue();
+				volaLabel.setValue(event.getProperty().getValue());
+				
+				struktiLayout.fireSliderValueChanged(vola, StruktiLayout.SliderEnum.VOLA, volaValue);
+			}
+			
+		});
+				
+		panelVola.addComponent(vola);
+		panelVola.addComponent(volaLabel);
+		
+		addComponent(panelStrike);
+		addComponent(panelVola);
+		
 	}
-	
 }

@@ -41,7 +41,6 @@ public class Description extends Panel {
 		} else if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.PROTEIN)) {
 			struktiLayout.window.showNotification("Protein ausgewählt");
 		}
-		
 
 	}
 	

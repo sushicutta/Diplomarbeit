@@ -5,6 +5,7 @@ import server.layout.StruktiLayout.MenuChangedEvent;
 import server.presentation.prototype.panel.introduction.Introduction;
 import server.presentation.prototype.panel.product.ButtonMatrix;
 import server.presentation.prototype.panel.product.Description;
+import server.presentation.prototype.panel.product.Design;
 
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
@@ -51,7 +52,10 @@ public class BottomCenter extends Panel implements StruktiLayout.MenuChangedList
 	}
 
 	private void onMenuDesign() {
-
+		removeAllComponents();
+		Panel design = new Design(struktiLayout);
+		design.setSizeFull();
+		addComponent(design);
 	}
 	
 	private void onMenuDescription() {

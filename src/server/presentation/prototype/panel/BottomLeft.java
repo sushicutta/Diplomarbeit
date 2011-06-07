@@ -140,6 +140,10 @@ public class BottomLeft extends Panel implements Button.ClickListener, StruktiLa
 			struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.INTRODUCTION);
 		} else if (event.getButton().equals(buttonProducts)) {
 			struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.PRODUCTS);
+		} else if (event.getButton().equals(buttonDescription)) {
+			struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESCRIPTION);
+		} else if (event.getButton().equals(buttonDesign)) {
+			struktiLayout.fireMenuChanged(this, StruktiLayout.MenuItem.SUB_DESIGN);
 		} else {
 			getWindow().showNotification(
 					"ClickListener",

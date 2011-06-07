@@ -251,6 +251,11 @@ public class StruktiLayout extends Panel {
     	NO_PROTECTION
     }
     
+    public enum SliderEnum {
+    	STRIKE,
+    	VOLA
+    }
+    
 	public class MenuChangedEvent extends Event {
 		
 		final MenuItem menuItem;
@@ -359,5 +364,50 @@ public class StruktiLayout extends Panel {
     public void addProductFilterChangedListener(FilterChangedListener listener) {
     	filterChangedListeners.add(listener);
     }
+    
+	public class SliderValueChangedEvent extends Event {
 
+		final private SliderEnum slider;
+
+		final private double value;
+		
+		public SliderValueChangedEvent(Component source, SliderEnum slider, double value) {
+			super(source);
+			this.slider = slider;
+			this.value = value;
+		}
+
+		public SliderEnum getSlider() {
+			return slider;
+		}
+
+		public double getValue() {
+			return value;
+		}
+		
+	}
+    
+	
+	public interface SliderValueChangedListener extends Serializable {
+		public void onSliderValueChanged(SliderValueChangedEvent event);
+	}
+    
+	List<SliderValueChangedListener> sliderValueChangedListeners = new ArrayList<SliderValueChangedListener>();
+	
+    public void addSliderValueChangedListener(SliderValueChangedListener listener) {
+    	sliderValueChangedListeners.add(listener);
+    }
+
+    public void removeSliderValueChangedListener(SliderValueChangedListener listener) {
+    	sliderValueChangedListeners.remove(listener);
+    }
+    
+    public void fireSliderValueChanged(Component source, SliderEnum slider, double value) {
+    	for (SliderValueChangedListener sliderValueChangedListener : sliderValueChangedListeners) {
+    		sliderValueChangedListener.onSliderValueChanged(new SliderValueChangedEvent(source, slider, value));
+    	}
+    }
+
+	
+	
 }
