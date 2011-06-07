@@ -113,14 +113,19 @@ Auszahlungsprofil entsprechend anpassen.
 
 \section{Priorisierung der User Stories}
 
-Es werden alle UserStories als \begin{itshape}hoch\end{itshape} priorisiert.
+Es wurden alle 19 User Stories als \begin{itshape}hoch\end{itshape} priorisiert.
 
 \section{Akzeptanztests}
 
 Für alle Akzeptanztests gilt als Voraussetzung, dass der Prototyp auf einem
-Applikationsserver läuft. Die Akzeptanztest werden mit den Webbrowsern Chrome
-und Safari durchgeführt, um sicherzustellen dass der Prototyp unabhängig vom
-Webbrowser implementiert wurde.
+Applikationsserver läuft. Die Akzeptanztest werden mit den Webbrowsern Chrome,
+Safari und Firefox durchgeführt, um sicherzustellen dass der Prototyp unabhängig
+vom Webbrowser implementiert wurde.
+
+Firefox wird in der \ac{ZKB} offiziell als Browser unterstützt, desshalb wurde
+er als Testkandidat miteinbezogen. Chrome und Safari sind die beiden Browsern
+welche in diesem Jahr am meisten Marktanteile dazugewonnen haben, siehe
+\cite{BrowserStatistik}. Aus diesem Grund wurden sie als Testkandidaten gewählt.
 
 \begin{description}
 \item[T-1.1\label{itm:T-1.1}]
@@ -250,11 +255,86 @@ angepasst werden können.
 \item[T-19.1\label{img:T-19.1}]
 Wenn die Werte der Slider geändert werden, soll das Auszahlungsprofil
 entsprechend angepasst werden.
-
 \end{description}
+
+\section{Testabdeckung}
+
+Die Testabdeckung ist in der Tabelle \ref{tab:testabdeckung} ersichtlich und
+beträgt 100\%. Somit gilt der Proof of Concept, gemäss dem Kapitel
+\ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
+(\nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}, S.
+\pageref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}ff), als
+erfolgreich.
+
+\begin{table}[h!]
+  \sffamily 
+  \begin{center}
+    \begin{tabular}{llrr}
+      \toprule
+      \textbf{Browser} & \textbf{Version} & \textbf{Testfälle durchgeführt} &
+      \textbf{Erfolgreich}\\
+      \midrule
+      Chrome & 12.0.742.91 & 30 & 100\% \\
+      Safari & 5.0.5 (6533.21.1) & 30 & 100\% \\
+      Firefox & 4.0.1 & 30 & 100\% \\
+      \bottomrule
+    \end{tabular}
+    \caption{Testabdeckung der Testfälle für den Proof of Concept}
+    \label{tab:testabdeckung}
+  \end{center}
+\end{table}
 
 \section{Resultat}
 
-\subsection{Testabdeckung}
+In einem Proof of Concept konnte gezeigt werden, dass Vaadin den Anforderungen
+an ein Java Web Framework entspricht.
 
-\subsection{Screenshots}
+Die Art und Weise wie man in Vaadin programmiert, entspricht ziemlich genau
+dem Programmierstil von Java Swing. Es werden äquivalente Typen von Komponenten
+und Layoutmanagern angeboten, die Kommunikation zwischen den Komponenten
+wird über das Observer Design Pattern implementiert. Zudem biete Vaadin eigene
+Themes an, welche beliebig erweitert werden können, ähnlich dem pluggable Look
+\& Feel von Java Swing. Leider kommt man dabei nicht ganz ohne \ac{CSS} aus, was
+den Erwartungen entsprochen hätte.
+
+In den Abbildungen \ref{img:poc1}, \ref{img:poc2} und \ref{img:poc3} ist das
+Resultat in Form vom Screenshots ersichtlich. Es werden dabei drei
+verschiedene Ansichten mit erkannten Swingkomponenten gezeigt.
+\newline
+
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{./image/POC/poc1.png}
+    \caption{Ansicht der Produkt in der Form einer Button Matrix.}
+    \label{img:poc1}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{./image/POC/poc2.png}
+    \caption{Produktbeschreibung einer Put Option mit einem Tabbed Panel.}
+    \label{img:poc2}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{./image/POC/poc3.png}
+    \caption{Ansicht eines Auszahlungsprofils einer Put Option mit einem
+    JFreeChart.}
+    \label{img:poc3}
+  \end{center}
+\end{figure}
+
+Der Sourcecode des Proof of Concept ist bei GitHub\footnote{GitHub ist ein
+webbasierter Hosting-Dienst für Software-Entwicklungsprojekte.} öffentlich
+zugänglich unter der URL \url{https://github.com/sushicutta/Diplomarbeit}. Das
+Projekt ist für die \ac{IDE} Eclipse\footnote{Eclipse ist ein quelloffenes
+Programmierwerkzeug zur Entwicklung von Software verschiedenster Art.}
+aufgesetzt. Eclipse ist unter der URL
+\url{http://www.eclipse.org/downloads/} kostenlos erhältlich. Für den Betrieb
+wird das Eclipse GlassFish\footnote{GlassFish ist ein Open-Source-Projekt eines
+Java EE Servers von Oracle} Plug-in benötigt, welches sich um das Deployment
+der Applikation und den Betrieb des Applikationensserver kümmert. Das Plug-in
+ist unter der URL \url{http://glassfishplugins.java.net/} kostenlos erhältlich.

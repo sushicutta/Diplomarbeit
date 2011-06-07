@@ -77,9 +77,14 @@ public class BottomRight extends Panel implements StruktiLayout.MenuChangedListe
 
 	private void onDesign() {
 		removeAllComponents();
-		Properties properties = new Properties(struktiLayout);
-		properties.setSizeFull();
-        addComponent(properties);
+		if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.PUT_OPTION)) {
+			Properties properties = new Properties(struktiLayout);
+			properties.setSizeFull();
+	        addComponent(properties);
+		} else if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.SOFT_RUNNER)) {
+			addComponent(new Label("Panel Bottom Right"));
+		} else if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.PROTEIN)) {
+			addComponent(new Label("Panel Bottom Right"));
+		}
 	}
-
 }

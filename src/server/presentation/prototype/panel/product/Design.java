@@ -18,6 +18,7 @@ import server.layout.StruktiLayout;
 import server.layout.StruktiLayout.SliderValueChangedEvent;
 import server.layout.StruktiLayout.SliderValueChangedListener;
 
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
@@ -92,7 +93,7 @@ public class Design extends Panel implements SliderValueChangedListener {
 		plot.setRenderer(1, lineRenderer);
 		plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
 
-		final JFreeChart chart = new JFreeChart("PUT WARRANT", JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		final JFreeChart chart = new JFreeChart(null, JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 		chart.setBackgroundPaint(new Color(255, 255, 255));
 		chart.setBorderVisible(false);
 		chart.setAntiAlias(true);
@@ -145,12 +146,25 @@ public class Design extends Panel implements SliderValueChangedListener {
 		layout.setSpacing(true);
 		layout.setSizeFull();
 		
-		JFreeChartWrapper wrapper = new JFreeChartWrapper(createChart());
-		
-		wrapper.setSizeFull();
-		
-		/////////////////////////////////////////////
-		addComponent(wrapper);
+		if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.PUT_OPTION)) {
+			JFreeChartWrapper wrapper = new JFreeChartWrapper(createChart());
+			wrapper.setSizeFull();
+			
+			Label titleWarrant = new Label("<h2>Auszahlungsprofil eines PUT WARRANT</h2>" +
+					"<p>Laufzeit ist ein Jahr. Der Zins wurde ignoriert.</p>");
+			titleWarrant.setContentMode(Label.CONTENT_XHTML);
+			
+			addComponent(titleWarrant);
+			
+			addComponent(wrapper);
+			
+			layout.setExpandRatio(wrapper, 1);
+		} else if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.SOFT_RUNNER)) {
+			addComponent(new Label("Auszahlungsprofil für den Soft Runner."));
+		} else if (struktiLayout.getSelectedProduct().equals(StruktiLayout.Product.PROTEIN)) {
+			addComponent(new Label("Auszahlungsprofil für den Protein."));
+		}
+
 	}
 
 	@Override
