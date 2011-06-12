@@ -36,8 +36,9 @@
   \section{Wichtige Aspekte im Software-Lebenszyklus für die Zürcher
   Kantonalbank}
   
-  Die wichtigen Aspekte wurden in Abspache mit dem Auftraggeber ausgearbeitet.
+  Die wichtigen Aspekte wurden in Absprache mit dem Auftraggeber ausgearbeitet.
   Es handelt sich dabei nur um sehr grundlegende Bedürfnisse der \ac{ZKB}:
+  \newline
   
   \begin{description}
     \item[Sicherheit]
@@ -47,21 +48,21 @@
     Die laufenden Kosten sollen so tief wie möglich gehalten werden. Gemäss
     Abbildung \ref{img:softwareLifecycleCost} liegen die Hauptkosten im
     Software-Lebenszyklus bei der Maintenance-Phase. Somit können die Kosten für
-    requirements Engineering, Design, Programming und Integration vernachlässigt
-    werden.
+    requirements Engineering, Design, Programmierung und Integration
+    vernachlässigt werden.
     \item[Ressourcen]
     Damit Software entwickelt und gewartet werden kann, wird die Verfügbarkeit
     von qualifizierten Ressourcen benötigt.
     \item[Image]
-    Um sich von der Konkurenz abzuheben wird ein Image aufgebaut das sich
-    zeitgemäss, flexibel und inovativ präsentieren soll, siehe
+    Um sich von der Konkurrenz abzuheben wird ein Image aufgebaut das sich
+    zeitgemäss, flexibel und innovativ präsentieren soll, siehe
     \cite{WillkommenBeiDerZkb} S. 34ff.
     \newline
   \end{description}
   
   \begin{figure}[ht]
     \begin{center}
-      \includegraphics[width=0.7\textwidth]{./image/softwareLifeCycleCost.pdf}
+      \includegraphics[width=0.9\textwidth]{./image/softwareLifeCycleCost.pdf}
       \caption{Ungefähre relative Kosten der Phasen des Software-Lebenszyklus
       (nach \cite{SoftwareEngineering} S. 11 und
       \cite{SoftwareLifeCycleModels})}
@@ -75,10 +76,10 @@
   
   Da 18 Soll-Kriterien definiert wurden und diese in jeder Alternative 
   untersucht werden müssten, würde das den Rahmen der Diplomarbeit sprengen.
-  Desshalb sollen die Soll-Kriterien in eine Hirarchie entsprechend ihrer
+  Deshalb sollen die Soll-Kriterien in eine Hierarchie entsprechend ihrer
   Wichtigkeit für die \ac{ZKB} aufgeteilt werden. Es sollen nur die
   ``wichtigen'' Soll-Kriterien in die Evaluation mit einbezogen werden. Die
-  Hirarchie wird desshalb in drei Gruppen aufgeteilt:
+  Hierarchie wird deshalb in drei Gruppen aufgeteilt:
   
   \begin{itemize}
     \item Wichtig
@@ -129,7 +130,7 @@
         %\footnotesize\textbf{Legende:}\smallskip 
         \begin{tablenotes}[++]\footnotesize 
           \item[(Si)] Sicherheit 
-          \item[(Ko)] Kosten in der Maintenance Phase des Software-Lebenszyklus
+          \item[(Ko)] Kosten in der Maintenance-Phase des Software-Lebenszyklus
           \item[(Re)] Ressourcen 
           \item[(Im)] Image
           \item[++] hat grossen Einfluss
@@ -147,22 +148,22 @@
   Es handelt sich dabei hauptsächlich um grundlegende Anforderungen, die
   erfüllt werden müssen, damit Webapplikationen zeitgemäss entwickelt und
   später gewartet werden können.
+  \newline
   
   \begin{description}
-  \item[Soll-01 - Zugriffskontrolle 
-  (Authentifizierung/Authorisation/Rollenverwaltung)]
+  \item[Soll-01 - Zugriffskontrolle]
   Auf die Sicherheit von Applikationen in einer Bank wird grossen Wert
-  gelegt. Mit einer genügenden Authentifizierung, Authorisation und
+  gelegt. Mit einer genügenden Authentifizierung, Autorisation und
   Rollenverwalung, kann eine Applikation sicher implementiert werden.
   
   \item[Soll-03 - Modulare Architektur]
-  Um wärend der Maintenance-Phase des Software Lebenszyklus notwendige
+  Um während der Maintenance-Phase des Software Lebenszyklus notwendige
   Anpassungen an einer Applikation machen zu können, ist eine modulare
-  Architekur von grossem Vorteil. Zudem ist das auch wärend der
+  Architektur von grossem Vorteil. Zudem ist das auch während der
   Entwicklungs-Phase hilfreich.
   
   \item[Soll-06 - Testing]
-  Um wärend der Maintenance-Phase des Software-Lebenszyklus notwendige
+  Um während der Maintenance-Phase des Software-Lebenszyklus notwendige
   Anpassungen an einer Applikation machen zu können, ist ein gutes Testing von
   grossem Vorteil. Das Testing hat auch einen grossen Einfluss auf das Image,
   denn wer möchte schon fehlerhafte Software verwenden. Durch eine gute
@@ -170,12 +171,12 @@
   
   \item[Soll-12 - Dokumentation]
   Eine saubere und verständliche Dokumentation eines Web Application Frameworks
-  ist das A und O um während allen Software-Lebenszyklen effizient arbeiten zu
-  können. Ein Web Application Framework mit einer brillianten Dokumentation hat
-  bestimmt höhere Chancen sich längerfristig am Markt durchzusetzten.
+  ist das A und O, um während allen Software-Lebenszyklen effizient arbeiten zu
+  können. Ein Web Application Framework mit einer tiefgreifenden Dokumentation
+  hat bestimmt höhere Chancen sich längerfristig am Markt durchzusetzen.
   
   \item[Soll-13 - Community]
-  Damit die notwendigen Ressourcen, für die Umsetztung und Wartung eines
+  Damit die notwendigen Ressourcen, für die Umsetzung und Wartung eines
   Software-Projekts gefunden werden, wird eine entsprechend grosse Community
   benötigt. Wenn die Community genügend gross ist, kann man davon ausgehen,
   dass auch in der Zukunft noch genügend Ressourcen in diesem Bereich
@@ -185,8 +186,7 @@
   In der Zeit von Google Mail, Facebook und Twitter wird die Verwendung von
   \ac{Ajax} unterstützten Web Applikationen zur Gewohnheit. Um mit einer Web
   Applikation ein zeitgemässes, flexibles und innovatives Image vermitteln zu
-  können, sollten diese mit Ajax-Unterstütztung gebaut werden.
-  
+  können, sollten diese mit \ac{Ajax}-Unterstütztung gebaut werden.
   \end{description}
   
   \subsection{Nice to have}
@@ -194,26 +194,27 @@
   Diese Soll-Kriterien fliessen nicht in den Evaluationsprozess mit ein. Das
   Vorhandensein würde in der Entwicklungsphase aber sicher einen Erleichterung
   mit sich bringen.
+  \newline
   
   \begin{description}
   \item[Soll-02 - Form-Validierung]
-  Eine saubere Form-Validierung gehört zu den notwendigen Werkzeugen, um eine
-  sichere Web Applikation zu entwickeln. Dennoch kann durch gutes Testing und
-  eine sichere Zugriffskontrolle der selbe Effekt erzielt werden.
+  Eine saubere Validierung der Formularfelder gehört zu den notwendigen
+  Werkzeugen, um eine sichere Web Applikation zu entwickeln. Dennoch kann durch
+  gutes Testing und eine sichere Zugriffskontrolle der selbe Effekt erzielt
+  werden.
   
   \item[Soll-04 - Schnittstellen und Webservices]
   Durch die breite Unterstützung von Schnittstellen und Webservice Technologien
   in der Java Welt, muss ein Web Framework dies nicht schon von Haus aus
   mitbringen. Fall es doch vorhanden ist, um so besser.
   
-  \item[Soll-14 - IDE-Unterstuetzung]
-  Eine IDE-Unterstützung ist zu präferieren, soll aber kein Hinderniss für den
+  \item[Soll-14 - IDE-Unterstützung]
+  Eine IDE-Unterstützung ist zu präferieren, soll aber kein Hindernis für den
   Einsatz eines guten Web Frameworks sein.
   
-  \item[Soll-17 - Lernkurve fuer EntwicklerInnen]
+  \item[Soll-17 - Lernkurve für EntwicklerInnen]
   Durch die Unterstützung einer soliden Community und einer guten Dokumentation
   kann die Lernkurve beträchtlich beeinflusst werden.
-  
   \end{description}
   
   \subsection{Unwichtig}
@@ -223,12 +224,13 @@
   Java Umfeld eingeschränkt ist, werden gewisse Anforderungen dadurch schon
   abgedeckt und sind somit zu vernachlässigen. Durch die Involvierung der
   \ac{ZKB} gibt es zudem Anforderungen die hinfällig sind.
+  \newline
   
   \begin{description}
   \item[Soll-05 - MVC-Entwurfsmuster]
   Das \ac{MVC} Konzept ist sicher gut, sollte aber nicht eine Anforderung an ein
-  Web Framework sein, da es ebenbürdige Alternativen gibt, eine nennenswerte währe
-  \ac{MVP}.
+  Web Framework sein, da es ebenbürtige Alternativen gibt, eine nennenswerte
+  währe \ac{MVP}.
   
   \item[Soll-07 - Internationalisierung und Lokalisierung]
   Die \ac{ZKB} hat ihr Geschäftsfeld im Kanton Zürich. Somit ist eine
@@ -237,15 +239,15 @@
   schnell ändern wird.
   
   \item[Soll-08 - Object Relational Mapping (ORM)]
-  In der Java Welt git es viele \ac{ORM} Lösungen, welche sich in den Jahren
+  In der Java Welt gibt es viele \ac{ORM} Lösungen, welche sich in den Jahren
   durchgesetzt haben, ein paar nennenswerte sind Hibernate, TopLink und
   EclipseLink. Da es Sache des Applikationsservers ist, welches \ac{ORM}
   verwendet wird, stellt dies keine Anforderung an ein Java Web Framework.
   
   \item[Soll-09 - Scaffolding / Rapid Prototyping]
   Scaffolding und Rapid Prototyping kann in der Programmier-Phase des
-  Software-Lebenszyklus die Arbeit erleichtern. In der Maintenance-Phase
-  ergibt sich daraus kein Benefit.
+  Software-Lebenszyklus die Arbeit erleichtern. Es gibt sich daraus aber kein
+  Benefit, wenn das in der Maintenance-Phase zur Verfügung steht.
   
   \item[Soll-10 - Caching]
   Caching kann bei Webseiten mit viel statischen Content die Datenmenge, die
@@ -254,16 +256,16 @@
   individuell. Somit besteht keine grosse Nachfrage nach Caching
   
   \item[Soll-11 - View-Engine]
-  Da Java eine Objekt Orientierte Sprache ist, wird das schon von der Sprache
-  her unterstützt.
+  Da Java eine Objekt-Orientierte Programmiersprache ist, wird das schon von den
+  sprachlichen Begebenheiten her unterstützt.
   
-  \item[Soll-15 - Kosten fuer Entwicklungswerkzeuge]
+  \item[Soll-15 - Kosten für Entwicklungswerkzeuge]
   Die Kosten der Entwicklungswerkzeuge haben keinen Einfluss auf die
   Maintenance-Phase des Software-Lebenszyklus. Zudem gibt es genügend \acp{IDE}
   für Java, die Open Source sind. Ein Paar nennenswerte sind Eclipse, NetBeans
   und IntelliJ.
   
-  \item[Soll-16 - Eignung fuer agile Entwicklung]
+  \item[Soll-16 - Eignung für agile Entwicklung]
   Die Ansätze von Scrum und extreme Programming werden in der \ac{ZKB} je länger
   je mehr angewendet. Dennoch hat das keinen Einfluss auf die Maintenance-Phase
   des Software-Lebenszyklus.

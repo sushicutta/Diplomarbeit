@@ -3,8 +3,8 @@
   verwendet, um zu Prüfen, ob ein Java Web Framework den gestellten Ansprüchen
   genügt. Die Informationen, welche hier beschrieben werden, stammen aus dem
   Handbuch der ZKB IT-Architektur, siehe \cite{ZkbHandbuchDerItArchitektur}. In
-  der Abbildung \ref{img:infrastrukturZkb} ist die Standardkonfiguration, wie
-  sie heute verwendet wird, ersichtlich.
+  der Abbildung \ref{img:infrastrukturZkb} ist die Konfiguration ersichtlich,
+  wie sie heute in vielen Applikationen der \ac{ZKB} verwendet wird.
   
   \begin{figure}[hbtp]
     \begin{center}
@@ -28,7 +28,7 @@
   \section{Load-Balancing und Transport}
   
   Für das Load-Balancing und den Transport wird der Apache HTTP Server 2
-  verwendet. Er gilt als anerkannter Standard und ist für allen von der \ac{ZKB}
+  verwendet. Er gilt als anerkannter Standard und ist für alle von der \ac{ZKB}
   verwendeten Plattformen verfügbar, siehe \cite{ZkbHandbuchDerItArchitektur}
   S. 146.
   
@@ -37,7 +37,7 @@
   Apache HTTP Server 2 zur Verfügung gestellt werden, ohne das die
   Präsentations-Logik oder die Business-Logik damit belastet werden.
   
-  Die Verbindung zur Präsentations-Logik und auch das Load-Balancing wird mit
+  Die Verbindung zur Präsentations-Logik und das Load-Balancing werden mit
   dem Modul\footnote{Der Apache HTTP Server 2 hat einen modularen Aufbau, womit
   er durch Module erweitert werden kann.} \(mod\_jk\)\footnote{Für
   Informationen zum Apache Tomcat Connector, siehe \cite{ModJk}} gemacht.
@@ -55,7 +55,7 @@
   
   Für die Präsentations-Logik wird eine komplette Instanz eines JBoss AS
   verwendet. Für die Skalierung der Web Applikation können weitere
-  JBoss AS Instanzen dazugeschalten werden. In der standard Konfiguration sind
+  JBoss AS Instanzen dazu geschalten werden. In der Standardkonfiguration sind
   es zwei.
   
   Für die Kommunikation zwischen der Präsentations-Logik und der Business-Logik
@@ -63,7 +63,7 @@
   verwendet. Es gibt auch eine \ac{ZKB} spezifische Lösung namens ZIP.net.
   
   Das für die Präsentations-Logik und die Business-Logik eigene JBoss AS
-  Instazen verwendet werden, entspricht nicht ganz den Vorgaben, wie sie
+  Instanzen verwendet werden, entspricht nicht ganz den Vorgaben, wie sie
   im Handbuch der IT-Architektur beschrieben sind, es wird aber in der Praxis
   oft so umgesetzt.
     
@@ -71,7 +71,7 @@
   
   Für die Business-Logik wird auch eine komplette Instanz eines JBoss AS
   verwendet. Für die Skalierung dieser Komponente können weitere JBoss AS
-  Instanzen dazugeschalten werden. In der standard Konfiguration sind es zwei.
+  Instanzen dazu geschalten werden. In der Standardkonfiguration sind es zwei.
   
   Die Datenschicht wird über die Datenbankschnittstelle \ac{JDBC} angebunden.
   Der JBoss AS bietet für die meisten \ac{RDBMS} alles, was dafür benötigt
@@ -81,12 +81,12 @@
   Die Kommunikation zwischen der Applikation und der ZKB spezifischen Middleware
   findet ebenfalls hier in der Business-Logik statt. Für die synchrone
   Kommunikation steht der \ac{BRE} zur Verfügung. Für die asynchrone
-  Kommunikation gibt es Metro, was eine \ac{MOM} ist.
+  Kommunikation gibt es Metro, welches eine \ac{MOM} ist.
     
   \section{Datenschicht}
   
   Die Datenschicht wird meistens mit einem \ac{RDBMS} abgebildet. Normalerweise
-  wird die Enterprise taugliche Lösung von Oracle eingesetzt. Je nach grösse
-  der Applikation kann es sein, dass mehrere verschiedene \ac{RDBMS} zum Einsatz
-  kommen.
+  wird die Enterpriselösung von Oracle eingesetzt. Je nach Grösse der
+  Applikation kann es sein, dass mehrere verschiedene oder mehrere Instanzen des
+  selben \ac{RDBMS} zum Einsatz kommen.
 

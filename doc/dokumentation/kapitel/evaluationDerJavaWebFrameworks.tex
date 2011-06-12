@@ -1,16 +1,16 @@
   Dieses Kapitel behandelt die Evaluation der Java Web Frameworks. Es wird die
-  kombinierte Methode, aus Nutzwertanalyse und \ac{AHP}, aus dem Kapitel 
-  \ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
+  kombinierte Methode, aus gewichteter Nutzwertanalyse und \ac{AHP}, aus dem
+  Kapitel \ref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}
   \nameref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation} (auf
   Seite \pageref{chapter:MethodenZurEntscheidungsfindungBeiEinerEvaluation}ff)
-  angewendet. Mit der definition von sinnvollen Rahmenbedingungen soll die
+  angewendet. Mit der Definition von sinnvollen Rahmenbedingungen, soll die
   Evaluation durchgeführt und das Resultate in Form einer Rangliste vorgelegt
   werden.
     
   \section{Rahmenbedingungen}
   
   Über Soll-Kriterien und KO-Kriterien werden die Rahmenbedingungen für die
-  Evaluierung festgelegt. Die Soll-Kriterien wiederspiegeln die Anforderungen,
+  Evaluierung festgelegt. Die Soll-Kriterien widerspiegeln die Anforderungen,
   welche an ein Java Web Framework gestellt werden. Die KO-Kriterien dienen zum
   Ausschluss, nicht geeigneter Frameworks.
 
@@ -52,7 +52,7 @@
   wird in der \ac{ZKB} bereits eingesetzt. Das Framework wird innerhalb der
   \ac{ZKB} für die Umsetzung der Online Bank verwendet und gilt als Standard
   für neue Projekte, siehe \cite{ZkbHandbuchDerItArchitektur}  S. 140. Damit
-  das Ergebniss der Evaluation Begründet werden kann, sollte ein Vergleich mit
+  das Ergebnis der Evaluation Begründet werden kann, sollte ein Vergleich mit
   diesem Framework existieren.
   
   \subsubsection{A-3 - Vaadin 6.6.0}
@@ -77,7 +77,7 @@
   Es soll eine Prüfung aller Java Web Frameworks statt finden, ob ein solches
   gegen definierte KO-Kriterien verstösst. Falls das der Fall ist, wird das
   Framework von der Evaluation ausgeschlossen. Falls das nicht zutrifft, wird
-  das Framework in die Evaluation miteinbezogen, siehe Abbildung
+  das Framework in die Evaluation mit einbezogen, siehe Abbildung
   \ref{img:ablaufEvaluation}.
   
   In Absprache mit dem Fachbetreuer der \ac{ZKB} gibt es gewisse KO-Kriterien,
@@ -111,7 +111,7 @@
 
   \subsection{A-1 - ULC, Canoo RIA Suite - KO-Kriterien gefunden}
   
-  Leider wurde wärend der Analyse festgestellt, dass die ULC, Canoo RIA Suite
+  Leider wurde während der Analyse festgestellt, dass die ULC, Canoo RIA Suite
   nur in einer Java Virtual Machine\footnote{Die Java Virtual Machine ist der
   Teil der \ac{JRE}, der für die Ausführung des Java-Bytecodes verantwortlich
   ist, siehe \cite{JavaVirtualMachine}.} lauffähig ist. Das wird über die
@@ -133,7 +133,7 @@
   bestehenden Client integriert werden. Das nützt nichts, da diese Situation
   bereits mit den Java Swing Clients besteht, und abgelöst werden soll.
   
-  Falls sich die Grundsätze der IT-Architektur der \ac{ZKB} in der Zunkunft
+  Falls sich die Grundsätze der IT-Architektur der \ac{ZKB} in der Zukunft
   dahingehend ändern, dass Java Web Start oder Java Applets verwendet werden
   dürften, stellt die ULC, Canoo RIA Suite ein gute Alternative zur Ablösung
   bestehender Swing Applikationen. Die Eignung müsste zu diesem Zeitpunkt neu
@@ -145,12 +145,12 @@
   bestimmt werden. Danach soll nach der Methode des \ac{AHP} die Gewichtung der
   Soll-Kriterien vorgenommen und, zur Berechnung der Nutzwertanalyse,
   verwendet werden. Für jede mögliche Alternative soll der Erfüllungsgrad der
-  Soll-Kriterien bestimmt und, zur Berechnung der Nutzwertanalyse, vewendet
+  Soll-Kriterien bestimmt und, zur Berechnung der Nutzwertanalyse, verwendet
   werden. Das Resultat der Nutzwertanalyse soll dargestellt werden.
   
   \subsection{Bestimmen der Kriterien}
   
-  Die Kriterien, welche in die Evaluation miteinbezogen werden, und somit für
+  Die Kriterien, welche in die Evaluation mit einbezogen werden, und somit für
   jede Alternative untersucht werden soll, sind die als ``wichtigen''
   priorisierten Soll-Kriterien aus dem Kapitel
   \ref{chapter:SollKriterienFuerDieEvaluation}
@@ -158,8 +158,7 @@
   \pageref{chapter:SollKriterienFuerDieEvaluation}ff):
   
   \begin{itemize}
-    \item Soll-01 - Zugriffskontrolle 
-    (Authentifizierung/Authorisation/Rollenverwaltung)
+    \item Soll-01 - Zugriffskontrolle
     \item Soll-03 - Modulare Architektur
     \item Soll-06 - Testing
     \item Soll-12 - Dokumentation
@@ -181,7 +180,7 @@
   Vergleichsmatrix und die daraus resultierende Gewichtung ist in der Tabelle
   \ref{tab:gewichtungDerSollKriterien} und der Abbildung
   \ref{img:gewichtungSollKriterien} ersichtlich. Für die Werte in der
-  Vergleichsmatix wird die Skala der Vergleichsgrad, siehe Tabelle
+  Vergleichsmatrix wird die Skala der Vergleichsgrad, siehe Tabelle
   \ref{tab:vergleichsgrade}, verwendet. Die gewählten Werte wurden vom
   Studenten, im Sinne der \ac{ZKB}, vergeben. Um eine objektivere Vergabe der
   Punkte zu erhalten, müssten die erläuterten Ansätze\footnote{Es gibt sicher
@@ -192,11 +191,11 @@
   \pageref{subsection:VerbesserungDerGewichtung}) angewendet werden, auf deren
   Einsatz im Rahmen der Diplomarbeit verzichtet wurde.
   
-  Um die Gewichte anhand der erstellten Vergleichsmatix zu berechnen, wurde das
+  Um die Gewichte anhand der erstellten Vergleichsmatrix zu berechnen, wurde das
   Java Programm JAHP 2.1 verwendet.
   
   Der Inkonsistenzfaktor beträgt 0.04754 und ist somit sehr klein. Die
-  getroffenen Annahmen der Gewichtung sollten desshalb aussagekräftig sein.
+  getroffenen Annahmen der Gewichtung sollten deshalb aussagekräftig sein.
   \newline
   
   \begin{table}[!h]
@@ -286,7 +285,7 @@
   
   Die Authentifizierung wird ganz normal über eine Session-ID gelöst.
   
-  Die Authorisierung für alle Business relevanten requests wird vom
+  Die Autorisierung für alle Business relevanten Requests wird vom
   Businesslayer jedes mal geprüft.
   
   Cross-Site Scripting wird über Escaping verhindert. Zudem werden alle
@@ -295,12 +294,12 @@
   Ein Mechanismus des \ac{ZIP} Frameworks lässt alle Namen der
   \ac{HTML}-Formular Felder obfuskieren. Damit wird erreicht, dass aufgrund
   der Daten, welche vom Browser an den Server gesendet werden, nicht direkt
-  auf die Businessfunktion zurückgeschlossen werden kann. Das obfuskieren der
+  auf die Businessfunktion zurückgeschlossen werden kann. Das Obfuskieren der
   Formularfelder Namen passiert bei jedem Aufbau einer HTML Seite von neuem. Das
   Mapping zwischen den generierten Namen und den jeweiligen Businessfunktionen
   wird auf dem Server gehalten.
   
-  Die gängigsten Sicherheitsvorkerungen können getroffen werden, leider bietet
+  Die gängigsten Sicherheitsvorkehrungen können getroffen werden, leider bietet
   das Framework kein Rollenkonzept an, somit gibt es sechs Punkte
   
   \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
@@ -335,10 +334,10 @@
   Struts 1.3.10 biete grundsätzlich die Unterstützt für Unit Tests. Die
   Notwendigen Klassen befinden sich im Package \(org.apache.struts.mock\).
   
-  Für das Testen von Views gibt es keine Komponenten, desshalb muss auf Tools
+  Für das Testen von Views gibt es keine Komponenten, deshalb muss auf Tools
   von Drittanbieter, wie zum Beispiel Selenium, zurückgegriffen werden.
   
-  Durch die Unterstützung von UnitTests gibts 5 Punkte.
+  Durch die Unterstützung von Unit Tests gibts 5 Punkte.
   
   \subsubsection{Soll-12 - Dokumentation - 7 Punkte}
   
@@ -355,7 +354,7 @@
   verfasst wurde und es existiert eine Präsentationsreihe, auf der Basis von
   PowerPoint, die zu Schulungszecken erstellt wurde.
   
-  Für das Framework existiert insgesammt eine solide Dokumentation somit gibt es
+  Für das Framework existiert insgesamt eine solide Dokumentation somit gibt es
   sieben Punkte.
   
   \subsubsection{Soll-13 - Community - 4 Punkte}
@@ -379,10 +378,10 @@
   
   Das ZIP-Framework wird von ca. 30 Personen eingesetzt und aktuell gibt es vier
   Personen, welche Bugs beheben und Features einbauen. Das Framework wurde von
-  der \ac{ZKB} für eigene Zwecke entwicklet und wird auch nur innerhalb der
+  der \ac{ZKB} für eigene Zwecke entwickelt und wird auch nur innerhalb der
   \ac{ZKB} verwendet.
   
-  Struts 1.x ist wohl schon länger überhohlt und durch Struts 2.x abgelöst
+  Struts 1.x ist wohl schon länger überholt und durch Struts 2.x abgelöst
   worden. Das Zip-Framework wird aktuell noch weiterentwickelt und auch
   eingesetzt. Durch die veraltete Grundlage mit Struts 1.x gibt es nur vier
   Punkte.
@@ -429,7 +428,7 @@
   vaadin-appfoundation\footnote{Projektinformationen sind hier zu finden:
   \url{http://code.google.com/p/vaadin-appfoundation/}} nennt und im
   offiziellen Vaadin add-on Repository verfügbar ist. Dieses Projekt beinhaltet
-  ein Authorisierungs Modul, mit dem ein Rollenkonzept implementiert werden kann.
+  ein Autorisierungsmodul, mit dem ein Rollenkonzept implementiert werden kann.
   
   Zum Thema Sicherheit behauptet Vaadin von sich, derzeit eines der sichersten
   Web Frameworks zu sein.
@@ -447,7 +446,7 @@
   \footnote{Vaadin Ltd., 2011, siehe \cite{VaadinSecurityAlerts}}
   \end{quote}
   
-  Zwei Punkte abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
+  Zwei Punkte Abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
   
   \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
   
@@ -460,7 +459,7 @@
   \ac{GWT}.
   
   Wie modular die Architektur wirklich ist, konnte ich nach meinem Research
-  nicht genau abschätzen, desshalb gibt es nur fünf Punkte.
+  nicht genau abschätzen, deshalb gibt es nur fünf Punkte.
   
   \subsubsection{Soll-06 - Testing - 9 Punkte}
   
@@ -485,12 +484,12 @@
   Framework gewidmet hat, das ist aber nicht weiter schlimm, da das Framework
   relativ neu ist.
   
-  Die Dokumentation wird auf der Website mit einer Menge von Tutorials
+  Die Dokumentation wird auf der Webseite mit einer Menge von Tutorials
   abgerundet. Es existieren auch die üblichen Dinge, wie das JavaDoc zum
   \ac{API}, die Hinweise auf die Lizenz, \ac{FAQ} und vieles mehr. Das alles
   wirk sehr sauber, schön und vollständig.
   
-  Leider existiert die Dokumentation nur auf Englisch, desshalb gibt es einen
+  Leider existiert die Dokumentation nur auf Englisch, deshalb gibt es einen
   Punkt Abzug.
   
   \subsubsection{Soll-13 - Community - 4 Punkte}
@@ -507,7 +506,7 @@
   
   Bei DZone\footnote{Eine Community Plattform für Softwareentwickler, welche
   unter dem Namen ``Javalobby - The heart of the Java developer community''
-  einen speziellen Bereich für Java Entwicklert hat, siehe
+  einen speziellen Bereich für Java Entwickler hat, siehe
   \url{http://www.dzone.com/}} findet man 75 Posts, welche sich direkt mit
   Vaadin befassen. Dies wurde mit dem Suchbegriff ``Vaadin'' eruiert.
   
@@ -518,11 +517,11 @@
   es von der Community verwendet wird.
   
   Die Firma Vaadin Ltd bietet mit Vaadin Pro die Möglichkeit von bug-fix
-  priority, direkten Support durch das Vaadin Entwicklungs Team und Zugriff auf
-  eine Vaadin knowledge base, siehe \cite{VaadinPro}. Zudem können gegen ein
+  priority, direkten Support durch das Vaadin Entwicklungsteam und Zugriff auf
+  eine Vaadin Knowledge-Base, siehe \cite{VaadinPro}. Zudem können gegen ein
   Entgeld Fachkräfte für einen Tag oder drei Wochen (ein Sprint im Sinne von
   Scrum) verpflichtet werden. Es gibt auch die Möglichkeit einen Proof of
-  Concept durch das Vaadin Entwicklungs Team erstellen zu lassen.
+  Concept durch das Vaadin Entwicklungsteam erstellen zu lassen.
   
   Der Support durch die Firma Vaadin Ltd sieht sehr gut aus, die Community für
   Vaadin ist aber gerade erst dabei sich zu bilden und noch nicht sehr stark, somit
@@ -532,16 +531,16 @@
   
   \ac{Ajax} wird massiv unterstützt. Alle \ac{UI} Komponenten und deren
   Aktionen, sowie auch das ganze Layout Management basieren auf diesem Prinzip.
-  Das Programmiermodell sieht vor, dass der Entwickler alle möglichen
-  Funktionalitäten komplett in Java entwickeln kann, sodass das Framework alle
-  dafür notwendigen Java Script funktionalitäten generiert. Zudem kann eine
-  zusätzliche Javascript Library wie JQuery oder Prototype in die Applikation
-  integriert werden.
+  Das Programmiermodell sieht vor, dass der Entwickler die komplette
+  Funktionalität in Java entwickeln kann, sodass das Framework alle dafür
+  notwendigen Javascripts, \ac{HTML} und \ac{CSS} generiert. Zudem kann
+  eine zusätzliche Javascript Library wie JQuery oder Prototype in die
+  Applikation integriert werden.
   
   Leider können Vaadin Applikationen nicht auf die Verwendung von Java
   Script verzichten. Wenn Java Script im Browser nicht unterstützt oder
   deaktiviert ist, können Vaadin Applikationen nicht ausgeführt werden. Durch
-  das fehlen einer Fallbacklösung gibt es zwei Punkte abzug.
+  das fehlen einer Fallback-Lösung gibt es zwei Punkte Abzug.
   
   \subsection{A-4 - Apache Wicket 1.4.17}
   
@@ -582,10 +581,10 @@
   
   \subsubsection{Soll-01 - Zugriffskontrolle - 7 Punkte}
   
-  Es existieren folgende Security Features, welche von Grund auf dabei sind:
+  Es existieren folgende Securityfeatures, welche von Grund auf dabei sind:
   
   \begin{itemize}
-    \item Wenn über HTTPS kommuniziert wird, wird ein Session Hijecking
+    \item Wenn über HTTPS kommuniziert wird, wird ein Session Hijacking
     unterbunden, sofern kein Zugriff auf die Server Komponente, in der Apache
     Wicket läuft, besteht.
     \item Cross-Site Scripting wird anhand einer Escaping
@@ -598,24 +597,24 @@
     299.
     \item Authentifizierung und Autorisierung Mechanismen werden vom Framework
     nur grundlegend unterstützt. 
-    \item Ein Rollenkonzept wird von Grundauf nicht angeboten, dafür gibt es ein
-    zusätzliches Framework namens ``Wicket Auth Roles''. 
+    \item Ein Rollenkonzept wird von Grund auf nicht angeboten, dafür gibt es
+    ein zusätzliches Framework namens ``Wicket Auth Roles''. 
   \end{itemize}
   
   \noindent
-  Zwei Punkte abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
+  Zwei Punkte Abzug, da keine Rollenverwaltung von Grund auf vorhanden ist.
   
   \subsubsection{Soll-03 - Modulare Architektur - 5 Punkte}
   
   Bei diesem Punkt stütze ich mich auf die Aussagen von Stefan Pudig.
   
-  Ein offzielles Add-on oder Plugin Repository existiert nicht für Apache
+  Ein offizielles Add-on oder Plugin Repository existiert nicht für Apache
   Wicket. Dafür können zusätzliche Features in der Form von Bibliotheken manuell
   zum Projekt hinzugefügt werden. Zudem wird eine Maven Integration
   gewährleistet.
   
   Die Erweiterung von Komponenten des grafischen User Interfaces (UI) wird sehr
-  gut unterstützt. Durch die Fähikeit des Vererbens können Konponenten einfach
+  gut unterstützt. Durch die Fähigkeit des Vererbens können Komponenten einfach
   abgeleitet und verändert werden. Diese können dann auch einfach
   wiederverwendet werden.
   
@@ -627,15 +626,15 @@
   
   \subsubsection{Soll-06 - Testing - 6 Punkte}
   
-  Wicket bietet eine \ac{API} an, mit welcher UnitTests durchgeführt werden
+  Wicket bietet eine \ac{API} an, mit welcher Unit Tests durchgeführt werden
   können. Es können damit alle gängigen funktionalitäten des Frameworks
   getestet werden, siehe \cite{Wicket} S. 255ff. Dafür muss die Applikation
-  nicht deployed werden, sondern die Applikation wird direkt instanziirt.
+  nicht deployed werden, sondern die Applikation wird direkt instanziiert.
   
-  Leider wird kein möglichkeit geboten, Regressionstests abzubilden. Dafür muss
+  Leider wird kein Möglichkeit geboten, Regressionstests abzubilden. Dafür muss
   man auf auf bestehende Lösungen, wie
   Selenium\footnote{Siehe \url{http://www.seleniumhq.org/} oder
-  \url{http://code.google.com/p/webdriver}} zurückgreiffen.
+  \url{http://code.google.com/p/webdriver}} zurückgreifen.
   
   Da von Grund auf keine Regressionstests möglich sind gibt es nur sechs Punkte
   
@@ -659,7 +658,7 @@
   
   Alles in allem ist der Umfang gut, die erwähnten Bereiche sind aber nur in
   Englisch verfügbar. Zudem wirkt die Dokumentation eher wie zusammengewürfelt.
-  Desshalb gibt es zwei Punkte abzug.
+  Deshalb gibt es zwei Punkte Abzug.
  
   \subsubsection{Soll-13 - Community - 7 Punkte}
   
@@ -679,19 +678,19 @@
   \subsubsection{Soll-18 - AJAX-Unterstützung - 6 Punkte}
   
   Wicket bietet eine AJAX Unterstützung an, bei der die Funktionalität komplett
-  in Java entwickelt werden kann. Die dafür notwendigen Java Script
-  Funktionalitäten werden durch das Framework generiert.
+  in Java entwickelt werden kann. Die dafür notwendigen Javascripts, welche die
+  Funktionalität bieten, werden durch das Framework generiert.
   
   Leider werden nur eine begrenzte Anzahl von Komponenten angeboten, welche
   via \ac{Ajax} an Funktionalität gewinnen. Es handelt sich dabei um bekannte
   Anwendungsfälle, wie: Formvalidierung, Paging navigation, Panel lazy loading
-  oder TextFiel autocompletion. Es gibt noch ein paar weitere Szenarien,
+  oder TextField autocomplete. Es gibt noch ein paar weitere Szenarien,
   die ich hier nicht erwähnt habe. Zudem kann eine zusätzliche Javascript
   Library wie JQuery oder Prototype in die Applikation integriert werden, um
   damit das \ac{GUI} aufzuwerten.
   
   Wicket bietet eine Fallback Strategie für gewisse Komponenten. Damit wird die
-  Funktionalität auch bei fehlender Java Script Unterstütung gewährleistet.
+  Funktionalität auch bei fehlender Javascript Unterstützung gewährleistet.
   
   Durch die begrenzte Unterstützung von Komponenten gibt es nur sechs Punkte
 
