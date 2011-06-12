@@ -9,7 +9,7 @@
   vorgehen kann. Um eine möglichst objektive Betrachtung zu gewährleisten, wurde
   die Methode der gewichteten \ac{NWA} gewählt, siehe \cite{Nutzwertanalyse}.
   Diese Methode stammt aus dem Bereich der quantitativen Analysemethoden der
-  Eintscheidungstheorie. Um eine möglichst präzise objektive Gewichtung der
+  Entscheidungstheorie. Um eine möglichst präzise objektive Gewichtung der
   einzelnen Faktoren zu erhalten wurde dafür die Methode \ac{AHP} gewählt,
   siehe \cite{AnalyticHierarchyProcess}. Diese Methode stammt aus dem Bereich
   der präskriptiven Entscheidungstheorie. Der \ac{AHP} wurde von Thomas L.
@@ -34,7 +34,7 @@
   Soll-Kriterien, auch Anforderungen genannt, definiert \(\{Soll_1, Soll_2,
   Soll_3, \ldots, Soll_n\}\). Jedes Soll-Kriterium wird durch einen
   Gewichtungsfaktor \(g_i\) versehen, was die Präferenz des Soll-Kriteriums
-  wiederspiegelt. 
+  widerspiegelt. 
 
   Die Gewichte \(g_i\) werden so gewählt, dass ihre Summe 1.0 (100\%) ergibt,
   siehe Formel \ref{eq:gewicht}.
@@ -90,7 +90,7 @@
   
   Als anschauliches Beispiel sollen zwei Alternativen - Auto \(A1\) und Auto
   \(A2\) - miteinander auf die Soll-Kriterien - Leistung, Aussehen und
-  Alltagstaublichkeit - verglichen werden. Es wurden keine KO-Kriterien
+  Alltagstauglichkeit - verglichen werden. Es wurden keine KO-Kriterien
   definiert. In der Tabelle \ref{tab:beispielNwa} ist ersichtlich, dass das
   Auto \(A1\) dem Auto \(A2\) gegenüber bevorzugt werden soll, da der Nutzwert
   von \(A1\) (5.0) grösser ist als der Nutzwert von \(A2\) (4.7).
@@ -133,7 +133,7 @@
   Der Analytic Hierarchy Process stamt aus der Feder eines Mathematikers. Aus
   diesem Grund ist das Verfahren auch einiges Anspruchsvoller als eine
   gewichtete Nutzwertanalyse. Ich gehe hier nicht auf die ganzen Details ein, da
-  es den Rahmen der Diplomarbeit übersteigen würde. Totzdem soll eine grober
+  es den Rahmen der Diplomarbeit übersteigen würde. Trotzdem soll eine grober
   Überblick über den \ac{AHP} gegeben werden.
   
   Der \ac{AHP} besteht aus drei Phasen, siehe \cite{AnalyticHierarchyProcess}: 
@@ -165,7 +165,7 @@
   
   \begin{itemize}
     \item Jedes Kriterium wird jedem anderen gegenübergestellt und darauf
-    verlgichen, was eine grössere Bedeutung in der gestellten Frage hat. Die
+    verglichen, was eine grössere Bedeutung in der gestellten Frage hat. Die
     Skala geht von 1 bis 9, siehe Tabelle \ref{tab:vergleichsgrade}.
     \item Für jedes Kriterium wird jede mögliche Alternativen mit jeder anderen
     gegenübergestellt und auf ihre Eignung hin untersuchen, welche Alternative
@@ -201,22 +201,22 @@
   heraus, kann nun ein Inkonsistenzfaktor errechnet werden, der eine Aussage
   macht, wie logisch die Bewertungen zueinander sind.
   
-  Diese Berechnungen werden meistens mit der Unterstütztung einer Software
+  Diese Berechnungen werden meistens mit der Unterstützung einer Software
   gemacht. Als Beispiel gibt es JAHP 2.1\footnote{Für Hintergrundinformationen
   zum JAHP 2.1, siehe \cite{JAHP}}, dies ist ein Java Programm mit dem der
-  gesammte Prozess des \ac{AHP} abgebildet und berechnet werden kann. Das
+  gesamte Prozess des \ac{AHP} abgebildet und berechnet werden kann. Das
   Programm wird unter den Bedingungen der GNU General Public License
   vertrieben.
     
   \section{Kombination beider Methoden}
   
   Diese beiden Methoden können auch kombiniert eingesetzt werden, siehe
-  \cite{AhpNwaKombination}, da der \ac{AHP} relativ komplex in der Umsetztung
+  \cite{AhpNwaKombination}, da der \ac{AHP} relativ komplex in der Umsetzung
   ist. Als Kombination kann die Nutzwertanalyse als Methode verwendet werden,
   und der \ac{AHP} wird für die präzise Berechnung der Gewichtung einzelner
   Entscheidungskriterien verwendet. Aus der Kombination entsteht somit eine
   neue Methode, welche durch die Verständlichkeit der \ac{NWA} und der
-  objektiven Gewichtung des \ac{AHP} eine plausable Evaluation ermöglicht.
+  objektiven Gewichtung des \ac{AHP} eine plausible Evaluation ermöglicht.
   
   \section{Verbesserung der 
   Gewichtung}\label{subsection:VerbesserungDerGewichtung}
@@ -230,7 +230,7 @@
     Dabei wird ein einzelner Werte in der Gewichtung gezielt verändert, und das
     Resultat wird danach geprüft. Bei der Methode des \ac{AHP} könnte zum
     Beispiel der Inkonsistenzfaktor geprüft werden, wenn dieser sich Positiv
-    verändert, dann zeigt das eine Vergesserung der Gewichtung. Das Vorgehen
+    verändert, dann zeigt das eine Verbesserung der Gewichtung. Das Vorgehen
     wird iterativ, bis zur Unterschreitung einer definierten Schwelle des
     Inkonsistenzfaktors, fortgeführt.
     
@@ -238,7 +238,7 @@
     \cite{Median} und \cite{Mittelwert}.
     
     Dabei wird der Prozess der Gewichtung von mehr als einer Person
-    durchgeführt. Das Ergebniss wird aufgrund der statistischen Methoden
+    durchgeführt. Das Ergebnis wird aufgrund der statistischen Methoden
     normalisiert, was zu einem objektiveren Resultat führen wird.
   \end{itemize}
   
@@ -281,7 +281,7 @@
   \ref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}
   (\nameref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}, S.
   \pageref{chapter:MethodenZurAnalyseVonJavaSwingApplikationen}ff) wird
-  beschrieben, wie besetehende Java Swing Applikationen analysiert werden
+  beschrieben, wie bestehende Java Swing Applikationen analysiert werden
   können. Das daraus resultierende Ergebnis soll als Grundlage für die Prüfung
   der Abdeckung der GUI-Komponenten und Paradigmen dienen.
   
@@ -290,7 +290,7 @@
   ist. Dabei werden alle erkannten GUI-Komponenten und GUI-Paradigmen der
   analysierten Java Swing Applikationen genommen und mit der Dokumentation des
   zu evaluierenden Java Web Frameworks verglichen. Im diesem Vergleich soll
-  festgestellt werden, ob eine Komponente oder ein Pardigma äquivalent
+  festgestellt werden, ob eine Komponente oder ein Paradigma äquivalent
   umsetzbar ist. Der Vergleich findet für jede Komponente und jedes
   Paradigma statt und soll schlussendlich in der Form einer prozentualen
   Abdeckung dokumentiert werden.
@@ -370,9 +370,10 @@
   
   User Stories beschreiben Anforderungen an eine Software in einer für Jedermann
   verständlichen Sprache. Es sollen keine technischen Details genannt, sondern
-  viel eher Eigenschaften erläutert werden, die jeder versteht. Oft werden User
-  Stories als Aktionen in einem \ac{GUI} verfasst. Aus den User Stories kann
-  man jeweils Akzeptanztests \cite{AcceptanceTests} ableiten.
+  viel eher Eigenschaften erläutert werden, die jeder versteht, siehe
+  \cite{UserStories}. Oft werden User Stories als Aktionen in einem \ac{GUI}
+  verfasst. Aus den User Stories kann man jeweils Akzeptanztests ableiten,
+  siehe \cite{AcceptanceTests}.
   
   Eine User Story sollte nicht mehr als drei Sätze haben. Das kommt daher, dass
   eine User Story nie zu komplex sein darf. Wenn man mehr als drei Sätze für die
