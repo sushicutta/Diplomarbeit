@@ -1,0 +1,124 @@
+Inhalt der CD
+-------------
+
+Dieses File liefert einen Überblick über den Inhalt der CD.
+
+
+
+(I) Strukti Live 1.2
+--------------------
+
+Programm, welches von der ZKB veröffentlicht ist und unter folgender URL
+erhältlich ist:
+
+   http://www.zkb.ch/de/startseite/privatkunden/anlagen_und_boerse/
+      strukturierte_produkte/lernprogramm.html
+
+Dieses Programm wurde Analysiert und hat als Vorlage des Prototypen gedient.
+
+Folgende Files sind enthalten:
+
+   Strukti Live 1.2/
+	    +---struktilive.exe                       (Windows Programm)
+	    +---Strukti - Live 1.2                    (Mac Programm)
+
+
+
+(II) JAHP 2.1
+-------------
+
+Programm zur Durchführung des kompletten AHP.
+
+Im Ordner befindet sich ein Eclipse Projekt, welches in Standard JAVA
+geschrieben wurde. Für die Diplomarbeit wurde das GUI ein bisschen angepasst,
+damit die Resultate besser sichtbar sind.
+
+Das Main-Java-File befindet sich hier:
+
+   JAHP2.1/
+      +---src
+          +---gui
+              +---JAHP.java
+
+Wenn das Projekt in Eclipse importiert wurde, kann das Programm JAHP 2.1 über
+das Main-Java-File gestartet werden. Das Main-Java-File muss geöffnet werden,
+und kann dann über das Menü [Run]->[Run As]->[Java Application] ausgeführt
+werden.
+
+Ich möchte darauf hinweisen, dass JAHP 2.1 von Maxime Morge entwickelt wurde.
+Er hällt auch das Copyright darauf, siehe:
+
+   JAHP2.1/
+      +---COPYING
+
+Die Gewichtung der Soll-Kriterien wurde im folgenden File gespeichert und kann
+mit dem Programm JAHP 2.1 für die Nachvollziehbarkeit geöffnet werden.
+
+   Diplomarbeit/
+      +---res
+          +---diplomarbeit
+              +---JAHP
+                  +---evaluation.jahp
+
+
+
+(III) Diplomarbeit von Roman Würsch
+-----------------------------------
+
+Alle erarbeiteten und benötigten Files im Rahmen der Diplomarbeit.
+
+Im Ordner befindet sich ein Eclipse Projekt, welches als TeXlipse Projekt und
+als GlassFish Projekt aufgesetzt ist.
+
+Zur Verwendung wird Eclipse (http://www.eclipse.org) benötigt. Zudem muss für
+den LaTeX-Teil das TeXlipse Plugin (http://texlipse.sourceforge.net/)
+installiert werden. Für die Verwendung muss eine LaTeX Implementierung
+existieren, für Windows z.B. MiKTeX (http://miktex.org/), für Mac OS X z.B.
+TeXShop (http://pages.uoregon.edu/koch/texshop/). Für den Proof of Concept
+wird das GlassFish Plugin (http://glassfishplugins.java.net/) benötigt.
+
+Folgende Files beinhaltet der Ordner Diplomarbeit:
+
+   Diplomarbeit/
+      +---doc                                   (LaTeX Dokumentation)
+          +---aufgabenstellung                  (Aufgabenstellung in LaTeX)
+          +---dokumentation                     (Technischer Bericht in LaTeX)
+          +---protokolle                        (Kick-off und Design-review
+                                                   Protokolle in LaTeX)
+
+      +---lib                                   (Bibliotheken für den Prototyp,
+                                                   für das Eclipse Projekt)
+
+      +---out                                   (PdfLaTeX output)
+
+      +---praesentation                         (Präsentationen .ppt)
+
+      +---res
+          +---diplomarbeit
+              +---aufgabenstellung              (Aufgabenstellung)
+              +---documentation                 (Technischer Bericht der
+                                                   Diplomarbeit)
+              +---JAHP                          (Gewichtung der Soll-Kriterien
+                                                   nach AHP)
+              +---korrespondenz                 (Antrag für die Erteilung des
+                                                   Diploms)
+              +---praesentation                 (Präsentationen .pdf)
+              +---protokolle                    (Protokolle .pdf)
+          +---hszt                              (Reglemente und Templates der
+                                                   HSZ-T)
+          +---proofOfConcept                    (Ressourcen für den Proof of
+                                                   Concept)
+
+      +---src                                   (Java Source Files für den
+                                                   Proof of Concept)
+      +---WebContent
+          +---META-INF                          (Manifest)
+          +---VAADIN
+              +---themes
+                  +---poc                       (Vaadin Theme für den Proof of
+                                                   Concept)
+          +---WEB-INF                           (Java EE Konfiguratinsfiles,
+                                                   web.xml, beans.xml, usw.)
+              +---lib                           (Bibliotheken für den Prototyp,
+                                                   für das Deployment)
+
