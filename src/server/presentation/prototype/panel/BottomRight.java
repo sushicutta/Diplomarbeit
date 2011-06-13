@@ -1,7 +1,9 @@
-package server.presentation.prototype.panel.product;
+package server.presentation.prototype.panel;
 
 import server.layout.StruktiLayout;
 import server.layout.StruktiLayout.MenuChangedEvent;
+import server.presentation.prototype.panel.product.Filter;
+import server.presentation.prototype.panel.product.Properties;
 
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;

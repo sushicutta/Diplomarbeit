@@ -3,9 +3,9 @@ package server.presentation.prototype;
 import server.layout.StruktiLayout;
 import server.presentation.prototype.panel.BottomCenter;
 import server.presentation.prototype.panel.BottomLeft;
+import server.presentation.prototype.panel.BottomRight;
 import server.presentation.prototype.panel.TopCenter;
 import server.presentation.prototype.panel.TopLeft;
-import server.presentation.prototype.panel.product.BottomRight;
 
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.Window;
