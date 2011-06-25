@@ -9,7 +9,7 @@
 		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
 		<init-param>
 			<param-name>application</param-name>
-			<param-value>server.presentation.prototype.Prototype</param-value>
+			<param-value>ch.sushicutta.server.presentation.prototype.Prototype</param-value>
 		</init-param>
 	</servlet>
 	
