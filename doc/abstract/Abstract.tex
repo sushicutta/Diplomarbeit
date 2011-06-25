@@ -1,0 +1,283 @@
+%
+%   Technische Dokumentation für die Diplomarbeit
+%
+%   Created by Roman Wuersch on 2011-03-01.	
+%
+% =============================================================================
+% Documentdefinition  beginns here
+% =============================================================================
+
+\documentclass[
+11pt, % Schriftgrösse
+a4paper, % A4 Papier
+%%%%%%%% BCOR25mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
+BCOR15mm, % Absoluter Wert der Bindekorrektur, z.B. BCOR1cm
+DIV14, % Satzspiegel festlegen siehe
+       % http://www.ctex.org/documents/packages/nonstd/koma-script.pdf
+footsepline = false, % Trennlinie zwischen Textkörper und Fußzeile
+                     % bei normalen Seiten
+headsepline, % Trennlinie zwischen Kopfzeile und Textkörper
+             % bei normalen Seiten
+oneside,
+%%%%%%%% twoside, % Zweiseitig
+openright,
+halfparskip, % Europäischer Satz mit Abstand zwischen den Absätzen
+abstracton, % inkl. Abstract
+listof=totocnumbered, % Abb.- und Tab.verzeichnis im Inhaltsverzeichnis
+bibliography=totocnumbered % Lit.zeichnis in Inhaltsverzeichnis aufnehmen
+]{scrreprt}
+
+\usepackage[
+automark,
+%plainheadsepline, % Trennlinie zwischen Textkörper und Kopfzeile
+                   % bei Chapter Seiten, siehe headsepline, scrreprt
+%plainfootsepline  % Trennlinie zwischen Textkörper und Fußzeile
+                   % bei Chapter Seiten, siehe footsepline, scrreprt
+]{scrpage2} % Gestaltung von kopf- und Fußzeile
+
+\usepackage[ngerman]{babel}
+
+\usepackage[ngerman]{translator}
+
+\usepackage{tocbasic}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern} % Latin Modern
+
+% \usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+
+% Setup for fullpage use
+%\usepackage{fullpage}
+
+% Silbentrennung kann unterdrückt werden
+\usepackage{hyphenat}
+
+%1.5 Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+% Schöne Schriften für PDF-Dateien
+\usepackage{ae}
+
+% Tradmark
+\def\TTra{\textsuperscript{\texttrademark}}
+
+% Festlegung des Seitenstils (scrpage2)
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[section]{chapter}
+
+%\lehead{\sffamily\upshape\headmark}
+%\cehead{}
+%\rehead{}
+%\lefoot[\pagemark]{\upshape \pagemark}
+%\cefoot{}
+%\refoot{}
+\lohead{\sffamily\upshape\leftmark}
+%\cohead{}
+
+%\rohead{\sffamily\upshape\leftmark}
+\lofoot{}
+\cofoot{}
+\rofoot[\pagemark]{\scshape \pagemark}
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+%\setlength{\headheight}{15pt}
+
+%\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
+
+%\fancyhf{}
+%\fancyfoot[RE,LO]{\thepage}
+%\fancyhead[LO]{\textit{\nouppercase{\leftmark}}}
+%\fancyhead[RE]{\textit{\nouppercase{\rightmark}}}
+
+%\renewcommand{\headrulewidth}{0.5pt}
+%\renewcommand{\footrulewidth}{0pt}
+
+%\fancypagestyle{plain}{%
+%\fancyhf{}%
+%\fancyfoot[RE,LO]{\thepage}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%}
+
+%\setlength{\footskip}{1cm}
+
+%\setlength{\headsep}{1.5cm}
+%\addtolength{\textheight}{-1.5cm}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+\usepackage[svgnames]{xcolor}
+
+% Package for including code in the document
+\usepackage{listings}
+
+\lstset{language=java,
+basicstyle=\small,
+keywordstyle=\color{blue!80!black!100},
+identifierstyle=,
+commentstyle=\color{green!50!black!100},
+stringstyle=\ttfamily,
+breaklines=true,
+numbers=left,
+numberstyle=\small,
+frame=single,
+backgroundcolor=\color{blue!3},
+}
+
+\usepackage{caption}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% Mehrere Spalten (Für das Abkürzungsverzeichnis)
+\usepackage{multicol}
+
+% Mehrer Zellen Verbinden in einer Tabelle
+\usepackage{multirow}
+
+% Abkürzungsverzeichnis erstellen.
+\usepackage[printonlyused]{acronym}
+
+% schöne Tabelle zeichnen
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.4} %Die Zeilenabstände in Tabllen angepasst.
+
+% für variable Breiten
+\usepackage{tabularx}
+
+\usepackage{threeparttable}
+
+% Durchgestrichener Text
+\usepackage[normalem]{ulem} %emphasize weiterhin kursiv
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\usepackage{natbib}
+
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+  bookmarks=true,         % show bookmarks bar?
+  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  pdftoolbar=true,        % show Acrobat’s toolbar?
+  pdfmenubar=true,        % show Acrobat’s menu?
+  pdffitwindow=true,      % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  plainpages=false,
+  pdftitle={Diplomarbeit},   
+  pdfauthor={Roman Würsch},
+  pdfsubject={Evaluation eines Java Web Frameworks zur Ablösung bestehender Java
+  Swing Applikationen},
+  pdfcreator={TeX Live 2009},
+  pdfproducer={pdfTeX, Version 3.1415926-1.40.10},
+  pdfnewwindow=true,      % links in new window
+  colorlinks=true,        % false: boxed links; true: colored links
+  %%%
+  % For PDF-Version here
+  %%%
+  linkcolor=blue,         % color of internal links
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=cyan           % color of external links
+  %%%
+  % For Printversion here
+  %%%
+  % linkcolor=black,      % color of internal links
+  % citecolor=black,      % color of links to bibliography
+  % filecolor=black,      % color of file links
+  % urlcolor=black        % color of external links
+}
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+\makeatletter 
+\let\orgdescriptionlabel\descriptionlabel 
+\renewcommand*{\descriptionlabel}[1]{% 
+  \let\orglabel\label 
+  \let\label\@gobble 
+  \phantomsection 
+  \edef\@currentlabel{#1}% 
+  %\edef\@currentlabelname{#1}% 
+  \let\label\orglabel 
+  \orgdescriptionlabel{#1}% 
+} 
+\makeatother
+
+\usepackage{placeins}
+
+\title{Evaluation eines Java Web Frameworks zur Ablösung bestehender Java Swing
+Applikationen}
+
+\author{
+      \begin{tabular}{rcl}
+        && \\
+        && Diplomarbeit\\
+        && \\
+        && \\
+        Student &  & Roman Würsch\\
+        Auftraggeber &  & Bernhard Mäder - Zürcher Kantonalbank\\
+        Betreuer &  & Beat Seeliger\\
+        Experte &  & Marco Schaad\\
+        && \\
+        && \\
+        && Studiengang Informatik\\
+        && Hochschule für Technik Zürich\\
+        && \\
+        && März 2011 bis Juni 2011\\
+      \end{tabular}
+      }
+	\date{   } 
+%\date{März 2011 bis Juni 2011}
+
+% =============================================================================
+% Documenttext beginns here
+% =============================================================================
+
+\begin{document}
+
+  \ifpdf
+    \DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+  \else
+    \DeclareGraphicsExtensions{.eps, .jpg}
+  \fi
+  
+  % ===========================================================================
+  % Titelblatt beginns here
+  % ===========================================================================
+  \begin{sffamily}
+  \maketitle
+  \end{sffamily}
+  
+  \cleardoublepage
+  
+  % ===========================================================================
+  % Abstract beginns here
+  % ===========================================================================
+  
+  % \pagenumbering{Alph}
+  
+  \input{../dokumentation/kapitel/abstract.tex}
+
+\end{document}
