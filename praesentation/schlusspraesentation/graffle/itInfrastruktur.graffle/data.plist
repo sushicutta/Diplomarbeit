@@ -51,7 +51,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{376.62, 140.644}, {82.9814, 58.0001}}</string>
+			<string>{{382.847, 149.211}, {66.4375, 46.4367}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -81,26 +81,15 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{360.1, 88.9024}, {113.382, 162.507}}</string>
+			<string>{{360.1, 142.258}, {113.382, 59.4094}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
 			<integer>22</integer>
 			<key>Shape</key>
-			<string>AdjustableDoubleArrow</string>
-			<key>ShapeData</key>
-			<dict>
-				<key>width</key>
-				<real>34</real>
-			</dict>
-			<key>Style</key>
-			<dict>
-				<key>shadow</key>
-				<dict>
-					<key>Beneath</key>
-					<string>YES</string>
-				</dict>
-			</dict>
+			<string>Hexagon</string>
+			<key>TextRelativeArea</key>
+			<string>{{0, 0}, {1, 1}}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
@@ -145,14 +134,6 @@
 			<dict>
 				<key>width</key>
 				<real>67</real>
-			</dict>
-			<key>Style</key>
-			<dict>
-				<key>shadow</key>
-				<dict>
-					<key>Beneath</key>
-					<string>YES</string>
-				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -228,14 +209,6 @@
 			<dict>
 				<key>width</key>
 				<real>67</real>
-			</dict>
-			<key>Style</key>
-			<dict>
-				<key>shadow</key>
-				<dict>
-					<key>Beneath</key>
-					<string>YES</string>
-				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -552,7 +525,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2011-06-26 19:51:58 +0200</string>
+	<string>2011-06-27 00:17:47 +0200</string>
 	<key>Modifier</key>
 	<string>Roman Würsch</string>
 	<key>NotesVisible</key>
